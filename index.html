@@ -4,334 +4,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOVE.exe | To Lodi ❤️</title>
-
+<title>LOVE.exe | LODI'S SECRET WORLD</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
-
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{box-sizing:border-box}
 body{
- background:#050505;
- color:white;
- font-family:'Cairo',sans-serif;
- min-height:100vh;
+ margin:0;background:#10050b;color:#fff;
+ font-family:Tahoma,Arial,sans-serif;text-align:center;
  overflow-x:hidden;
 }
-
-body:before{
- content:"";
- position:fixed;
- inset:0;
+.hero{
+ min-height:100vh;padding:35px 18px 70px;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;
+ position:relative;overflow:hidden;
  background:
- radial-gradient(circle at 50% 40%,#80002055,transparent 50%),
- linear-gradient(#ff003311 1px,transparent 1px),
- linear-gradient(90deg,#ff003311 1px,transparent 1px);
- background-size:auto,35px 35px,35px 35px;
- pointer-events:none;
+ radial-gradient(ellipse at 50% 35%,#7b173b88,transparent 55%),
+ linear-gradient(145deg,#10050b,#310817 55%,#090308);
 }
-
-.container{
- position:relative;
- z-index:2;
- min-height:100vh;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- padding:25px;
- text-align:center;
-}
-
-.status{
- color:#ff3158;
- font-size:11px;
- letter-spacing:3px;
- direction:ltr;
- margin-bottom:30px;
-}
-
-.heart{
- font-size:85px;
- filter:drop-shadow(0 0 20px #ff003d);
- animation:pulse 1.2s infinite;
-}
-
-@keyframes pulse{
- 50%{transform:scale(1.2)}
-}
-
 h1{
- font-size:clamp(38px,10vw,65px);
- color:#ff3158;
- text-shadow:0 0 20px #ff003d;
- margin:20px 0;
+ font-size:clamp(35px,9vw,65px);color:#ffb2ca;
+ text-shadow:0 0 15px #ff286b,0 0 40px #a00045;
+ margin:12px 0;
 }
-
-.subtitle{
- color:#bbb;
- line-height:2;
- margin-bottom:30px;
+.subtitle{color:#f7c6d6;font-size:17px;letter-spacing:2px}
+.heart{
+ font-size:90px;cursor:pointer;display:inline-block;
+ filter:drop-shadow(0 0 20px #ff245f);
+ animation:pulse 1.3s infinite;
 }
-
+@keyframes pulse{50%{transform:scale(1.18)}}
+.panel{
+ width:min(92%,520px);padding:25px 20px;margin:20px auto;
+ border:1px solid #ff729d66;border-radius:24px;
+ background:#ffffff0d;backdrop-filter:blur(8px);
+ box-shadow:0 0 30px #e51c5520;
+}
 button{
- background:#ff174d;
- color:white;
- border:1px solid #ff6688;
- padding:14px 30px;
- border-radius:10px;
- font-family:inherit;
- font-size:16px;
- box-shadow:0 0 25px #ff003d66;
- cursor:pointer;
+ border:1px solid #ff9bb8;background:linear-gradient(135deg,#a80d43,#ed4779);
+ color:white;padding:13px 21px;border-radius:30px;
+ font-size:16px;cursor:pointer;margin:7px;
+ box-shadow:0 5px 20px #d51c5544;
 }
-
-#message{
- display:none;
- width:100%;
- max-width:600px;
- margin-top:30px;
- padding:25px;
- background:#18070eea;
- border:1px solid #ff315866;
- border-radius:18px;
- box-shadow:0 0 35px #ff003d33;
- line-height:2.4;
- color:#f8dce4;
+button:active{transform:scale(.96)}
+.message{font-size:19px;line-height:2;color:#ffe0e9;min-height:85px}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gift{
+ font-size:42px;padding:15px 5px;border-radius:18px;
+ background:#ffffff0b;border:1px solid #ff779855;cursor:pointer;
+ transition:.3s;
 }
-
-#typed{
- white-space:pre-line;
- text-align:right;
+.gift:hover{transform:translateY(-6px) scale(1.05)}
+.small{color:#e8b5c7;font-size:13px;line-height:1.9}
+#floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.float{
+ position:absolute;bottom:-40px;animation:rise linear forwards;
+ opacity:.8;
 }
-
-.signature{
- color:#ff5577;
- font-size:21px;
- margin-top:25px;
-}
-
-.particle{
- position:fixed;
- bottom:-20px;
- color:#ff3158;
- animation:rise linear forwards;
- pointer-events:none;
-}
-
 @keyframes rise{
  to{transform:translateY(-110vh) rotate(360deg);opacity:0}
 }
-
-.footer{
- margin-top:40px;
- color:#555;
- font-size:11px;
- direction:ltr;
-}
+footer{padding:25px;color:#c58b9e;font-size:13px}
 </style>
 </head>
-
 <body>
-<div class="container">
+<div id="floating"></div>
 
- <div class="status">● LOVE SYSTEM ONLINE</div>
+<section class="hero">
+ <div class="subtitle">A PRIVATE WORLD MADE FOR YOU</div>
+ <h1>LODI'S WORLD</h1>
+ <div class="heart" onclick="heartClick()">❤️</div>
+ <p class="subtitle">I LOVE YOU, LODI</p>
 
- <div class="heart">❤️</div>
-
- <h1>لودي</h1>
-
- <p class="subtitle">
- إلى أميرتي الصغيرة...<br>
- هذه ليست صفحة عادية، هذه قطعة من قلبي لكِ.
- </p>
-
- <button onclick="startLove()">
- افتحي قلب حبيبكِ ❤️
- </button>
-
- <div id="message">
-
- <h2 style="color:#ff5577;margin-bottom:20px">
- أميرتي لودي ❤️
- </h2>
-
- <p id="typed"></p>
-
- <div class="signature">
- أحبكِ يا صغيرتي، يا أجمل أقداري ❤️
+ <div class="panel">
+  <div class="message" id="typed"></div>
+  <button onclick="startMessage()">افتحي رسالتي السرية 💌</button>
  </div>
 
- </div>
+ <p class="small">كل قلب هنا يحمل لكِ حكاية صغيرة يا أميرتي</p>
+ <button onclick="showSurprise()">اكتشفي مفاجأتك 🎁</button>
+</section>
 
- <div class="footer">
- ONLY FOR LODI — LOVE.exe V2.0
+<section class="panel">
+ <h2 style="color:#ffb2ca">🎁 هدايا صغيرة لأميرتي</h2>
+ <p class="small">اضغطي على كل هدية واكتشفي ما بداخلها</p>
+ <div class="gifts">
+  <div class="gift" onclick="openGift(0)">🎁</div>
+  <div class="gift" onclick="openGift(1)">🎀</div>
+  <div class="gift" onclick="openGift(2)">💝</div>
+  <div class="gift" onclick="openGift(3)">🌹</div>
+  <div class="gift" onclick="openGift(4)">💌</div>
+  <div class="gift" onclick="openGift(5)">✨</div>
  </div>
+ <div class="message" id="giftMessage"></div>
+</section>
 
-</div>
+<section class="panel">
+ <h2 style="color:#ffb2ca">🎶 أغنيتك يا لودي</h2>
+ <p class="small">اضغطي لتشغيل الأغنية، فقد يمنع المتصفح التشغيل التلقائي.</p>
+ <button onclick="playSong()">شغّلي أغنيتنا ❤️</button>
+ <div id="music" style="margin-top:15px"></div>
+</section>
+
+<section class="panel">
+ <h2 style="color:#ffb2ca">💗 وعد صغير</h2>
+ <div class="message">
+  إلى لودي...<br>
+  أنتِ لستِ مجرد شخص أحبه،<br>
+  أنتِ عالمي الصغير ومكان راحتي.<br>
+  أحبك اليوم، وغداً، وكل يوم.
+ </div>
+ <div class="heart" onclick="heartClick()">💗</div>
+ <p class="subtitle">FOREVER YOURS, LODI</p>
+</section>
+
+<footer>MADE WITH LOVE ❤️ JUST FOR LODI</footer>
 
 <script>
+const messages=[
+ "يا لودي، يا أميرتي وصغيرتي المدللة... وجودك يجعل أيامي أجمل.",
+ "لو كان بإمكاني أن أهديك شيئاً واحداً، لأهديتك القدرة على رؤية نفسك بعيني، لتعرفي كم أنتِ جميلة عندي.",
+ "أحبك يا طفلتي المدللة، وأتمنى أن تبقى ابتسامتك رفيقة أيامك."
+];
+let msgIndex=0;
 
-const loveMessage = `إلى لودي... أميرتي، صغيرتي، وحبيبتي ❤️
-
-يا أجمل صدفة جاءت إلى حياتي...
-
-أتعلمين يا أميرتي؟ أحياناً أحاول أن أبحث عن كلمات تليق بكِ، فأجد أن كل الكلمات صغيرة أمام ما أشعر به تجاهكِ.
-
-يا صغيرتي المدللة، يا نبض قلبي، يا أجمل تفاصيل أيامي...
-
-أحبكِ بطريقة لا تشبه أي شيء آخر. أحب ضحكتكِ، ودلالكِ، وكلماتكِ، وحتى لحظات زعلكِ التي أتمنى دائماً أن أكون سبب انتهائها بابتسامة.
-
-أريدكِ أن تعرفي أنكِ لستِ شخصاً عادياً في حياتي، أنتِ أميرتي التي يسكن اسمها قلبي، والإنسانة التي أتمنى أن أشاركها أجمل أيام العمر.
-
-يا لودي، لو استطعت أن أضع قلبي بين يديكِ لتري كم أحبكِ، لفعلت دون تردد.
-
-أعدكِ أن أبقى أحب تفاصيلكِ الصغيرة، وأن أراكِ دائماً أميرتي الجميلة، مهما مرّ الزمن وتغيّرت الأيام.
-
-وإذا سألني أحدهم عن أجمل ما أملك، سأقول له: لديّ لودي، وهذا يكفيني.
-
-ابتسمي دائماً يا صغيرتي، فابتسامتكِ تعني لي الكثير.
-
-أحبكِ يا أميرتي، اليوم وغداً وكل يوم. ❤️`;
-
-let started = false;
-
-function startLove(){
- if(started)return;
- started=true;
-
- document.getElementById("message").style.display="block";
- document.querySelector("button").textContent="أنتِ حكاية قلبي ❤️";
-
+function startMessage(){
+ const el=document.getElementById("typed");
+ const text=messages[msgIndex++%messages.length];
+ el.textContent="";
  let i=0;
- const output=document.getElementById("typed");
-
- const typing=setInterval(()=>{
-  output.textContent+=loveMessage.charAt(i);
-  i++;
-  if(i>=loveMessage.length)clearInterval(typing);
- },55);
+ const timer=setInterval(()=>{
+  el.textContent+=text.charAt(i++);
+  if(i>=text.length)clearInterval(timer);
+ },75);
 }
 
-function createParticle(){
- const p=document.createElement("div");
- p.className="particle";
- p.textContent=Math.random()>.5?"♥":"✦";
- p.style.left=Math.random()*100+"vw";
- p.style.fontSize=(12+Math.random()*18)+"px";
- p.style.animationDuration=(5+Math.random()*6)+"s";
- document.body.appendChild(p);
- setTimeout(()=>p.remove(),11000);
+const gifts=[
+ "🎀 هديتي الأولى: حضن طويل لا ينتهي.",
+ "🌹 هديتي الثانية: وردة تشبه جمال قلبك.",
+ "💝 هديتي الثالثة: قلبي لكِ وحدك.",
+ "✨ هديتي الرابعة: أتمنى أن تضيئي حياتي دائماً.",
+ "💌 هديتي الخامسة: أحبك يا لودي.",
+ "👑 هديتي السادسة: أنتِ أميرتي دائماً."
+];
+function openGift(i){
+ document.getElementById("giftMessage").textContent=gifts[i];
+ burst();
 }
+function showSurprise(){
+ alert("مفاجأتك يا لودي ❤️\nأنتِ أجمل صدفة وأغلى حكاية في حياتي.\nI LOVE YOU LODI!");
+ burst();
+}
+function heartClick(){
+ burst();
+ document.getElementById("giftMessage").textContent=
+ "كل نبضة في قلبي تقول: I LOVE YOU LODI ❤️";
+}
+function burst(){
+ for(let i=0;i<18;i++){
+  const e=document.createElement("div");
+  e.className="float";
+  e.textContent=["❤️","💗","🌹","💕","✨"][Math.floor(Math.random()*5)];
+  e.style.left=Math.random()*100+"vw";
+  e.style.fontSize=(18+Math.random()*24)+"px";
+  e.style.animationDuration=(3+Math.random()*4)+"s";
+  document.getElementById("floating").appendChild(e);
+  setTimeout(()=>e.remove(),7000);
+ }
+}
+setInterval(()=>{
+ const e=document.createElement("div");
+ e.className="float";
+ e.textContent=["💕","❤️","🌸","✨"][Math.floor(Math.random()*4)];
+ e.style.left=Math.random()*100+"vw";
+ e.style.fontSize="22px";
+ e.style.animationDuration=(5+Math.random()*5)+"s";
+ document.getElementById("floating").appendChild(e);
+ setTimeout(()=>e.remove(),10000);
+},900);
 
-setInterval(createParticle,450);
-
+function playSong(){
+ document.getElementById("music").innerHTML=
+ '<iframe width="100%" height="190" src="https://www.youtube.com/embed/z-GkOquSqLw?autoplay=1" title="Our song" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="border-radius:15px"></iframe>';
+}
+startMessage();
 </script>
-</body><style>
-.love-secret {
-  text-align: center;
-  margin: 45px auto 30px;
-  direction: rtl;
-}
-
-.heart-button {
-  position: relative;
-  border: 0;
-  background: transparent;
-  width: 190px;
-  height: 160px;
-  cursor: pointer;
-  animation: heartShake 1.2s infinite;
-}
-
-.heart-button .heart-shape {
-  position: absolute;
-  top: 35px;
-  left: 48px;
-  width: 95px;
-  height: 95px;
-  background: #ff1744;
-  transform: rotate(-45deg);
-  box-shadow: 0 0 25px #ff1744, 0 0 55px #ff1744;
-}
-
-.heart-shape::before,
-.heart-shape::after {
-  content: "";
-  position: absolute;
-  width: 95px;
-  height: 95px;
-  background: #ff1744;
-  border-radius: 50%;
-}
-
-.heart-shape::before {
-  top: -47px;
-  left: 0;
-}
-
-.heart-shape::after {
-  left: 47px;
-  top: 0;
-}
-
-.heart-label {
-  position: absolute;
-  z-index: 2;
-  top: 75px;
-  left: 0;
-  width: 100%;
-  color: white;
-  font-size: 17px;
-  font-weight: bold;
-  text-shadow: 0 0 8px #000;
-}
-
-@keyframes heartShake {
-  0%, 100% { transform: translateX(0) scale(1); }
-  25% { transform: translateX(-4px) scale(1.04); }
-  50% { transform: translateX(4px) scale(1.07); }
-  75% { transform: translateX(-3px) scale(1.04); }
-}
-
-.secret-message {
-  display: none;
-  color: white;
-  background: rgba(15,0,8,.92);
-  border: 1px solid #ff1744;
-  box-shadow: 0 0 20px #ff1744;
-  border-radius: 18px;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 340px;
-  line-height: 2;
-  animation: appear .8s ease;
-}
-
-@keyframes appear {
-  from {opacity:0; transform:scale(.7);}
-  to {opacity:1; transform:scale(1);}
-}
-</style>
-
-<div class="love-secret">
-  <button class="heart-button" onclick="openSecret()">
-    <span class="heart-shape"></span>
-    <span class="heart-label">اضغطي عليّ ❤️</span>
-  </button>
-
-  <div class="secret-message" id="secretMessage">
-    يا أميرتي لودي ❤️<br>
-    اقتربي يا صغيرتي...<br>
-    لو كان بإمكاني أن أضع قلبي بين يديكِ،
-    لفعلتِ لتعرفي كم أحبكِ.<br>
-    أنتِ أجمل ما حدث لي، وستبقين حبيبتي دائماً ❤️
-  </div>
-</div>
-
-<script>
-function openSecret() {
-  document.getElementById("secretMessage").style.display = "block";
-}
-</script>
+</body>
 </html>
