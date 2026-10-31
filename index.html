@@ -5,77 +5,257 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LODI'S SECRET WORLD ❤️</title>
+
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;background:#10050b;color:white;
- font-family:Tahoma,Arial,sans-serif;text-align:center;
+ margin:0;
+ background:#10050b;
+ color:white;
+ font-family:Tahoma,Arial,sans-serif;
+ text-align:center;
  overflow-x:hidden
 }
+
 .hero{
- min-height:100vh;padding:55px 18px;
- display:flex;flex-direction:column;align-items:center;justify-content:center;
- background:radial-gradient(ellipse at center,#711532,#220713 55%,#090308);
- position:relative;overflow:hidden
+ min-height:100vh;
+ padding:55px 18px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ background:
+ linear-gradient(#16030b99,#16030bcc),
+ url("images/file_0000000088fc8243819a2eabfcc547d3.png") center/cover;
+ position:relative;
+ overflow:hidden;
+ isolation:isolate
 }
-h1{font-size:clamp(36px,9vw,64px);color:#ffc0d4;
- text-shadow:0 0 15px #ff286b,0 0 40px #b00048}
+
+.hero::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ z-index:-1;
+ background:
+ linear-gradient(#16030b99,#16030bcc),
+ url("images/IMG_20260410_160508.jpg") center/cover;
+ opacity:0;
+ animation:romanticPhotos 10s infinite
+}
+
+@keyframes romanticPhotos{
+ 0%,45%{opacity:0}
+ 50%,95%{opacity:1}
+ 100%{opacity:0}
+}
+
+h1{
+ font-size:clamp(36px,9vw,64px);
+ color:#ffc0d4;
+ text-shadow:0 0 15px #ff286b,0 0 40px #b00048
+}
+
 h2{color:#ffb2ca}
-.subtitle{color:#f6c5d5;letter-spacing:2px}
-.heart{font-size:85px;cursor:pointer;animation:pulse 1.3s infinite;
- filter:drop-shadow(0 0 18px #ff286b)}
-@keyframes pulse{50%{transform:scale(1.17)}}
+
+.subtitle{
+ color:#f6c5d5;
+ letter-spacing:2px
+}
+
+.heart{
+ font-size:85px;
+ cursor:pointer;
+ animation:pulse 1.3s infinite;
+ filter:drop-shadow(0 0 18px #ff286b)
+}
+
+@keyframes pulse{
+ 50%{transform:scale(1.17)}
+}
+
 .panel{
- width:min(92%,540px);margin:25px auto;padding:25px 18px;
- background:#ffffff0c;border:1px solid #ff779866;
- border-radius:24px;box-shadow:0 0 30px #ff174522;
+ width:min(92%,540px);
+ margin:25px auto;
+ padding:25px 18px;
+ background:#ffffff0c;
+ border:1px solid #ff779866;
+ border-radius:24px;
+ box-shadow:0 0 30px #ff174522;
  backdrop-filter:blur(8px)
 }
+
 button{
- border:1px solid #ffabc3;background:linear-gradient(135deg,#a80d43,#ed4779);
- color:white;padding:13px 21px;border-radius:30px;
- font-size:16px;cursor:pointer;margin:8px;
+ border:1px solid #ffabc3;
+ background:linear-gradient(135deg,#a80d43,#ed4779);
+ color:white;
+ padding:13px 21px;
+ border-radius:30px;
+ font-size:16px;
+ cursor:pointer;
+ margin:8px;
  box-shadow:0 5px 20px #d51c5544
 }
+
 button:active{transform:scale(.96)}
-.small{color:#e8b5c7;font-size:13px;line-height:1.9}
-#letters{font-size:18px;line-height:2.1;color:#ffe1eb;text-align:center}
-.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+
+.small{
+ color:#e8b5c7;
+ font-size:13px;
+ line-height:1.9
+}
+
+#letters{
+ font-size:18px;
+ line-height:2.1;
+ color:#ffe1eb;
+ text-align:center
+}
+
+.gifts{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:13px
+}
+
 .gift{
  background:linear-gradient(145deg,#501027,#240813);
- border:1px solid #ff8bab77;border-radius:20px;
- padding:17px 5px;font-size:43px;cursor:pointer;
- box-shadow:0 7px 18px #0006;transition:.3s
+ border:1px solid #ff8bab77;
+ border-radius:20px;
+ padding:17px 5px;
+ font-size:43px;
+ cursor:pointer;
+ box-shadow:0 7px 18px #0006;
+ transition:.3s
 }
-.gift:hover{transform:translateY(-5px) scale(1.04)}
-.gift span{display:block;font-size:12px;color:#ffd2df;margin-top:5px}
-#floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
-.float{position:absolute;bottom:-50px;animation:rise linear forwards}
-@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+.gift:hover{
+ transform:translateY(-5px) scale(1.04)
+}
+
+.gift span{
+ display:block;
+ font-size:12px;
+ color:#ffd2df;
+ margin-top:5px
+}
+
+#floating{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ overflow:hidden;
+ z-index:20
+}
+
+.float{
+ position:absolute;
+ bottom:-50px;
+ animation:rise linear forwards
+}
+
+@keyframes rise{
+ to{
+  transform:translateY(-110vh) rotate(360deg);
+  opacity:0
+ }
+}
+
 .overlay{
- position:fixed;inset:0;background:#080208ed;z-index:50;
- display:none;align-items:center;justify-content:center;padding:18px
+ position:fixed;
+ inset:0;
+ background:#080208ed;
+ z-index:50;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:18px
 }
+
 .overlay.show{display:flex}
+
 .popup{
- width:min(100%,430px);padding:30px 20px;border-radius:26px;
+ width:min(100%,430px);
+ padding:30px 20px;
+ border-radius:26px;
  background:linear-gradient(145deg,#5c102b,#210713);
- border:1px solid #ff9bb8;box-shadow:0 0 45px #ff246877;
- animation:appear .5s ease;text-align:center
+ border:1px solid #ff9bb8;
+ box-shadow:0 0 45px #ff246877;
+ animation:appear .5s ease;
+ text-align:center
 }
+
 @keyframes appear{
- from{opacity:0;transform:scale(.65) translateY(30px)}
- to{opacity:1;transform:scale(1) translateY(0)}
+ from{
+  opacity:0;
+  transform:scale(.65) translateY(30px)
+ }
+ to{
+  opacity:1;
+  transform:scale(1) translateY(0)
+ }
 }
-#giftContents{font-size:40px;line-height:1.8;animation:appear .6s}
-#giftText{font-size:18px;line-height:2;color:#ffe2eb}
-footer{padding:25px;color:#c58b9e;font-size:13px}
+
+#giftContents{
+ font-size:40px;
+ line-height:1.8;
+ animation:appear .6s
+}
+
+#giftText{
+ font-size:18px;
+ line-height:2;
+ color:#ffe2eb
+}
+
+.waitingMessage{
+ font-size:20px;
+ line-height:2.2;
+ color:#ffe0e9
+}
+
+.dateText{
+ display:inline-block;
+ margin:20px 0 5px;
+ color:#fff0f5;
+ font-size:27px;
+ font-weight:bold;
+ text-shadow:0 0 10px #ff286b,0 0 25px #ff286b;
+ animation:datePulse 1.2s infinite
+}
+
+@keyframes datePulse{
+ 0%,100%{
+  transform:scale(1);
+  text-shadow:0 0 10px #ff286b;
+ }
+ 50%{
+  transform:scale(1.2);
+  text-shadow:0 0 25px #ff286b,0 0 45px #ff70a0;
+ }
+}
+
+.dateCaption{
+ color:#ffc0d4;
+ font-size:14px;
+ line-height:2
+}
+
+footer{
+ padding:25px;
+ color:#c58b9e;
+ font-size:13px
+}
 </style>
 </head>
+
 <body>
+
 <div id="floating"></div>
 
 <section class="hero">
+
  <div class="subtitle">A PRIVATE WORLD MADE FOR YOU</div>
  <h1>LODI'S WORLD</h1>
  <div class="heart" onclick="burst()">❤️</div>
@@ -89,11 +269,29 @@ footer{padding:25px;color:#c58b9e;font-size:13px}
 
  <button onclick="showSurprise()">🎀 افتحي مفاجأتك يا لودي</button>
  <p class="small">عالم صغير صنعته لكِ وحدكِ ❤️</p>
+
 </section>
 
 <section class="panel">
- <h2>🎁 ست هدايا لأميرتي</h2>
+ <h2>🌹 رسالة خاصة لكِ يا لودي</h2>
+
+ <div class="waitingMessage">
+  حبيبتي لودي... ❤️<br>
+  أنا أنتظركِ اليوم يا حبيبتي،<br>
+  تعالي إليّ مساءً،<br>
+  أنا أنتظركِ على السرير،<br>
+  وقد جهزت لكِ أجمل مفاجأة يا أميرتي.
+ </div>
+
+ <div style="font-size:45px;margin-top:15px">
+  🕯️🌹❤️🌹🕯️
+ </div>
+</section>
+
+<section class="panel">
+ <h2>🎁 سبع هدايا لأميرتي</h2>
  <p class="small">اختاري هدية واضغطي عليها لتفتحيها</p>
+
  <div class="gifts">
   <div class="gift" onclick="openGift(0)">🎁<span>هدية 1</span></div>
   <div class="gift" onclick="openGift(1)">🎀<span>هدية 2</span></div>
@@ -101,6 +299,7 @@ footer{padding:25px;color:#c58b9e;font-size:13px}
   <div class="gift" onclick="openGift(3)">🎁<span>هدية 4</span></div>
   <div class="gift" onclick="openGift(4)">🌹<span>هدية 5</span></div>
   <div class="gift" onclick="openGift(5)">💌<span>هدية 6</span></div>
+  <div class="gift" onclick="openGift(6)">💎<span>هدية 7</span><span>22/9/2026</span></div>
  </div>
 </section>
 
@@ -113,21 +312,36 @@ footer{padding:25px;color:#c58b9e;font-size:13px}
 
 <section class="panel">
  <h2>💗 وعدي لكِ</h2>
+
  <div style="font-size:18px;line-height:2;color:#ffe0e9">
   يا لودي...<br>
   أنتِ أميرتي وصغيرتي المدللة،<br>
   وأجمل حكاية في حياتي.<br>
   أتمنى أن تبقى ابتسامتك معي دائماً.
  </div>
+
  <div class="heart">💗</div>
  <p class="subtitle">FOREVER YOURS, LODI</p>
 </section>
 
 <div class="overlay" id="giftOverlay" onclick="closeGift(event)">
  <div class="popup">
-  <div style="font-size:25px;color:#ffc0d4">🎁 هديتك يا أميرتي 🎁</div>
+  <div style="font-size:25px;color:#ffc0d4">
+   🎁 هديتك يا أميرتي 🎁
+  </div>
+
   <div id="giftContents">💝🌹💋💕</div>
   <div id="giftText"></div>
+
+  <div id="specialDate" style="display:none">
+   <div class="dateText">22/9/2026 ❤️</div>
+   <div class="dateCaption">
+    يوم بدأت حكايتنا...<br>
+    يوم بدأ حبنا وكل شيء جميل بيننا.<br>
+    سيبقى هذا التاريخ نابضاً في قلبي إلى الأبد.
+   </div>
+  </div>
+
   <button onclick="closeGift()">أغلقي الهدية ❤️</button>
  </div>
 </div>
@@ -136,11 +350,16 @@ footer{padding:25px;color:#c58b9e;font-size:13px}
  <div class="popup">
   <div style="font-size:65px">💖</div>
   <h2>مفاجأتك يا لودي!</h2>
+
   <div id="surpriseText" style="font-size:19px;line-height:2">
    لو كان الحب هدية، لكنتِ أجمل هدية حصلت عليها في حياتي.
    <br><strong>I LOVE YOU LODI ❤️</strong>
   </div>
-  <div style="font-size:42px;margin:15px">🌹💋💕🌹</div>
+
+  <div style="font-size:42px;margin:15px">
+   🌹💋💕🌹
+  </div>
+
   <button onclick="closeSurprise()">أحبك ❤️</button>
  </div>
 </div>
@@ -157,17 +376,27 @@ const letters=[
 ];
 
 let audioContext;
+
 function typingSound(){
  try{
   audioContext=audioContext||new (window.AudioContext||window.webkitAudioContext)();
+
   if(audioContext.state==="suspended")audioContext.resume();
+
   const osc=audioContext.createOscillator();
   const gain=audioContext.createGain();
-  osc.type="sine";osc.frequency.value=650+Math.random()*180;
+
+  osc.type="sine";
+  osc.frequency.value=650+Math.random()*180;
+
   gain.gain.setValueAtTime(.025,audioContext.currentTime);
   gain.gain.exponentialRampToValueAtTime(.001,audioContext.currentTime+.035);
-  osc.connect(gain);gain.connect(audioContext.destination);
-  osc.start();osc.stop(audioContext.currentTime+.04);
+
+  osc.connect(gain);
+  gain.connect(audioContext.destination);
+
+  osc.start();
+  osc.stop(audioContext.currentTime+.04);
  }catch(e){}
 }
 
@@ -175,28 +404,34 @@ function typeAllMessages(){
  const box=document.getElementById("letters");
  const status=document.getElementById("typingStatus");
  let line=0,char=0;
+
  function next(){
   if(line>=letters.length){
    status.textContent="انتهت رسائلي... لكن حبي لكِ لا ينتهي ❤️";
    return;
   }
+
   if(char===0){
    const p=document.createElement("p");
    p.style.margin="14px 0";
    p.id="line"+line;
    box.appendChild(p);
   }
+
   const p=document.getElementById("line"+line);
   p.textContent+=letters[line].charAt(char);
   typingSound();
   char++;
+
   if(char>=letters[line].length){
-   line++;char=0;
+   line++;
+   char=0;
    setTimeout(next,750);
   }else{
    setTimeout(next,75);
   }
  }
+
  next();
 }
 
@@ -206,53 +441,75 @@ const gifts=[
  ["👑🌹💝","أنتِ ملكة قلبي وأميرتي الجميلة."],
  ["🧸💕💋","حضن دافئ وقبلات لا تنتهي لصغيرتي."],
  ["🌷🌷🌷❤️","كل ورد العالم لا يشبه جمالكِ."],
- ["💌💋❤️","رسالة أخيرة: I LOVE YOU LODI FOREVER."]
+ ["💌💋❤️","رسالة أخيرة: I LOVE YOU LODI FOREVER."],
+ ["💎🌹❤️","هذه الهدية خاصة بتاريخ بداية حكايتنا يا لودي. يوم بدأ حبنا وأصبحتِ أجمل جزء من حياتي. أريد أن يبقى هذا التاريخ نابضاً في قلبينا إلى الأبد. ❤️"]
 ];
 
 function openGift(i){
  const overlay=document.getElementById("giftOverlay");
+
  document.getElementById("giftContents").textContent="🎁";
  document.getElementById("giftText").textContent="لحظة... هديتكِ تُفتح!";
+ document.getElementById("specialDate").style.display="none";
+
  overlay.classList.add("show");
  burst(22);
+
  setTimeout(()=>{
   document.getElementById("giftContents").textContent=gifts[i][0];
   document.getElementById("giftText").textContent=gifts[i][1];
+
+  if(i===6){
+   document.getElementById("specialDate").style.display="block";
+  }
+
   burst(25);
  },650);
 }
+
 function closeGift(e){
- if(!e||e.target.id==="giftOverlay"||e.target.tagName==="BUTTON")
- document.getElementById("giftOverlay").classList.remove("show");
+ if(!e||e.target.id==="giftOverlay"||e.target.tagName==="BUTTON"){
+  document.getElementById("giftOverlay").classList.remove("show");
+ }
 }
+
 function showSurprise(){
  document.getElementById("surpriseOverlay").classList.add("show");
  burst(35);
 }
+
 function closeSurprise(e){
- if(!e||e.target.id==="surpriseOverlay"||e.target.tagName==="BUTTON")
- document.getElementById("surpriseOverlay").classList.remove("show");
+ if(!e||e.target.id==="surpriseOverlay"||e.target.tagName==="BUTTON"){
+  document.getElementById("surpriseOverlay").classList.remove("show");
+ }
 }
+
 function burst(count=15){
  const symbols=["❤️","💗","💕","🌹","💋","✨","🌸"];
+
  for(let i=0;i<count;i++){
   const el=document.createElement("div");
+
   el.className="float";
   el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
   el.style.left=Math.random()*100+"vw";
   el.style.fontSize=(20+Math.random()*24)+"px";
   el.style.animationDuration=(3+Math.random()*4)+"s";
+
   document.getElementById("floating").appendChild(el);
   setTimeout(()=>el.remove(),7500);
  }
 }
+
 setInterval(()=>burst(1),1300);
 
 function playSong(){
  document.getElementById("music").innerHTML=
  '<iframe width="100%" height="190" src="https://www.youtube.com/embed/z-GkOquSqLw?autoplay=1" title="Our song" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="border-radius:15px"></iframe>';
 }
+
 typeAllMessages();
 </script>
+
 </body>
 </html>
