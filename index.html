@@ -3,65 +3,72 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOVE.exe | LODI'S SECRET WORLD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LODI'S SECRET WORLD ❤️</title>
 <style>
 *{box-sizing:border-box}
 body{
- margin:0;background:#10050b;color:#fff;
+ margin:0;background:#10050b;color:white;
  font-family:Tahoma,Arial,sans-serif;text-align:center;
- overflow-x:hidden;
+ overflow-x:hidden
 }
 .hero{
- min-height:100vh;padding:35px 18px 70px;
+ min-height:100vh;padding:55px 18px;
  display:flex;flex-direction:column;align-items:center;justify-content:center;
- position:relative;overflow:hidden;
- background:
- radial-gradient(ellipse at 50% 35%,#7b173b88,transparent 55%),
- linear-gradient(145deg,#10050b,#310817 55%,#090308);
+ background:radial-gradient(ellipse at center,#711532,#220713 55%,#090308);
+ position:relative;overflow:hidden
 }
-h1{
- font-size:clamp(35px,9vw,65px);color:#ffb2ca;
- text-shadow:0 0 15px #ff286b,0 0 40px #a00045;
- margin:12px 0;
-}
-.subtitle{color:#f7c6d6;font-size:17px;letter-spacing:2px}
-.heart{
- font-size:90px;cursor:pointer;display:inline-block;
- filter:drop-shadow(0 0 20px #ff245f);
- animation:pulse 1.3s infinite;
-}
-@keyframes pulse{50%{transform:scale(1.18)}}
+h1{font-size:clamp(36px,9vw,64px);color:#ffc0d4;
+ text-shadow:0 0 15px #ff286b,0 0 40px #b00048}
+h2{color:#ffb2ca}
+.subtitle{color:#f6c5d5;letter-spacing:2px}
+.heart{font-size:85px;cursor:pointer;animation:pulse 1.3s infinite;
+ filter:drop-shadow(0 0 18px #ff286b)}
+@keyframes pulse{50%{transform:scale(1.17)}}
 .panel{
- width:min(92%,520px);padding:25px 20px;margin:20px auto;
- border:1px solid #ff729d66;border-radius:24px;
- background:#ffffff0d;backdrop-filter:blur(8px);
- box-shadow:0 0 30px #e51c5520;
+ width:min(92%,540px);margin:25px auto;padding:25px 18px;
+ background:#ffffff0c;border:1px solid #ff779866;
+ border-radius:24px;box-shadow:0 0 30px #ff174522;
+ backdrop-filter:blur(8px)
 }
 button{
- border:1px solid #ff9bb8;background:linear-gradient(135deg,#a80d43,#ed4779);
+ border:1px solid #ffabc3;background:linear-gradient(135deg,#a80d43,#ed4779);
  color:white;padding:13px 21px;border-radius:30px;
- font-size:16px;cursor:pointer;margin:7px;
- box-shadow:0 5px 20px #d51c5544;
+ font-size:16px;cursor:pointer;margin:8px;
+ box-shadow:0 5px 20px #d51c5544
 }
 button:active{transform:scale(.96)}
-.message{font-size:19px;line-height:2;color:#ffe0e9;min-height:85px}
-.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.gift{
- font-size:42px;padding:15px 5px;border-radius:18px;
- background:#ffffff0b;border:1px solid #ff779855;cursor:pointer;
- transition:.3s;
-}
-.gift:hover{transform:translateY(-6px) scale(1.05)}
 .small{color:#e8b5c7;font-size:13px;line-height:1.9}
-#floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:5}
-.float{
- position:absolute;bottom:-40px;animation:rise linear forwards;
- opacity:.8;
+#letters{font-size:18px;line-height:2.1;color:#ffe1eb;text-align:center}
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.gift{
+ background:linear-gradient(145deg,#501027,#240813);
+ border:1px solid #ff8bab77;border-radius:20px;
+ padding:17px 5px;font-size:43px;cursor:pointer;
+ box-shadow:0 7px 18px #0006;transition:.3s
 }
-@keyframes rise{
- to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+.gift:hover{transform:translateY(-5px) scale(1.04)}
+.gift span{display:block;font-size:12px;color:#ffd2df;margin-top:5px}
+#floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
+.float{position:absolute;bottom:-50px;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.overlay{
+ position:fixed;inset:0;background:#080208ed;z-index:50;
+ display:none;align-items:center;justify-content:center;padding:18px
 }
+.overlay.show{display:flex}
+.popup{
+ width:min(100%,430px);padding:30px 20px;border-radius:26px;
+ background:linear-gradient(145deg,#5c102b,#210713);
+ border:1px solid #ff9bb8;box-shadow:0 0 45px #ff246877;
+ animation:appear .5s ease;text-align:center
+}
+@keyframes appear{
+ from{opacity:0;transform:scale(.65) translateY(30px)}
+ to{opacity:1;transform:scale(1) translateY(0)}
+}
+#giftContents{font-size:40px;line-height:1.8;animation:appear .6s}
+#giftText{font-size:18px;line-height:2;color:#ffe2eb}
 footer{padding:25px;color:#c58b9e;font-size:13px}
 </style>
 </head>
@@ -71,121 +78,181 @@ footer{padding:25px;color:#c58b9e;font-size:13px}
 <section class="hero">
  <div class="subtitle">A PRIVATE WORLD MADE FOR YOU</div>
  <h1>LODI'S WORLD</h1>
- <div class="heart" onclick="heartClick()">❤️</div>
+ <div class="heart" onclick="burst()">❤️</div>
  <p class="subtitle">I LOVE YOU, LODI</p>
 
  <div class="panel">
-  <div class="message" id="typed"></div>
-  <button onclick="startMessage()">افتحي رسالتي السرية 💌</button>
+  <h2>💌 رسائل من قلبي إليكِ</h2>
+  <div id="letters"></div>
+  <p class="small" id="typingStatus">رسائل كتبتها لكِ بكل حب...</p>
  </div>
 
- <p class="small">كل قلب هنا يحمل لكِ حكاية صغيرة يا أميرتي</p>
- <button onclick="showSurprise()">اكتشفي مفاجأتك 🎁</button>
+ <button onclick="showSurprise()">🎀 افتحي مفاجأتك يا لودي</button>
+ <p class="small">عالم صغير صنعته لكِ وحدكِ ❤️</p>
 </section>
 
 <section class="panel">
- <h2 style="color:#ffb2ca">🎁 هدايا صغيرة لأميرتي</h2>
- <p class="small">اضغطي على كل هدية واكتشفي ما بداخلها</p>
+ <h2>🎁 ست هدايا لأميرتي</h2>
+ <p class="small">اختاري هدية واضغطي عليها لتفتحيها</p>
  <div class="gifts">
-  <div class="gift" onclick="openGift(0)">🎁</div>
-  <div class="gift" onclick="openGift(1)">🎀</div>
-  <div class="gift" onclick="openGift(2)">💝</div>
-  <div class="gift" onclick="openGift(3)">🌹</div>
-  <div class="gift" onclick="openGift(4)">💌</div>
-  <div class="gift" onclick="openGift(5)">✨</div>
+  <div class="gift" onclick="openGift(0)">🎁<span>هدية 1</span></div>
+  <div class="gift" onclick="openGift(1)">🎀<span>هدية 2</span></div>
+  <div class="gift" onclick="openGift(2)">💝<span>هدية 3</span></div>
+  <div class="gift" onclick="openGift(3)">🎁<span>هدية 4</span></div>
+  <div class="gift" onclick="openGift(4)">🌹<span>هدية 5</span></div>
+  <div class="gift" onclick="openGift(5)">💌<span>هدية 6</span></div>
  </div>
- <div class="message" id="giftMessage"></div>
 </section>
 
 <section class="panel">
- <h2 style="color:#ffb2ca">🎶 أغنيتك يا لودي</h2>
- <p class="small">اضغطي لتشغيل الأغنية، فقد يمنع المتصفح التشغيل التلقائي.</p>
- <button onclick="playSong()">شغّلي أغنيتنا ❤️</button>
+ <h2>🎶 أغنيتنا يا لودي</h2>
+ <p class="small">اضغطي لتشغيل الأغنية ❤️</p>
+ <button onclick="playSong()">تشغيل الأغنية 🎵</button>
  <div id="music" style="margin-top:15px"></div>
 </section>
 
 <section class="panel">
- <h2 style="color:#ffb2ca">💗 وعد صغير</h2>
- <div class="message">
-  إلى لودي...<br>
-  أنتِ لستِ مجرد شخص أحبه،<br>
-  أنتِ عالمي الصغير ومكان راحتي.<br>
-  أحبك اليوم، وغداً، وكل يوم.
+ <h2>💗 وعدي لكِ</h2>
+ <div style="font-size:18px;line-height:2;color:#ffe0e9">
+  يا لودي...<br>
+  أنتِ أميرتي وصغيرتي المدللة،<br>
+  وأجمل حكاية في حياتي.<br>
+  أتمنى أن تبقى ابتسامتك معي دائماً.
  </div>
- <div class="heart" onclick="heartClick()">💗</div>
+ <div class="heart">💗</div>
  <p class="subtitle">FOREVER YOURS, LODI</p>
 </section>
+
+<div class="overlay" id="giftOverlay" onclick="closeGift(event)">
+ <div class="popup">
+  <div style="font-size:25px;color:#ffc0d4">🎁 هديتك يا أميرتي 🎁</div>
+  <div id="giftContents">💝🌹💋💕</div>
+  <div id="giftText"></div>
+  <button onclick="closeGift()">أغلقي الهدية ❤️</button>
+ </div>
+</div>
+
+<div class="overlay" id="surpriseOverlay" onclick="closeSurprise(event)">
+ <div class="popup">
+  <div style="font-size:65px">💖</div>
+  <h2>مفاجأتك يا لودي!</h2>
+  <div id="surpriseText" style="font-size:19px;line-height:2">
+   لو كان الحب هدية، لكنتِ أجمل هدية حصلت عليها في حياتي.
+   <br><strong>I LOVE YOU LODI ❤️</strong>
+  </div>
+  <div style="font-size:42px;margin:15px">🌹💋💕🌹</div>
+  <button onclick="closeSurprise()">أحبك ❤️</button>
+ </div>
+</div>
 
 <footer>MADE WITH LOVE ❤️ JUST FOR LODI</footer>
 
 <script>
-const messages=[
- "يا لودي، يا أميرتي وصغيرتي المدللة... وجودك يجعل أيامي أجمل.",
- "لو كان بإمكاني أن أهديك شيئاً واحداً، لأهديتك القدرة على رؤية نفسك بعيني، لتعرفي كم أنتِ جميلة عندي.",
- "أحبك يا طفلتي المدللة، وأتمنى أن تبقى ابتسامتك رفيقة أيامك."
+const letters=[
+ "يا لودي، يا أميرتي وصغيرتي المدللة... ❤️",
+ "لو استطعت أن أهديكِ شيئاً، لأهديتكِ عيني لترَي نفسكِ كما أراكِ أنا.",
+ "أنتِ فرحتي وابتسامتي وأجمل تفاصيل أيامي.",
+ "أريد أن أكون دائماً سبباً في ابتسامتكِ، وأن يبقى قلبكِ سعيداً.",
+ "أحبكِ يا طفلتي المدللة... I LOVE YOU LODI 💋❤️"
 ];
-let msgIndex=0;
 
-function startMessage(){
- const el=document.getElementById("typed");
- const text=messages[msgIndex++%messages.length];
- el.textContent="";
- let i=0;
- const timer=setInterval(()=>{
-  el.textContent+=text.charAt(i++);
-  if(i>=text.length)clearInterval(timer);
- },75);
+let audioContext;
+function typingSound(){
+ try{
+  audioContext=audioContext||new (window.AudioContext||window.webkitAudioContext)();
+  if(audioContext.state==="suspended")audioContext.resume();
+  const osc=audioContext.createOscillator();
+  const gain=audioContext.createGain();
+  osc.type="sine";osc.frequency.value=650+Math.random()*180;
+  gain.gain.setValueAtTime(.025,audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(.001,audioContext.currentTime+.035);
+  osc.connect(gain);gain.connect(audioContext.destination);
+  osc.start();osc.stop(audioContext.currentTime+.04);
+ }catch(e){}
+}
+
+function typeAllMessages(){
+ const box=document.getElementById("letters");
+ const status=document.getElementById("typingStatus");
+ let line=0,char=0;
+ function next(){
+  if(line>=letters.length){
+   status.textContent="انتهت رسائلي... لكن حبي لكِ لا ينتهي ❤️";
+   return;
+  }
+  if(char===0){
+   const p=document.createElement("p");
+   p.style.margin="14px 0";
+   p.id="line"+line;
+   box.appendChild(p);
+  }
+  const p=document.getElementById("line"+line);
+  p.textContent+=letters[line].charAt(char);
+  typingSound();
+  char++;
+  if(char>=letters[line].length){
+   line++;char=0;
+   setTimeout(next,750);
+  }else{
+   setTimeout(next,75);
+  }
+ }
+ next();
 }
 
 const gifts=[
- "🎀 هديتي الأولى: حضن طويل لا ينتهي.",
- "🌹 هديتي الثانية: وردة تشبه جمال قلبك.",
- "💝 هديتي الثالثة: قلبي لكِ وحدك.",
- "✨ هديتي الرابعة: أتمنى أن تضيئي حياتي دائماً.",
- "💌 هديتي الخامسة: أحبك يا لودي.",
- "👑 هديتي السادسة: أنتِ أميرتي دائماً."
+ ["🌹🌹🌹💋💕","باقة ورد وقبلة على جبينكِ يا أميرتي."],
+ ["💖💖💖😘","هذه الهدية مليئة بالحب والقبلات لكِ وحدكِ."],
+ ["👑🌹💝","أنتِ ملكة قلبي وأميرتي الجميلة."],
+ ["🧸💕💋","حضن دافئ وقبلات لا تنتهي لصغيرتي."],
+ ["🌷🌷🌷❤️","كل ورد العالم لا يشبه جمالكِ."],
+ ["💌💋❤️","رسالة أخيرة: I LOVE YOU LODI FOREVER."]
 ];
+
 function openGift(i){
- document.getElementById("giftMessage").textContent=gifts[i];
- burst();
+ const overlay=document.getElementById("giftOverlay");
+ document.getElementById("giftContents").textContent="🎁";
+ document.getElementById("giftText").textContent="لحظة... هديتكِ تُفتح!";
+ overlay.classList.add("show");
+ burst(22);
+ setTimeout(()=>{
+  document.getElementById("giftContents").textContent=gifts[i][0];
+  document.getElementById("giftText").textContent=gifts[i][1];
+  burst(25);
+ },650);
+}
+function closeGift(e){
+ if(!e||e.target.id==="giftOverlay"||e.target.tagName==="BUTTON")
+ document.getElementById("giftOverlay").classList.remove("show");
 }
 function showSurprise(){
- alert("مفاجأتك يا لودي ❤️\nأنتِ أجمل صدفة وأغلى حكاية في حياتي.\nI LOVE YOU LODI!");
- burst();
+ document.getElementById("surpriseOverlay").classList.add("show");
+ burst(35);
 }
-function heartClick(){
- burst();
- document.getElementById("giftMessage").textContent=
- "كل نبضة في قلبي تقول: I LOVE YOU LODI ❤️";
+function closeSurprise(e){
+ if(!e||e.target.id==="surpriseOverlay"||e.target.tagName==="BUTTON")
+ document.getElementById("surpriseOverlay").classList.remove("show");
 }
-function burst(){
- for(let i=0;i<18;i++){
-  const e=document.createElement("div");
-  e.className="float";
-  e.textContent=["❤️","💗","🌹","💕","✨"][Math.floor(Math.random()*5)];
-  e.style.left=Math.random()*100+"vw";
-  e.style.fontSize=(18+Math.random()*24)+"px";
-  e.style.animationDuration=(3+Math.random()*4)+"s";
-  document.getElementById("floating").appendChild(e);
-  setTimeout(()=>e.remove(),7000);
+function burst(count=15){
+ const symbols=["❤️","💗","💕","🌹","💋","✨","🌸"];
+ for(let i=0;i<count;i++){
+  const el=document.createElement("div");
+  el.className="float";
+  el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.fontSize=(20+Math.random()*24)+"px";
+  el.style.animationDuration=(3+Math.random()*4)+"s";
+  document.getElementById("floating").appendChild(el);
+  setTimeout(()=>el.remove(),7500);
  }
 }
-setInterval(()=>{
- const e=document.createElement("div");
- e.className="float";
- e.textContent=["💕","❤️","🌸","✨"][Math.floor(Math.random()*4)];
- e.style.left=Math.random()*100+"vw";
- e.style.fontSize="22px";
- e.style.animationDuration=(5+Math.random()*5)+"s";
- document.getElementById("floating").appendChild(e);
- setTimeout(()=>e.remove(),10000);
-},900);
+setInterval(()=>burst(1),1300);
 
 function playSong(){
  document.getElementById("music").innerHTML=
  '<iframe width="100%" height="190" src="https://www.youtube.com/embed/z-GkOquSqLw?autoplay=1" title="Our song" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="border-radius:15px"></iframe>';
 }
-startMessage();
+typeAllMessages();
 </script>
 </body>
 </html>
