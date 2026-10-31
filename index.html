@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOVE.exe | To Lodi ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ background:#050505;
+ color:white;
+ font-family:'Cairo',sans-serif;
+ min-height:100vh;
+ overflow-x:hidden;
+}
+
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ background:
+ radial-gradient(circle at 50% 40%,#80002055,transparent 50%),
+ linear-gradient(#ff003311 1px,transparent 1px),
+ linear-gradient(90deg,#ff003311 1px,transparent 1px);
+ background-size:auto,35px 35px,35px 35px;
+ pointer-events:none;
+}
+
+.container{
+ position:relative;
+ z-index:2;
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ padding:25px;
+ text-align:center;
+}
+
+.status{
+ color:#ff3158;
+ font-size:11px;
+ letter-spacing:3px;
+ direction:ltr;
+ margin-bottom:30px;
+}
+
+.heart{
+ font-size:85px;
+ filter:drop-shadow(0 0 20px #ff003d);
+ animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+ 50%{transform:scale(1.2)}
+}
+
+h1{
+ font-size:clamp(38px,10vw,65px);
+ color:#ff3158;
+ text-shadow:0 0 20px #ff003d;
+ margin:20px 0;
+}
+
+.subtitle{
+ color:#bbb;
+ line-height:2;
+ margin-bottom:30px;
+}
+
+button{
+ background:#ff174d;
+ color:white;
+ border:1px solid #ff6688;
+ padding:14px 30px;
+ border-radius:10px;
+ font-family:inherit;
+ font-size:16px;
+ box-shadow:0 0 25px #ff003d66;
+ cursor:pointer;
+}
+
+#message{
+ display:none;
+ width:100%;
+ max-width:600px;
+ margin-top:30px;
+ padding:25px;
+ background:#18070eea;
+ border:1px solid #ff315866;
+ border-radius:18px;
+ box-shadow:0 0 35px #ff003d33;
+ line-height:2.4;
+ color:#f8dce4;
+}
+
+#typed{
+ white-space:pre-line;
+ text-align:right;
+}
+
+.signature{
+ color:#ff5577;
+ font-size:21px;
+ margin-top:25px;
+}
+
+.particle{
+ position:fixed;
+ bottom:-20px;
+ color:#ff3158;
+ animation:rise linear forwards;
+ pointer-events:none;
+}
+
+@keyframes rise{
+ to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+.footer{
+ margin-top:40px;
+ color:#555;
+ font-size:11px;
+ direction:ltr;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+ <div class="status">● LOVE SYSTEM ONLINE</div>
+
+ <div class="heart">❤️</div>
+
+ <h1>لودي</h1>
+
+ <p class="subtitle">
+ إلى أميرتي الصغيرة...<br>
+ هذه ليست صفحة عادية، هذه قطعة من قلبي لكِ.
+ </p>
+
+ <button onclick="startLove()">
+ افتحي قلب حبيبكِ ❤️
+ </button>
+
+ <div id="message">
+
+ <h2 style="color:#ff5577;margin-bottom:20px">
+ أميرتي لودي ❤️
+ </h2>
+
+ <p id="typed"></p>
+
+ <div class="signature">
+ أحبكِ يا صغيرتي، يا أجمل أقداري ❤️
+ </div>
+
+ </div>
+
+ <div class="footer">
+ ONLY FOR LODI — LOVE.exe V2.0
+ </div>
+
+</div>
+
+<script>
+
+const loveMessage = `إلى لودي... أميرتي، صغيرتي، وحبيبتي ❤️
+
+يا أجمل صدفة جاءت إلى حياتي...
+
+أتعلمين يا أميرتي؟ أحياناً أحاول أن أبحث عن كلمات تليق بكِ، فأجد أن كل الكلمات صغيرة أمام ما أشعر به تجاهكِ.
+
+يا صغيرتي المدللة، يا نبض قلبي، يا أجمل تفاصيل أيامي...
+
+أحبكِ بطريقة لا تشبه أي شيء آخر. أحب ضحكتكِ، ودلالكِ، وكلماتكِ، وحتى لحظات زعلكِ التي أتمنى دائماً أن أكون سبب انتهائها بابتسامة.
+
+أريدكِ أن تعرفي أنكِ لستِ شخصاً عادياً في حياتي، أنتِ أميرتي التي يسكن اسمها قلبي، والإنسانة التي أتمنى أن أشاركها أجمل أيام العمر.
+
+يا لودي، لو استطعت أن أضع قلبي بين يديكِ لتري كم أحبكِ، لفعلت دون تردد.
+
+أعدكِ أن أبقى أحب تفاصيلكِ الصغيرة، وأن أراكِ دائماً أميرتي الجميلة، مهما مرّ الزمن وتغيّرت الأيام.
+
+وإذا سألني أحدهم عن أجمل ما أملك، سأقول له: لديّ لودي، وهذا يكفيني.
+
+ابتسمي دائماً يا صغيرتي، فابتسامتكِ تعني لي الكثير.
+
+أحبكِ يا أميرتي، اليوم وغداً وكل يوم. ❤️`;
+
+let started = false;
+
+function startLove(){
+ if(started)return;
+ started=true;
+
+ document.getElementById("message").style.display="block";
+ document.querySelector("button").textContent="أنتِ حكاية قلبي ❤️";
+
+ let i=0;
+ const output=document.getElementById("typed");
+
+ const typing=setInterval(()=>{
+  output.textContent+=loveMessage.charAt(i);
+  i++;
+  if(i>=loveMessage.length)clearInterval(typing);
+ },55);
+}
+
+function createParticle(){
+ const p=document.createElement("div");
+ p.className="particle";
+ p.textContent=Math.random()>.5?"♥":"✦";
+ p.style.left=Math.random()*100+"vw";
+ p.style.fontSize=(12+Math.random()*18)+"px";
+ p.style.animationDuration=(5+Math.random()*6)+"s";
+ document.body.appendChild(p);
+ setTimeout(()=>p.remove(),11000);
+}
+
+setInterval(createParticle,450);
+
+</script>
+</body>
+</html>
