@@ -1,13 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LODI'S SECRET WORLD ❤️</title>
+<title>LODI OS — A WORLD OF LOVE ❤️</title>
 
 <style>
 *{box-sizing:border-box}
+
+:root{
+ --pink:#ff78a8;
+ --light:#ffd0df;
+ --dark:#10050b;
+}
 
 body{
  margin:0;
@@ -15,7 +20,51 @@ body{
  color:white;
  font-family:Tahoma,Arial,sans-serif;
  text-align:center;
- overflow-x:hidden
+ overflow-x:hidden;
+}
+
+button{
+ border:1px solid #ffabc3;
+ background:linear-gradient(135deg,#a80d43,#ed4779);
+ color:white;
+ padding:13px 21px;
+ border-radius:30px;
+ font-size:16px;
+ cursor:pointer;
+ margin:8px;
+ box-shadow:0 5px 20px #d51c5544;
+}
+
+button:active{transform:scale(.96)}
+
+h1{
+ font-size:clamp(35px,9vw,64px);
+ color:#ffc0d4;
+ text-shadow:0 0 15px #ff286b,0 0 40px #b00048;
+}
+
+h2{color:#ffb2ca}
+
+.subtitle{
+ color:#f6c5d5;
+ letter-spacing:2px;
+}
+
+.small{
+ color:#e8b5c7;
+ font-size:13px;
+ line-height:1.9;
+}
+
+.panel{
+ width:min(92%,540px);
+ margin:25px auto;
+ padding:25px 18px;
+ background:#ffffff0c;
+ border:1px solid #ff779866;
+ border-radius:24px;
+ box-shadow:0 0 30px #ff174522;
+ backdrop-filter:blur(8px);
 }
 
 .hero{
@@ -30,7 +79,7 @@ body{
  url("images/file_0000000088fc8243819a2eabfcc547d3.png") center/cover;
  position:relative;
  overflow:hidden;
- isolation:isolate
+ isolation:isolate;
 }
 
 .hero::before{
@@ -42,7 +91,7 @@ body{
  linear-gradient(#16030b99,#16030bcc),
  url("images/IMG_20260410_160508.jpg") center/cover;
  opacity:0;
- animation:romanticPhotos 10s infinite
+ animation:romanticPhotos 10s infinite;
 }
 
 @keyframes romanticPhotos{
@@ -51,94 +100,15 @@ body{
  100%{opacity:0}
 }
 
-h1{
- font-size:clamp(36px,9vw,64px);
- color:#ffc0d4;
- text-shadow:0 0 15px #ff286b,0 0 40px #b00048
-}
-
-h2{color:#ffb2ca}
-
-.subtitle{
- color:#f6c5d5;
- letter-spacing:2px
-}
-
 .heart{
  font-size:85px;
  cursor:pointer;
  animation:pulse 1.3s infinite;
- filter:drop-shadow(0 0 18px #ff286b)
+ filter:drop-shadow(0 0 18px #ff286b);
 }
 
 @keyframes pulse{
  50%{transform:scale(1.17)}
-}
-
-.panel{
- width:min(92%,540px);
- margin:25px auto;
- padding:25px 18px;
- background:#ffffff0c;
- border:1px solid #ff779866;
- border-radius:24px;
- box-shadow:0 0 30px #ff174522;
- backdrop-filter:blur(8px)
-}
-
-button{
- border:1px solid #ffabc3;
- background:linear-gradient(135deg,#a80d43,#ed4779);
- color:white;
- padding:13px 21px;
- border-radius:30px;
- font-size:16px;
- cursor:pointer;
- margin:8px;
- box-shadow:0 5px 20px #d51c5544
-}
-
-button:active{transform:scale(.96)}
-
-.small{
- color:#e8b5c7;
- font-size:13px;
- line-height:1.9
-}
-
-#letters{
- font-size:18px;
- line-height:2.1;
- color:#ffe1eb;
- text-align:center
-}
-
-.gifts{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:13px
-}
-
-.gift{
- background:linear-gradient(145deg,#501027,#240813);
- border:1px solid #ff8bab77;
- border-radius:20px;
- padding:17px 5px;
- font-size:43px;
- cursor:pointer;
- box-shadow:0 7px 18px #0006;
- transition:.3s
-}
-
-.gift:hover{
- transform:translateY(-5px) scale(1.04)
-}
-
-.gift span{
- display:block;
- font-size:12px;
- color:#ffd2df;
- margin-top:5px
 }
 
 #floating{
@@ -146,31 +116,89 @@ button:active{transform:scale(.96)}
  inset:0;
  pointer-events:none;
  overflow:hidden;
- z-index:20
+ z-index:20;
 }
 
 .float{
  position:absolute;
  bottom:-50px;
- animation:rise linear forwards
+ animation:rise linear forwards;
 }
 
 @keyframes rise{
  to{
   transform:translateY(-110vh) rotate(360deg);
-  opacity:0
+  opacity:0;
  }
 }
+
+/* شاشة تشغيل النظام */
+
+#bootScreen{
+ position:fixed;
+ inset:0;
+ z-index:200;
+ background:radial-gradient(circle,#451027,#090208 75%);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ padding:25px;
+}
+
+.bootLogo{
+ font-size:65px;
+ animation:pulse 1.3s infinite;
+}
+
+.bootTitle{
+ color:#ffb2ca;
+ font-size:27px;
+ letter-spacing:3px;
+ margin:15px;
+}
+
+.bootLine{
+ color:#ffc0d4;
+ font-family:monospace;
+ direction:ltr;
+ margin:8px;
+ font-size:13px;
+}
+
+.bootTrack{
+ width:min(85%,330px);
+ height:7px;
+ background:#ffffff22;
+ border-radius:20px;
+ overflow:hidden;
+ margin:18px;
+}
+
+.bootProgress{
+ height:100%;
+ width:0;
+ background:linear-gradient(90deg,#ff347a,#ffd0df);
+ box-shadow:0 0 15px #ff347a;
+ animation:loading 3.5s forwards;
+}
+
+@keyframes loading{
+ to{width:100%}
+}
+
+/* النوافذ */
 
 .overlay{
  position:fixed;
  inset:0;
  background:#080208ed;
- z-index:50;
+ z-index:100;
  display:none;
  align-items:center;
  justify-content:center;
- padding:18px
+ padding:18px;
+ overflow-y:auto;
 }
 
 .overlay.show{display:flex}
@@ -183,37 +211,59 @@ button:active{transform:scale(.96)}
  border:1px solid #ff9bb8;
  box-shadow:0 0 45px #ff246877;
  animation:appear .5s ease;
- text-align:center
+ text-align:center;
 }
 
 @keyframes appear{
- from{
-  opacity:0;
-  transform:scale(.65) translateY(30px)
- }
- to{
-  opacity:1;
-  transform:scale(1) translateY(0)
- }
+ from{opacity:0;transform:scale(.65) translateY(30px)}
+ to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+/* الرسائل */
+
+#letters{
+ font-size:18px;
+ line-height:2.1;
+ color:#ffe1eb;
 }
 
 #giftContents{
  font-size:40px;
  line-height:1.8;
- animation:appear .6s
 }
 
 #giftText{
  font-size:18px;
  line-height:2;
- color:#ffe2eb
+ color:#ffe2eb;
 }
 
-.waitingMessage{
- font-size:20px;
- line-height:2.2;
- color:#ffe0e9
+.gifts{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:13px;
 }
+
+.gift{
+ background:linear-gradient(145deg,#501027,#240813);
+ border:1px solid #ff8bab77;
+ border-radius:20px;
+ padding:17px 5px;
+ font-size:38px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.gift:hover{transform:translateY(-5px) scale(1.04)}
+
+.gift span{
+ display:block;
+ font-size:12px;
+ color:#ffd2df;
+ margin-top:5px;
+}
+
+/* التاريخ */
 
 .dateText{
  display:inline-block;
@@ -221,8 +271,8 @@ button:active{transform:scale(.96)}
  color:#fff0f5;
  font-size:27px;
  font-weight:bold;
- text-shadow:0 0 10px #ff286b,0 0 25px #ff286b;
- animation:datePulse 1.2s infinite
+ text-shadow:0 0 10px #ff286b;
+ animation:datePulse 1.2s infinite;
 }
 
 @keyframes datePulse{
@@ -236,21 +286,164 @@ button:active{transform:scale(.96)}
  }
 }
 
-.dateCaption{
+/* عداد الحب */
+
+.counterGrid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+ margin-top:20px;
+}
+
+.counterBox{
+ padding:17px 5px;
+ background:#ff5b9420;
+ border:1px solid #ff8bab66;
+ border-radius:17px;
+}
+
+.counterNumber{
+ font-size:28px;
  color:#ffc0d4;
- font-size:14px;
- line-height:2
+ font-weight:bold;
+ text-shadow:0 0 12px #ff286b;
+}
+
+.counterLabel{
+ color:#f8b9cf;
+ font-size:13px;
+ margin-top:5px;
+}
+
+/* الظرف */
+
+.envelope{
+ font-size:95px;
+ cursor:pointer;
+ display:inline-block;
+ transition:.5s;
+}
+
+.envelope:hover{transform:scale(1.12) rotate(-5deg)}
+
+#letterReveal{
+ display:none;
+ font-size:18px;
+ line-height:2.2;
+ color:#ffe1eb;
+ margin-top:20px;
+ animation:appear .8s;
+}
+
+/* النجوم */
+
+.sky{
+ position:relative;
+ height:310px;
+ border-radius:22px;
+ overflow:hidden;
+ background:radial-gradient(ellipse,#32102c,#080713);
+ border:1px solid #ff8bab66;
+}
+
+.star{
+ position:absolute;
+ font-size:26px;
+ cursor:pointer;
+ animation:starGlow 1.5s infinite alternate;
+}
+
+@keyframes starGlow{
+ to{
+  transform:scale(1.5);
+  filter:drop-shadow(0 0 12px #ff8ac0);
+ }
+}
+
+/* شاشة الأوامر */
+
+.terminal{
+ background:#080d12;
+ border:1px solid #ff79aa77;
+ border-radius:18px;
+ padding:20px;
+ text-align:left;
+ direction:ltr;
+ font-family:monospace;
+ color:#ff9fc5;
+ line-height:1.8;
+}
+
+.terminal input{
+ width:100%;
+ padding:13px;
+ margin-top:12px;
+ border-radius:10px;
+ border:1px solid #ff79aa;
+ background:#170b16;
+ color:#fff;
+ font-size:15px;
+ direction:ltr;
+}
+
+#terminalResult{
+ margin-top:15px;
+ color:#ffd0df;
+ text-align:center;
+ direction:rtl;
+ min-height:35px;
+}
+
+/* غرفة الأسرار */
+
+.secretInput{
+ width:90%;
+ padding:14px;
+ border-radius:12px;
+ border:1px solid #ff8bab;
+ background:#1c0814;
+ color:white;
+ text-align:center;
+ font-size:17px;
+ margin:15px 0;
+}
+
+#secretContent{
+ display:none;
+ line-height:2.1;
+ color:#ffe0e9;
+}
+
+/* التاريخ والرسالة */
+
+.waitingMessage{
+ font-size:20px;
+ line-height:2.2;
+ color:#ffe0e9;
 }
 
 footer{
  padding:25px;
  color:#c58b9e;
- font-size:13px
+ font-size:13px;
 }
 </style>
 </head>
 
 <body>
+
+<!-- شاشة تشغيل LODI OS -->
+
+<div id="bootScreen">
+ <div class="bootLogo">❤️</div>
+ <div class="bootTitle">LODI OS</div>
+ <div class="bootLine">Initializing Love System...</div>
+ <div class="bootLine">Loading Memories...</div>
+ <div class="bootLine">Identity: LODI ❤️</div>
+ <div class="bootLine">Access: GRANTED</div>
+ <div class="bootTrack"><div class="bootProgress"></div></div>
+ <div class="bootLine">WELCOME TO YOUR SECRET WORLD</div>
+</div>
 
 <div id="floating"></div>
 
@@ -272,6 +465,36 @@ footer{
 
 </section>
 
+<!-- عداد الحب -->
+
+<section class="panel">
+ <h2>⏳ منذ بداية حكايتنا</h2>
+ <p class="small">كل ثانية تمرّ هي ثانية إضافية من حكايتنا ❤️</p>
+
+ <div class="dateText">22/9/2026 ❤️</div>
+
+ <div class="counterGrid">
+  <div class="counterBox">
+   <div class="counterNumber" id="days">0</div>
+   <div class="counterLabel">يوم</div>
+  </div>
+  <div class="counterBox">
+   <div class="counterNumber" id="hours">0</div>
+   <div class="counterLabel">ساعة</div>
+  </div>
+  <div class="counterBox">
+   <div class="counterNumber" id="minutes">0</div>
+   <div class="counterLabel">دقيقة</div>
+  </div>
+  <div class="counterBox">
+   <div class="counterNumber" id="seconds">0</div>
+   <div class="counterLabel">ثانية</div>
+  </div>
+ </div>
+</section>
+
+<!-- الرسالة الخاصة -->
+
 <section class="panel">
  <h2>🌹 رسالة خاصة لكِ يا لودي</h2>
 
@@ -287,6 +510,75 @@ footer{
   🕯️🌹❤️🌹🕯️
  </div>
 </section>
+
+<!-- الظرف السري -->
+
+<section class="panel">
+ <h2>💌 ظرف من أسرار قلبي</h2>
+ <p class="small">هناك رسالة لم تقرئيها بعد...</p>
+
+ <div class="envelope" onclick="openLetter()">💌</div>
+
+ <div id="letterReveal">
+  يا لودي...<br>
+  لو عاد بي الزمن ألف مرة، لاخترت أن ألتقي بكِ في كل مرة.<br>
+  أنتِ لستِ مجرد شخص أحبه، أنتِ الحكاية التي أتمنى ألا تنتهي. ❤️
+ </div>
+</section>
+
+<!-- سماء النجوم -->
+
+<section class="panel">
+ <h2>✨ سماء لودي الخاصة</h2>
+ <p class="small">اضغطي على النجوم واكتشفي ما أخبئه لكِ</p>
+
+ <div class="sky">
+  <span class="star" style="top:15%;left:15%" onclick="showStar(0)">⭐</span>
+  <span class="star" style="top:30%;left:45%" onclick="showStar(1)">✨</span>
+  <span class="star" style="top:65%;left:25%" onclick="showStar(2)">⭐</span>
+  <span class="star" style="top:20%;left:78%" onclick="showStar(3)">🌟</span>
+  <span class="star" style="top:72%;left:75%" onclick="showStar(4)">✨</span>
+  <span class="star" style="top:48%;left:58%" onclick="showStar(5)">⭐</span>
+  <span class="star" style="top:82%;left:48%" onclick="showStar(6)">🌟</span>
+ </div>
+</section>
+
+<!-- غرفة الأسرار -->
+
+<section class="panel">
+ <h2>🔐 غرفة أسرارنا</h2>
+ <p class="small">هذه الغرفة لا تفتح إلا بكلمة المرور الخاصة بكِ</p>
+
+ <button onclick="openSecret()">دخول إلى الغرفة السرية ❤️</button>
+
+ <div id="secretContent">
+  <h2>أهلاً بملكة قلبي 👑</h2>
+  أنتِ السر الجميل الذي أريد الاحتفاظ به في قلبي.<br>
+  مهما ابتعدت المسافات، سيبقى لكِ مكان لا يشبهه أحد. ❤️
+ </div>
+</section>
+
+<!-- شاشة الأوامر -->
+
+<section class="panel">
+ <h2>💻 LODI LOVE TERMINAL</h2>
+ <p class="small">اكتبي الأمر السري واكتشفي المفاجأة</p>
+
+ <div class="terminal">
+  <div>LODI OS TERMINAL v1.0</div>
+  <div>System: LOVE ENGINE</div>
+  <div>Status: RUNNING ❤️</div>
+  <div>Enter command:</div>
+
+  <input id="terminalInput" placeholder="LOAD LOVE">
+
+  <button onclick="runCommand()">EXECUTE</button>
+
+  <div id="terminalResult"></div>
+ </div>
+</section>
+
+<!-- الهدايا -->
 
 <section class="panel">
  <h2>🎁 سبع هدايا لأميرتي</h2>
@@ -324,49 +616,93 @@ footer{
  <p class="subtitle">FOREVER YOURS, LODI</p>
 </section>
 
+<!-- نافذة الهدايا -->
+
 <div class="overlay" id="giftOverlay" onclick="closeGift(event)">
  <div class="popup">
-  <div style="font-size:25px;color:#ffc0d4">
-   🎁 هديتك يا أميرتي 🎁
-  </div>
-
+  <div style="font-size:25px;color:#ffc0d4">🎁 هديتك يا أميرتي 🎁</div>
   <div id="giftContents">💝🌹💋💕</div>
   <div id="giftText"></div>
 
   <div id="specialDate" style="display:none">
    <div class="dateText">22/9/2026 ❤️</div>
-   <div class="dateCaption">
+   <p>
     يوم بدأت حكايتنا...<br>
     يوم بدأ حبنا وكل شيء جميل بيننا.<br>
     سيبقى هذا التاريخ نابضاً في قلبي إلى الأبد.
-   </div>
+   </p>
   </div>
 
   <button onclick="closeGift()">أغلقي الهدية ❤️</button>
  </div>
 </div>
 
+<!-- نافذة المفاجأة -->
+
 <div class="overlay" id="surpriseOverlay" onclick="closeSurprise(event)">
  <div class="popup">
   <div style="font-size:65px">💖</div>
   <h2>مفاجأتك يا لودي!</h2>
 
-  <div id="surpriseText" style="font-size:19px;line-height:2">
+  <div style="font-size:19px;line-height:2">
    لو كان الحب هدية، لكنتِ أجمل هدية حصلت عليها في حياتي.
    <br><strong>I LOVE YOU LODI ❤️</strong>
   </div>
 
-  <div style="font-size:42px;margin:15px">
-   🌹💋💕🌹
-  </div>
-
+  <div style="font-size:42px;margin:15px">🌹💋💕🌹</div>
   <button onclick="closeSurprise()">أحبك ❤️</button>
  </div>
 </div>
 
-<footer>MADE WITH LOVE ❤️ JUST FOR LODI</footer>
+<!-- نافذة كلمة المرور -->
+
+<div class="overlay" id="secretOverlay">
+ <div class="popup">
+  <h2>🔐 كلمة المرور</h2>
+  <p class="small">أدخلي كلمة المرور لتدخلي عالم الأسرار</p>
+
+  <input class="secretInput" id="secretPassword" type="password" placeholder="كلمة المرور">
+
+  <br>
+  <button onclick="checkSecret()">فتح الغرفة ❤️</button>
+  <button onclick="closeSecret()">إغلاق</button>
+  <p id="passwordMessage" class="small"></p>
+ </div>
+</div>
+
+<footer>LODI OS ❤️ MADE WITH LOVE JUST FOR LODI</footer>
 
 <script>
+
+/* تشغيل شاشة البداية */
+
+setTimeout(()=>{
+ document.getElementById("bootScreen").style.display="none";
+},3800);
+
+/* عداد بداية الحب */
+
+function updateCounter(){
+ const start=new Date(2026,8,22,0,0,0);
+ const now=new Date();
+ let diff=Math.max(0,now-start);
+
+ const days=Math.floor(diff/86400000);
+ const hours=Math.floor((diff%86400000)/3600000);
+ const minutes=Math.floor((diff%3600000)/60000);
+ const seconds=Math.floor((diff%60000)/1000);
+
+ document.getElementById("days").textContent=days;
+ document.getElementById("hours").textContent=hours;
+ document.getElementById("minutes").textContent=minutes;
+ document.getElementById("seconds").textContent=seconds;
+}
+
+updateCounter();
+setInterval(updateCounter,1000);
+
+/* الرسائل */
+
 const letters=[
  "يا لودي، يا أميرتي وصغيرتي المدللة... ❤️",
  "لو استطعت أن أهديكِ شيئاً، لأهديتكِ عيني لترَي نفسكِ كما أراكِ أنا.",
@@ -380,7 +716,6 @@ let audioContext;
 function typingSound(){
  try{
   audioContext=audioContext||new (window.AudioContext||window.webkitAudioContext)();
-
   if(audioContext.state==="suspended")audioContext.resume();
 
   const osc=audioContext.createOscillator();
@@ -388,13 +723,11 @@ function typingSound(){
 
   osc.type="sine";
   osc.frequency.value=650+Math.random()*180;
-
   gain.gain.setValueAtTime(.025,audioContext.currentTime);
   gain.gain.exponentialRampToValueAtTime(.001,audioContext.currentTime+.035);
 
   osc.connect(gain);
   gain.connect(audioContext.destination);
-
   osc.start();
   osc.stop(audioContext.currentTime+.04);
  }catch(e){}
@@ -435,6 +768,8 @@ function typeAllMessages(){
  next();
 }
 
+/* الهدايا */
+
 const gifts=[
  ["🌹🌹🌹💋💕","باقة ورد وقبلة على جبينكِ يا أميرتي."],
  ["💖💖💖😘","هذه الهدية مليئة بالحب والقبلات لكِ وحدكِ."],
@@ -442,17 +777,15 @@ const gifts=[
  ["🧸💕💋","حضن دافئ وقبلات لا تنتهي لصغيرتي."],
  ["🌷🌷🌷❤️","كل ورد العالم لا يشبه جمالكِ."],
  ["💌💋❤️","رسالة أخيرة: I LOVE YOU LODI FOREVER."],
- ["💎🌹❤️","هذه الهدية خاصة بتاريخ بداية حكايتنا يا لودي. يوم بدأ حبنا وأصبحتِ أجمل جزء من حياتي. أريد أن يبقى هذا التاريخ نابضاً في قلبينا إلى الأبد. ❤️"]
+ ["💎🌹❤️","هذه الهدية خاصة بتاريخ بداية حكايتنا يا لودي. يوم بدأ حبنا وأصبحتِ أجمل جزء من حياتي."]
 ];
 
 function openGift(i){
- const overlay=document.getElementById("giftOverlay");
-
  document.getElementById("giftContents").textContent="🎁";
  document.getElementById("giftText").textContent="لحظة... هديتكِ تُفتح!";
  document.getElementById("specialDate").style.display="none";
 
- overlay.classList.add("show");
+ document.getElementById("giftOverlay").classList.add("show");
  burst(22);
 
  setTimeout(()=>{
@@ -473,6 +806,8 @@ function closeGift(e){
  }
 }
 
+/* المفاجأة */
+
 function showSurprise(){
  document.getElementById("surpriseOverlay").classList.add("show");
  burst(35);
@@ -484,12 +819,78 @@ function closeSurprise(e){
  }
 }
 
+/* غرفة الأسرار */
+
+function openSecret(){
+ document.getElementById("secretOverlay").classList.add("show");
+ document.getElementById("passwordMessage").textContent="";
+}
+
+function closeSecret(){
+ document.getElementById("secretOverlay").classList.remove("show");
+}
+
+function checkSecret(){
+ const password=document.getElementById("secretPassword").value;
+
+ if(password==="LODI2209"){
+  document.getElementById("secretOverlay").classList.remove("show");
+  document.getElementById("secretContent").style.display="block";
+  burst(35);
+ }else{
+  document.getElementById("passwordMessage").textContent="كلمة المرور غير صحيحة، حاولي مرة أخرى ❤️";
+ }
+}
+
+/* رسائل النجوم */
+
+const starMessages=[
+ "أنتِ أجمل صدفة في حياتي. ❤️",
+ "قلبي اختاركِ من بين الجميع.",
+ "كل نجمة في السماء تذكرني بكِ.",
+ "ابتسامتكِ هي نوري.",
+ "أحبكِ أكثر مما تستطيع الكلمات وصفه.",
+ "أنتِ حكاية لا أريد لها نهاية.",
+ "22/9/2026... بداية أجمل حكاية. 💗"
+];
+
+function showStar(i){
+ alert(starMessages[i]);
+ burst(10);
+}
+
+/* الظرف */
+
+function openLetter(){
+ const letter=document.getElementById("letterReveal");
+ letter.style.display="block";
+ burst(20);
+}
+
+/* شاشة الأوامر */
+
+function runCommand(){
+ const input=document.getElementById("terminalInput").value.trim().toUpperCase();
+ const result=document.getElementById("terminalResult");
+
+ if(input==="LOAD LOVE"){
+  result.innerHTML="ACCESS GRANTED ❤️<br>LODI IS THE OWNER OF MY HEART.";
+  burst(30);
+ }else if(input==="OPEN HEART"){
+  result.innerHTML="HEART SYSTEM UNLOCKED 💗<br>I LOVE YOU FOREVER LODI.";
+  burst(30);
+ }else{
+  result.textContent="COMMAND NOT FOUND — TRY AGAIN ❤️";
+ }
+}
+
+/* المؤثرات */
+
 function burst(count=15){
  const symbols=["❤️","💗","💕","🌹","💋","✨","🌸"];
 
  for(let i=0;i<count;i++){
   const el=document.createElement("div");
-
   el.className="float";
   el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
   el.style.left=Math.random()*100+"vw";
@@ -503,13 +904,18 @@ function burst(count=15){
 
 setInterval(()=>burst(1),1300);
 
+/* الأغنية */
+
 function playSong(){
  document.getElementById("music").innerHTML=
  '<iframe width="100%" height="190" src="https://www.youtube.com/embed/z-GkOquSqLw?autoplay=1" title="Our song" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="border-radius:15px"></iframe>';
 }
 
 typeAllMessages();
+
 </script>
+
+<div id="music"></div>
 
 </body>
 </html>
