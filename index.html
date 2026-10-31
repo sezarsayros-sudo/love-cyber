@@ -11,9 +11,14 @@
 :root{--pink:#ff78a8;--light:#ffd0df;--dark:#10050b}
 
 body{
- margin:0;background:#10050b;color:white;
- font-family:Tahoma,Arial,sans-serif;text-align:center;
- overflow-x:hidden;isolation:isolate;
+ margin:0;
+ position:relative;
+ background:#10050b;
+ color:white;
+ font-family:Tahoma,Arial,sans-serif;
+ text-align:center;
+ overflow-x:hidden;
+ isolation:isolate;
 }
 
 /* خلفية الصور المتحركة في كامل الموقع */
@@ -46,12 +51,18 @@ body{
  100%{opacity:0}
 }
 
-/* العداد العلوي */
+/* العداد العلوي - ثابت في مكانه أثناء التمرير */
 #topCounter{
- position:fixed;top:10px;right:10px;z-index:50;
- width:245px;padding:10px 9px;
- border:1px solid #ff9bb899;border-radius:16px;
- background:#210713d9;backdrop-filter:blur(12px);
+ position:fixed;
+ top:10px;
+ right:10px;
+ z-index:50;
+ width:245px;
+ padding:10px 9px;
+ border:1px solid #ff9bb899;
+ border-radius:16px;
+ background:#210713d9;
+ backdrop-filter:blur(12px);
  box-shadow:0 0 18px #ff286b55;
 }
 #topCounterTitle{font-size:12px;color:#ffd0df;margin-bottom:7px}
@@ -406,11 +417,11 @@ footer{padding:25px;color:#e2a6ba;font-size:13px}
  </div>
 </div>
 
-<!-- نافذة رسائل النجوم الجديدة -->
+<!-- نافذة رسائل النجوم -->
 <div class="overlay" id="starOverlay" onclick="closeStar(event)">
  <div class="popup">
   <div style="font-size:55px">✨</div>
-  <h2>رسالة من نجمتكِ</h2>
+  <h2>رسالة من حبيبك مودي ❤️</h2>
   <div id="starMessage" style="font-size:19px;line-height:2;color:#ffe1eb"></div>
   <button onclick="closeStar()">أغلقي الرسالة ❤️</button>
  </div>
@@ -549,7 +560,7 @@ function checkSecret(){
  }
 }
 
-/* رسائل النجوم - دون alert */
+/* رسائل النجوم */
 const starMessages=[
  "أنتِ أجمل صدفة في حياتي. ❤️",
  "قلبي اختاركِ من بين الجميع.",
