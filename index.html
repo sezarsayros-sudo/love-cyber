@@ -227,5 +227,111 @@ function createParticle(){
 setInterval(createParticle,450);
 
 </script>
-</body>
+</body><style>
+.love-secret {
+  text-align: center;
+  margin: 45px auto 30px;
+  direction: rtl;
+}
+
+.heart-button {
+  position: relative;
+  border: 0;
+  background: transparent;
+  width: 190px;
+  height: 160px;
+  cursor: pointer;
+  animation: heartShake 1.2s infinite;
+}
+
+.heart-button .heart-shape {
+  position: absolute;
+  top: 35px;
+  left: 48px;
+  width: 95px;
+  height: 95px;
+  background: #ff1744;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 25px #ff1744, 0 0 55px #ff1744;
+}
+
+.heart-shape::before,
+.heart-shape::after {
+  content: "";
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  background: #ff1744;
+  border-radius: 50%;
+}
+
+.heart-shape::before {
+  top: -47px;
+  left: 0;
+}
+
+.heart-shape::after {
+  left: 47px;
+  top: 0;
+}
+
+.heart-label {
+  position: absolute;
+  z-index: 2;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  text-shadow: 0 0 8px #000;
+}
+
+@keyframes heartShake {
+  0%, 100% { transform: translateX(0) scale(1); }
+  25% { transform: translateX(-4px) scale(1.04); }
+  50% { transform: translateX(4px) scale(1.07); }
+  75% { transform: translateX(-3px) scale(1.04); }
+}
+
+.secret-message {
+  display: none;
+  color: white;
+  background: rgba(15,0,8,.92);
+  border: 1px solid #ff1744;
+  box-shadow: 0 0 20px #ff1744;
+  border-radius: 18px;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 340px;
+  line-height: 2;
+  animation: appear .8s ease;
+}
+
+@keyframes appear {
+  from {opacity:0; transform:scale(.7);}
+  to {opacity:1; transform:scale(1);}
+}
+</style>
+
+<div class="love-secret">
+  <button class="heart-button" onclick="openSecret()">
+    <span class="heart-shape"></span>
+    <span class="heart-label">اضغطي عليّ ❤️</span>
+  </button>
+
+  <div class="secret-message" id="secretMessage">
+    يا أميرتي لودي ❤️<br>
+    اقتربي يا صغيرتي...<br>
+    لو كان بإمكاني أن أضع قلبي بين يديكِ،
+    لفعلتِ لتعرفي كم أحبكِ.<br>
+    أنتِ أجمل ما حدث لي، وستبقين حبيبتي دائماً ❤️
+  </div>
+</div>
+
+<script>
+function openSecret() {
+  document.getElementById("secretMessage").style.display = "block";
+}
+</script>
 </html>
