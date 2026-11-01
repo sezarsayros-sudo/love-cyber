@@ -1,45 +1,248 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LODI'S DREAM WORLD ❤️</title>
+
 <style>
 *{box-sizing:border-box}
 :root{--pink:#ff6b9a;--deep:#a52c62;--cream:#fff5f8}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;color:#71334f;text-align:center;min-height:100vh;background:#ffe5ee}
-#siteBackground{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#f8dce8}
-.bgPhoto{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 2s}
+
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  color:#71334f;
+  text-align:center;
+  min-height:100vh;
+  background:#ffe5ee;
+}
+
+#siteBackground{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+  background:#f8dce8;
+}
+
+.bgPhoto{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 2s;
+}
+
 .bgPhoto.show{opacity:.48}
-#shade{position:absolute;inset:0;background:rgba(255,238,245,.43)}
-main{position:relative;z-index:1;min-height:100vh;padding:25px 14px 55px}
-.screen{display:none;max-width:850px;margin:25px auto;padding:25px 18px;border-radius:25px;background:rgba(255,255,255,.86);box-shadow:0 8px 35px #9d456333;backdrop-filter:blur(7px)}
-.screen.active{display:block;animation:appear .7s}
-@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
-h1{color:#bd3e75;font-size:clamp(25px,6vw,42px)}
+
+#shade{
+  position:absolute;
+  inset:0;
+  background:rgba(255,238,245,.43);
+}
+
+main{
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  padding:25px 14px 55px;
+}
+
+.screen{
+  display:none;
+  max-width:850px;
+  margin:25px auto;
+  padding:25px 18px;
+  border-radius:25px;
+  background:rgba(255,255,255,.86);
+  box-shadow:0 8px 35px #9d456333;
+  backdrop-filter:blur(7px);
+}
+
+.screen.active{
+  display:block;
+  animation:appear .7s;
+}
+
+@keyframes appear{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:none}
+}
+
+h1{
+  color:#bd3e75;
+  font-size:clamp(25px,6vw,42px);
+}
+
 h2{color:#c34c7c}
-p{line-height:2;font-size:17px}
-button{border:0;border-radius:30px;padding:12px 22px;margin:7px;background:linear-gradient(135deg,#ff8eb4,#d94f89);color:white;font-size:16px;cursor:pointer;box-shadow:0 4px 12px #d94f8940}
+
+p{
+  line-height:2;
+  font-size:17px;
+}
+
+button{
+  border:0;
+  border-radius:30px;
+  padding:12px 22px;
+  margin:7px;
+  background:linear-gradient(135deg,#ff8eb4,#d94f89);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 4px 12px #d94f8940;
+}
+
 button:active{transform:scale(.97)}
-button.secondary{background:linear-gradient(135deg,#b68acb,#8559a8)}
-button.light{background:#fff;color:#b53e75;border:1px solid #f3a8c5}
-#musicButton{position:fixed;left:12px;bottom:14px;z-index:10}
-#topCounter{position:fixed;top:10px;left:10px;z-index:8;background:#fff9;padding:9px 12px;border-radius:15px;font-size:12px;box-shadow:0 3px 12px #0002;display:none}
-.roomCard,.messageCard,.giftCard{background:#fff8fb;border:1px solid #ffd0e0;border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 4px 14px #a53b6510}
+
+button.secondary{
+  background:linear-gradient(135deg,#b68acb,#8559a8);
+}
+
+button.light{
+  background:#fff;
+  color:#b53e75;
+  border:1px solid #f3a8c5;
+}
+
+#musicButton{
+  position:fixed;
+  left:12px;
+  bottom:14px;
+  z-index:10;
+}
+
+#topCounter{
+  position:fixed;
+  top:10px;
+  left:10px;
+  z-index:8;
+  background:#fff9;
+  padding:9px 12px;
+  border-radius:15px;
+  font-size:12px;
+  box-shadow:0 3px 12px #0002;
+  display:none;
+}
+
+.roomCard,.messageCard,.giftCard{
+  background:#fff8fb;
+  border:1px solid #ffd0e0;
+  border-radius:20px;
+  padding:18px;
+  margin:14px 0;
+  box-shadow:0 4px 14px #a53b6510;
+}
+
 .roomCard{cursor:pointer}
 .roomCard:hover{transform:translateY(-2px)}
-.heart{font-size:35px;animation:pulse 1.4s infinite}
-@keyframes pulse{50%{transform:scale(1.15)}}
-input{padding:13px;border:1px solid #e8a4bf;border-radius:12px;font-size:17px;text-align:center;max-width:100%}
-.signature{margin-top:28px;padding:18px;border-top:1px dashed #e9a4bd;color:#a63e70;line-height:2.2}
-.signature .fancy{font-size:24px;font-weight:bold}
-.gift{font-size:50px;cursor:pointer}
+
+.heart{
+  font-size:35px;
+  animation:pulse 1.4s infinite;
+}
+
+@keyframes pulse{
+  50%{transform:scale(1.15)}
+}
+
+input{
+  padding:13px;
+  border:1px solid #e8a4bf;
+  border-radius:12px;
+  font-size:17px;
+  text-align:center;
+  max-width:100%;
+}
+
+.signature{
+  margin-top:28px;
+  padding:18px;
+  border-top:1px dashed #e9a4bd;
+  color:#a63e70;
+  line-height:2.2;
+}
+
+.signature .fancy{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.gift{
+  font-size:50px;
+  cursor:pointer;
+}
+
 .hidden{display:none}
-#giftMessage{padding:15px;background:#fff0f6;border-radius:15px;margin-top:12px}
-footer{padding:25px;color:#99506f}
+
+#giftMessage{
+  padding:15px;
+  background:#fff0f6;
+  border-radius:15px;
+  margin-top:12px;
+}
+
+footer{
+  padding:25px;
+  color:#99506f;
+}
+
+/* نافذة الهدايا المنبثقة */
+
+#kidPopup{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:rgba(65,20,45,.58);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+#kidPopup.show{
+  display:flex;
+  animation:popupFade .3s ease;
+}
+
+#kidPopupContent{
+  width:100%;
+  max-width:360px;
+  background:linear-gradient(145deg,#fff8fc,#ffe4ef);
+  border:2px solid #ffb3ce;
+  border-radius:25px;
+  padding:30px 20px;
+  box-shadow:0 10px 40px #0003;
+  animation:popupScale .35s ease;
+}
+
+#kidPopupMessage{
+  font-size:21px;
+  line-height:2;
+  color:#a52c62;
+  margin:15px 0 22px;
+}
+
+.popupHeart{
+  font-size:48px;
+  animation:pulse 1.4s infinite;
+}
+
+@keyframes popupFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes popupScale{
+  from{transform:scale(.75)}
+  to{transform:scale(1)}
+}
+
 </style>
 </head>
+
 <body>
 
 <div id="siteBackground">
@@ -49,9 +252,13 @@ footer{padding:25px;color:#99506f}
 </div>
 
 <div id="topCounter"></div>
-<button id="musicButton" onclick="toggleMusic()">🎵 تشغيل الموسيقى</button>
+
+<button id="musicButton" onclick="toggleMusic()">
+🎵 تشغيل الموسيقى
+</button>
 
 <main>
+
 <section id="welcomeScreen" class="screen active">
   <div class="heart">💗</div>
   <h1>LODI'S DREAM WORLD</h1>
@@ -72,18 +279,21 @@ footer{padding:25px;color:#99506f}
 <section id="worldMenu" class="screen">
   <h1>اختاري عالمكِ يا أميرتي</h1>
   <p>كل غرفة هنا تحمل مفاجأة صغيرة لكِ 💕</p>
+
   <div class="roomCard" onclick="openLoveRoom()">
     <div class="heart">💖</div>
     <h2>غرفة الحب والاعتذار والهدايا</h2>
     <p>رسائل من قلبي ومفاجآت صنعتها لكِ.</p>
     <button>دخول الغرفة</button>
   </div>
+
   <div class="roomCard" onclick="showScreen('secretRoom')">
     <div class="heart">🔐</div>
     <h2>الغرفة السرية</h2>
     <p>هناك شيء خاص ينتظركِ هنا...</p>
     <button class="secondary">اكتشفي السر</button>
   </div>
+
   <div class="roomCard" onclick="showScreen('kidRoom')">
     <div class="heart">🧸</div>
     <h2>عالم طفلتي المدللة</h2>
@@ -100,34 +310,42 @@ footer{padding:25px;color:#99506f}
     <h2>رسالتي الأولى 💌</h2>
     <p>يا لودي، أنتِ لستِ مجرد شخص في حياتي، أنتِ الحكاية الجميلة التي أتمنى أن تستمر، والابتسامة التي أحب أن أراها كل يوم.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي الثانية 🌹</h2>
     <p>أحب تفاصيلكِ الصغيرة، ضحكتكِ وكلامكِ ووجودكِ. حتى أبسط اللحظات معكِ تصبح ذكرى جميلة في قلبي.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي الثالثة 🥺</h2>
     <p>إذا أخطأت يوماً، لا تجعلي الزعل ينسينا كل اللحظات الحلوة. أريد أن أتعلم من أخطائي وأن أكون سبباً في سعادتكِ.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي الرابعة 💞</h2>
     <p>أتمنى أن أكون لكِ الأمان والحنان، وأن تجدي بقربي قلباً يسمعكِ ويفهمكِ ويقدّر مشاعركِ.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي الخامسة 🌷</h2>
     <p>لو كان بإمكاني أن أهديكِ شيئاً واحداً، لأهديتكِ القدرة على رؤية نفسكِ بعيني، حتى تعرفي كم أنتِ غالية وجميلة في نظري.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي السادسة 💝</h2>
     <p>لا أريد حباً مثالياً بلا أخطاء، أريد حباً صادقاً نتحدث فيه بصراحة، ونتصالح فيه بمحبة، ونختار بعضنا في كل مرة.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي السابعة 🌙</h2>
     <p>يا أجمل أقداري، أتمنى أن تبقى أيامنا القادمة مليئة بالضحكات والذكريات الجميلة، وأن لا نفقد أبداً قدرتنا على إسعاد بعضنا.</p>
   </div>
+
   <div class="messageCard">
     <h2>رسالتي الثامنة... دعوة من قلبي ❤️</h2>
     <p>يا لودي يا حبيبتي... أمس دعوتكِ لتكوني بقربي في سريرنا، وكنت أتمنى أن تأتي لأقضي معكِ وقتاً مليئاً بالحب والحنان والدفء. لكنكِ لم تأتي، وبقيت أتمنى وجودكِ بجانبي.</p>
     <p>بدي منكِ تسامحيني يا روحي، وتقبلي دعوتي من جديد عندما تكونين مرتاحة وراغبة. اشتقت لقربكِ ولضحكتكِ ولأحاديثنا الجميلة. لا أريد أن أضغط عليكِ، بل أريد أن تأتي لأنكِ تحبين ذلك وتشعرين بالسعادة معي.</p>
+
     <div class="signature">
       حبيبكِ المُخلِص<br>
       <span class="fancy">مــودي ❤️</span><br>
@@ -137,12 +355,18 @@ footer{padding:25px;color:#99506f}
   </div>
 
   <h2>🎁 هدية صغيرة لكِ</h2>
+
   <div class="giftCard">
     <div class="gift" onclick="revealGift()">🎁</div>
     <p>اضغطي على الهدية لتكتشفي ما بداخلها</p>
-    <div id="giftMessage" class="hidden">أجمل هدية في حياتي هي وجودكِ فيها يا لودي. أحبكِ ❤️🌹</div>
+    <div id="giftMessage" class="hidden">
+      أجمل هدية في حياتي هي وجودكِ فيها يا لودي. أحبكِ ❤️🌹
+    </div>
   </div>
-  <button onclick="showScreen('worldMenu')" class="light">العودة إلى الغرف</button>
+
+  <button onclick="showScreen('worldMenu')" class="light">
+    العودة إلى الغرف
+  </button>
 </section>
 
 <section id="secretRoom" class="screen">
@@ -150,17 +374,26 @@ footer{padding:25px;color:#99506f}
   <h1>غرفتنا السرية</h1>
   <p>لا تفتح هذه الغرفة إلا من تعرف تاريخنا الخاص 💗</p>
   <p>اكتبي كلمة السر:</p>
+
   <input id="secretPassword" type="password" placeholder="كلمة السر">
   <br>
+
   <button onclick="checkPassword()">افتحي الباب ❤️</button>
+
   <p id="passwordError" style="color:#c03965"></p>
+
   <div id="secretContent" class="hidden">
     <div class="heart">💍</div>
     <h2>أهلاً بكِ في مكاننا الخاص يا لودي</h2>
     <p>23/09/2026... تاريخ أحمله في قلبي، وأتمنى أن تكون بداية ذكريات لا تنتهي.</p>
     <p>هذا المكان لكِ وحدكِ، وكل ما فيه يقول لكِ: أنتِ غالية جداً عند مودي ❤️</p>
-    <div class="signature">مــودي ❤️<br>𝓜𝓸𝓭𝓲 ✍🏻</div>
+
+    <div class="signature">
+      مــودي ❤️<br>
+      𝓜𝓸𝓭𝓲 ✍🏻
+    </div>
   </div>
+
   <button onclick="showScreen('worldMenu')" class="light">العودة</button>
 </section>
 
@@ -168,152 +401,308 @@ footer{padding:25px;color:#99506f}
   <h1>عالم طفلتي المدللة 🧸</h1>
   <div class="heart">🎀</div>
   <p>هنا ممنوع الزعل، ومسموح الدلال والحلوى والضحك فقط!</p>
+
   <div class="giftCard">
     <div class="gift" onclick="kidGift('🧸 دبدوب كبير حتى يحضنكِ كلما اشتقتِ إليّ!')">🧸</div>
     <p>دبدوب حنون</p>
   </div>
+
   <div class="giftCard">
     <div class="gift" onclick="kidGift('🍫 شوكولاتة حلوة لأحلى قلب!')">🍫</div>
     <p>شوكولاتة</p>
   </div>
+
   <div class="giftCard">
     <div class="gift" onclick="kidGift('🌹 باقة ورد حمراء لأنكِ أجمل من الورد!')">🌹</div>
     <p>ورود</p>
   </div>
+
   <div class="giftCard">
     <div class="gift" onclick="kidGift('👑 أنتِ أميرتي وملكة هذا العالم الصغير!')">👑</div>
     <p>تاج أميرتي</p>
   </div>
+
   <div class="giftCard">
     <div class="gift" onclick="kidGift('🍬 حلوى كثيرة لطفلتي المدللة!')">🍬</div>
     <p>حلويات</p>
   </div>
-  <div id="kidMessage" class="messageCard hidden"></div>
-  <button onclick="showScreen('worldMenu')" class="light">العودة إلى الغرف</button>
+
+  <button onclick="showScreen('worldMenu')" class="light">
+    العودة إلى الغرف
+  </button>
 </section>
 
 <footer>صُنع بكل الحب من مودي إلى لودي ❤️</footer>
+
 </main>
 
+<!-- النافذة المنبثقة لهدايا غرفة الطفلة -->
+
+<div id="kidPopup" onclick="closeKidPopup(event)">
+  <div id="kidPopupContent" onclick="event.stopPropagation()">
+    <div class="popupHeart">💗</div>
+    <h2>مفاجأة لطفلتي المدللة</h2>
+    <p id="kidPopupMessage"></p>
+    <button onclick="closeKidPopup()">حسناً يا مودي ❤️</button>
+  </div>
+</div>
+
 <script>
+
 const imageOne = "images/file_0000000088fc8243819a2eabfcc547d3.png";
 const imageTwo = "images/IMG_20260410_160508.jpg";
 
-document.getElementById("photoOne").style.backgroundImage = `url("${imageOne}")`;
-document.getElementById("photoTwo").style.backgroundImage = `url("${imageTwo}")`;
+document.getElementById("photoOne").style.backgroundImage =
+  `url("${imageOne}")`;
+
+document.getElementById("photoTwo").style.backgroundImage =
+  `url("${imageTwo}")`;
 
 let showingFirst = true;
+
 setInterval(() => {
   showingFirst = !showingFirst;
+
   document.getElementById("photoOne").classList.toggle("show", showingFirst);
   document.getElementById("photoTwo").classList.toggle("show", !showingFirst);
+
 }, 7000);
 
+
 function showScreen(id) {
-  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+
+  document.querySelectorAll(".screen").forEach(s =>
+    s.classList.remove("active")
+  );
+
   document.getElementById(id).classList.add("active");
+
   document.getElementById("topCounter").style.display =
     id === "loveRoom" ? "block" : "none";
+
   window.scrollTo({top:0,behavior:"smooth"});
 }
+
 
 function startJourney() {
   startMusic();
   showScreen("apologyScreen");
 }
 
+
 function openLoveRoom() {
   showScreen("loveRoom");
   updateCounter();
 }
 
+
 function revealGift() {
   document.getElementById("giftMessage").classList.remove("hidden");
 }
 
+
+/* عرض هدايا الطفلة في نافذة منبثقة */
+
 function kidGift(message) {
-  const box = document.getElementById("kidMessage");
-  box.textContent = message;
-  box.classList.remove("hidden");
+
+  document.getElementById("kidPopupMessage").textContent = message;
+
+  document.getElementById("kidPopup").classList.add("show");
+
 }
+
+
+function closeKidPopup(event) {
+
+  if (
+    !event ||
+    event.target.id === "kidPopup" ||
+    event.target.tagName === "BUTTON"
+  ) {
+
+    document.getElementById("kidPopup").classList.remove("show");
+
+  }
+
+}
+
+
+/* إغلاق النافذة بزر Escape */
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+    document.getElementById("kidPopup").classList.remove("show");
+  }
+
+});
+
 
 function checkPassword() {
+
   const value = document.getElementById("secretPassword").value.trim();
+
   const error = document.getElementById("passwordError");
+
   const content = document.getElementById("secretContent");
+
   if (value === "23/9/2026") {
+
     error.textContent = "";
     content.classList.remove("hidden");
+
   } else {
+
     error.textContent = "ليست كلمة السر الصحيحة، حاولي مرة أخرى يا لودي ❤️";
     content.classList.add("hidden");
+
   }
+
 }
+
 
 function updateCounter() {
+
   const start = new Date(2026, 8, 23);
+
   const now = new Date();
+
   let diff = Math.max(0, now - start);
+
   const days = Math.floor(diff / 86400000);
+
   const hours = Math.floor((diff % 86400000) / 3600000);
+
   const minutes = Math.floor((diff % 3600000) / 60000);
+
   const seconds = Math.floor((diff % 60000) / 1000);
+
   document.getElementById("topCounter").textContent =
     `❤️ معاً منذ ${days} يوم و${hours} ساعة و${minutes} دقيقة و${seconds} ثانية`;
+
 }
+
 setInterval(updateCounter,1000);
+
 updateCounter();
 
+
 /* لحن أصلي هادئ يتم توليده داخل الصفحة */
+
 let audioContext = null;
+
 let musicPlaying = false;
+
 let musicTimer = null;
+
 let noteIndex = 0;
 
-const melody = [261.63,329.63,392.00,329.63,293.66,349.23,392.00,349.23,
-                261.63,329.63,440.00,392.00,349.23,329.63,293.66,261.63];
+const melody = [
+  261.63,329.63,392.00,329.63,
+  293.66,349.23,392.00,349.23,
+  261.63,329.63,440.00,392.00,
+  349.23,329.63,293.66,261.63
+];
+
 
 function playNote() {
+
   if (!musicPlaying || !audioContext) return;
+
   const oscillator = audioContext.createOscillator();
+
   const gain = audioContext.createGain();
+
   oscillator.type = "sine";
-  oscillator.frequency.value = melody[noteIndex % melody.length];
-  gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.055, audioContext.currentTime + 0.12);
-  gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 1.05);
+
+  oscillator.frequency.value =
+    melody[noteIndex % melody.length];
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    audioContext.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.055,
+    audioContext.currentTime + 0.12
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    audioContext.currentTime + 1.05
+  );
+
   oscillator.connect(gain);
+
   gain.connect(audioContext.destination);
+
   oscillator.start();
+
   oscillator.stop(audioContext.currentTime + 1.1);
+
   noteIndex++;
+
   musicTimer = setTimeout(playNote, 650);
+
 }
+
 
 async function startMusic() {
+
   if (musicPlaying) return;
+
   try {
-    audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+
+    audioContext = audioContext ||
+      new (window.AudioContext || window.webkitAudioContext)();
+
     await audioContext.resume();
+
     musicPlaying = true;
-    document.getElementById("musicButton").textContent = "🔇 إيقاف الموسيقى";
+
+    document.getElementById("musicButton").textContent =
+      "🔇 إيقاف الموسيقى";
+
     playNote();
+
   } catch(e) {
-    document.getElementById("musicButton").textContent = "🎵 تشغيل الموسيقى";
+
+    document.getElementById("musicButton").textContent =
+      "🎵 تشغيل الموسيقى";
+
   }
+
 }
+
 
 function stopMusic() {
+
   musicPlaying = false;
+
   clearTimeout(musicTimer);
-  if (audioContext && audioContext.state === "running") audioContext.suspend();
-  document.getElementById("musicButton").textContent = "🎵 تشغيل الموسيقى";
+
+  if (audioContext && audioContext.state === "running") {
+    audioContext.suspend();
+  }
+
+  document.getElementById("musicButton").textContent =
+    "🎵 تشغيل الموسيقى";
+
 }
 
+
 function toggleMusic() {
-  if (musicPlaying) stopMusic();
-  else startMusic();
+
+  if (musicPlaying) {
+    stopMusic();
+  } else {
+    startMusic();
+  }
+
 }
+
 </script>
+
 </body>
 </html>
