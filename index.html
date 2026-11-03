@@ -46,14 +46,14 @@ h1{
  backdrop-filter:blur(9px);
 }
 .hidden{display:none!important}
-img{
- display:block;width:100%;height:260px;
+.scene-image{
+ display:block;width:100%;height:280px;
  object-fit:cover;border-radius:20px;
  border:2px solid #ffd1e8;
  box-shadow:0 0 25px #ff8ac455;
  margin:15px auto;
 }
-.hero{height:320px}
+.hero{height:330px;width:100%;object-fit:cover;border-radius:20px}
 .message{
  white-space:pre-line;line-height:2.2;
  font-size:17px;color:#fff0f8;
@@ -68,10 +68,6 @@ button{
  cursor:pointer;
 }
 button:active{transform:scale(.96)}
-.music{
- position:fixed;z-index:10;top:12px;right:12px;
- padding:10px 14px;font-size:12px;
-}
 .heart{
  position:fixed;z-index:8;bottom:-50px;
  pointer-events:none;animation:float 6s linear forwards;
@@ -151,7 +147,6 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 
 <body>
 
-<!-- شاشة الدخول -->
 <div id="introScreen">
  <div class="introMoon">🌙</div>
  <div class="introCrown">👑</div>
@@ -166,10 +161,6 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 <canvas id="stars"></canvas>
 <div class="moon"></div>
 
-<button class="music" id="musicButton" onclick="toggleMusic()">
-🎵 تشغيل الموسيقى
-</button>
-
 <main class="container">
 
 <h1>LODI'S DREAM WORLD ❤️</h1>
@@ -178,12 +169,11 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 هنا القمر يضيء لأجلكِ والنجوم تنتظر ابتسامتكِ.
 </p>
 
-<!-- المرحلة الأولى -->
 <section class="card" id="stage1">
  <div class="gold">👑 مملكة الأميرة لودي 👑</div>
  <img class="hero"
- src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1100&q=85"
- alt="قصر ملكي">
+ src="https://cdn2.suno.ai/image_large_4ece1427-ce88-4bbc-91ed-9fb298dcff2e.jpeg"
+ alt="قصر خيالي تحت القمر">
  <p class="message">
 في ليلة يملؤها ضوء القمر،
 وفي مملكة بعيدة عن كل العالم،
@@ -196,12 +186,11 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  <button onclick="nextStage(1)">ادخلي القصر يا أميرتي ✨</button>
 </section>
 
-<!-- المرحلة الثانية -->
 <section class="card hidden" id="stage2">
  <div class="gold">🏰 قصر لودي الملكي</div>
  <img class="hero"
- src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1100&q=85"
- alt="قصر مضاء">
+ src="https://image.cdn2.seaart.ai/2024-05-31/cpcjiu5e878c73c2knkg/1599d0ce3f652e777c4351e713d70cd6540d3beb_high.webp"
+ alt="قصر أميرات وردي تحت القمر">
  <p class="message">
 انظري إلى هذا القصر...
 كل نافذة فيه تضيء باسمكِ،
@@ -215,12 +204,11 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  <button onclick="nextStage(2)">تابعي يا ملكتي 🌹</button>
 </section>
 
-<!-- المرحلة الثالثة -->
 <section class="card hidden" id="stage3">
- <div class="gold">👸 أجمل ملكات الأحلام</div>
+ <div class="gold">👸 ملكة هذا العالم</div>
  <img class="hero"
- src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85"
- alt="صورة امرأة جميلة">
+ src="https://pixu.ai/pixu/images/stock/__zf/zf5otxj8.jpg"
+ alt="ملكة بفستان ذهبي وتاج">
  <p class="message">
 في هذه المملكة توجد ملكة واحدة،
 لا ينافس جمالها جمال القصور،
@@ -234,12 +222,16 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  <button onclick="nextStage(3)">لديكِ مفاجأة 💌</button>
 </section>
 
-<!-- المرحلة الرابعة -->
 <section class="card hidden" id="stage4">
- <div class="gold">💗 مفاجأة من قلبي</div>
- <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1000&q=85"
- alt="ورود رومانسية">
+ <div class="gold">💗 حديقة الورود السحرية</div>
+ <img class="hero"
+ src="https://img.pikbest.com/backgrounds/20250915/romantic-moonlit-garden-illustration_11888935.jpg%21w700wp"
+ alt="حديقة ورود سحرية تحت القمر">
  <p class="message">
+هذه الحديقة لكِ يا لودي...
+كل وردة فيها تحمل كلمة حب،
+وكل ضوء فيها يشبه ابتسامتكِ.
+
 اضغطي على الزر...
 ودعي القلوب تخبركِ بما لا تستطيع الكلمات قوله.
  </p>
@@ -247,11 +239,11 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  <button onclick="nextStage(4)">رسالة أخرى لكِ 🌙</button>
 </section>
 
-<!-- المرحلة الخامسة -->
 <section class="card hidden" id="stage5">
  <div class="gold">🌙 رسالة عتاب من قلبي</div>
- <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1000&q=85"
- alt="سماء ليلية">
+ <img class="hero"
+ src="https://i.pinimg.com/736x/05/c8/d2/05c8d2673dbc311f36095d0cd2300214.jpg"
+ alt="قاعة العرش الملكية">
  <p class="message">
 يا لودي...
 
@@ -278,12 +270,11 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  <button onclick="nextStage(5)">آخر رسالة لكِ يا لودي 💖</button>
 </section>
 
-<!-- المرحلة السادسة -->
 <section class="card hidden" id="stage6">
  <div class="gold">💍 من مملكتكِ إلى قلبكِ</div>
  <img class="hero"
- src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=85"
- alt="لحظة رومانسية">
+ src="https://ik.imagekit.io/storybird/images/820d15e6-e491-46c5-a45a-fe60fe5b974c/0_85710019.webp?tr=q-80"
+ alt="أميرة بفستان ملكي داخل القصر">
  <p class="message">
 يا أجمل أميرة في هذا العالم...
 
@@ -308,7 +299,6 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 <footer>صُنعت هذه المملكة من أجل لودي ❤️</footer>
 </main>
 
-<!-- نافذة القلوب -->
 <div class="heartCurtain" id="heartCurtain">
  <div id="curtainHearts"></div>
  <div class="revealText">
@@ -384,68 +374,77 @@ resize();
 draw();
 window.addEventListener("resize",resize);
 
-/* موسيقى هادئة مولّدة */
+/* موسيقى بيانو هادئة مولّدة داخل الموقع */
 let audioContext=null;
 let musicTimer=null;
-let musicOn=false;
+let musicStarted=false;
 let noteIndex=0;
 
 const melody=[
- 261.63,329.63,392,329.63,
- 293.66,349.23,440,349.23,
- 261.63,329.63,392,523.25,
- 440,392,329.63,293.66
+ 261.63,329.63,392.00,493.88,
+ 440.00,392.00,349.23,293.66,
+ 261.63,329.63,440.00,523.25,
+ 493.88,440.00,392.00,329.63
 ];
 
-function playNote(){
- if(!audioContext||!musicOn)return;
- const now=audioContext.currentTime;
- const notes=[
+function playPianoNote(frequency,delay=0,duration=2){
+ if(!audioContext)return;
+
+ const now=audioContext.currentTime+delay;
+ const oscillator=audioContext.createOscillator();
+ const gain=audioContext.createGain();
+
+ oscillator.type="triangle";
+ oscillator.frequency.setValueAtTime(frequency,now);
+
+ gain.gain.setValueAtTime(0.0001,now);
+ gain.gain.exponentialRampToValueAtTime(0.035,now+0.06);
+ gain.gain.exponentialRampToValueAtTime(0.0001,now+duration);
+
+ oscillator.connect(gain);
+ gain.connect(audioContext.destination);
+
+ oscillator.start(now);
+ oscillator.stop(now+duration+0.1);
+}
+
+function playRomanticMelody(){
+ if(!audioContext||!musicStarted)return;
+
+ const melodyNotes=[
   melody[noteIndex%melody.length],
-  melody[(noteIndex+2)%melody.length]/2
+  melody[(noteIndex+2)%melody.length],
+  melody[(noteIndex+4)%melody.length]
  ];
 
- notes.forEach((freq,i)=>{
-  const osc=audioContext.createOscillator();
-  const gain=audioContext.createGain();
-  osc.type="sine";
-  osc.frequency.value=freq;
-  gain.gain.setValueAtTime(.0001,now);
-  gain.gain.exponentialRampToValueAtTime(i===0?.045:.018,now+.12);
-  gain.gain.exponentialRampToValueAtTime(.0001,now+1.5);
-  osc.connect(gain);
-  gain.connect(audioContext.destination);
-  osc.start(now);
-  osc.stop(now+1.6);
- });
- noteIndex++;
+ playPianoNote(melodyNotes[0],0,2.1);
+ playPianoNote(melodyNotes[1],0.55,2.1);
+ playPianoNote(melodyNotes[2],1.1,2.1);
+
+ noteIndex=(noteIndex+1)%melody.length;
 }
 
-async function toggleMusic(){
- const button=document.getElementById("musicButton");
+async function startRomanticMusic(){
+ if(musicStarted)return;
 
- if(!audioContext){
+ try{
   const AudioCtx=window.AudioContext||window.webkitAudioContext;
-  if(!AudioCtx){
-   alert("المتصفح لا يدعم تشغيل الموسيقى.");
-   return;
-  }
-  audioContext=new AudioCtx();
- }
+  if(!AudioCtx)return;
 
- if(audioContext.state==="suspended")await audioContext.resume();
+  if(!audioContext)audioContext=new AudioCtx();
+  if(audioContext.state==="suspended")await audioContext.resume();
 
- musicOn=!musicOn;
-
- if(musicOn){
-  playNote();
-  musicTimer=setInterval(playNote,850);
-  button.innerText="⏸ إيقاف الموسيقى";
- }else{
-  clearInterval(musicTimer);
-  button.innerText="🎵 تشغيل الموسيقى";
+  musicStarted=true;
+  playRomanticMelody();
+  musicTimer=setInterval(playRomanticMelody,2400);
+ }catch(error){
+  console.log("تعذر تشغيل الموسيقى:",error);
  }
 }
+
+/* أول لمسة في أي مكان تشغّل الموسيقى */
+document.addEventListener("pointerdown",startRomanticMusic,{once:true});
+document.addEventListener("keydown",startRomanticMusic,{once:true});
 
 /* الانتقال بين المراحل */
 function nextStage(n){
