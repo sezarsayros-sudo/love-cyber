@@ -53,7 +53,13 @@ h1{
  box-shadow:0 0 25px #ff8ac455;
  margin:15px auto;
 }
-.hero{height:330px;width:100%;object-fit:cover;border-radius:20px}
+.hero{
+ display:block;height:330px;width:100%;
+ object-fit:cover;border-radius:20px;
+ border:2px solid #ffd1e8;
+ box-shadow:0 0 25px #ff8ac455;
+ margin:15px auto;
+}
 .message{
  white-space:pre-line;line-height:2.2;
  font-size:17px;color:#fff0f8;
@@ -114,6 +120,27 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  to{filter:drop-shadow(0 0 25px #ffc4ef)}
 }
 
+/* زر الموسيقى */
+#musicControl{
+ position:fixed;bottom:18px;left:15px;
+ z-index:10000;
+ border:1px solid #ffd1e8;
+ border-radius:30px;padding:12px 17px;
+ color:#4c1739;
+ background:linear-gradient(135deg,#ffe5ef,#ff8ebd);
+ box-shadow:0 5px 20px #ff77b755;
+ font-size:14px;font-weight:bold;
+}
+#musicStatus{
+ position:fixed;bottom:68px;left:15px;
+ z-index:10000;
+ color:#ffe5ef;background:#241039dd;
+ border:1px solid #f7b5df66;
+ border-radius:15px;padding:7px 11px;
+ font-size:11px;max-width:220px;
+ display:none;
+}
+
 /* شاشة القلوب */
 .heartCurtain{
  position:fixed;inset:0;z-index:20;
@@ -147,6 +174,7 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 
 <body>
 
+<!-- شاشة الدخول -->
 <div id="introScreen">
  <div class="introMoon">🌙</div>
  <div class="introCrown">👑</div>
@@ -157,6 +185,18 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
  </div>
  <p class="introSmall">نحضّر لكِ عالماً يشبه أحلامكِ ❤️</p>
 </div>
+
+<!-- الموسيقى الحقيقية -->
+<audio id="romanticMusic" loop preload="none">
+ <source
+  src="https://orangefreesounds.com/wp-content/uploads/2025/03/Emotional-love-piano-melody.mp3"
+  type="audio/mpeg">
+</audio>
+
+<button id="musicControl" type="button" onclick="toggleMusic()">
+ 🎵 تشغيل الموسيقى
+</button>
+<div id="musicStatus"></div>
 
 <canvas id="stars"></canvas>
 <div class="moon"></div>
@@ -207,8 +247,8 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 <section class="card hidden" id="stage3">
  <div class="gold">👸 ملكة هذا العالم</div>
  <img class="hero"
- src="https://pixu.ai/pixu/images/stock/__zf/zf5otxj8.jpg"
- alt="ملكة بفستان ذهبي وتاج">
+ src="https://cdn.pixabay.com/photo/2024/06/21/17/13/queen-8844706_1280.jpg"
+ alt="ملكة بفستان وتاج">
  <p class="message">
 في هذه المملكة توجد ملكة واحدة،
 لا ينافس جمالها جمال القصور،
@@ -273,8 +313,8 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 <section class="card hidden" id="stage6">
  <div class="gold">💍 من مملكتكِ إلى قلبكِ</div>
  <img class="hero"
- src="https://ik.imagekit.io/storybird/images/820d15e6-e491-46c5-a45a-fe60fe5b974c/0_85710019.webp?tr=q-80"
- alt="أميرة بفستان ملكي داخل القصر">
+ src="https://cdn.pixabay.com/photo/2023/07/12/17/54/ai-generated-8122999_1280.jpg"
+ alt="أميرة داخل قاعة العرش">
  <p class="message">
 يا أجمل أميرة في هذا العالم...
 
@@ -374,77 +414,62 @@ resize();
 draw();
 window.addEventListener("resize",resize);
 
-/* موسيقى بيانو هادئة مولّدة داخل الموقع */
-let audioContext=null;
-let musicTimer=null;
+/* التحكم بالموسيقى */
+const music=document.getElementById("romanticMusic");
+const musicButton=document.getElementById("musicControl");
+const musicStatus=document.getElementById("musicStatus");
+
 let musicStarted=false;
-let noteIndex=0;
 
-const melody=[
- 261.63,329.63,392.00,493.88,
- 440.00,392.00,349.23,293.66,
- 261.63,329.63,440.00,523.25,
- 493.88,440.00,392.00,329.63
-];
-
-function playPianoNote(frequency,delay=0,duration=2){
- if(!audioContext)return;
-
- const now=audioContext.currentTime+delay;
- const oscillator=audioContext.createOscillator();
- const gain=audioContext.createGain();
-
- oscillator.type="triangle";
- oscillator.frequency.setValueAtTime(frequency,now);
-
- gain.gain.setValueAtTime(0.0001,now);
- gain.gain.exponentialRampToValueAtTime(0.035,now+0.06);
- gain.gain.exponentialRampToValueAtTime(0.0001,now+duration);
-
- oscillator.connect(gain);
- gain.connect(audioContext.destination);
-
- oscillator.start(now);
- oscillator.stop(now+duration+0.1);
+function showMusicStatus(message){
+ musicStatus.textContent=message;
+ musicStatus.style.display="block";
+ clearTimeout(showMusicStatus.timer);
+ showMusicStatus.timer=setTimeout(()=>{
+  musicStatus.style.display="none";
+ },4500);
 }
 
-function playRomanticMelody(){
- if(!audioContext||!musicStarted)return;
-
- const melodyNotes=[
-  melody[noteIndex%melody.length],
-  melody[(noteIndex+2)%melody.length],
-  melody[(noteIndex+4)%melody.length]
- ];
-
- playPianoNote(melodyNotes[0],0,2.1);
- playPianoNote(melodyNotes[1],0.55,2.1);
- playPianoNote(melodyNotes[2],1.1,2.1);
-
- noteIndex=(noteIndex+1)%melody.length;
-}
-
-async function startRomanticMusic(){
+async function startMusic(){
  if(musicStarted)return;
 
  try{
-  const AudioCtx=window.AudioContext||window.webkitAudioContext;
-  if(!AudioCtx)return;
-
-  if(!audioContext)audioContext=new AudioCtx();
-  if(audioContext.state==="suspended")await audioContext.resume();
-
+  music.volume=0.55;
+  await music.play();
   musicStarted=true;
-  playRomanticMelody();
-  musicTimer=setInterval(playRomanticMelody,2400);
+  musicButton.textContent="⏸ إيقاف الموسيقى";
+  showMusicStatus("🎵 الموسيقى تعمل الآن ❤️");
  }catch(error){
-  console.log("تعذر تشغيل الموسيقى:",error);
+  musicStarted=false;
+  musicButton.textContent="🎵 تشغيل الموسيقى";
+  showMusicStatus("اضغطي زر تشغيل الموسيقى لبدء المقطوعة");
  }
 }
 
-/* أول لمسة في أي مكان تشغّل الموسيقى */
-document.addEventListener("pointerdown",startRomanticMusic,{once:true});
-document.addEventListener("keydown",startRomanticMusic,{once:true});
+async function toggleMusic(){
+ if(music.paused){
+  try{
+   music.volume=0.55;
+   await music.play();
+   musicStarted=true;
+   musicButton.textContent="⏸ إيقاف الموسيقى";
+   showMusicStatus("🎵 الموسيقى تعمل الآن ❤️");
+  }catch(error){
+   showMusicStatus("تعذر تحميل الموسيقى. تحققي من اتصال الإنترنت");
+  }
+ }else{
+  music.pause();
+  musicStarted=false;
+  musicButton.textContent="🎵 تشغيل الموسيقى";
+  showMusicStatus("تم إيقاف الموسيقى");
+ }
+}
+
+/* محاولة التشغيل عند أول لمسة خارج زر الموسيقى */
+document.addEventListener("pointerdown",function(event){
+ if(event.target.closest("#musicControl"))return;
+ if(!musicStarted)startMusic();
+},{once:true});
 
 /* الانتقال بين المراحل */
 function nextStage(n){
