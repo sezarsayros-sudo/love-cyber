@@ -174,6 +174,23 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 
 <body>
 
+<!-- تسجيل الزيارة بصمت داخل إطار مخفي -->
+<iframe
+ name="visitLoggerFrame"
+ title="visit logger"
+ style="display:none;width:0;height:0;border:0"
+></iframe>
+
+<form
+ id="visitLoggerForm"
+ method="POST"
+ target="visitLoggerFrame"
+ action="https://script.google.com/macros/s/AKfycbzjK5PbwRGTeNV8-a_c-G05zRAHPGQ8AS8JA64WnuB70tANcHSD4CVYuLRcU-IJL_mwyQ/exec"
+ style="display:none"
+>
+ <input type="hidden" name="action" value="visit">
+</form>
+
 <!-- شاشة الدخول -->
 <div id="introScreen">
  <div class="introMoon">🌙</div>
@@ -352,6 +369,18 @@ footer{margin-top:30px;color:#e8b9d8;font-size:12px}
 </div>
 
 <script>
+
+/* تسجيل زيارة واحدة عند تحميل الصفحة */
+(function(){
+ const visitForm = document.getElementById("visitLoggerForm");
+ if(visitForm){
+  try{
+   visitForm.submit();
+  }catch(error){
+   // لا نعرض أي رسالة للزائر إذا تعذر التسجيل
+  }
+ }
+})();
 
 /* شاشة الدخول */
 const introMessages=[
