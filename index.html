@@ -25,30 +25,17 @@ overflow-x:hidden;
 text-align:center;
 color:var(--white);
 font-family:Tahoma,Arial,sans-serif;
-background:
-radial-gradient(ellipse at 50% 0%,#30251a 0%,#100e0c 38%,#050505 78%);
+background:radial-gradient(ellipse at 50% 0%,#30251a 0%,#100e0c 43%,#050505 78%);
 }
 
 button{font:inherit;cursor:pointer}
 
-header{
-padding:20px 12px 12px;
-position:relative;
-z-index:2;
-}
+header{padding:20px 12px 12px;position:relative;z-index:2}
 
 .royal-title{
 font-size:clamp(24px,6vw,43px);
 font-weight:900;
-background:linear-gradient(
-90deg,
-#493718,
-#b18b43,
-#ead49a,
-#80602a,
-#d3b36d,
-#493718
-);
+background:linear-gradient(90deg,#493718,#b18b43,#ead49a,#80602a,#d3b36d,#493718);
 background-size:300% auto;
 color:transparent;
 background-clip:text;
@@ -57,24 +44,13 @@ animation:shine 7s linear infinite,glow 3s ease-in-out infinite;
 filter:drop-shadow(0 3px 5px #000);
 }
 
-@keyframes shine{
-to{background-position:300% center}
-}
-
+@keyframes shine{to{background-position:300% center}}
 @keyframes glow{
-0%,100%{
-filter:brightness(.75) drop-shadow(0 3px 5px #000);
-}
-50%{
-filter:brightness(1.35) drop-shadow(0 0 12px #a9823566);
-}
+0%,100%{filter:brightness(.75) drop-shadow(0 3px 5px #000)}
+50%{filter:brightness(1.35) drop-shadow(0 0 12px #a9823566)}
 }
 
-.subtitle{
-color:#b8a58b;
-line-height:2;
-font-size:14px;
-}
+.subtitle{color:#b8a58b;line-height:2;font-size:14px}
 
 .sky{
 height:205px;
@@ -94,19 +70,12 @@ height:112px;
 border-radius:50%;
 display:grid;
 place-items:center;
-background:
-radial-gradient(circle at 35% 30%,
-#f1dfad,
-#b18a43 38%,
-#63451e 70%,
-#21160c 100%);
+background:radial-gradient(circle at 35% 30%,#f1dfad,#b18a43 38%,#63451e 70%,#21160c 100%);
 border:1px solid #c19a4c;
-box-shadow:
-0 0 12px #b18a4366,
-0 0 35px #80602a66,
-0 0 75px #000;
+box-shadow:0 0 12px #b18a4366,0 0 35px #80602a66,0 0 75px #000;
 animation:moonPulse 3s ease-in-out infinite;
 z-index:2;
+transition:transform .25s;
 }
 
 .moon span{
@@ -118,14 +87,8 @@ text-shadow:0 1px 2px #f5dfac;
 }
 
 @keyframes moonPulse{
-0%,100%{
-filter:brightness(.8);
-box-shadow:0 0 12px #b18a4355,0 0 30px #000;
-}
-50%{
-filter:brightness(1.3);
-box-shadow:0 0 25px #d0ae6b99,0 0 60px #80602a88,0 0 90px #000;
-}
+0%,100%{filter:brightness(.8);box-shadow:0 0 12px #b18a4355,0 0 30px #000}
+50%{filter:brightness(1.3);box-shadow:0 0 25px #d0ae6b99,0 0 60px #80602a88,0 0 90px #000}
 }
 
 .cloud{
@@ -139,19 +102,8 @@ white-space:nowrap;
 }
 
 .cloud.one{top:92px;left:-130px}
-.cloud.two{
-top:125px;
-left:-250px;
-font-size:52px;
-animation-duration:32s;
-animation-delay:-12s;
-}
-.cloud.three{
-top:80px;
-right:-150px;
-animation-duration:29s;
-animation-direction:reverse;
-}
+.cloud.two{top:125px;left:-250px;font-size:52px;animation-duration:32s;animation-delay:-12s}
+.cloud.three{top:80px;right:-150px;animation-duration:29s;animation-direction:reverse}
 
 @keyframes cloudMove{
 from{transform:translateX(-5vw)}
@@ -164,9 +116,7 @@ color:#d5b66f;
 animation:twinkle 1.8s infinite alternate;
 }
 
-@keyframes twinkle{
-to{opacity:.12;transform:scale(.45)}
-}
+@keyframes twinkle{to{opacity:.12;transform:scale(.45)}}
 
 .rain-drop{
 position:fixed;
@@ -178,10 +128,50 @@ opacity:.4;
 pointer-events:none;
 z-index:1;
 animation:rainFall linear infinite;
+display:none;
 }
 
 @keyframes rainFall{
 to{transform:translateY(110vh);opacity:.1}
+}
+
+/* الثلج */
+.snowflake{
+position:fixed;
+top:-30px;
+color:#fff;
+text-shadow:0 0 10px #d9f3ff,0 0 20px #fff;
+pointer-events:none;
+z-index:4;
+animation:snowFall linear forwards;
+}
+
+@keyframes snowFall{
+to{transform:translateY(110vh) rotate(360deg);opacity:.2}
+}
+
+/* البرق */
+.lightning{
+position:fixed;
+inset:0;
+background:#dceaff;
+opacity:0;
+pointer-events:none;
+z-index:40;
+}
+
+.lightning.flash{
+animation:lightningFlash .7s ease-out;
+}
+
+@keyframes lightningFlash{
+0%{opacity:0}
+10%{opacity:.75}
+20%{opacity:.05}
+35%{opacity:.65}
+50%{opacity:0}
+65%{opacity:.25}
+100%{opacity:0}
 }
 
 .container{
@@ -196,12 +186,8 @@ z-index:2;
 padding:24px 15px;
 border:1px solid #94733388;
 border-radius:25px;
-background:
-linear-gradient(145deg,#211b12,#0c0b09 55%,#17110b);
-box-shadow:
-0 0 35px #000,
-0 0 25px #80602a22,
-inset 0 0 25px #b18a4310;
+background:linear-gradient(145deg,#211b12,#0c0b09 55%,#17110b);
+box-shadow:0 0 35px #000,0 0 25px #80602a22,inset 0 0 25px #b18a4310;
 margin-bottom:24px;
 }
 
@@ -212,9 +198,7 @@ animation:float 3s infinite ease-in-out;
 cursor:pointer;
 }
 
-@keyframes float{
-50%{transform:translateY(-10px)}
-}
+@keyframes float{50%{transform:translateY(-10px)}}
 
 .worlds{
 display:grid;
@@ -226,35 +210,17 @@ gap:12px;
 border:1px solid #a07a37;
 border-radius:20px;
 padding:18px 9px;
-background:
-linear-gradient(145deg,#302516,#100e0b 65%,#050505);
+background:linear-gradient(145deg,#302516,#100e0b 65%,#050505);
 color:#e8d6ad;
 min-height:140px;
-box-shadow:
-0 8px 22px #000,
-inset 0 0 18px #a9823514;
+box-shadow:0 8px 22px #000,inset 0 0 18px #a9823514;
 transition:.25s;
 }
 
-.world:active,.btn:active{
-transform:scale(.96);
-}
-
-.world .emoji{
-font-size:39px;
-display:block;
-margin-bottom:9px;
-}
-
+.world:active,.btn:active{transform:scale(.96)}
+.world .emoji{font-size:39px;display:block;margin-bottom:9px}
 .world strong{font-size:14px}
-
-.world small{
-display:block;
-color:#b4a185;
-margin-top:7px;
-line-height:1.7;
-}
-
+.world small{display:block;color:#b4a185;margin-top:7px;line-height:1.7}
 .wide{grid-column:1/-1}
 
 .btn{
@@ -262,14 +228,11 @@ border:1px solid #b18a43;
 border-radius:30px;
 padding:12px 18px;
 color:#ead9b5;
-background:
-linear-gradient(135deg,#725322,#21180c 55%,#090807);
+background:linear-gradient(135deg,#725322,#21180c 55%,#090807);
 margin:6px;
 font-size:14px;
 font-weight:bold;
-box-shadow:
-0 5px 18px #000,
-inset 0 1px 5px #d3b36d22;
+box-shadow:0 5px 18px #000,inset 0 1px 5px #d3b36d22;
 transition:.2s;
 }
 
@@ -277,6 +240,34 @@ transition:.2s;
 background:linear-gradient(145deg,#171512,#050505);
 color:#c8b17e;
 border:1px solid #75602f;
+}
+
+/* زر الأجواء */
+.music-area{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:7px;
+margin:12px 0;
+}
+
+#allEffectsBtn{
+border:1px solid #d1b36a;
+background:linear-gradient(135deg,#80602a,#392714,#090807);
+font-size:16px;
+padding:15px 24px;
+box-shadow:0 0 18px #a9823544,0 5px 18px #000;
+}
+
+#allEffectsBtn.active{
+background:linear-gradient(135deg,#8a263c,#40121e,#090807);
+box-shadow:0 0 25px #d879a566;
+}
+
+.status{
+color:#b99a5b;
+font-size:12px;
+line-height:2;
 }
 
 .panel{
@@ -297,20 +288,12 @@ margin:18px auto;
 padding:23px 15px;
 border:1px solid #a17c3b;
 border-radius:25px;
-background:
-linear-gradient(145deg,#302417,#100e0b 55%,#050505);
-box-shadow:
-0 0 35px #000,
-0 0 30px #80602a22,
-inset 0 0 25px #a9823510;
+background:linear-gradient(145deg,#302417,#100e0b 55%,#050505);
+box-shadow:0 0 35px #000,0 0 30px #80602a22,inset 0 0 25px #a9823510;
 }
 
 .panel h2{color:#d2b16a}
-
-.big{
-font-size:60px;
-margin:12px;
-}
+.big{font-size:60px;margin:12px}
 
 .message{
 background:linear-gradient(145deg,#19140e,#090807);
@@ -330,20 +313,6 @@ color:#aa9879;
 line-height:2;
 position:relative;
 z-index:2;
-}
-
-.music-area{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:7px;
-margin:18px 0;
-}
-
-.status{
-color:#b99a5b;
-font-size:12px;
-line-height:2;
 }
 
 #loveEffect{
@@ -386,10 +355,7 @@ animation:messagePop 1s ease both;
 100%{transform:translateY(0) scale(1);opacity:1}
 }
 
-@keyframes veil{
-from{opacity:0}
-to{opacity:1}
-}
+@keyframes veil{from{opacity:0}to{opacity:1}}
 
 @keyframes effectPop{
 0%{transform:scale(.15) rotate(-15deg);opacity:0}
@@ -408,10 +374,7 @@ animation:heartRise 2.8s ease-out forwards;
 }
 
 @keyframes heartRise{
-to{
-transform:translateY(-85vh) translateX(var(--drift)) rotate(35deg);
-opacity:0;
-}
+to{transform:translateY(-85vh) translateX(var(--drift)) rotate(35deg);opacity:0}
 }
 
 .emoji-choice{
@@ -423,16 +386,11 @@ font-size:37px;
 width:75px;
 height:75px;
 margin:5px;
-box-shadow:
-0 0 18px #000,
-inset 0 0 12px #a9823522;
+box-shadow:0 0 18px #000,inset 0 0 12px #a9823522;
 transition:.25s;
 }
 
-.emoji-choice:active{
-transform:scale(.82);
-background:#654923;
-}
+.emoji-choice:active{transform:scale(.82);background:#654923}
 
 .pamper-emojis{
 display:grid;
@@ -464,6 +422,8 @@ animation-iteration-count:1!important;
 
 <body>
 
+<div class="lightning" id="lightning"></div>
+
 <header>
 <h1 class="royal-title">👑 LODI'S ROYAL KINGDOM ❤️</h1>
 <div class="subtitle">مملكتك الملكية يا لودي... حيث يسكن الحب والجمال ✨</div>
@@ -479,6 +439,17 @@ animation-iteration-count:1!important;
 </section>
 
 <div class="container">
+
+<!-- زر واحد لتشغيل جميع الأجواء -->
+<div class="music-area">
+<button class="btn" id="allEffectsBtn" onclick="toggleAllEffects()">
+❄️ تشغيل الأجواء الملكية
+</button>
+</div>
+
+<div class="status" id="soundStatus">
+🎹 البيانو والمطر والثلج والبرق والرعد بانتظارك ❤️
+</div>
 
 <div class="hero">
 <div class="crown" onclick="moonSecret()">👸🏻</div>
@@ -526,38 +497,11 @@ animation-iteration-count:1!important;
 </h2>
 
 <div class="message">
-<button class="btn" onclick="showLove('hug')">
-🫂 حضن يضمك ولا يتركك
-</button>
-
-<button class="btn" onclick="showLove('kiss')">
-😘 لمسة حنان لقلبك
-</button>
-
-<button class="btn" onclick="showLove('love')">
-❤️ أنتِ أجمل أقداري
-</button>
-
-<button class="btn" onclick="showLove('miss')">
-🥺 مكانك لا يملؤه أحد
-</button>
-
-<button class="btn" onclick="showLove('pamper')">
-👑 يا ملكة قلبي
-</button>
-</div>
-
-<div class="music-area">
-<button class="btn" id="musicBtn" onclick="toggleMusic()">
-🎹 تشغيل البيانو
-</button>
-<button class="btn secondary" id="rainBtn" onclick="toggleRain()">
-🌧️ تشغيل المطر
-</button>
-</div>
-
-<div class="status" id="soundStatus">
-يمكنك تشغيل البيانو والمطر معاً ❤️
+<button class="btn" onclick="showLove('hug')">🫂 حضن يضمك ولا يتركك</button>
+<button class="btn" onclick="showLove('kiss')">😘 لمسة حنان لقلبك</button>
+<button class="btn" onclick="showLove('love')">❤️ أنتِ أجمل أقداري</button>
+<button class="btn" onclick="showLove('miss')">🥺 مكانك لا يملؤه أحد</button>
+<button class="btn" onclick="showLove('pamper')">👑 يا ملكة قلبي</button>
 </div>
 
 <div style="margin-top:18px">
@@ -570,9 +514,7 @@ animation-iteration-count:1!important;
 <h2 id="points" style="color:#c3a15e">0 ❤️</h2>
 </div>
 
-<button class="btn" onclick="openWorld('secret')">
-💌 رسالة سرية
-</button>
+<button class="btn" onclick="openWorld('secret')">💌 رسالة سرية</button>
 
 <p class="status">
 تلميح صغير: للقمر حكاية لا يعرفها إلا الفضوليون 🌙
@@ -596,28 +538,19 @@ animation-iteration-count:1!important;
 <div class="panel-content">
 <div class="big">👑✨</div>
 <h2>مملكتك يا لودي</h2>
-<div class="message">
-هنا أنتِ الأميرة والمدللة، وكل شيء صُنع ليجعل ابتسامتك أجمل ❤️
-</div>
+<div class="message">هنا أنتِ الأميرة والمدللة، وكل شيء صُنع ليجعل ابتسامتك أجمل ❤️</div>
 <button class="btn" onclick="closeWorld()">ابدئي جولتك 💗</button>
 </div>
 </div>
 
-<!-- غرفة الدلال -->
+<!-- الدلال -->
 <div class="panel" id="pamper">
 <div class="panel-content">
-
 <div class="big">💗👑💋</div>
 <h2>غرفة الدلال والبوسات</h2>
-
-<div class="message">
-يا أجمل أميرة في مملكتي...
-<br>
-اختاري إيموجياً واكتشفي ما يخفيه لكِ قلبي ❤️
-</div>
+<div class="message">يا أجمل أميرة في مملكتي...<br>اختاري إيموجياً واكتشفي ما يخفيه لكِ قلبي ❤️</div>
 
 <div class="pamper-emojis">
-
 <button class="emoji-choice" onclick="showLove('love')">❤️</button>
 <button class="emoji-choice" onclick="showLove('adore')">😍</button>
 <button class="emoji-choice" onclick="showLove('kiss')">😘</button>
@@ -627,21 +560,11 @@ animation-iteration-count:1!important;
 <button class="emoji-choice" onclick="showLove('kissCheek')">💋</button>
 <button class="emoji-choice" onclick="showLove('kissForehead')">🌹</button>
 <button class="emoji-choice" onclick="showLove('kissLips')">💞</button>
-
 </div>
 
-<div class="message" id="pamperText">
-أنتِ أميرتي المدللة، ولكِ كل الحب ❤️
-</div>
-
-<button class="btn" onclick="randomPamper()">
-💌 رسالة دلال جديدة
-</button>
-
-<button class="btn secondary" onclick="closeWorld()">
-العودة للمملكة 👑
-</button>
-
+<div class="message" id="pamperText">أنتِ أميرتي المدللة، ولكِ كل الحب ❤️</div>
+<button class="btn" onclick="randomPamper()">💌 رسالة دلال جديدة</button>
+<button class="btn secondary" onclick="closeWorld()">العودة للمملكة 👑</button>
 </div>
 </div>
 
@@ -650,12 +573,8 @@ animation-iteration-count:1!important;
 <div class="panel-content">
 <div class="big">🔥🌹</div>
 <h2>عالم العشق</h2>
-<div class="message" id="passionText">
-أنتِ الحكاية التي لا أريد أن أصل إلى نهايتها.
-</div>
-<button class="btn" onclick="randomText('passionText',passionMessages)">
-💌 اعتراف جديد
-</button>
+<div class="message" id="passionText">أنتِ الحكاية التي لا أريد أن أصل إلى نهايتها.</div>
+<button class="btn" onclick="randomText('passionText',passionMessages)">💌 اعتراف جديد</button>
 <button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
 </div>
 </div>
@@ -665,12 +584,8 @@ animation-iteration-count:1!important;
 <div class="panel-content">
 <div class="big">❤️💍</div>
 <h2>عالم الحب</h2>
-<div class="message" id="loveText">
-لو عاد بي الزمن ألف مرة، لاخترت أن ألتقي بكِ في كل مرة.
-</div>
-<button class="btn" onclick="randomText('loveText',loveMessages)">
-💗 رسالة حب جديدة
-</button>
+<div class="message" id="loveText">لو عاد بي الزمن ألف مرة، لاخترت أن ألتقي بكِ في كل مرة.</div>
+<button class="btn" onclick="randomText('loveText',loveMessages)">💗 رسالة حب جديدة</button>
 <button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
 </div>
 </div>
@@ -680,12 +595,8 @@ animation-iteration-count:1!important;
 <div class="panel-content">
 <div class="big">🌹🦋</div>
 <h2>عالم الغزل</h2>
-<div class="message" id="flirtText">
-يا صاحبة العيون التي تجعل للقمر سبباً ليغار.
-</div>
-<button class="btn" onclick="randomText('flirtText',flirtMessages)">
-🌹 غازلني من جديد
-</button>
+<div class="message" id="flirtText">يا صاحبة العيون التي تجعل للقمر سبباً ليغار.</div>
+<button class="btn" onclick="randomText('flirtText',flirtMessages)">🌹 غازلني من جديد</button>
 <button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
 </div>
 </div>
@@ -729,6 +640,13 @@ let points=0,night=false,ctx=null,pianoTimer=null;
 let pianoPlaying=false,rainPlaying=false;
 let rainSource=null,rainGain=null;
 let moonClicks=0,moonTimer=null;
+
+let allEffectsPlaying=false;
+let snowTimer=null;
+let lightningTimer=null;
+let thunderTimer=null;
+let visibleRainStarted=false;
+let thunderBuffer=null;
 
 const passionMessages=[
 "أعشقكِ بكل تفاصيلكِ، وأتمنى أن أكون دائماً سبباً في ابتسامتكِ.",
@@ -800,17 +718,12 @@ setTimeout(()=>h.remove(),2900);
 }
 }
 
-/* اختيار رسالة عشوائية دون تكرار الرسالة السابقة */
 function randomText(id,arr){
 const el=document.getElementById(id);
 const current=el.textContent.trim();
-
 let choices=arr.filter(message=>message!==current);
-
-if(choices.length===0) choices=arr;
-
+if(choices.length===0)choices=arr;
 const selected=choices[Math.floor(Math.random()*choices.length)];
-
 el.textContent=selected;
 addHeart();
 }
@@ -819,9 +732,7 @@ function randomPamper(){
 randomText('pamperText',pamperMessages);
 }
 
-/* الإيموجيات والرسائل الرومانسية */
 function showLove(type){
-
 const effects={
 hug:['🫂❤️','تعالي إلى حضني يا لودي، أريد أن أضمك وأبقى معك ❤️'],
 kiss:['😘💋','أرسل لكِ أجمل مشاعر الحنان يا عمري 😘'],
@@ -835,13 +746,10 @@ kissLips:['💋❤️','بوسة لشفافك ❤️']
 };
 
 const selected=effects[type]||['❤️','أحبك يا لودي'];
-
 const el=document.getElementById('loveEffect');
-const symbol=document.getElementById('effectSymbol');
-const message=document.getElementById('effectMessage');
 
-symbol.textContent=selected[0];
-message.textContent=selected[1];
+document.getElementById('effectSymbol').textContent=selected[0];
+document.getElementById('effectMessage').textContent=selected[1];
 
 el.classList.remove('show');
 void el.offsetWidth;
@@ -850,7 +758,6 @@ el.classList.add('show');
 addHeart();
 
 clearTimeout(window.effectTimer);
-
 window.effectTimer=setTimeout(()=>{
 el.classList.remove('show');
 },3000);
@@ -861,7 +768,7 @@ document.getElementById('loveEffect').classList.remove('show');
 clearTimeout(window.effectTimer);
 }
 
-/* سر القمر: سبع ضغطات متتالية */
+/* سر القمر */
 function moonSecret(){
 moonClicks++;
 clearTimeout(moonTimer);
@@ -882,14 +789,9 @@ burst();
 }
 }
 
+/* المفاجأة تفتح الهدية مباشرة */
 function surprise(){
-const a=[
-'🎁 أنتِ أجمل هدية في حياتي!',
-'🌹 هذه الوردة تشبهك، جميلة ولا تتكرر.',
-'🫂 أكبر حضن في العالم لكِ!',
-'👑 أنتِ أميرة هذه المملكة اليوم وكل يوم.'
-];
-alert(a[Math.floor(Math.random()*a.length)]);
+openWorld('royalGift');
 addHeart();
 }
 
@@ -918,7 +820,7 @@ if(ctx.state==='suspended')ctx.resume();
 return ctx;
 }
 
-/* لحن البيانو الرومانسي */
+/* لحن البيانو */
 const chords=[
 [261.63,329.63,392.00],
 [220.00,261.63,329.63],
@@ -956,34 +858,22 @@ let step=0;
 
 function phrase(){
 if(!pianoPlaying)return;
-
 const c=chords[Math.floor(step/4)%chords.length];
-
 pianoNote(c[0]/2,3,.025);
 pianoNote(c[1],2.3,.035);
 pianoNote(c[2],2.1,.03);
 pianoNote(c[step%3],1.5,.045);
-
 step++;
 }
 
 phrase();
 pianoTimer=setInterval(phrase,1450);
-
-document.getElementById('musicBtn').textContent='🔇 إيقاف البيانو';
-soundStatus();
 }
 
 function stopPiano(){
 pianoPlaying=false;
 clearInterval(pianoTimer);
 pianoTimer=null;
-document.getElementById('musicBtn').textContent='🎹 تشغيل البيانو';
-soundStatus();
-}
-
-function toggleMusic(){
-pianoPlaying?stopPiano():startPiano();
 }
 
 /* صوت المطر */
@@ -1013,10 +903,7 @@ rainGain.connect(ctx.destination);
 rainSource.start();
 
 rainGain.gain.setTargetAtTime(.10,ctx.currentTime,.5);
-
 rainPlaying=true;
-document.getElementById('rainBtn').textContent='🌧️ إيقاف المطر';
-soundStatus();
 }
 
 function stopRain(){
@@ -1032,22 +919,155 @@ if(rainSource){
 try{rainSource.stop(ctx.currentTime+.7)}catch(e){}
 rainSource=null;
 }
-
 rainGain=null;
-document.getElementById('rainBtn').textContent='🌧️ تشغيل المطر';
-soundStatus();
 }
 
-function toggleRain(){
-rainPlaying?stopRain():startRain();
+/* المطر المرئي */
+function startVisibleRain(){
+document.querySelectorAll('.rain-drop').forEach(drop=>{
+drop.style.display='block';
+});
+visibleRainStarted=true;
 }
 
-function soundStatus(){
+function stopVisibleRain(){
+document.querySelectorAll('.rain-drop').forEach(drop=>{
+drop.style.display='none';
+});
+visibleRainStarted=false;
+}
+
+/* الثلج */
+function startSnow(){
+if(snowTimer)return;
+
+snowTimer=setInterval(()=>{
+const snow=document.createElement('div');
+snow.className='snowflake';
+snow.textContent='❄';
+
+snow.style.left=Math.random()*100+'vw';
+snow.style.animationDuration=(4+Math.random()*5)+'s';
+snow.style.fontSize=(10+Math.random()*15)+'px';
+
+document.body.appendChild(snow);
+
+setTimeout(()=>snow.remove(),9000);
+},180);
+}
+
+function stopSnow(){
+clearInterval(snowTimer);
+snowTimer=null;
+document.querySelectorAll('.snowflake').forEach(s=>s.remove());
+}
+
+/* صوت الرعد */
+function playThunder(){
+if(!ctx||!allEffectsPlaying)return;
+
+const duration=2.5;
+const buffer=ctx.createBuffer(1,ctx.sampleRate*duration,ctx.sampleRate);
+const data=buffer.getChannelData(0);
+
+for(let i=0;i<data.length;i++){
+const fade=1-i/data.length;
+data[i]=(Math.random()*2-1)*fade;
+}
+
+const source=ctx.createBufferSource();
+source.buffer=buffer;
+
+const filter=ctx.createBiquadFilter();
+filter.type='lowpass';
+filter.frequency.value=180;
+
+const gain=ctx.createGain();
+gain.gain.setValueAtTime(.0001,ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(.35,ctx.currentTime+.08);
+gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+duration);
+
+source.connect(filter);
+filter.connect(gain);
+gain.connect(ctx.destination);
+
+source.start();
+source.stop(ctx.currentTime+duration);
+}
+
+/* البرق والرعد */
+function startLightning(){
+if(lightningTimer)return;
+
+function flash(){
+const el=document.getElementById('lightning');
+el.classList.remove('flash');
+void el.offsetWidth;
+el.classList.add('flash');
+playThunder();
+}
+
+function schedule(){
+if(!allEffectsPlaying)return;
+
+const delay=5000+Math.random()*8000;
+
+lightningTimer=setTimeout(()=>{
+if(!allEffectsPlaying)return;
+flash();
+lightningTimer=null;
+schedule();
+},delay);
+}
+
+schedule();
+}
+
+function stopLightning(){
+clearTimeout(lightningTimer);
+lightningTimer=null;
+document.getElementById('lightning').classList.remove('flash');
+}
+
+/* تشغيل وإيقاف كل شيء بزر واحد */
+function toggleAllEffects(){
+
+if(!allEffectsPlaying){
+const a=audio();
+if(!a)return;
+
+allEffectsPlaying=true;
+
+startPiano();
+startRain();
+startVisibleRain();
+startSnow();
+startLightning();
+
+const btn=document.getElementById('allEffectsBtn');
+btn.textContent='⛈️ إيقاف الأجواء الملكية';
+btn.classList.add('active');
+
 document.getElementById('soundStatus').textContent=
-pianoPlaying&&rainPlaying?'🎹 البيانو والمطر يعملان معاً ❤️':
-pianoPlaying?'🎹 البيانو الرومانسي يعمل الآن':
-rainPlaying?'🌧️ صوت المطر يعمل الآن':
-'يمكنك تشغيل البيانو والمطر معاً ❤️';
+'❄️ البيانو والمطر والثلج والبرق والرعد يعملون معاً ❤️';
+
+}else{
+
+allEffectsPlaying=false;
+
+stopPiano();
+stopRain();
+stopVisibleRain();
+stopSnow();
+stopLightning();
+
+const btn=document.getElementById('allEffectsBtn');
+btn.textContent='❄️ تشغيل الأجواء الملكية';
+btn.classList.remove('active');
+
+document.getElementById('soundStatus').textContent=
+'🎹 البيانو والمطر والثلج والبرق والرعد متوقفة ❤️';
+}
 }
 
 /* النجوم */
@@ -1062,7 +1082,7 @@ s.style.animationDelay=Math.random()*3+'s';
 document.querySelector('.sky').appendChild(s);
 }
 
-/* المطر المرئي */
+/* تجهيز قطرات المطر */
 for(let i=0;i<35;i++){
 const r=document.createElement('i');
 r.className='rain-drop';
@@ -1072,10 +1092,19 @@ r.style.animationDelay=(-Math.random()*3)+'s';
 document.body.appendChild(r);
 }
 
+/* تنظيف المؤثرات عند مغادرة الصفحة */
 window.addEventListener('pagehide',()=>{
+allEffectsPlaying=false;
 clearInterval(pianoTimer);
-if(ctx)ctx.close();
+clearInterval(snowTimer);
+clearTimeout(lightningTimer);
+
+if(ctx){
+ctx.close();
+ctx=null;
+}
 });
+
 </script>
 
 </body>
