@@ -30,6 +30,7 @@ animation:shine 5s linear infinite,glow 2.5s ease-in-out infinite;
 50%{filter:brightness(1.7);text-shadow:0 0 10px #ffd700,0 0 25px #ff69b4,0 0 45px #d4af37}
 }
 .subtitle{color:#eac9d9;line-height:2;font-size:14px}
+
 .sky{height:205px;position:relative;overflow:hidden;margin:auto;max-width:850px}
 .moon{
 position:absolute;top:12px;left:50%;transform:translateX(-50%);
@@ -54,6 +55,7 @@ animation:cloudMove 24s linear infinite;white-space:nowrap;
 @keyframes cloudMove{from{transform:translateX(-5vw)}to{transform:translateX(115vw)}}
 .sky-star{position:absolute;color:#ffe7a6;animation:twinkle 1.8s infinite alternate}
 @keyframes twinkle{to{opacity:.12;transform:scale(.45)}}
+
 .rain-drop{
 position:fixed;top:-20px;width:1px;height:18px;
 background:linear-gradient(transparent,#b9cfff);
@@ -61,6 +63,7 @@ opacity:.55;pointer-events:none;z-index:1;
 animation:rainFall linear infinite;
 }
 @keyframes rainFall{to{transform:translateY(110vh);opacity:.1}}
+
 .container{max-width:850px;margin:auto;padding:12px;position:relative;z-index:2}
 .hero{
 padding:24px 15px;border:1px solid #d9ad5b66;border-radius:25px;
@@ -69,6 +72,7 @@ box-shadow:0 0 35px #d4af3722,0 0 25px #ff69b422;margin-bottom:24px;
 }
 .crown{font-size:62px;display:inline-block;animation:float 3s infinite ease-in-out;cursor:pointer}
 @keyframes float{50%{transform:translateY(-10px)}}
+
 .worlds{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .world{
 border:1px solid #d4af3755;border-radius:20px;padding:18px 9px;
@@ -80,6 +84,7 @@ color:white;min-height:140px;box-shadow:0 8px 22px #0008;transition:.25s;
 .world strong{font-size:14px}
 .world small{display:block;color:#e5bfd0;margin-top:7px;line-height:1.7}
 .wide{grid-column:1/-1}
+
 .btn{
 border:1px solid #e5bd63;border-radius:30px;padding:12px 18px;
 color:#160d12;background:linear-gradient(90deg,#e5bd63,#ff8dbb);
@@ -87,6 +92,7 @@ margin:6px;font-size:14px;font-weight:bold;
 box-shadow:0 5px 18px #d4af3733;transition:.2s;
 }
 .secondary{background:linear-gradient(145deg,#29202b,#171019);color:#ffe1ed;border:1px solid #ff8bb766}
+
 .panel{
 display:none;position:fixed;inset:0;z-index:10;
 background:#08060bf5;overflow-y:auto;padding:14px;
@@ -110,15 +116,27 @@ footer{padding:30px 10px;color:#d9b5c5;line-height:2;position:relative;z-index:2
 .status{color:#e5bd63;font-size:12px;line-height:2}
 .game-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
 .game-card{background:#241825;border:1px solid #c79d5366;border-radius:16px;padding:14px;color:#fff}
+
 #loveEffect{
 position:fixed;inset:0;z-index:50;display:none;
-align-items:center;justify-content:center;background:#05030a99;pointer-events:none;
+align-items:center;justify-content:center;flex-direction:column;
+gap:8px;background:#05030add;pointer-events:auto;
 }
 #loveEffect.show{display:flex;animation:veil .25s ease}
 .effect-symbol{
 font-size:clamp(95px,25vw,170px);
 filter:drop-shadow(0 0 22px #ff72b5);
 animation:effectPop 1.4s ease both;
+}
+.effect-message{
+color:#fff0f6;font-size:21px;font-weight:bold;
+line-height:1.9;padding:15px;max-width:340px;
+text-shadow:0 0 15px #ff69b4;
+animation:messagePop 1s ease both;
+}
+@keyframes messagePop{
+0%{transform:translateY(20px) scale(.7);opacity:0}
+100%{transform:translateY(0) scale(1);opacity:1}
 }
 @keyframes veil{from{opacity:0}to{opacity:1}}
 @keyframes effectPop{
@@ -134,6 +152,19 @@ font-size:26px;animation:heartRise 2.8s ease-out forwards;
 @keyframes heartRise{
 to{transform:translateY(-85vh) translateX(var(--drift)) rotate(35deg);opacity:0}
 }
+
+.emoji-choice{
+border:1px solid #ff83bb88;border-radius:20px;
+background:linear-gradient(145deg,#48243b,#211321);
+color:white;font-size:37px;width:75px;height:75px;
+margin:5px;box-shadow:0 0 18px #ff69b455;transition:.25s;
+}
+.emoji-choice:active{transform:scale(.82);background:#873c68}
+.pamper-emojis{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:10px;justify-items:center;margin:22px 0;
+}
+
 .memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .memory-tile{
 min-height:65px;border-radius:12px;border:1px solid #d4af37;
@@ -141,12 +172,14 @@ background:#211724;color:#ffb6d5;font-size:25px;
 }
 .memory-tile.open{background:#533044}
 footer span{color:#d4af37}
+
 @media(max-width:430px){
 .worlds{grid-template-columns:1fr 1fr}
 .world{padding:15px 6px}
 .world strong{font-size:12px}
 .panel-content{margin:8px auto;padding:18px 10px}
 .sky{height:185px}
+.emoji-choice{width:68px;height:68px;font-size:33px}
 }
 @media(prefers-reduced-motion:reduce){
 *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important}
@@ -180,30 +213,37 @@ footer span{color:#d4af37}
 <h2 style="color:#e5bd63">🌙 اختاري عالمك السحري</h2>
 
 <div class="worlds">
+
 <button class="world" onclick="openWorld('pamper')">
-<span class="emoji">💋</span><strong>غرفة الدلال والبوسات</strong>
-<small>طلباتك الرومانسية تتحول إلى حركات</small>
+<span class="emoji">💋</span>
+<strong>غرفة الدلال والبوسات</strong>
+<small>إيموجيات ومفاجآت رومانسية</small>
 </button>
 
 <button class="world" onclick="openWorld('games')">
-<span class="emoji">🎮</span><strong>مدينة الألعاب</strong>
+<span class="emoji">🎮</span>
+<strong>مدينة الألعاب</strong>
 <small>ألعاب كثيرة وتحديات ممتعة</small>
 </button>
 
 <button class="world" onclick="openWorld('passion')">
-<span class="emoji">🔥</span><strong>عالم العشق</strong>
+<span class="emoji">🔥</span>
+<strong>عالم العشق</strong>
 <small>اعترافات ومشاعر عميقة</small>
 </button>
 
 <button class="world" onclick="openWorld('love')">
-<span class="emoji">❤️</span><strong>عالم الحب</strong>
+<span class="emoji">❤️</span>
+<strong>عالم الحب</strong>
 <small>رسائل ووعود وذكريات</small>
 </button>
 
 <button class="world wide" onclick="openWorld('flirt')">
-<span class="emoji">🌹</span><strong>عالم الغزل</strong>
+<span class="emoji">🌹</span>
+<strong>عالم الغزل</strong>
 <small>كلمات تذيب القلب</small>
 </button>
+
 </div>
 
 <h2 style="color:#e5bd63;margin-top:25px">💞 اختاري ماذا تريدين من حبيبك</h2>
@@ -235,6 +275,7 @@ footer span{color:#d4af37}
 
 <button class="btn" onclick="openWorld('secret')">💌 رسالة سرية</button>
 <p class="status">تلميح صغير: للقمر حكاية لا يعرفها إلا الفضوليون 🌙</p>
+
 </div>
 
 <footer>
@@ -244,6 +285,7 @@ footer span{color:#d4af37}
 
 <div id="loveEffect" onclick="hideLoveEffect()">
 <div class="effect-symbol" id="effectSymbol">🫂❤️</div>
+<div class="effect-message" id="effectMessage">أحبك يا لودي ❤️</div>
 </div>
 
 <!-- الترحيب -->
@@ -256,20 +298,40 @@ footer span{color:#d4af37}
 </div>
 </div>
 
-<!-- الدلال -->
+<!-- غرفة الدلال الجديدة -->
 <div class="panel" id="pamper">
 <div class="panel-content">
-<div class="big">🛏️💋</div>
+
+<div class="big">💗👑💋</div>
 <h2>غرفة الدلال والبوسات</h2>
-<div class="message">اختاري طلبك يا أميرتي، وكل زر له مفاجأته الخاصة:</div>
-<button class="btn" onclick="showLove('hug')">ضمة 🫂</button>
-<button class="btn" onclick="showLove('kiss')">بوسة 💋</button>
-<button class="btn" onclick="showLove('love')">بحبك ❤️</button>
-<button class="btn" onclick="showLove('miss')">اشتقتلك 🥺</button>
-<button class="btn" onclick="showLove('pamper')">دلعيني 👑</button>
-<div class="message" id="pamperText">يا مدللتي، لكِ ألف ضمة وابتسامة ❤️</div>
-<button class="btn secondary" onclick="randomPamper()">💌 رسالة دلال جديدة</button>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
+
+<div class="message">
+يا أجمل أميرة في مملكتي...
+<br>
+اختاري إيموجي ودعي قلبك يكتشف المفاجأة ❤️
+</div>
+
+<div class="pamper-emojis">
+
+<button class="emoji-choice" onclick="showLove('love')">❤️</button>
+<button class="emoji-choice" onclick="showLove('adore')">😍</button>
+<button class="emoji-choice" onclick="showLove('kiss')">😘</button>
+<button class="emoji-choice" onclick="showLove('hug')">🫂</button>
+<button class="emoji-choice" onclick="showLove('miss')">🥺</button>
+<button class="emoji-choice" onclick="showLove('pamper')">🥰</button>
+<button class="emoji-choice" onclick="showLove('kissCheek')">💋</button>
+<button class="emoji-choice" onclick="showLove('kissForehead')">🌹</button>
+<button class="emoji-choice" onclick="showLove('kissLips')">💞</button>
+
+</div>
+
+<div class="message" id="pamperText">
+أنتِ أميرتي المدللة، ولكِ كل الحب ❤️
+</div>
+
+<button class="btn" onclick="randomPamper()">💌 رسالة دلال جديدة</button>
+<button class="btn secondary" onclick="closeWorld()">العودة للمملكة 👑</button>
+
 </div>
 </div>
 
@@ -347,7 +409,7 @@ footer span{color:#d4af37}
 </div>
 </div>
 
-<!-- الهدية المخفية: لا يوجد لها زر في الصفحة الرئيسية -->
+<!-- الهدية المخفية -->
 <div class="panel" id="royalGift">
 <div class="panel-content">
 <div class="big">🎁💎👑</div>
@@ -398,10 +460,14 @@ const flirtMessages=[
 ];
 
 const pamperMessages=[
-"تعالي إلى حضني، عندي لكِ ألف ضمة وابتسامة 🤗",
-"قبلة على جبينك، وقبلة على خدك، وألف قبلة لقلبك 💋",
-"اليوم أنتِ مدللتي، وكل طلباتك أوامر يا أميرة ❤️",
-"اشتقت إلى ضحكتك، تعالي ننسى العالم قليلاً 🌹"
+"💋 بوسة على خدك يا لودي، وبوسة على جبينك، وقبلة على شفتيك ❤️",
+"🫂 تعالي إلى حضني، أريد أن أضمك وأنسى العالم كله.",
+"😍 بعشقك يا لودي، يا أجمل ما في حياتي.",
+"😘 ثلاث قبلات: لخدك وجبينك وشفتيك، وكل واحدة معها ألف حب.",
+"🥰 لو كان الدلال هدية، لأهديتك العالم كله.",
+"❤️ أنتِ نبض قلبي وأجمل صدفة في حياتي.",
+"🌹 يا لودي، أنتِ وردة قلبي التي لا تذبل أبداً.",
+"💗 أريد أن أراكِ تبتسمين كل يوم، فأنتِ سعادتي."
 ];
 
 function openWorld(id){
@@ -435,34 +501,50 @@ document.getElementById(id).textContent=arr[Math.floor(Math.random()*arr.length)
 addHeart();
 }
 
-function randomPamper(){randomText('pamperText',pamperMessages)}
+function randomPamper(){
+randomText('pamperText',pamperMessages);
+}
 
+/* الإيموجيات والرسائل الرومانسية */
 function showLove(type){
+
 const effects={
-hug:'🫂❤️',
-kiss:'💋❤️',
-love:'❤️🥹',
-miss:'🥺💕',
-pamper:'👑😘'
+hug:['🫂❤️','تعالي إلى حضني يا لودي، أريد أن أضمك وأبقى معك ❤️'],
+kiss:['😘💋','هاي أحلى بوسة إلك يا عمري 😘'],
+love:['❤️🥹','بحبك يا لودي، وبحب كل تفاصيلك'],
+miss:['🥺💕','اشتقتلك قد الدنيا، وينك يا روح قلبي؟'],
+pamper:['🥰👑','أنتِ أميرتي المدللة، وعيونك أوامر ❤️'],
+adore:['😍❤️','بعشقك يا لودي، يا أجمل ما في حياتي'],
+kissCheek:['💋🌹','بوسة ناعمة على خدك يا حلوة'],
+kissForehead:['😘✨','وبوسة دافئة على جبينك يا أميرتي'],
+kissLips:['💋❤️','وقبلة حب على شفتيك يا لودي']
 };
+
+const selected=effects[type]||['❤️','أحبك يا لودي'];
 
 const el=document.getElementById('loveEffect');
 const symbol=document.getElementById('effectSymbol');
+const message=document.getElementById('effectMessage');
 
-symbol.textContent=effects[type]||'❤️';
+symbol.textContent=selected[0];
+message.textContent=selected[1];
+
 el.classList.remove('show');
 void el.offsetWidth;
 el.classList.add('show');
 
-burst();
 addHeart();
 
 clearTimeout(window.effectTimer);
-window.effectTimer=setTimeout(()=>el.classList.remove('show'),1700);
+
+window.effectTimer=setTimeout(()=>{
+el.classList.remove('show');
+},3000);
 }
 
 function hideLoveEffect(){
 document.getElementById('loveEffect').classList.remove('show');
+clearTimeout(window.effectTimer);
 }
 
 /* سر القمر: سبع ضغطات متتالية */
