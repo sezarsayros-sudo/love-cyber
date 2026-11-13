@@ -527,7 +527,7 @@ body:before{
  100%{opacity:0;transform:translateY(-280px) rotate(45deg) scale(1.6)}
 }
 
-/* النافذة */
+/* النافذة المنبثقة */
 
 .popup{
  display:none;
@@ -557,11 +557,12 @@ body:before{
  font-family:Amiri,serif;
  font-size:30px;
  color:#d5b777;
+ margin-top:0;
 }
 
 .popup-content p{
  font-family:Amiri,serif;
- font-size:24px;
+ font-size:23px;
  line-height:2;
  color:#f0dfbd;
 }
@@ -629,14 +630,14 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة (تتفعل عند الضغط لتظهر رسالة الحب) -->
+ <!-- صور الملك والملكة في الواجهة (كل صورة تفتح رسالتها الخاصة عند الضغط عليها) -->
  <div class="royal-couple">
-  <div class="royal-frame" onclick="showLoveMessage()">
+  <div class="royal-frame" onclick="showNoorMessage()">
    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
    <span>نور 👑</span>
   </div>
   <div class="royal-heart">💚</div>
-  <div class="royal-frame" onclick="showLoveMessage()">
+  <div class="royal-frame" onclick="showMohamadMessage()">
    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
    <span>محمد ♛</span>
   </div>
@@ -709,14 +710,14 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
-  <!-- صوركما في بطاقة الإهداء (أيضاً تتفعل عند الضغط) -->
+  <!-- صوركما في بطاقة الإهداء (تفتح الرسائل المخصصة أيضاً) -->
   <div class="royal-couple" style="margin:20px 0 10px">
-   <div class="royal-frame" onclick="showLoveMessage()">
+   <div class="royal-frame" onclick="showNoorMessage()">
     <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
     <span>نور</span>
    </div>
    <div class="royal-heart">❤️</div>
-   <div class="royal-frame" onclick="showLoveMessage()">
+   <div class="royal-frame" onclick="showMohamadMessage()">
     <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
     <span>محمد</span>
    </div>
@@ -800,7 +801,7 @@ body:before{
  <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
 </div>
 
-<!-- النافذة التفاعلية -->
+<!-- النافذة المنبثقة (Popup Modal) -->
 <div class="popup" id="popupModal">
  <div class="popup-content">
   <h3 id="popupTitle">رسالة لقلبكِ</h3>
@@ -810,7 +811,7 @@ body:before{
 </div>
 
 <script>
-// وظيفة تطاير البوسات والقلوب والضمات عند النقر في أي مكان
+// وظيفة تطاير البوسات والقلوب والضمات والورود عند النقر في أي مكان بالشاشة
 const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
 
 function spawnFloatingEmoji(e) {
@@ -833,7 +834,7 @@ function spawnFloatingEmoji(e) {
     }
 }
 
-// تطاير تلقائي دوري لإبقاء الحيوية في الشاشة
+// تطاير تلقائي دوري لإبقاء الحيوية والحركة مستمرة في الشاشة الرئيسية
 setInterval(() => {
     if(document.getElementById('home').style.display !== 'none') {
         let el = document.createElement('div');
@@ -846,9 +847,19 @@ setInterval(() => {
     }
 }, 1200);
 
-// دالة إظهار رسالة العشق عند الضغط على الصور
-function showLoveMessage() {
-    showPopup("نبض قلبي 💖", "بحبِك، بعشقِك، بتنفسِك 💋❤️🫂");
+// دالة زر كسر الغرور (من يحكم قلب من؟)
+function megaSurprise() {
+    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋🫂");
+}
+
+// دالة رسالة الضغط على صورة نور
+function showNoorMessage() {
+    showPopup("ملكتي نور 👑", "بحبك وبعشقك 💋 وبتنفسك نوني 🫂 ♥");
+}
+
+// دالة رسالة الضغط على صورة محمد
+function showMohamadMessage() {
+    showPopup("أميرك محمد ♛", "بحبك وبعشقك مودي 💋 ❤️ 🫂");
 }
 
 function openRoom(roomId) {
@@ -863,10 +874,6 @@ function closeRoom() {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('home').style.display = 'block';
     document.getElementById('backArea').style.display = 'none';
-}
-
-function megaSurprise() {
-    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋");
 }
 
 function gardenLetter() {
