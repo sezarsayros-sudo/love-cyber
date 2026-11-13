@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NOOR | THE EMERALD QUEEN 👑</title>
+<title>NOOR & MOHAMAD | PALACE OF LOVE 👑</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap');
@@ -157,7 +156,7 @@ body:before{
  position:relative;
  z-index:3;
  text-align:center;
- margin:60px 0 38px;
+ margin:60px 0 25px;
 }
 
 .crown{
@@ -202,6 +201,89 @@ body:before{
 .subtitle{
  font-size:12px;
  color:#bca981;
+}
+
+/* إطار الصور الملكي */
+
+.royal-couple{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ gap:18px;
+ margin:10px 0 32px;
+ position:relative;
+ z-index:3;
+ flex-wrap:wrap;
+}
+
+.royal-frame{
+ text-align:center;
+ position:relative;
+}
+
+.royal-frame img{
+ width:115px;
+ height:115px;
+ border-radius:50%;
+ object-fit:cover;
+ border:3px solid #d5b777;
+ padding:3px;
+ background:linear-gradient(145deg,#8d6a32,#104832);
+ box-shadow:0 0 22px rgba(213,183,119,0.45),inset 0 0 10px #000;
+ transition:transform .4s ease,box-shadow .4s ease;
+}
+
+.royal-frame img:hover{
+ transform:scale(1.07);
+ box-shadow:0 0 32px rgba(213,183,119,0.75);
+}
+
+.royal-frame span{
+ display:block;
+ margin-top:8px;
+ font-family:Amiri,serif;
+ font-size:19px;
+ color:#e6d1a2;
+ text-shadow:0 0 8px #000;
+}
+
+.royal-heart{
+ font-size:28px;
+ filter:drop-shadow(0 0 10px #b58a42);
+ animation:heartBeat 1.5s infinite;
+ margin-bottom:24px;
+}
+
+@keyframes heartBeat{
+ 50%{transform:scale(1.2)}
+}
+
+/* صندوق كسر الغرور الفائق */
+.ego-breaker-box{
+ width:100%;
+ max-width:650px;
+ margin:0 auto 30px;
+ padding:20px;
+ border:1px solid #d5b777;
+ border-radius:18px;
+ background:linear-gradient(145deg,#144832,#031810);
+ text-align:center;
+ box-shadow:0 0 30px rgba(167,122,48,0.3);
+ position:relative;
+ z-index:3;
+}
+
+.ego-breaker-box h3{
+ font-family:Amiri,serif;
+ color:#f0dfbd;
+ font-size:22px;
+ margin-top:0;
+}
+
+.ego-breaker-box p{
+ color:#e2c996;
+ font-size:14px;
+ line-height:2;
 }
 
 /* القصر */
@@ -547,10 +629,6 @@ body:before{
  animation:heartBeat 1.5s infinite;
 }
 
-@keyframes heartBeat{
- 50%{transform:scale(1.2)}
-}
-
 .signature{
  color:#bda16c;
  font-family:Amiri,serif;
@@ -643,6 +721,7 @@ body:before{
  .hero{margin-top:55px}
  .dedication-message{font-size:22px}
  .designer-name{font-size:34px}
+ .royal-frame img{width:100px;height:100px}
 }
 </style>
 </head>
@@ -653,7 +732,7 @@ body:before{
 <div class="glow two"></div>
 
 <div class="topbar">
- <div class="logo">NOOR'S ROYAL PALACE</div>
+ <div class="logo">NOOR & MOHAMAD PALACE</div>
  <button class="sound" onclick="toggleSound()" id="soundButton">♫ تشغيل الموسيقى</button>
 </div>
 
@@ -667,11 +746,34 @@ body:before{
  <section class="hero">
   <div class="crown">♛</div>
   <h1>نور</h1>
-  <div class="english">THE EMERALD QUEEN</div>
+  <div class="english">THE EMERALD QUEEN & MOHAMAD'S HEART</div>
   <div style="color:#a98548;margin:13px">✦ ❖ ✦</div>
-  <div class="welcome">أهلاً بملكتي ونوارتي 💚</div>
-  <p class="subtitle">هذا القصر لكِ وحدكِ، وكل زاوية فيه تحمل شيئاً من حبي.</p>
+  <div class="welcome">أهلاً بملكتي المغرورة التي تذوب عند عيني 💚</div>
+  <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
+
+ <!-- صور الملك والملكة في الواجهة -->
+ <div class="royal-couple">
+  <div class="royal-frame">
+   <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني">
+   <span>محمد ♛</span>
+  </div>
+  <div class="royal-heart">💚</div>
+  <div class="royal-frame">
+   <img src="images/noorIMG.jpeg" alt="نور">
+   <span>نور 👑</span>
+  </div>
+ </div>
+
+ <!-- صندوق كسر الغرور الفائق -->
+ <div class="ego-breaker-box">
+  <h3>رسالة خاصة لملكتي "الشايفة حالها" 😌✨</h3>
+  <p>
+   مهما عليتي وغرورتي يا نوني، ومهما كنتِ مدللة، تضلي الملكة الوحيدة التي ركع قلب محمد لحبها منذ 11/11/2026! 
+   هذا القصر هو مساحتكِ الخاصة، حيث تتحكمين بكل شيء.. ما عدا قلبي، فهو أُسِر باسمك للأبد. ❤️
+  </p>
+  <button class="gold-btn" onclick="megaSurprise()">اضغطي هنا لترى من يحكم قلب من! ✨</button>
+ </div>
 
  <div class="palace">
   <div class="palace-title">✧ أبواب مملكة نور ✧</div>
@@ -710,7 +812,7 @@ body:before{
  </div>
 
  <div class="footer">
-  أنتِ أجمل ما في هذا القصر يا نور 💚
+  أنتِ أجمل غرور في حياتي يا نور 💚
  </div>
 
  <!-- إهداء وتوقيع المصمم -->
@@ -730,6 +832,19 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
+  <!-- صوركما في بطاقة الإهداء -->
+  <div class="royal-couple" style="margin:20px 0 10px">
+   <div class="royal-frame">
+    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني">
+    <span>محمد</span>
+   </div>
+   <div class="royal-heart">❤️</div>
+   <div class="royal-frame">
+    <img src="images/noorIMG.jpeg" alt="نور">
+    <span>نور</span>
+   </div>
+  </div>
+
   <div class="dedication-line">✦ ❖ ✦</div>
 
   <div class="dedication-message">
@@ -742,7 +857,7 @@ body:before{
   <div class="dedication-line">✦ ━━━━━━━━━ ✦</div>
 
   <div class="signature">
-   صُنع بكل الحب خصيصاً لأميرتي نور
+   صُنع بكل الحب منذ 11/11/2026 خصيصاً لأميرتي نور
    <br>
    محمد الحصني ♡
    <br>
@@ -761,9 +876,9 @@ body:before{
  <div class="inside">
   <div class="big-icon">👑</div>
   <h2>عرش الملكة نور</h2>
-  <p class="intro">هنا تجلس ملكة لا تشبه أحداً.</p>
+  <p class="intro">هنا تجلس ملكة لا تشبه أحداً منذ تاريخ 11/11/2026.</p>
   <div class="gold-card">
-   أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية كتبتها الأيام لي.
+   أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية بدأت في 11/11/2026 وما زالت مستمرة.
    أنتِ ملكتي ونبض قلبي وأجمل أقداري. 💚
   </div>
   <div class="big-icon">♛</div>
@@ -801,345 +916,4 @@ body:before{
   <div id="nicknames"></div>
 
   <div class="gold-card">
-   <h3 style="color:#d5b777">🌹 اختاري دلالك يا ملكتي 💋</h3>
-
-   <button class="nickname" onclick="pamper('rose')">🌹 وردة</button>
-   <button class="nickname" onclick="pamper('hug')">🫂 ضمة</button>
-   <button class="nickname" onclick="pamper('chest')">💚 تعي لصدري بدي دفيكي</button>
-   <button class="nickname" onclick="pamper('kiss')">💋 بوسة</button>
-   <button class="nickname" onclick="pamper('cheek')">😘 بوسة خد</button>
-   <button class="nickname" onclick="pamper('forehead')">💗 بوسة جبين</button>
-   <button class="nickname" onclick="pamper('lips')">💋 بوسة شفايف</button>
-   <button class="nickname" onclick="pamper('many')">💋 بوسات شفايف</button>
-   <button class="nickname" onclick="pamper('neck')">🌹 بوسة رقبتك يا نور</button>
-   <button class="nickname" onclick="pamper('neck2')">💋 مصة رقبتك يا نور</button>
-   <button class="nickname" onclick="pamper('mouth')">😘 بوسة على تمك</button>
-
-   <div class="love-message" id="pamperMessage">
-    اختاري دلالك يا نوني 🥹💚
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- صندوق الأسرار -->
-
-<section class="screen" id="secret">
- <div class="inside">
-  <div class="big-icon">🔐</div>
-  <h2>صندوق أسرار نور</h2>
-  <p class="intro">هناك مفاجأة مخبأة لكِ يا ملاكي.</p>
-  <button class="gold-btn" onclick="revealSecret()">افتحي الصندوق ✨</button>
-
-  <div id="secretBox" style="display:none">
-   <div class="big-icon">🎁</div>
-   <h2>هدية نوارتي</h2>
-   <div class="gold-card">
-    لو استطعتُ أن أهديكِ شيئاً واحداً، لأهديتكِ القدرة على رؤية نفسكِ بعيوني.
-    عندها ستعرفين كم أنتِ جميلة وغالية ومميزة بالنسبة لي. ❤️
-   </div>
-   <div style="font-size:40px">💚🌹💛</div>
-  </div>
- </div>
-</section>
-
-<!-- شرفة القمر -->
-
-<section class="screen" id="moon">
- <div class="inside">
-  <div class="big-icon">🌙</div>
-  <h2>شرفة ضو عيوني</h2>
-  <p class="intro">في السماء قمر واحد، وفي قلبي نور واحدة.</p>
-  <div class="gold-card">
-   <div style="font-size:45px">✨ 🌙 ✨</div>
-   <div class="love-message" id="moonMessage">حتى القمر يغار من نوركِ.</div>
-   <button class="gold-btn" onclick="moonLetter()">رسالة من القمر</button>
-  </div>
- </div>
-</section>
-
-<!-- الاعترافات -->
-
-<section class="screen" id="heart">
- <div class="inside">
-  <div class="big-icon">❤️</div>
-  <h2>قاعة اعترافات القلب</h2>
-  <p class="intro">هناك كلام لا يعرف طريقه إلا إلى قلبكِ.</p>
-  <div class="gold-card">
-   <div class="love-message" id="heartMessage">
-    أنتِ أجمل صدفة وأحلى حكاية.
-   </div>
-   <button class="gold-btn" onclick="heartLetter()">اعتراف آخر ❤️</button>
-  </div>
- </div>
-</section>
-
-<!-- غرفة ليلتنا -->
-
-<section class="screen" id="night">
- <div class="inside">
-  <div class="big-icon">🌙</div>
-  <h2>غرفة ليلتنا يا نور</h2>
-  <p class="intro">
-   هنا يهدأ العالم، وتبقى اللحظات الجميلة والكلام الذي لا نقوله إلا لمن نحب.
-  </p>
-
-  <div class="bedroom">
-   <div class="bed-canopy"></div>
-   <div class="bed-head">NOOR ♡ MY LOVE</div>
-   <div class="pillows">
-    <div class="pillow"></div>
-    <div class="pillow"></div>
-   </div>
-   <div class="mattress"></div>
-   <div class="bed-foot"></div>
-   <div style="color:#c9a568;margin-top:14px">✦ سرير الملكة ✦</div>
-  </div>
-
-  <div class="gold-card">
-   <div class="night-text">
-    يا نور يا نوارتي...<br>
-    تعي لصدري بدي دفيكي 🫂💚<br>
-    خلينا ننسى تعب الدنيا،<br>
-    ونعيش ليلة مليانة حب وحنان،<br>
-    وضحكات وبوسات وكلام حلو.<br>
-    بدي تكوني مرتاحة ومبسوطة،<br>
-    وتكون هالليلة ذكرى حلوة بقلبكِ.
-   </div>
-   <div style="font-size:35px">🌹 💋 ❤️ 🫂</div>
-  </div>
-
-  <div class="gold-card">
-   <h3 style="color:#d5b777">رسالة قبل النوم يا ملاكي</h3>
-   <div class="love-message">
-    لو كان بإمكاني إيقاف الوقت عند لحظة جميلة معكِ، لاخترت لحظة تكونين فيها بين ذراعيّ، تبتسمين وأنا أقول لكِ: تصبحين على حب يا ملكتي.
-   </div>
-  </div>
-
-  <button class="gold-btn" onclick="showPopup('إلى نور 💚','ليلتكِ جميلة مثل قلبكِ، وأتمنى أن تكون كل لياليكِ مليئة بالدفء والسعادة.')">
-   افتحي رسالة ليلتكِ 💌
-  </button>
- </div>
-</section>
-
-<!-- زر العودة -->
-
-<div id="backArea">
- <button class="back-btn" onclick="goHome()">↩ العودة إلى القصر الملكي</button>
-</div>
-
-<!-- نافذة الرسائل -->
-
-<div class="popup" id="popup" onclick="closePopup(event)">
- <div class="popup-content">
-  <div style="font-size:40px">💚</div>
-  <h3 id="popupTitle">إلى نور</h3>
-  <p id="popupText"></p>
-  <button class="gold-btn" onclick="closePopup()">أغلقي الرسالة</button>
- </div>
-</div>
-
-<script>
-
-/* أسماء الدلع */
-
-const names=[
- ["نوني","يا نوني يا أجمل تفصيلة في أيامي. 💚"],
- ["ننوش","يا ننوش، أنتِ حكاية جميلة لا أملّ منها."],
- ["نوشتي","يا نوشتي، لكِ في قلبي مكان لا يعرفه أحد."],
- ["نوارتي","يا نوارتي، أنتِ النور الذي يجعل كل شيء أجمل."],
- ["ضو عيوني","يا ضو عيوني، أتمنى ألا تغيب ابتسامتكِ."],
- ["ملاكي","يا ملاكي، أنتِ أجمل من كل الكلمات."],
- ["ملكتي","يا ملكتي، لكِ عرش في قلبي لا يجلس عليه غيركِ."]
-];
-
-const nickArea=document.getElementById("nicknames");
-
-names.forEach(item=>{
- let b=document.createElement("button");
- b.className="nickname";
- b.textContent=item[0];
- b.onclick=()=>{
-  document.getElementById("pamperMessage").textContent=item[1];
-  hearts();
- };
- nickArea.appendChild(b);
-});
-
-/* التنقل */
-
-function openRoom(id){
- document.getElementById("home").style.display="none";
- document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
- document.getElementById(id).classList.add("active");
- document.getElementById("backArea").style.display="block";
- window.scrollTo(0,0);
- hearts();
-}
-
-function goHome(){
- document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
- document.getElementById("home").style.display="flex";
- document.getElementById("backArea").style.display="none";
- window.scrollTo(0,0);
-}
-
-/* الدلال */
-
-const pamperTexts={
- rose:"🌹 هذه الوردة لكِ يا نوارتي، فأنتِ أجمل من كل الورود.",
- hug:"🫂 تعي لحضني يا ننوش، بدي ضمك ضمة طويلة مليانة حنان.",
- chest:"💚 تعي لصدري بدي دفيكي، وخليكي مرتاحة بين إيدي.",
- kiss:"💋 بوسة حب كبيرة لكِ يا نوني.",
- cheek:"😘 بوسة على خدك الحلو يا نور.",
- forehead:"💗 بوسة حنان على جبينك يا ملاكي.",
- lips:"💋 بوسة شفايف لكِ يا ملكتي.",
- many:"💋💋 بوسات شفايف كثيرة لنوارتي.",
- neck:"🌹 بوسة رقبتك يا نور، يا أجمل ملاك.",
- neck2:"💋 مصة رقبتك يا نور، يا حلوة الحلوات.",
- mouth:"😘 بوسة على تمك يا ننوش."
-};
-
-function pamper(type){
- document.getElementById("pamperMessage").textContent=pamperTexts[type];
- hearts();
-}
-
-/* القلوب والورود المتطايرة */
-
-function hearts(){
- const items=["💚","💛","❤️","🌹","💋","💕","🫂","🌷"];
- for(let i=0;i<16;i++){
-  const e=document.createElement("span");
-  e.className="floating";
-  e.textContent=items[Math.floor(Math.random()*items.length)];
-  e.style.left=Math.random()*95+"vw";
-  e.style.top=(55+Math.random()*35)+"vh";
-  e.style.fontSize=(20+Math.random()*17)+"px";
-  document.body.appendChild(e);
-  setTimeout(()=>e.remove(),2600);
- }
-}
-
-/* الحديقة */
-
-const flowers=[
- "هذه الوردة تشبهكِ، جميلة وتستحق كل الحب. 🌹",
- "لو كان للجمال عنوان، لكان اسمكِ يا نور.",
- "كل وردة هنا تقول لكِ: أحب ابتسامتكِ.",
- "يا نوني، أتمنى أن تزهر أيامكِ بالسعادة.",
- "أنتِ وردة مختلفة لا تشبه أي وردة أخرى."
-];
-let fi=0;
-
-function gardenLetter(){
- document.getElementById("gardenMessage").textContent=flowers[fi];
- fi=(fi+1)%flowers.length;
- hearts();
-}
-
-/* الصندوق */
-
-function revealSecret(){
- document.getElementById("secretBox").style.display="block";
- hearts();
-}
-
-/* القمر */
-
-const moon=[
- "يا ضو عيوني، حتى القمر يغار من نوركِ.",
- "لو استطعت تعليق نجمة باسمكِ لفعلت.",
- "يا نوارتي، أنتِ أجمل من كل أضواء السماء.",
- "في كل ليلة أتمنى أن تكوني أسعد إنسانة."
-];
-let mi=0;
-
-function moonLetter(){
- document.getElementById("moonMessage").textContent=moon[mi];
- mi=(mi+1)%moon.length;
- hearts();
-}
-
-/* اعترافات */
-
-const confessions=[
- "أنتِ أجمل صدفة وأحلى حكاية.",
- "ابتسامتكِ من الأشياء التي أتمنى ألا تغيب.",
- "أحب تفاصيلكِ الصغيرة قبل الكبيرة.",
- "أنتِ حكاية أتمنى أن تستمر.",
- "لكِ في قلبي مكان لا يستطيع أحد الوصول إليه."
-];
-let ci=0;
-
-function heartLetter(){
- document.getElementById("heartMessage").textContent=confessions[ci];
- ci=(ci+1)%confessions.length;
- hearts();
-}
-
-/* الرسائل */
-
-function showPopup(title,text){
- document.getElementById("popupTitle").textContent=title;
- document.getElementById("popupText").textContent=text;
- document.getElementById("popup").classList.add("show");
-}
-
-function closePopup(e){
- if(!e || e.target.id==="popup"){
-  document.getElementById("popup").classList.remove("show");
- }
-}
-
-/* موسيقى هادئة أصلية */
-
-let audio=null;
-let musicOn=false;
-let musicTimer=null;
-
-function toggleSound(){
- if(!audio){
-  audio=new(window.AudioContext||window.webkitAudioContext)();
- }
- if(audio.state==="suspended")audio.resume();
-
- musicOn=!musicOn;
-
- document.getElementById("soundButton").textContent=
- musicOn?"♫ إيقاف الموسيقى":"♫ تشغيل الموسيقى";
-
- if(musicOn){
-  const notes=[392,494,587,494,440,523,659,523];
-  let i=0;
-
-  musicTimer=setInterval(()=>{
-   if(!musicOn)return;
-
-   let osc=audio.createOscillator();
-   let gain=audio.createGain();
-
-   osc.type="sine";
-   osc.frequency.value=notes[i];
-
-   gain.gain.setValueAtTime(.0001,audio.currentTime);
-   gain.gain.exponentialRampToValueAtTime(.025,audio.currentTime+.1);
-   gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+1);
-
-   osc.connect(gain);
-   gain.connect(audio.destination);
-
-   osc.start();
-   osc.stop(audio.currentTime+1);
-
-   i=(i+1)%notes.length;
-  },850);
-
- }else{
-  clearInterval(musicTimer);
- }
-}
-
-</script>
-</body>
-</html>
+   <h3 style
