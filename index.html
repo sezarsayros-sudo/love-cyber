@@ -258,7 +258,7 @@ body:before{
  50%{transform:scale(1.2)}
 }
 
-/* صندوق كسر الغرور الفائق */
+/* صندوق دلال وغرور الملكة الجذاب */
 .ego-breaker-box{
  width:100%;
  max-width:650px;
@@ -636,7 +636,7 @@ body:before{
  line-height:2.2;
 }
 
-/* قلوب وورود متحركة */
+/* قلوب وورود وبوسات متحركة متطايرة */
 
 .floating{
  position:fixed;
@@ -647,7 +647,7 @@ body:before{
 
 @keyframes fly{
  0%{opacity:1;transform:translateY(0) scale(.7)}
- 100%{opacity:0;transform:translateY(-250px) rotate(35deg) scale(1.5)}
+ 100%{opacity:0;transform:translateY(-280px) rotate(45deg) scale(1.6)}
 }
 
 /* النافذة */
@@ -726,7 +726,7 @@ body:before{
 </style>
 </head>
 
-<body>
+<body onclick="spawnFloatingEmoji(event)">
 
 <div class="glow one"></div>
 <div class="glow two"></div>
@@ -752,25 +752,25 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة -->
+ <!-- صور الملك والملكة في الواجهة بمساراتها الصحيحة -->
  <div class="royal-couple">
   <div class="royal-frame">
-   <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني">
+   <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
    <span>محمد ♛</span>
   </div>
   <div class="royal-heart">💚</div>
   <div class="royal-frame">
-   <img src="images/noorIMG.jpeg" alt="نور">
+   <img src="images/noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
    <span>نور 👑</span>
   </div>
  </div>
 
- <!-- صندوق كسر الغرور الفائق -->
+ <!-- صندوق دلال الملكة الجذاب والرومانسي -->
  <div class="ego-breaker-box">
-  <h3>رسالة خاصة لملكتي "الشايفة حالها" 😌✨</h3>
+  <h3>رسالة خاصة لملكتي المدللة التي تأسر قلبي ✨💛</h3>
   <p>
-   مهما عليتي وغرورتي يا نوني، ومهما كنتِ مدللة، تضلي الملكة الوحيدة التي ركع قلب محمد لحبها منذ 11/11/2026! 
-   هذا القصر هو مساحتكِ الخاصة، حيث تتحكمين بكل شيء.. ما عدا قلبي، فهو أُسِر باسمك للأبد. ❤️
+   مهما تكبرتي في دلالك يا نوني، ومهما زاد غروركِ المحبوب، تضلي التاج الذي وضعته على مفترق عمري منذ 11/11/2026! 
+   هذا القصر صممته خصيصاً ليملك قلبكِ وتتحكمين بكل تفاصيله.. فكوني ملكة الليلة ودعي قلبي يعانق نبضكِ بعشق لا ينتهي. ❤️💋
   </p>
   <button class="gold-btn" onclick="megaSurprise()">اضغطي هنا لترى من يحكم قلب من! ✨</button>
  </div>
@@ -815,7 +815,7 @@ body:before{
   أنتِ أجمل غرور في حياتي يا نور 💚
  </div>
 
- <!-- إهداء وتوقيع المصمم -->
+ <!-- إهداء وتوقيع المصمم (محمد الحصني) -->
 
  <div class="dedication">
 
@@ -835,12 +835,12 @@ body:before{
   <!-- صوركما في بطاقة الإهداء -->
   <div class="royal-couple" style="margin:20px 0 10px">
    <div class="royal-frame">
-    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني">
+    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
     <span>محمد</span>
    </div>
    <div class="royal-heart">❤️</div>
    <div class="royal-frame">
-    <img src="images/noorIMG.jpeg" alt="نور">
+    <img src="images/noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
     <span>نور</span>
    </div>
   </div>
@@ -912,8 +912,107 @@ body:before{
   <div class="big-icon">💚</div>
   <h2>غرفة دلال نوشتي</h2>
   <p class="intro">كل أسمائك جميلة، لكن دلالك أجمل منها كلها.</p>
-
-  <div id="nicknames"></div>
-
   <div class="gold-card">
-   <h3 style
+   <div class="love-message">أميرتي المدللة، يا أجمل غرور يشعل قلبي عشقاً كل ليلة. 💋🫂</div>
+  </div>
+ </div>
+</section>
+
+<!-- شاشة العودة -->
+<div id="backArea">
+ <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
+</div>
+
+<!-- النافذة التفاعلية -->
+<div class="popup" id="popupModal">
+ <div class="popup-content">
+  <h3 id="popupTitle">رسالة لقلبكِ</h3>
+  <p id="popupText">...</p>
+  <button class="gold-btn" onclick="closePopup()">حبيبي محمد ❤️</button>
+ </div>
+</div>
+
+<script>
+// وظيفة تطاير البوسات والقلوب والضمات عند النقر في أي مكان
+const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
+
+function spawnFloatingEmoji(e) {
+    // منع التأثير إذا تم النقر مباشرة على زر لفتح نافذة أو غرفة لتفادي التداخل
+    if(e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+    
+    for(let i=0; i<3; i++) {
+        let el = document.createElement('div');
+        el.className = 'floating';
+        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        
+        let x = e.clientX + (Math.random() * 60 - 30);
+        let y = e.clientY + (Math.random() * 40 - 20);
+        
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.fontSize = (20 + Math.random() * 20) + 'px';
+        
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 2500);
+    }
+}
+
+// تشغيل تطاير تلقائي كل فترة قصيرة لإبقاء الحيوية في الشاشة الرئيسية
+setInterval(() => {
+    if(document.getElementById('home').style.display !== 'none') {
+        let el = document.createElement('div');
+        el.className = 'floating';
+        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.left = (Math.random() * window.innerWidth) + 'px';
+        el.style.top = (window.innerHeight - 100) + 'px';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 2500);
+    }
+}, 1200);
+
+function openRoom(roomId) {
+    document.getElementById('home').style.display = 'none';
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(roomId).classList.add('active');
+    document.getElementById('backArea').style.display = 'block';
+    window.scrollTo(0,0);
+}
+
+function closeRoom() {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('home').style.display = 'block';
+    document.getElementById('backArea').style.display = 'none';
+}
+
+function megaSurprise() {
+    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋");
+}
+
+function gardenLetter() {
+    const msgs = [
+        "أنتِ زهرة حياتي التي لا تزول عطرها يا نور 🌹",
+        "عيناكِ هما وطني وابتسامتكِ عيدي 💚",
+        "أعشق كل تفصيلة فيكِ يا أجمل نساء الكون ✨"
+    ];
+    document.getElementById('gardenMessage').innerText = msgs[Math.floor(Math.random() * msgs.length)];
+}
+
+function showPopup(title, text) {
+    document.getElementById('popupTitle').innerText = title;
+    document.getElementById('popupText').innerText = text;
+    document.getElementById('popupModal').classList.add('show');
+}
+
+function closePopup() {
+    document.getElementById('popupModal').classList.remove('show');
+}
+
+let isPlaying = false;
+function toggleSound() {
+    isPlaying = !isPlaying;
+    document.getElementById('soundButton').innerText = isPlaying ? "♫ الموسيقى تعمل" : "♫ تشغيل الموسيقى";
+}
+</script>
+
+</body>
+</html>
