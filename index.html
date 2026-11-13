@@ -219,6 +219,7 @@ body:before{
 .royal-frame{
  text-align:center;
  position:relative;
+ cursor:pointer;
 }
 
 .royal-frame img{
@@ -628,14 +629,14 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة بمسارات مجلد images الصحيحة -->
+ <!-- صور الملك والملكة في الواجهة (تتفعل عند الضغط لتظهر رسالة الحب) -->
  <div class="royal-couple">
-  <div class="royal-frame">
-   <img src="images/noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
+  <div class="royal-frame" onclick="showLoveMessage()">
+   <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
    <span>نور 👑</span>
   </div>
   <div class="royal-heart">💚</div>
-  <div class="royal-frame">
+  <div class="royal-frame" onclick="showLoveMessage()">
    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
    <span>محمد ♛</span>
   </div>
@@ -708,14 +709,14 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
-  <!-- صوركما في بطاقة الإهداء بمسارات مجلد images الصحيحة -->
+  <!-- صوركما في بطاقة الإهداء (أيضاً تتفعل عند الضغط) -->
   <div class="royal-couple" style="margin:20px 0 10px">
-   <div class="royal-frame">
-    <img src="images/noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
+   <div class="royal-frame" onclick="showLoveMessage()">
+    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
     <span>نور</span>
    </div>
    <div class="royal-heart">❤️</div>
-   <div class="royal-frame">
+   <div class="royal-frame" onclick="showLoveMessage()">
     <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
     <span>محمد</span>
    </div>
@@ -750,144 +751,4 @@ body:before{
 
 <section class="screen" id="throne">
  <div class="inside">
-  <div class="big-icon">👑</div>
-  <h2>عرش الملكة نور</h2>
-  <p class="intro">هنا تجلس ملكة لا تشبه أحداً منذ تاريخ 11/11/2026.</p>
-  <div class="gold-card">
-   أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية بدأت في 11/11/2026 وما زالت مستمرة.
-   أنتِ ملكتي ونبض قلبي وأجمل أقداري. 💚
-  </div>
-  <div class="big-icon">♛</div>
-  <div class="love-message">لكِ عرش في قلبي لا يجلس عليه سواكِ.</div>
- </div>
-</section>
-
-<!-- الحديقة -->
-
-<section class="screen" id="garden">
- <div class="inside">
-  <div class="big-icon">🌹</div>
-  <h2>حديقة نوني</h2>
-  <p class="intro">اضغطي على الزر لتحصلي على رسالة حب.</p>
-  <div>
-   <span class="rose">🌹</span><span class="rose">🌷</span>
-   <span class="rose">🌹</span><span class="rose">🌺</span>
-   <span class="rose">🌷</span>
-  </div>
-  <div class="gold-card">
-   <div class="love-message" id="gardenMessage">كل الورود لكِ يا نوارتي.</div>
-   <button class="gold-btn" onclick="gardenLetter()">افتحي وردة 🌹</button>
-  </div>
- </div>
-</section>
-
-<!-- غرفة الدلال -->
-
-<section class="screen" id="pamper">
- <div class="inside">
-  <div class="big-icon">💚</div>
-  <h2>غرفة دلال نوشتي</h2>
-  <p class="intro">كل أسمائك جميلة، لكن دلالك أجمل منها كلها.</p>
-  <div class="gold-card">
-   <div class="love-message">أميرتي المدللة، يا أجمل غرور يشعل قلبي عشقاً كل ليلة. 💋🫂</div>
-  </div>
- </div>
-</section>
-
-<!-- شاشة العودة -->
-<div id="backArea">
- <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
-</div>
-
-<!-- النافذة التفاعلية -->
-<div class="popup" id="popupModal">
- <div class="popup-content">
-  <h3 id="popupTitle">رسالة لقلبكِ</h3>
-  <p id="popupText">...</p>
-  <button class="gold-btn" onclick="closePopup()">حبيبي محمد ❤️</button>
- </div>
-</div>
-
-<script>
-// وظيفة تطاير البوسات والقلوب والضمات عند النقر في أي مكان
-const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
-
-function spawnFloatingEmoji(e) {
-    if(e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
-    
-    for(let i=0; i<3; i++) {
-        let el = document.createElement('div');
-        el.className = 'floating';
-        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        
-        let x = e.clientX + (Math.random() * 60 - 30);
-        let y = e.clientY + (Math.random() * 40 - 20);
-        
-        el.style.left = x + 'px';
-        el.style.top = y + 'px';
-        el.style.fontSize = (20 + Math.random() * 20) + 'px';
-        
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 2500);
-    }
-}
-
-// تطاير تلقائي دوري لإبقاء الحيوية في الشاشة
-setInterval(() => {
-    if(document.getElementById('home').style.display !== 'none') {
-        let el = document.createElement('div');
-        el.className = 'floating';
-        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        el.style.left = (Math.random() * window.innerWidth) + 'px';
-        el.style.top = (window.innerHeight - 100) + 'px';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 2500);
-    }
-}, 1200);
-
-function openRoom(roomId) {
-    document.getElementById('home').style.display = 'none';
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(roomId).classList.add('active');
-    document.getElementById('backArea').style.display = 'block';
-    window.scrollTo(0,0);
-}
-
-function closeRoom() {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('home').style.display = 'block';
-    document.getElementById('backArea').style.display = 'none';
-}
-
-function megaSurprise() {
-    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋");
-}
-
-function gardenLetter() {
-    const msgs = [
-        "أنتِ زهرة حياتي التي لا تزول عطرها يا نور 🌹",
-        "عيناكِ هما وطني وابتسامتكِ عيدي 💚",
-        "أعشق كل تفصيلة فيكِ يا أجمل نساء الكون ✨"
-    ];
-    document.getElementById('gardenMessage').innerText = msgs[Math.floor(Math.random() * msgs.length)];
-}
-
-function showPopup(title, text) {
-    document.getElementById('popupTitle').innerText = title;
-    document.getElementById('popupText').innerText = text;
-    document.getElementById('popupModal').classList.add('show');
-}
-
-function closePopup() {
-    document.getElementById('popupModal').classList.remove('show');
-}
-
-let isPlaying = false;
-function toggleSound() {
-    isPlaying = !isPlaying;
-    document.getElementById('soundButton').innerText = isPlaying ? "♫ الموسيقى تعمل" : "♫ تشغيل الموسيقى";
-}
-</script>
-
-</body>
-</html>
+  <div class
