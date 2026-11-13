@@ -54,6 +54,99 @@ body:before{
 .glow.one{top:5%;left:-150px}
 .glow.two{bottom:0;right:-150px}
 
+/* شاشة الدخول الملكية (SplashScreen) */
+#splashScreen {
+ position: fixed;
+ inset: 0;
+ z-index: 1000;
+ background: radial-gradient(ellipse at center, #0b3829, #02120c 70%, #000503);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ padding: 20px;
+ transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#splashScreen.hide {
+ opacity: 0;
+ transform: scale(1.08);
+ pointer-events: none;
+}
+
+.palace-gate-icon {
+ font-size: 70px;
+ color: #d5b777;
+ margin-bottom: 20px;
+ filter: drop-shadow(0 0 20px #b58a42);
+ animation: gatePulse 2s infinite ease-in-out;
+}
+
+@keyframes gatePulse {
+ 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px #b58a42); }
+ 50% { transform: scale(1.1); filter: drop-shadow(0 0 30px #fef08a); }
+}
+
+.splash-title {
+ font-family: Amiri, serif;
+ font-size: clamp(26px, 6vw, 38px);
+ color: #f0dfbd;
+ margin-bottom: 15px;
+ text-shadow: 0 0 15px #a77d39;
+ line-height: 1.6;
+}
+
+.splash-subtitle {
+ font-size: 14px;
+ color: #c3a466;
+ letter-spacing: 3px;
+ margin-bottom: 30px;
+}
+
+.loader-bar {
+ width: 220px;
+ height: 6px;
+ background: #042419;
+ border: 1px solid #a47c35;
+ border-radius: 10px;
+ overflow: hidden;
+ margin: 0 auto 25px;
+ position: relative;
+}
+
+.loader-fill {
+ width: 0%;
+ height: 100%;
+ background: linear-gradient(90deg, #a47c35, #fef08a);
+ animation: loadProgress 3.5s linear forwards;
+}
+
+@keyframes loadProgress {
+ 0% { width: 0%; }
+ 100% { width: 100%; }
+}
+
+.enter-palace-btn {
+ background: linear-gradient(135deg, #b45309, #d97706);
+ color: white;
+ border: 1px solid #fef08a;
+ padding: 12px 32px;
+ border-radius: 30px;
+ font-family: Amiri, serif;
+ font-size: 18px;
+ cursor: pointer;
+ box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
+ transition: 0.3s;
+ display: none; /* تظهر عند اكتمال التحميل أو بالضغط */
+}
+
+.enter-palace-btn:hover {
+ transform: scale(1.05);
+ box-shadow: 0 0 35px rgba(254, 240, 138, 0.8);
+}
+
+
 /* الشريط العلوي */
 
 .topbar{
@@ -527,7 +620,7 @@ body:before{
  100%{opacity:0;transform:translateY(-280px) rotate(45deg) scale(1.6)}
 }
 
-/* تنسيق النصوص المتطايرة فوق الصور عند الضغط عليها */
+/* النصوص المتحركة فوق الصور */
 .floating-text {
  position: fixed;
  pointer-events: none;
@@ -546,7 +639,7 @@ body:before{
  100% { opacity: 0; transform: translateY(-120px) scale(1.2); }
 }
 
-/* النافذة المنبثقة لزر كسر الغرور فقط */
+/* النافذة المنبثقة */
 
 .popup{
  display:none;
@@ -625,6 +718,17 @@ body:before{
 
 <body onclick="spawnFloatingEmoji(event)">
 
+<!-- شاشة الدخول الفاخرة (أبواب القصر والترحيب) -->
+<div id="splashScreen">
+ <div class="palace-gate-icon">🏛️👑</div>
+ <div class="splash-title">جاري الدخول إلى القصر يا أميرتي، انتظري... ✨</div>
+ <div class="splash-subtitle">PALACE OF NOOR & MOHAMAD</div>
+ <div class="loader-bar">
+  <div class="loader-fill"></div>
+ </div>
+ <button class="enter-palace-btn" id="enterBtn" onclick="openPalace()">ادخلي إلى قصركِ 👑💚</button>
+</div>
+
 <div class="glow one"></div>
 <div class="glow two"></div>
 
@@ -649,7 +753,7 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة مع تفعيل تطاير النصوص عند الضغط -->
+ <!-- صور الملك والملكة في الواجهة -->
  <div class="royal-couple">
   <div class="royal-frame" onclick="flyNoorText(event)">
    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
@@ -729,7 +833,7 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
-  <!-- صوركما في بطاقة الإهداء (تدعم تطاير النصوص أيضاً عند الضغط) -->
+  <!-- صوركما في بطاقة الإهداء -->
   <div class="royal-couple" style="margin:20px 0 10px">
    <div class="royal-frame" onclick="flyNoorText(event)">
     <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
@@ -820,7 +924,7 @@ body:before{
  <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
 </div>
 
-<!-- النافذة المنبثقة لزر كسر الغرور فقط -->
+<!-- النافذة المنبثقة لزر كسر الغرور -->
 <div class="popup" id="popupModal">
  <div class="popup-content">
   <h3 id="popupTitle">رسالة لقلبكِ</h3>
@@ -830,6 +934,19 @@ body:before{
 </div>
 
 <script>
+// إظهار زر الدخول بعد انتهاء شريط التحميل تلقائياً أو الضغط عليه
+setTimeout(() => {
+    document.getElementById('enterBtn').style.display = 'inline-block';
+}, 3000);
+
+function openPalace() {
+    let splash = document.getElementById('splashScreen');
+    splash.classList.add('hide');
+    setTimeout(() => {
+        splash.style.display = 'none';
+    }, 800);
+}
+
 // وظيفة تطاير البوسات والقلوب والضمات والورود عند النقر في أي مكان بالشاشة
 const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
 
@@ -855,7 +972,7 @@ function spawnFloatingEmoji(e) {
 
 // تطاير تلقائي دوري لإبقاء الحيوية مستمرة في الشاشة
 setInterval(() => {
-    if(document.getElementById('home').style.display !== 'none') {
+    if(document.getElementById('home').style.display !== 'none' && document.getElementById('splashScreen').style.display === 'none') {
         let el = document.createElement('div');
         el.className = 'floating';
         el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
@@ -866,33 +983,33 @@ setInterval(() => {
     }
 }, 1200);
 
-// دالة تطاير رسالة نور فوق صورتها عند الضغط عليها
+// تطاير رسالة نور فوق صورتها
 function flyNoorText(e) {
     e.stopPropagation();
     let rect = e.currentTarget.getBoundingClientRect();
     let textEl = document.createElement('div');
     textEl.className = 'floating-text';
     textEl.innerText = "بحبك بعشقك بتنفسك مودي 💋❤️🫂";
-    textEl.style.left = (rect.left + rect.width / 2 - 80) + 'px';
+    textEl.style.left = (rect.left + rect.width / 2 - 100) + 'px';
     textEl.style.top = (rect.top - 20) + 'px';
     document.body.appendChild(textEl);
     setTimeout(() => textEl.remove(), 2000);
 }
 
-// دالة تطاير رسالة محمد فوق صورته عند الضغط عليه
+// تطاير رسالة محمد فوق صورته
 function flyMohamadText(e) {
     e.stopPropagation();
     let rect = e.currentTarget.getBoundingClientRect();
     let textEl = document.createElement('div');
     textEl.className = 'floating-text';
     textEl.innerText = "بحبك بعشقك بتنفسك نوني 💋❤️🫂";
-    textEl.style.left = (rect.left + rect.width / 2 - 80) + 'px';
+    textEl.style.left = (rect.left + rect.width / 2 - 100) + 'px';
     textEl.style.top = (rect.top - 20) + 'px';
     document.body.appendChild(textEl);
     setTimeout(() => textEl.remove(), 2000);
 }
 
-// دالة زر كسر الغرور
+// زر كسر الغرور
 function megaSurprise() {
     showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋🫂");
 }
