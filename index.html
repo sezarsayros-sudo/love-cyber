@@ -3,1107 +3,891 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050505">
-<title>LODI'S ROYAL KINGDOM ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOOR'S ROYAL PALACE 👑</title>
 
 <style>
-*{box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap');
 
-:root{
---gold:#a98235;
---gold-light:#d1b36a;
---pink:#d879a5;
---white:#f4e9d8;
---black:#050505;
+:root {
+  --green:#063d2d;
+  --deep:#021d17;
+  --gold:#d9b45b;
+  --lightgold:#ffe5a0;
+  --cream:#fff3d4;
 }
 
-body{
-margin:0;
-min-height:100vh;
-overflow-x:hidden;
-text-align:center;
-color:var(--white);
-font-family:Tahoma,Arial,sans-serif;
-background:radial-gradient(ellipse at 50% 0%,#30251a 0%,#100e0c 43%,#050505 78%);
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse at 50% 35%,#15533d 0%,#062b20 45%,#010d0a 100%);
+  color:var(--cream);
+  font-family:'Cairo',sans-serif;
+  overflow-x:hidden;
 }
 
-button{font:inherit;cursor:pointer}
+button {font-family:inherit;cursor:pointer}
 
-header{padding:20px 12px 12px;position:relative;z-index:2}
+/* الخلفية */
 
-.royal-title{
-font-size:clamp(24px,6vw,43px);
-font-weight:900;
-background:linear-gradient(90deg,#493718,#b18b43,#ead49a,#80602a,#d3b36d,#493718);
-background-size:300% auto;
-color:transparent;
-background-clip:text;
--webkit-background-clip:text;
-animation:shine 7s linear infinite,glow 3s ease-in-out infinite;
-filter:drop-shadow(0 3px 5px #000);
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.14;
+  background-image:
+    radial-gradient(#f4d58b 1px,transparent 1px);
+  background-size:35px 35px;
+  z-index:0;
 }
 
-@keyframes shine{to{background-position:300% center}}
-@keyframes glow{
-0%,100%{filter:brightness(.75) drop-shadow(0 3px 5px #000)}
-50%{filter:brightness(1.35) drop-shadow(0 0 12px #a9823566)}
+.gold-glow {
+  position:fixed;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  background:#d9ad42;
+  filter:blur(150px);
+  opacity:.10;
+  pointer-events:none;
 }
 
-.subtitle{color:#b8a58b;line-height:2;font-size:14px}
+.glow1 {top:10%;left:-180px}
+.glow2 {bottom:0;right:-180px}
 
-.sky{
-height:205px;
-position:relative;
-overflow:hidden;
-margin:auto;
-max-width:850px;
+/* الشريط العلوي */
+
+.topbar {
+  position:absolute;
+  top:15px;
+  left:15px;
+  right:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
 }
 
-.moon{
-position:absolute;
-top:12px;
-left:50%;
-transform:translateX(-50%);
-width:112px;
-height:112px;
-border-radius:50%;
-display:grid;
-place-items:center;
-background:radial-gradient(circle at 35% 30%,#f1dfad,#b18a43 38%,#63451e 70%,#21160c 100%);
-border:1px solid #c19a4c;
-box-shadow:0 0 12px #b18a4366,0 0 35px #80602a66,0 0 75px #000;
-animation:moonPulse 3s ease-in-out infinite;
-z-index:2;
-transition:transform .25s;
+.top-logo {
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:bold;
 }
 
-.moon span{
-font-family:Georgia,serif;
-font-weight:bold;
-font-size:19px;
-color:#21170c;
-text-shadow:0 1px 2px #f5dfac;
+.sound-btn,.back-btn {
+  background:#0c382b;
+  border:1px solid #b99a50;
+  color:var(--lightgold);
+  padding:9px 16px;
+  border-radius:30px;
 }
 
-@keyframes moonPulse{
-0%,100%{filter:brightness(.8);box-shadow:0 0 12px #b18a4355,0 0 30px #000}
-50%{filter:brightness(1.3);box-shadow:0 0 25px #d0ae6b99,0 0 60px #80602a88,0 0 90px #000}
+/* شاشة الافتتاح */
+
+#home {
+  position:relative;
+  min-height:100vh;
+  padding:95px 15px 45px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow:hidden;
 }
 
-.cloud{
-position:absolute;
-color:#82766d;
-opacity:.45;
-font-size:65px;
-filter:drop-shadow(0 0 10px #8e7448);
-animation:cloudMove 24s linear infinite;
-white-space:nowrap;
+/* الكشافات */
+
+.spotlight {
+  position:absolute;
+  top:0;
+  width:45%;
+  height:400px;
+  pointer-events:none;
+  z-index:1;
+  overflow:hidden;
 }
 
-.cloud.one{top:92px;left:-130px}
-.cloud.two{top:125px;left:-250px;font-size:52px;animation-duration:32s;animation-delay:-12s}
-.cloud.three{top:80px;right:-150px;animation-duration:29s;animation-direction:reverse}
+.spotlight.left {left:0}
+.spotlight.right {right:0}
 
-@keyframes cloudMove{
-from{transform:translateX(-5vw)}
-to{transform:translateX(115vw)}
+.spotlight:before {
+  content:"";
+  position:absolute;
+  top:-20px;
+  width:100%;
+  height:440px;
+  background:linear-gradient(
+    to bottom,
+    rgba(255,224,139,.35),
+    rgba(237,190,81,.14) 35%,
+    transparent 100%
+  );
+  clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);
+  filter:blur(13px);
+  animation:beam 4s ease-in-out infinite alternate;
 }
 
-.sky-star{
-position:absolute;
-color:#d5b66f;
-animation:twinkle 1.8s infinite alternate;
+.spotlight.left:before {
+  transform:rotate(14deg);
+  transform-origin:top left;
 }
 
-@keyframes twinkle{to{opacity:.12;transform:scale(.45)}}
-
-.rain-drop{
-position:fixed;
-top:-20px;
-width:1px;
-height:18px;
-background:linear-gradient(transparent,#b9a77e);
-opacity:.4;
-pointer-events:none;
-z-index:1;
-animation:rainFall linear infinite;
-display:none;
+.spotlight.right:before {
+  transform:rotate(-14deg);
+  transform-origin:top right;
 }
 
-@keyframes rainFall{
-to{transform:translateY(110vh);opacity:.1}
+.lamp {
+  position:absolute;
+  top:8px;
+  width:37px;
+  height:20px;
+  background:linear-gradient(90deg,#8d682c,#ffe6a2,#8d682c);
+  border-radius:5px;
+  box-shadow:0 0 25px #e6bd62;
 }
 
-/* الثلج */
-.snowflake{
-position:fixed;
-top:-30px;
-color:#fff;
-text-shadow:0 0 10px #d9f3ff,0 0 20px #fff;
-pointer-events:none;
-z-index:4;
-animation:snowFall linear forwards;
+.left .lamp {left:25%}
+.right .lamp {right:25%}
+
+@keyframes beam {
+  from {opacity:.55}
+  to {opacity:1}
 }
 
-@keyframes snowFall{
-to{transform:translateY(110vh) rotate(360deg);opacity:.2}
+/* اسم نور */
+
+.hero {
+  position:relative;
+  z-index:2;
+  text-align:center;
+  margin:50px 0 40px;
 }
 
-/* البرق */
-.lightning{
-position:fixed;
-inset:0;
-background:#dceaff;
-opacity:0;
-pointer-events:none;
-z-index:40;
+.crown {
+  font-size:43px;
+  filter:drop-shadow(0 0 15px #e8bf63);
+  animation:crown 3s infinite ease-in-out;
 }
 
-.lightning.flash{
-animation:lightningFlash .7s ease-out;
+@keyframes crown {
+  50% {transform:translateY(-8px);filter:drop-shadow(0 0 25px #ffe4a0)}
 }
 
-@keyframes lightningFlash{
-0%{opacity:0}
-10%{opacity:.75}
-20%{opacity:.05}
-35%{opacity:.65}
-50%{opacity:0}
-65%{opacity:.25}
-100%{opacity:0}
+.hero h1 {
+  font-family:'Amiri',serif;
+  font-size:clamp(65px,15vw,115px);
+  line-height:1.25;
+  margin:0;
+  color:#f4d17d;
+  text-shadow:
+    0 0 8px #e7c36b,
+    0 0 25px #b88729,
+    0 0 55px #b88729;
+  animation:nameGlow 3s infinite alternate;
 }
 
-.container{
-max-width:850px;
-margin:auto;
-padding:12px;
-position:relative;
-z-index:2;
+@keyframes nameGlow {
+  from {text-shadow:0 0 12px #e7c36b,0 0 25px #b88729}
+  to {text-shadow:0 0 20px #fff0b5,0 0 60px #d5a743}
 }
 
-.hero{
-padding:24px 15px;
-border:1px solid #94733388;
-border-radius:25px;
-background:linear-gradient(145deg,#211b12,#0c0b09 55%,#17110b);
-box-shadow:0 0 35px #000,0 0 25px #80602a22,inset 0 0 25px #b18a4310;
-margin-bottom:24px;
+.hero .english {
+  direction:ltr;
+  font-size:12px;
+  letter-spacing:5px;
+  color:#dfc27e;
 }
 
-.crown{
-font-size:62px;
-display:inline-block;
-animation:float 3s infinite ease-in-out;
-cursor:pointer;
+.hero .welcome {
+  font-family:'Amiri',serif;
+  font-size:24px;
+  margin-top:18px;
+  color:#fff0cc;
 }
 
-@keyframes float{50%{transform:translateY(-10px)}}
-
-.worlds{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
+.hero .sub {
+  color:#c8b98f;
+  font-size:13px;
 }
 
-.world{
-border:1px solid #a07a37;
-border-radius:20px;
-padding:18px 9px;
-background:linear-gradient(145deg,#302516,#100e0b 65%,#050505);
-color:#e8d6ad;
-min-height:140px;
-box-shadow:0 8px 22px #000,inset 0 0 18px #a9823514;
-transition:.25s;
+/* الزخارف */
+
+.decor {
+  color:#d6b15d;
+  font-size:18px;
+  letter-spacing:12px;
+  margin:14px 0;
+  text-align:center;
 }
 
-.world:active,.btn:active{transform:scale(.96)}
-.world .emoji{font-size:39px;display:block;margin-bottom:9px}
-.world strong{font-size:14px}
-.world small{display:block;color:#b4a185;margin-top:7px;line-height:1.7}
-.wide{grid-column:1/-1}
+/* القصر والأبواب */
 
-.btn{
-border:1px solid #b18a43;
-border-radius:30px;
-padding:12px 18px;
-color:#ead9b5;
-background:linear-gradient(135deg,#725322,#21180c 55%,#090807);
-margin:6px;
-font-size:14px;
-font-weight:bold;
-box-shadow:0 5px 18px #000,inset 0 1px 5px #d3b36d22;
-transition:.2s;
+.palace {
+  position:relative;
+  width:100%;
+  max-width:950px;
+  padding:30px 18px;
+  border:2px solid #b18b43;
+  border-radius:160px 160px 12px 12px;
+  background:
+    linear-gradient(180deg,rgba(18,76,54,.85),rgba(2,25,19,.95));
+  box-shadow:
+    inset 0 0 45px rgba(215,174,79,.13),
+    0 0 40px rgba(0,0,0,.5),
+    0 0 25px rgba(215,174,79,.12);
 }
 
-.secondary{
-background:linear-gradient(145deg,#171512,#050505);
-color:#c8b17e;
-border:1px solid #75602f;
+.palace:before {
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid rgba(226,190,112,.35);
+  border-radius:150px 150px 5px 5px;
+  pointer-events:none;
 }
 
-/* زر الأجواء */
-.music-area{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:7px;
-margin:12px 0;
+.palace-title {
+  text-align:center;
+  color:#e4c67d;
+  font-family:'Amiri',serif;
+  font-size:23px;
+  margin:4px 0 25px;
 }
 
-#allEffectsBtn{
-border:1px solid #d1b36a;
-background:linear-gradient(135deg,#80602a,#392714,#090807);
-font-size:16px;
-padding:15px 24px;
-box-shadow:0 0 18px #a9823544,0 5px 18px #000;
+.doors {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px 13px;
+  position:relative;
+  z-index:1;
 }
 
-#allEffectsBtn.active{
-background:linear-gradient(135deg,#8a263c,#40121e,#090807);
-box-shadow:0 0 25px #d879a566;
+.door {
+  border:1px solid #bd9952;
+  background:linear-gradient(145deg,#17553c,#06291e);
+  border-radius:85px 85px 7px 7px;
+  min-height:155px;
+  padding:14px 5px;
+  color:#f5dc9c;
+  box-shadow:
+    inset 0 0 20px rgba(255,210,120,.08),
+    0 5px 15px #0008;
+  position:relative;
+  transition:.4s;
+  overflow:hidden;
 }
 
-.status{
-color:#b99a5b;
-font-size:12px;
-line-height:2;
+.door:before {
+  content:"";
+  position:absolute;
+  inset:7px;
+  border:1px solid rgba(226,194,121,.4);
+  border-radius:75px 75px 3px 3px;
 }
 
-.panel{
-display:none;
-position:fixed;
-inset:0;
-z-index:10;
-background:#050505f7;
-overflow-y:auto;
-padding:14px;
+.door:hover {
+  transform:translateY(-8px);
+  box-shadow:0 0 25px rgba(230,189,93,.4);
+  background:linear-gradient(145deg,#27724e,#0a3b29);
 }
 
-.panel.active{display:block}
-
-.panel-content{
-max-width:650px;
-margin:18px auto;
-padding:23px 15px;
-border:1px solid #a17c3b;
-border-radius:25px;
-background:linear-gradient(145deg,#302417,#100e0b 55%,#050505);
-box-shadow:0 0 35px #000,0 0 30px #80602a22,inset 0 0 25px #a9823510;
+.door .icon {
+  display:block;
+  font-size:34px;
+  margin-bottom:6px;
+  position:relative;
 }
 
-.panel h2{color:#d2b16a}
-.big{font-size:60px;margin:12px}
-
-.message{
-background:linear-gradient(145deg,#19140e,#090807);
-border:1px solid #80602a66;
-border-radius:18px;
-padding:17px;
-margin:15px 0;
-line-height:2.1;
-font-size:16px;
-color:#eee2ca;
-box-shadow:inset 0 0 18px #a9823510;
+.door strong {
+  display:block;
+  font-size:13px;
+  position:relative;
 }
 
-footer{
-padding:30px 10px;
-color:#aa9879;
-line-height:2;
-position:relative;
-z-index:2;
+.door small {
+  display:block;
+  color:#d1bd8e;
+  font-size:10px;
+  margin-top:5px;
+  position:relative;
 }
 
-#loveEffect{
-position:fixed;
-inset:0;
-z-index:50;
-display:none;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-gap:8px;
-background:#050403ed;
-pointer-events:auto;
+/* القاعدة */
+
+.footer {
+  text-align:center;
+  margin:35px 0 0;
+  color:#bda66e;
+  font-family:'Amiri',serif;
+  font-size:19px;
 }
 
-#loveEffect.show{
-display:flex;
-animation:veil .25s ease;
+/* الشاشات الداخلية */
+
+.screen {
+  display:none;
+  min-height:100vh;
+  padding:85px 17px 40px;
+  position:relative;
+  animation:enter .7s ease;
 }
 
-.effect-symbol{
-font-size:clamp(95px,25vw,170px);
-filter:drop-shadow(0 0 22px #a98235);
-animation:effectPop 1.4s ease both;
+.screen.active {display:block}
+
+@keyframes enter {
+  from {opacity:0;transform:translateY(20px)}
+  to {opacity:1;transform:translateY(0)}
 }
 
-.effect-message{
-color:#f4e9d8;
-font-size:21px;
-font-weight:bold;
-line-height:1.9;
-padding:15px;
-max-width:340px;
-text-shadow:0 0 15px #a98235;
-animation:messagePop 1s ease both;
+.inside {
+  max-width:760px;
+  margin:auto;
+  border:1px solid #b99a50;
+  border-radius:20px;
+  padding:30px 20px;
+  background:linear-gradient(145deg,#0d4933,#031c15);
+  box-shadow:0 0 35px #0008;
+  text-align:center;
 }
 
-@keyframes messagePop{
-0%{transform:translateY(20px) scale(.7);opacity:0}
-100%{transform:translateY(0) scale(1);opacity:1}
+.inside h2 {
+  color:#f0d18b;
+  font-family:'Amiri',serif;
+  font-size:35px;
+  margin:8px 0;
 }
 
-@keyframes veil{from{opacity:0}to{opacity:1}}
-
-@keyframes effectPop{
-0%{transform:scale(.15) rotate(-15deg);opacity:0}
-35%{transform:scale(1.2) rotate(5deg);opacity:1}
-65%{transform:scale(1);opacity:1}
-100%{transform:scale(.8);opacity:0}
+.inside .intro {
+  color:#d7c49a;
+  font-size:14px;
+  line-height:2;
 }
 
-.floating-heart{
-position:fixed;
-bottom:8%;
-z-index:55;
-pointer-events:none;
-font-size:26px;
-animation:heartRise 2.8s ease-out forwards;
+.big-icon {
+  font-size:65px;
+  filter:drop-shadow(0 0 15px #e1bc68);
 }
 
-@keyframes heartRise{
-to{transform:translateY(-85vh) translateX(var(--drift)) rotate(35deg);opacity:0}
+.gold-card {
+  background:rgba(220,184,103,.08);
+  border:1px solid rgba(215,178,95,.45);
+  padding:17px;
+  border-radius:14px;
+  margin:15px 0;
+  color:#f7e5b9;
+  line-height:2;
 }
 
-.emoji-choice{
-border:1px solid #a98235;
-border-radius:20px;
-background:linear-gradient(145deg,#392918,#100d09);
-color:white;
-font-size:37px;
-width:75px;
-height:75px;
-margin:5px;
-box-shadow:0 0 18px #000,inset 0 0 12px #a9823522;
-transition:.25s;
+.gold-btn {
+  border:1px solid #e1bd69;
+  background:linear-gradient(135deg,#d6b05e,#876126);
+  color:#10281c;
+  font-weight:bold;
+  border-radius:30px;
+  padding:11px 24px;
+  margin:8px 4px;
+  box-shadow:0 0 15px #c6a04a33;
+  transition:.3s;
 }
 
-.emoji-choice:active{transform:scale(.82);background:#654923}
+.gold-btn:hover {transform:scale(1.05)}
 
-.pamper-emojis{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-justify-items:center;
-margin:22px 0;
+.soft-btn {
+  background:#103c2c;
+  color:#f1d99f;
+  border:1px solid #a78b4d;
+  padding:10px 18px;
+  border-radius:25px;
+  margin:6px;
 }
 
-footer span{color:#b18a43}
-
-@media(max-width:430px){
-.worlds{grid-template-columns:1fr 1fr}
-.world{padding:15px 6px}
-.world strong{font-size:12px}
-.panel-content{margin:8px auto;padding:18px 10px}
-.sky{height:185px}
-.emoji-choice{width:68px;height:68px;font-size:33px}
+.love-message {
+  min-height:85px;
+  font-family:'Amiri',serif;
+  font-size:24px;
+  color:#ffe5a3;
+  margin:20px 0;
+  line-height:1.8;
 }
 
-@media(prefers-reduced-motion:reduce){
-*,*:before,*:after{
-animation-duration:.01ms!important;
-animation-iteration-count:1!important;
+.nickname {
+  display:inline-block;
+  margin:6px;
+  padding:10px 17px;
+  border:1px solid #b99a50;
+  background:#0b3929;
+  border-radius:25px;
+  color:#f6dfa3;
+  transition:.3s;
 }
+
+.nickname:hover {
+  background:#9b7836;
+  color:white;
+  transform:scale(1.06);
+}
+
+.secret-box {
+  display:none;
+  margin-top:20px;
+  animation:enter .6s;
+}
+
+.secret-box.show {display:block}
+
+.rose {
+  display:inline-block;
+  font-size:30px;
+  margin:5px;
+  animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  50% {transform:translateY(-9px)}
+}
+
+/* الرسالة المنبثقة */
+
+.popup {
+  position:fixed;
+  inset:0;
+  background:#000c;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:20px;
+}
+
+.popup.show {display:flex}
+
+.popup-content {
+  width:100%;
+  max-width:390px;
+  background:linear-gradient(145deg,#15523a,#031b14);
+  border:1px solid #d5b263;
+  border-radius:20px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 0 50px #b9934544;
+}
+
+.popup-content h3 {
+  color:#f4d38a;
+  font-family:'Amiri',serif;
+  font-size:28px;
+}
+
+.popup-content p {
+  font-family:'Amiri',serif;
+  font-size:23px;
+  line-height:1.9;
+}
+
+/* الهاتف */
+
+@media(max-width:600px) {
+  .doors {gap:12px 8px}
+  .door {min-height:135px;padding:12px 3px}
+  .door .icon {font-size:29px}
+  .door strong {font-size:11px}
+  .door small {font-size:9px}
+  .palace {padding:25px 12px}
+  .hero {margin-top:65px}
+  .spotlight {height:300px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="lightning" id="lightning"></div>
+<div class="gold-glow glow1"></div>
+<div class="gold-glow glow2"></div>
 
-<header>
-<h1 class="royal-title">👑 LODI'S ROYAL KINGDOM ❤️</h1>
-<div class="subtitle">مملكتك الملكية يا لودي... حيث يسكن الحب والجمال ✨</div>
-</header>
-
-<section class="sky" aria-label="سماء لودي">
-<div class="moon" onclick="moonSecret()" title="اكتشفي سر القمر">
-<span>LODI</span>
+<div class="topbar">
+  <div class="top-logo">NOOR'S ROYAL PALACE</div>
+  <button class="sound-btn" onclick="toggleSound()" id="soundButton">♫ الصوت</button>
 </div>
-<div class="cloud one">☁ ☁</div>
-<div class="cloud two">☁ ☁</div>
-<div class="cloud three">☁</div>
+
+<!-- الصفحة الرئيسية -->
+
+<main id="home">
+
+  <div class="spotlight left"><div class="lamp"></div></div>
+  <div class="spotlight right"><div class="lamp"></div></div>
+
+  <section class="hero">
+    <div class="crown">♛</div>
+    <h1>نور</h1>
+    <div class="english">THE EMERALD QUEEN</div>
+    <div class="decor">✦ ❖ ✦</div>
+    <div class="welcome">أهلاً بملكة قلبي، يا نوارتي 💚</div>
+    <p class="sub">هذا القصر لكِ وحدكِ... وكل زاوية فيه تحمل شيئاً من حبّي</p>
+  </section>
+
+  <div class="palace">
+    <div class="palace-title">✧ اختاري أحد أبواب قصركِ ✧</div>
+
+    <div class="doors">
+
+      <button class="door" onclick="openRoom('throne')">
+        <span class="icon">👑</span>
+        <strong>عرش الملكة</strong>
+        <small>مملكة قلبكِ</small>
+      </button>
+
+      <button class="door" onclick="openRoom('garden')">
+        <span class="icon">🌹</span>
+        <strong>حديقة نوني</strong>
+        <small>ورود ورسائل</small>
+      </button>
+
+      <button class="door" onclick="openRoom('pamper')">
+        <span class="icon">💚</span>
+        <strong>غرفة الدلال</strong>
+        <small>يا أجمل ملاك</small>
+      </button>
+
+      <button class="door" onclick="openRoom('secret')">
+        <span class="icon">🔐</span>
+        <strong>صندوق الأسرار</strong>
+        <small>مفاجأة مخفية</small>
+      </button>
+
+      <button class="door" onclick="openRoom('moon')">
+        <span class="icon">🌙</span>
+        <strong>شرفة عيوني</strong>
+        <small>تحت ضوء القمر</small>
+      </button>
+
+      <button class="door" onclick="openRoom('heart')">
+        <span class="icon">❤️</span>
+        <strong>قاعة الاعترافات</strong>
+        <small>كلام من القلب</small>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    صُمم هذا القصر لأجمل نور في العالم 💚
+    <div style="font-size:12px;margin-top:8px;direction:ltr">
+      FOREVER YOURS ♡
+    </div>
+  </div>
+
+</main>
+
+<!-- العوالم الداخلية -->
+
+<section class="screen" id="throne">
+  <div class="inside">
+    <div class="big-icon">👑</div>
+    <h2>عرش الملكة نور</h2>
+    <p class="intro">هنا تجلس ملكة لا تشبه أحداً... ملكة سكنت القلب قبل أن ترى العرش.</p>
+    <div class="gold-card">
+      أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية كتبتها الأيام لي.
+      أنتِ ملكتي، ونبض قلبي، وأجمل أقداري. 💚
+    </div>
+    <div class="big-icon">♛</div>
+    <div class="love-message">مكانكِ محفوظ في قلبي، لا ينافسكِ عليه أحد.</div>
+  </div>
 </section>
 
-<div class="container">
+<section class="screen" id="garden">
+  <div class="inside">
+    <div class="big-icon">🌹</div>
+    <h2>حديقة نوني</h2>
+    <p class="intro">كل وردة هنا تحمل لكِ كلمة جميلة.</p>
+    <div id="roses">
+      <span class="rose">🌹</span>
+      <span class="rose">🌷</span>
+      <span class="rose">🌹</span>
+      <span class="rose">🌺</span>
+      <span class="rose">🌷</span>
+    </div>
+    <div class="gold-card">
+      <div class="love-message" id="gardenMessage">اضغطي على الزر لتفتحي رسالة من حديقتكِ 💚</div>
+      <button class="gold-btn" onclick="gardenLetter()">افتحي رسالة وردة 🌹</button>
+    </div>
+  </div>
+</section>
 
-<!-- زر واحد لتشغيل جميع الأجواء -->
-<div class="music-area">
-<button class="btn" id="allEffectsBtn" onclick="toggleAllEffects()">
-❄️ تشغيل الأجواء الملكية
-</button>
+<section class="screen" id="pamper">
+  <div class="inside">
+    <div class="big-icon">💚</div>
+    <h2>غرفة دلال نوشتي</h2>
+    <p class="intro">اختاري اسم الدلع الذي تحبين أن أناديكِ به.</p>
+    <div id="nicknames"></div>
+    <div class="gold-card">
+      <div class="love-message" id="nicknameMessage">يا ترى أي اسم يليق بأجمل فتاة؟ 🥹</div>
+    </div>
+    <p class="intro">أنتِ أجمل من كل الأسماء، وكل اسم يصبح أجمل عندما يكون لكِ.</p>
+  </div>
+</section>
+
+<section class="screen" id="secret">
+  <div class="inside">
+    <div class="big-icon">🔐</div>
+    <h2>صندوق أسرار نور</h2>
+    <p class="intro">هناك شيء صغير مخبأ لكِ في هذا الصندوق...</p>
+    <button class="gold-btn" onclick="revealSecret()">افتحي الصندوق ✨</button>
+
+    <div class="secret-box" id="secretBox">
+      <div class="big-icon">🎁</div>
+      <h2>هدية لكِ يا نوني</h2>
+      <div class="gold-card">
+        لو استطعتُ أن أهديكِ شيئاً واحداً في هذه الحياة، لأهديتكِ القدرة على رؤية نفسكِ بعيوني...
+        عندها ستعرفين كم أنتِ جميلة وغالية ومميزة بالنسبة لي. ❤️
+      </div>
+      <div style="font-size:38px">💚💛💚</div>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="moon">
+  <div class="inside">
+    <div class="big-icon">🌙</div>
+    <h2>شرفة ضو عيوني</h2>
+    <p class="intro">في هدوء الليل، هناك نجمة واحدة تضيء أكثر من الجميع... إنها نور.</p>
+    <div class="gold-card">
+      <div style="font-size:45px">✨ 🌙 ✨</div>
+      <div class="love-message" id="moonMessage">
+        يا ضو عيوني، حتى القمر يغار من نوركِ.
+      </div>
+      <button class="gold-btn" onclick="moonLetter()">رسالة من القمر 🌙</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="heart">
+  <div class="inside">
+    <div class="big-icon">❤️</div>
+    <h2>قاعة اعترافات القلب</h2>
+    <p class="intro">هناك أشياء لا تستطيع الكلمات وصفها، ولكن القلب يحاول.</p>
+    <div class="gold-card">
+      <div class="love-message" id="heartMessage">
+        اعترافي الأول: وجودكِ يجعل للأيام معنى أجمل.
+      </div>
+      <button class="gold-btn" onclick="heartLetter()">اعتراف آخر ❤️</button>
+    </div>
+  </div>
+</section>
+
+<!-- زر العودة -->
+
+<div id="backArea" style="display:none;text-align:center;position:fixed;bottom:15px;left:0;right:0;z-index:50">
+  <button class="back-btn" onclick="goHome()">↩ العودة إلى القصر الملكي</button>
 </div>
 
-<div class="status" id="soundStatus">
-🎹 البيانو والمطر والثلج والبرق والرعد بانتظارك ❤️
-</div>
+<!-- النافذة المنبثقة -->
 
-<div class="hero">
-<div class="crown" onclick="moonSecret()">👸🏻</div>
-<h2 style="color:#c3a15e">أهلاً بأميرتي لودي</h2>
-<p style="line-height:2">
-وصلت أميرتنا! هنا لكِ الدلال والضحك والحب وكل الأشياء الجميلة ❤️💋
-</p>
-<button class="btn" onclick="openWorld('welcomeRoom')">
-ادخلي مملكتك يا أميرتي ✨
-</button>
-</div>
-
-<h2 style="color:#c3a15e">🌙 اختاري عالمك السحري</h2>
-
-<div class="worlds">
-
-<button class="world" onclick="openWorld('pamper')">
-<span class="emoji">💋</span>
-<strong>غرفة الدلال والبوسات</strong>
-<small>إيموجيات ومفاجآت رومانسية</small>
-</button>
-
-<button class="world" onclick="openWorld('passion')">
-<span class="emoji">🔥</span>
-<strong>عالم العشق</strong>
-<small>اعترافات ومشاعر عميقة</small>
-</button>
-
-<button class="world" onclick="openWorld('love')">
-<span class="emoji">❤️</span>
-<strong>عالم الحب</strong>
-<small>رسائل ووعود وذكريات</small>
-</button>
-
-<button class="world wide" onclick="openWorld('flirt')">
-<span class="emoji">🌹</span>
-<strong>عالم الغزل</strong>
-<small>كلمات تذيب القلب</small>
-</button>
-
-</div>
-
-<h2 style="color:#c3a15e;margin-top:25px">
-💞 لكِ من قلبي هذه الهدايا
-</h2>
-
-<div class="message">
-<button class="btn" onclick="showLove('hug')">🫂 حضن يضمك ولا يتركك</button>
-<button class="btn" onclick="showLove('kiss')">😘 لمسة حنان لقلبك</button>
-<button class="btn" onclick="showLove('love')">❤️ أنتِ أجمل أقداري</button>
-<button class="btn" onclick="showLove('miss')">🥺 مكانك لا يملؤه أحد</button>
-<button class="btn" onclick="showLove('pamper')">👑 يا ملكة قلبي</button>
-</div>
-
-<div style="margin-top:18px">
-<button class="btn" onclick="surprise()">🎁 مفاجأة صغيرة</button>
-<button class="btn secondary" onclick="toggleNight()">🌙 تبديل الأجواء</button>
-</div>
-
-<div class="message">
-<span>💗 القلوب التي جمعتها لودي</span>
-<h2 id="points" style="color:#c3a15e">0 ❤️</h2>
-</div>
-
-<button class="btn" onclick="openWorld('secret')">💌 رسالة سرية</button>
-
-<p class="status">
-تلميح صغير: للقمر حكاية لا يعرفها إلا الفضوليون 🌙
-</p>
-
-</div>
-
-<footer>
-صُنعت بكل الحب لأميرتنا لودي ❤️
-<br>
-<span>LODI'S ROYAL DREAM WORLD 👑</span>
-</footer>
-
-<div id="loveEffect" onclick="hideLoveEffect()">
-<div class="effect-symbol" id="effectSymbol">🫂❤️</div>
-<div class="effect-message" id="effectMessage">أحبك يا لودي ❤️</div>
-</div>
-
-<!-- الترحيب -->
-<div class="panel" id="welcomeRoom">
-<div class="panel-content">
-<div class="big">👑✨</div>
-<h2>مملكتك يا لودي</h2>
-<div class="message">هنا أنتِ الأميرة والمدللة، وكل شيء صُنع ليجعل ابتسامتك أجمل ❤️</div>
-<button class="btn" onclick="closeWorld()">ابدئي جولتك 💗</button>
-</div>
-</div>
-
-<!-- الدلال -->
-<div class="panel" id="pamper">
-<div class="panel-content">
-<div class="big">💗👑💋</div>
-<h2>غرفة الدلال والبوسات</h2>
-<div class="message">يا أجمل أميرة في مملكتي...<br>اختاري إيموجياً واكتشفي ما يخفيه لكِ قلبي ❤️</div>
-
-<div class="pamper-emojis">
-<button class="emoji-choice" onclick="showLove('love')">❤️</button>
-<button class="emoji-choice" onclick="showLove('adore')">😍</button>
-<button class="emoji-choice" onclick="showLove('kiss')">😘</button>
-<button class="emoji-choice" onclick="showLove('hug')">🫂</button>
-<button class="emoji-choice" onclick="showLove('miss')">🥺</button>
-<button class="emoji-choice" onclick="showLove('pamper')">🥰</button>
-<button class="emoji-choice" onclick="showLove('kissCheek')">💋</button>
-<button class="emoji-choice" onclick="showLove('kissForehead')">🌹</button>
-<button class="emoji-choice" onclick="showLove('kissLips')">💞</button>
-</div>
-
-<div class="message" id="pamperText">أنتِ أميرتي المدللة، ولكِ كل الحب ❤️</div>
-<button class="btn" onclick="randomPamper()">💌 رسالة دلال جديدة</button>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة 👑</button>
-</div>
-</div>
-
-<!-- العشق -->
-<div class="panel" id="passion">
-<div class="panel-content">
-<div class="big">🔥🌹</div>
-<h2>عالم العشق</h2>
-<div class="message" id="passionText">أنتِ الحكاية التي لا أريد أن أصل إلى نهايتها.</div>
-<button class="btn" onclick="randomText('passionText',passionMessages)">💌 اعتراف جديد</button>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
-</div>
-</div>
-
-<!-- الحب -->
-<div class="panel" id="love">
-<div class="panel-content">
-<div class="big">❤️💍</div>
-<h2>عالم الحب</h2>
-<div class="message" id="loveText">لو عاد بي الزمن ألف مرة، لاخترت أن ألتقي بكِ في كل مرة.</div>
-<button class="btn" onclick="randomText('loveText',loveMessages)">💗 رسالة حب جديدة</button>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
-</div>
-</div>
-
-<!-- الغزل -->
-<div class="panel" id="flirt">
-<div class="panel-content">
-<div class="big">🌹🦋</div>
-<h2>عالم الغزل</h2>
-<div class="message" id="flirtText">يا صاحبة العيون التي تجعل للقمر سبباً ليغار.</div>
-<button class="btn" onclick="randomText('flirtText',flirtMessages)">🌹 غازلني من جديد</button>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
-</div>
-</div>
-
-<!-- الرسالة السرية -->
-<div class="panel" id="secret">
-<div class="panel-content">
-<div class="big">💌</div>
-<h2>رسالة سرية إلى لودي</h2>
-<div class="message">
-أجمل ما في هذا العالم ليس القصور ولا النجوم ولا الهدايا، بل وجودك أنتِ وابتسامتك وكل لحظة جميلة تجمعنا.
-أتمنى أن يكون مستقبلنا مليئاً بالفرح والطمأنينة.
-أحبك يا لودي ❤️
-</div>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
-</div>
-</div>
-
-<!-- الهدية المخفية -->
-<div class="panel" id="royalGift">
-<div class="panel-content">
-<div class="big">🎁💎👑</div>
-<h2 style="color:#c3a15e">كنز القمر الخاص بلودي</h2>
-<div class="message">
-يا أميرتي لودي...
-<br><br>
-هذه الهدية لا تشبه أي هدية، لأنها تحمل شيئاً من قلبي.
-لو استطعت أن أهديك نجمة من السماء لاخترت أكثرها لمعاناً، لأنها تشبهك.
-أتمنى أن تبقى ابتسامتك مضيئة، وأن تكون أيامك مليئة بالحب والطمأنينة.
-أنتِ ملكة هذا العالم وأجمل أسراره.
-أحبك يا لودي ❤️🥹
-</div>
-<div class="big">🌹💍💗</div>
-<button class="btn" onclick="giftHearts()">افتحي المفاجأة الأخيرة 💗</button>
-<button class="btn secondary" onclick="closeWorld()">العودة للمملكة</button>
-</div>
+<div class="popup" id="popup" onclick="closePopup(event)">
+  <div class="popup-content">
+    <div style="font-size:40px">💚</div>
+    <h3 id="popupTitle">إلى نور</h3>
+    <p id="popupText"></p>
+    <button class="gold-btn" onclick="closePopup()">أغلقي الرسالة</button>
+  </div>
 </div>
 
 <script>
-let points=0,night=false,ctx=null,pianoTimer=null;
-let pianoPlaying=false,rainPlaying=false;
-let rainSource=null,rainGain=null;
-let moonClicks=0,moonTimer=null;
 
-let allEffectsPlaying=false;
-let snowTimer=null;
-let lightningTimer=null;
-let thunderTimer=null;
-let visibleRainStarted=false;
-let thunderBuffer=null;
+/* أسماء الدلع */
 
-const passionMessages=[
-"أعشقكِ بكل تفاصيلكِ، وأتمنى أن أكون دائماً سبباً في ابتسامتكِ.",
-"كلما تحدثت معكِ شعرت أن الدنيا أصبحت أجمل.",
-"أنتِ المرأة التي اختارها قلبي دون تردد.",
-"وجودكِ بجانبي يجعل كل شيء في حياتي أجمل.",
-"لا أريد من الحياة أكثر من قلبكِ وابتسامتكِ.",
-"أحب صوتكِ وضحكتكِ وحتى تفاصيلكِ الصغيرة.",
-"أنتِ أجمل حكاية كتبها القدر في حياتي.",
-"لو كان الحب اسماً، لاخترت أن يكون اسمكِ."
+const nicknames = [
+  ["نوني","يا نوني يا أجمل تفصيلة في أيامي، يا ابتسامتي الحلوة. 💚"],
+  ["ننوش","يا ننوش، أنتِ حكاية جميلة لا أملّ من قراءتها."],
+  ["نوشتي","يا نوشتي، لكِ في قلبي مكان لا يعرفه أحد سواكِ."],
+  ["نوارتي","يا نوارتي، أنتِ النور الذي يجعل كل شيء أجمل."],
+  ["ضو عيوني","يا ضو عيوني، أتمنى أن تبقى ابتسامتكِ مضيئة دائماً."],
+  ["ملاكي","يا ملاكي، رقة اسمكِ تشبه جمال روحكِ."],
+  ["ملكتي","يا ملكتي، لكِ عرش في قلبي لا يجلس عليه غيركِ."],
+  ["يا نور عيوني","يا نور عيوني، أنتِ أجمل ما أراه وأحلى ما أشعر به."]
 ];
 
-const loveMessages=[
-"أحبكِ اليوم أكثر من الأمس، وغداً سأحبكِ أكثر.",
-"أنتِ لستِ مجرد حبيبة، أنتِ أجمل ما حدث لي.",
-"أتمنى أن أكون الرجل الذي تجدين معه الأمان والسعادة.",
-"كل أحلامي الجميلة تبدأ بوجودكِ وتنتهي بابتسامتكِ.",
-"أريد أن أصنع معكِ ذكريات لا ينساها العمر.",
-"أنتِ اختياري في كل يوم، وليست مجرد صدفة.",
-"سأظل أبحث عن سعادتكِ كما أبحث عن سعادتي.",
-"لو خُيّرت بين العالم كله وبينكِ، لاخترتكِ أنتِ."
-];
+const nicknameArea = document.getElementById("nicknames");
 
-const flirtMessages=[
-"يا أجمل امرأة، حتى النجوم تتمنى أن تسرق شيئاً من جمال عينيكِ.",
-"ضحكتكِ وحدها تجعل يومي أجمل من ألف يوم.",
-"لو كان الجمال قصراً، لكنتِ أنتِ ملكته.",
-"عيناكِ ليستا مجرد عيون، بل وطن أحب أن أسكنه.",
-"كلما رأيتكِ نسيت الكلمات وبقي قلبي يتحدث.",
-"أنتِ قصيدة لا يستطيع الشعراء وصف جمالها.",
-"حتى القمر يخجل من الظهور عندما تبتسمين.",
-"يا لروعة حضوركِ، كأن العالم كله يصبح أجمل."
-];
-
-const pamperMessages=[
-"🫂 حضن طويل يضمك ويبعد عنك كل تعب الدنيا.",
-"😍 بعشقك يا لودي، يا أجمل ما في حياتي.",
-"🌹 بوسة لجبينك يا أميرتي ❤️",
-"😘 بوسة لخدودك يا أجمل وردة.",
-"💋 بوسة لشفافك يا حبيبة قلبي.",
-"🥰 لو كان الدلال هدية، لأهديتك العالم كله.",
-"❤️ أنتِ نبض قلبي وأجمل ما في أيامي.",
-"💗 أريد أن أراكِ تبتسمين كل يوم، فأنتِ سعادتي."
-];
-
-function openWorld(id){
-document.getElementById(id).classList.add('active');
-}
-
-function closeWorld(){
-document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-}
-
-function addHeart(){
-points++;
-document.getElementById('points').textContent=points+' ❤️';
-burst();
-}
-
-function burst(){
-for(let i=0;i<14;i++){
-let h=document.createElement('div');
-h.className='floating-heart';
-h.textContent=['❤️','💗','💋','💕','✨'][Math.floor(Math.random()*5)];
-h.style.left=Math.random()*100+'vw';
-h.style.setProperty('--drift',(Math.random()*120-60)+'px');
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),2900);
-}
-}
-
-function randomText(id,arr){
-const el=document.getElementById(id);
-const current=el.textContent.trim();
-let choices=arr.filter(message=>message!==current);
-if(choices.length===0)choices=arr;
-const selected=choices[Math.floor(Math.random()*choices.length)];
-el.textContent=selected;
-addHeart();
-}
-
-function randomPamper(){
-randomText('pamperText',pamperMessages);
-}
-
-function showLove(type){
-const effects={
-hug:['🫂❤️','تعالي إلى حضني يا لودي، أريد أن أضمك وأبقى معك ❤️'],
-kiss:['😘💋','أرسل لكِ أجمل مشاعر الحنان يا عمري 😘'],
-love:['❤️🥹','بحبك يا لودي، وبحب كل تفاصيلك'],
-miss:['🥺💕','اشتقتلك قد الدنيا، وينك يا روح قلبي؟'],
-pamper:['🥰👑','أنتِ أميرتي المدللة، وعيونك أوامر ❤️'],
-adore:['😍❤️','بعشقك يا لودي، يا أجمل ما في حياتي'],
-kissCheek:['💋🌹','بوسة لخدودك ❤️'],
-kissForehead:['😘✨','بوسة لجبينك ❤️'],
-kissLips:['💋❤️','بوسة لشفافك ❤️']
-};
-
-const selected=effects[type]||['❤️','أحبك يا لودي'];
-const el=document.getElementById('loveEffect');
-
-document.getElementById('effectSymbol').textContent=selected[0];
-document.getElementById('effectMessage').textContent=selected[1];
-
-el.classList.remove('show');
-void el.offsetWidth;
-el.classList.add('show');
-
-addHeart();
-
-clearTimeout(window.effectTimer);
-window.effectTimer=setTimeout(()=>{
-el.classList.remove('show');
-},3000);
-}
-
-function hideLoveEffect(){
-document.getElementById('loveEffect').classList.remove('show');
-clearTimeout(window.effectTimer);
-}
-
-/* سر القمر */
-function moonSecret(){
-moonClicks++;
-clearTimeout(moonTimer);
-
-const moon=document.querySelector('.moon');
-moon.style.transform='translateX(-50%) scale(1.12)';
-
-setTimeout(()=>{
-moon.style.transform='translateX(-50%) scale(1)';
-},250);
-
-moonTimer=setTimeout(()=>moonClicks=0,4000);
-
-if(moonClicks>=7){
-moonClicks=0;
-openWorld('royalGift');
-burst();
-}
-}
-
-/* المفاجأة تفتح الهدية مباشرة */
-function surprise(){
-openWorld('royalGift');
-addHeart();
-}
-
-function giftHearts(){
-for(let i=0;i<5;i++)setTimeout(burst,i*300);
-}
-
-function toggleNight(){
-night=!night;
-document.body.style.background=night?
-'radial-gradient(ellipse at top,#171717,#050505 70%)':
-'radial-gradient(ellipse at 50% 0,#30251a,#100e0c 43%,#050505)';
-}
-
-/* نظام الصوت */
-function audio(){
-if(!ctx){
-const A=window.AudioContext||window.webkitAudioContext;
-if(!A){
-alert('متصفحك لا يدعم الصوت');
-return null;
-}
-ctx=new A();
-}
-if(ctx.state==='suspended')ctx.resume();
-return ctx;
-}
-
-/* لحن البيانو */
-const chords=[
-[261.63,329.63,392.00],
-[220.00,261.63,329.63],
-[174.61,220.00,261.63],
-[196.00,246.94,293.66]
-];
-
-function pianoNote(f,duration=2,volume=.055){
-const t=ctx.currentTime;
-const o=ctx.createOscillator();
-const g=ctx.createGain();
-const filter=ctx.createBiquadFilter();
-
-o.type='triangle';
-o.frequency.setValueAtTime(f,t);
-filter.type='lowpass';
-filter.frequency.value=2200;
-
-g.gain.setValueAtTime(.0001,t);
-g.gain.exponentialRampToValueAtTime(volume,t+.04);
-g.gain.exponentialRampToValueAtTime(.0001,t+duration);
-
-o.connect(filter);
-filter.connect(g);
-g.connect(ctx.destination);
-o.start(t);
-o.stop(t+duration+.05);
-}
-
-function startPiano(){
-if(!audio())return;
-
-pianoPlaying=true;
-let step=0;
-
-function phrase(){
-if(!pianoPlaying)return;
-const c=chords[Math.floor(step/4)%chords.length];
-pianoNote(c[0]/2,3,.025);
-pianoNote(c[1],2.3,.035);
-pianoNote(c[2],2.1,.03);
-pianoNote(c[step%3],1.5,.045);
-step++;
-}
-
-phrase();
-pianoTimer=setInterval(phrase,1450);
-}
-
-function stopPiano(){
-pianoPlaying=false;
-clearInterval(pianoTimer);
-pianoTimer=null;
-}
-
-/* صوت المطر */
-function startRain(){
-if(!audio())return;
-
-const n=ctx.sampleRate*3;
-const b=ctx.createBuffer(1,n,ctx.sampleRate);
-const d=b.getChannelData(0);
-
-for(let i=0;i<n;i++)d[i]=Math.random()*2-1;
-
-rainSource=ctx.createBufferSource();
-rainSource.buffer=b;
-rainSource.loop=true;
-
-const filter=ctx.createBiquadFilter();
-filter.type='lowpass';
-filter.frequency.value=950;
-
-rainGain=ctx.createGain();
-rainGain.gain.value=.0001;
-
-rainSource.connect(filter);
-filter.connect(rainGain);
-rainGain.connect(ctx.destination);
-rainSource.start();
-
-rainGain.gain.setTargetAtTime(.10,ctx.currentTime,.5);
-rainPlaying=true;
-}
-
-function stopRain(){
-if(!rainPlaying)return;
-
-rainPlaying=false;
-
-if(rainGain&&ctx){
-rainGain.gain.setTargetAtTime(.0001,ctx.currentTime,.12);
-}
-
-if(rainSource){
-try{rainSource.stop(ctx.currentTime+.7)}catch(e){}
-rainSource=null;
-}
-rainGain=null;
-}
-
-/* المطر المرئي */
-function startVisibleRain(){
-document.querySelectorAll('.rain-drop').forEach(drop=>{
-drop.style.display='block';
+nicknames.forEach(item => {
+  const button = document.createElement("button");
+  button.className = "nickname";
+  button.textContent = item[0];
+  button.onclick = () => {
+    document.getElementById("nicknameMessage").textContent = item[1];
+  };
+  nicknameArea.appendChild(button);
 });
-visibleRainStarted=true;
+
+/* التنقل بين الأبواب */
+
+let currentRoom = null;
+
+function openRoom(room) {
+  document.getElementById("home").style.display = "none";
+
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  const target = document.getElementById(room);
+  target.classList.add("active");
+
+  currentRoom = room;
+  document.getElementById("backArea").style.display = "block";
+
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function stopVisibleRain(){
-document.querySelectorAll('.rain-drop').forEach(drop=>{
-drop.style.display='none';
-});
-visibleRainStarted=false;
+function goHome() {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById("home").style.display = "flex";
+  document.getElementById("backArea").style.display = "none";
+
+  currentRoom = null;
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* الثلج */
-function startSnow(){
-if(snowTimer)return;
+/* رسائل الحديقة */
 
-snowTimer=setInterval(()=>{
-const snow=document.createElement('div');
-snow.className='snowflake';
-snow.textContent='❄';
+const gardenMessages = [
+  "هذه الوردة تشبهكِ، جميلة وتستحق كل الاهتمام. 🌹",
+  "لو كان للجمال عنوان، لكان اسمكِ يا نور.",
+  "كل وردة في هذه الحديقة تقول لكِ: أحب ابتسامتكِ.",
+  "يا نوني، أتمنى أن تزهر أيامكِ كما تزهر هذه الورود.",
+  "أنتِ وردة مختلفة، لا تشبه أي وردة أخرى. 🌷"
+];
 
-snow.style.left=Math.random()*100+'vw';
-snow.style.animationDuration=(4+Math.random()*5)+'s';
-snow.style.fontSize=(10+Math.random()*15)+'px';
+let gardenIndex = 0;
 
-document.body.appendChild(snow);
+function gardenLetter() {
+  document.getElementById("gardenMessage").textContent =
+    gardenMessages[gardenIndex];
 
-setTimeout(()=>snow.remove(),9000);
-},180);
+  gardenIndex = (gardenIndex + 1) % gardenMessages.length;
 }
 
-function stopSnow(){
-clearInterval(snowTimer);
-snowTimer=null;
-document.querySelectorAll('.snowflake').forEach(s=>s.remove());
+/* صندوق الأسرار */
+
+function revealSecret() {
+  const box = document.getElementById("secretBox");
+  box.classList.add("show");
 }
 
-/* صوت الرعد */
-function playThunder(){
-if(!ctx||!allEffectsPlaying)return;
+/* رسائل القمر */
 
-const duration=2.5;
-const buffer=ctx.createBuffer(1,ctx.sampleRate*duration,ctx.sampleRate);
-const data=buffer.getChannelData(0);
+const moonMessages = [
+  "يا ضو عيوني، حتى القمر يغار من نوركِ.",
+  "لو استطعتُ تعليق نجمة باسمكِ لفعلت.",
+  "في كل ليلة هادئة، أتمنى لكِ ألف سعادة.",
+  "يا نوارتي، أنتِ أجمل من كل أضواء السماء."
+];
 
-for(let i=0;i<data.length;i++){
-const fade=1-i/data.length;
-data[i]=(Math.random()*2-1)*fade;
+let moonIndex = 0;
+
+function moonLetter() {
+  document.getElementById("moonMessage").textContent =
+    moonMessages[moonIndex];
+
+  moonIndex = (moonIndex + 1) % moonMessages.length;
 }
 
-const source=ctx.createBufferSource();
-source.buffer=buffer;
+/* اعترافات القلب */
 
-const filter=ctx.createBiquadFilter();
-filter.type='lowpass';
-filter.frequency.value=180;
+const heartMessages = [
+  "اعترافي الأول: وجودكِ يجعل للأيام معنى أجمل.",
+  "اعترافي الثاني: ابتسامتكِ من الأشياء التي أتمنى ألا تغيب.",
+  "اعترافي الثالث: أحب تفاصيلكِ الصغيرة قبل الكبيرة.",
+  "اعترافي الرابع: أنتِ حكاية أتمنى أن تستمر.",
+  "اعترافي الخامس: مهما قلتُ، سيبقى في قلبي كلام أجمل لكِ."
+];
 
-const gain=ctx.createGain();
-gain.gain.setValueAtTime(.0001,ctx.currentTime);
-gain.gain.exponentialRampToValueAtTime(.35,ctx.currentTime+.08);
-gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+duration);
+let heartIndex = 0;
 
-source.connect(filter);
-filter.connect(gain);
-gain.connect(ctx.destination);
-
-source.start();
-source.stop(ctx.currentTime+duration);
+function heartLetter() {
+  heartIndex = (heartIndex + 1) % heartMessages.length;
+  document.getElementById("heartMessage").textContent =
+    heartMessages[heartIndex];
 }
 
-/* البرق والرعد */
-function startLightning(){
-if(lightningTimer)return;
+/* النوافذ المنبثقة */
 
-function flash(){
-const el=document.getElementById('lightning');
-el.classList.remove('flash');
-void el.offsetWidth;
-el.classList.add('flash');
-playThunder();
+function showPopup(title,text) {
+  document.getElementById("popupTitle").textContent = title;
+  document.getElementById("popupText").textContent = text;
+  document.getElementById("popup").classList.add("show");
 }
 
-function schedule(){
-if(!allEffectsPlaying)return;
-
-const delay=5000+Math.random()*8000;
-
-lightningTimer=setTimeout(()=>{
-if(!allEffectsPlaying)return;
-flash();
-lightningTimer=null;
-schedule();
-},delay);
+function closePopup(event) {
+  if (!event || event.target.id === "popup") {
+    document.getElementById("popup").classList.remove("show");
+  }
 }
 
-schedule();
+/* الصوت: نغمة أصلية بسيطة يتم توليدها محلياً */
+
+let audioContext = null;
+let soundEnabled = false;
+let musicTimer = null;
+
+function playNote(freq,duration) {
+  if (!audioContext || !soundEnabled) return;
+
+  const osc = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  osc.type = "sine";
+  osc.frequency.value = freq;
+
+  gain.gain.setValueAtTime(0.0001,audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.035,audioContext.currentTime+0.1);
+  gain.gain.exponentialRampToValueAtTime(0.0001,audioContext.currentTime+duration);
+
+  osc.connect(gain);
+  gain.connect(audioContext.destination);
+
+  osc.start();
+  osc.stop(audioContext.currentTime+duration);
 }
 
-function stopLightning(){
-clearTimeout(lightningTimer);
-lightningTimer=null;
-document.getElementById('lightning').classList.remove('flash');
+function startMusic() {
+  const notes = [392,494,587,494,440,523,659,523];
+  let i = 0;
+
+  musicTimer = setInterval(() => {
+    if (!soundEnabled) return;
+    playNote(notes[i],1.2);
+    i = (i+1)%notes.length;
+  },700);
 }
 
-/* تشغيل وإيقاف كل شيء بزر واحد */
-function toggleAllEffects(){
+function toggleSound() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
 
-if(!allEffectsPlaying){
-const a=audio();
-if(!a)return;
+  if (audioContext.state === "suspended") {
+    audioContext.resume();
+  }
 
-allEffectsPlaying=true;
+  soundEnabled = !soundEnabled;
 
-startPiano();
-startRain();
-startVisibleRain();
-startSnow();
-startLightning();
+  document.getElementById("soundButton").textContent =
+    soundEnabled ? "♫ إيقاف الصوت" : "♫ تشغيل الصوت";
 
-const btn=document.getElementById('allEffectsBtn');
-btn.textContent='⛈️ إيقاف الأجواء الملكية';
-btn.classList.add('active');
-
-document.getElementById('soundStatus').textContent=
-'❄️ البيانو والمطر والثلج والبرق والرعد يعملون معاً ❤️';
-
-}else{
-
-allEffectsPlaying=false;
-
-stopPiano();
-stopRain();
-stopVisibleRain();
-stopSnow();
-stopLightning();
-
-const btn=document.getElementById('allEffectsBtn');
-btn.textContent='❄️ تشغيل الأجواء الملكية';
-btn.classList.remove('active');
-
-document.getElementById('soundStatus').textContent=
-'🎹 البيانو والمطر والثلج والبرق والرعد متوقفة ❤️';
+  if (soundEnabled) {
+    startMusic();
+  } else {
+    clearInterval(musicTimer);
+  }
 }
-}
-
-/* النجوم */
-for(let i=0;i<28;i++){
-const s=document.createElement('span');
-s.className='sky-star';
-s.textContent='✦';
-s.style.left=Math.random()*100+'%';
-s.style.top=Math.random()*100+'%';
-s.style.fontSize=(8+Math.random()*13)+'px';
-s.style.animationDelay=Math.random()*3+'s';
-document.querySelector('.sky').appendChild(s);
-}
-
-/* تجهيز قطرات المطر */
-for(let i=0;i<35;i++){
-const r=document.createElement('i');
-r.className='rain-drop';
-r.style.left=Math.random()*100+'%';
-r.style.animationDuration=(1.1+Math.random()*1.5)+'s';
-r.style.animationDelay=(-Math.random()*3)+'s';
-document.body.appendChild(r);
-}
-
-/* تنظيف المؤثرات عند مغادرة الصفحة */
-window.addEventListener('pagehide',()=>{
-allEffectsPlaying=false;
-clearInterval(pianoTimer);
-clearInterval(snowTimer);
-clearTimeout(lightningTimer);
-
-if(ctx){
-ctx.close();
-ctx=null;
-}
-});
 
 </script>
 
