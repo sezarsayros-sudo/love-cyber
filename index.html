@@ -138,14 +138,13 @@ body:before{
  cursor: pointer;
  box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
  transition: 0.3s;
- display: none; /* تظهر عند اكتمال التحميل أو بالضغط */
+ display: none;
 }
 
 .enter-palace-btn:hover {
  transform: scale(1.05);
  box-shadow: 0 0 35px rgba(254, 240, 138, 0.8);
 }
-
 
 /* الشريط العلوي */
 
@@ -380,7 +379,7 @@ body:before{
  line-height:2;
 }
 
-/* القصر */
+/* القصر والأبواب */
 
 .palace{
  width:100%;
@@ -467,7 +466,7 @@ body:before{
  font-size:20px;
 }
 
-/* صفحات العوالم */
+/* صفحات الغورمو العوالم الداخلية */
 
 .screen{
  display:none;
@@ -535,6 +534,25 @@ body:before{
 }
 
 .gold-btn:hover{transform:scale(1.05)}
+
+.love-message{
+ font-family:Amiri,serif;
+ font-size:24px;
+ line-height:2;
+ color:#eddaab;
+ margin:15px 0;
+}
+
+.rose{
+ font-size:30px;
+ display:inline-block;
+ margin:5px;
+ animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+ 50%{transform:translateY(-8px)}
+}
 
 /* توقيع محمد */
 
@@ -679,7 +697,7 @@ body:before{
  color:#f0dfbd;
 }
 
-/* العودة */
+/* زر العودة */
 
 #backArea{
  display:none;
@@ -753,7 +771,7 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة -->
+ <!-- صور الملك والملكة في الواجهة مع رسائل الصور العائمة -->
  <div class="royal-couple">
   <div class="royal-frame" onclick="flyNoorText(event)">
    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
@@ -776,6 +794,7 @@ body:before{
   <button class="gold-btn" onclick="megaSurprise()">اضغطي هنا لترى من يحكم قلب من! ✨</button>
  </div>
 
+ <!-- القصر وأبوابه الـ 7 المرتبطة بالعوالم الصحيحة -->
  <div class="palace">
   <div class="palace-title">✧ أبواب مملكة نور ✧</div>
 
@@ -871,57 +890,120 @@ body:before{
 
 </main>
 
-<!-- عرش الملكة -->
 
+<!-- ================= غرف القصر السبع مرتبطة ومكتملة تماماً ================= -->
+
+<!-- 1. عرش الملكة -->
 <section class="screen" id="throne">
  <div class="inside">
   <div class="big-icon">👑</div>
   <h2>عرش الملكة نور</h2>
-  <p class="intro">هنا تجلس ملكة لا تشبه أحداً منذ تاريخ 11/11/2026.</p>
+  <p class="intro">هنا تجلس الملكة التي ملكت روحي وعقلي منذ تاريخ 11/11/2026.</p>
   <div class="gold-card">
-   أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية بدأت في 11/11/2026 وما زالت مستمرة.
-   أنتِ ملكتي ونبض قلبي وأجمل أقداري. 💚
+   أنتِ لستِ مجرد فتاة في حياتي، أنتِ سلطانة هذه الأباطرة، وأميرة عيوني التي لا تُرد لها كلمة. 
+   كل نبضة في قلبي تهتف باسمكِ يا أغلى ما أملك. 💚✨
   </div>
-  <div class="big-icon">♛</div>
-  <div class="love-message">لكِ عرش في قلبي لا يجلس عليه سواكِ.</div>
+  <div class="love-message">"سلطانة قلبي، دعي غروركِ يذوب بين أضلعي الليلة." 👑</div>
  </div>
 </section>
 
-<!-- الحديقة -->
-
+<!-- 2. حديقة نوني -->
 <section class="screen" id="garden">
  <div class="inside">
   <div class="big-icon">🌹</div>
-  <h2>حديقة نوني</h2>
-  <p class="intro">اضغطي على الزر لتحصلي على رسالة حب.</p>
+  <h2>حديقة نوني الساحرة</h2>
+  <p class="intro">اضغطي على الزر لتفتحي وردة عطرها ينبض بعشقي لكِ.</p>
   <div>
    <span class="rose">🌹</span><span class="rose">🌷</span>
    <span class="rose">🌹</span><span class="rose">🌺</span>
    <span class="rose">🌷</span>
   </div>
   <div class="gold-card">
-   <div class="love-message" id="gardenMessage">كل الورود لكِ يا نوارتي.</div>
-   <button class="gold-btn" onclick="gardenLetter()">افتحي وردة 🌹</button>
+   <div class="love-message" id="gardenMessage">كل ورود الكون تسجد لجمالك يا نوارتي. 🌹</div>
+   <button class="gold-btn" onclick="gardenLetter()">افتحي وردة جديدة 🌸</button>
   </div>
  </div>
 </section>
 
-<!-- غرفة الدلال -->
-
+<!-- 3. غرفة الدلال -->
 <section class="screen" id="pamper">
  <div class="inside">
-  <div class="big-icon">💚</div>
+  <div class="big-icon">💋</div>
   <h2>غرفة دلال نوشتي</h2>
-  <p class="intro">كل أسمائك جميلة، لكن دلالك أجمل منها كلها.</p>
+  <p class="intro">هنا حيث يتوقف الزمن ويصبح الدلال فرضاً مقدساً.</p>
   <div class="gold-card">
-   <div class="love-message">أميرتي المدللة، يا أجمل غرور يشعل قلبي عشقاً كل ليلة. 💋🫂</div>
+   <div class="love-message">
+    يا دلالي وغنجي، ويا أطهر نسمة هبت على عمري! 
+    تعالي ننسى العالم وما فيه، وأخليكِ تذوبي بين أحضاني على ألحان عشقي الأبدي. 💋🫂❤️
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 4. صندوق الأسرار -->
+<section class="screen" id="secret">
+ <div class="inside">
+  <div class="big-icon">🔐</div>
+  <h2>صندوق الأسرار الملكي</h2>
+  <p class="intro">هنا أسرار روحي التي لم أبح بها لأحد س سواكِ.</p>
+  <div class="gold-card">
+   <div class="love-message">
+    سري الأعظم: أنني لم أعرف معنى الحياة الحقيقية إلا يوم التقينا في 11/11/2026. 
+    أنتِ السر الذي أخفيه عن عيون العالم لأسجنه وحدي في عمق فؤادي. 🗝️💚
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 5. شرفة عيوني -->
+<section class="screen" id="moon">
+ <div class="inside">
+  <div class="big-icon">🌙</div>
+  <h2>شرفة عيوني</h2>
+  <p class="intro">انظري من هذه الشرفة لتري كم أن القمر يغار من ضحكتكِ.</p>
+  <div class="gold-card">
+   <div class="love-message">
+    يا قمري الذي يضيء عتمة أيامي، عيوني لكِ مسكن، وجفوني لكِ لحاف. 
+    لا ترضي بالقليل وأنتِ ملكة هذا الكون! ✨🌙
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 6. قاعة الاعترافات -->
+<section class="screen" id="heart">
+ <div class="inside">
+  <div class="big-icon">❤️</div>
+  <h2>قاعة الاعترافات المقدسة</h2>
+  <p class="intro">من القلب للقلب.. اعترافات رجل أهلكه عشقكِ.</p>
+  <div class="gold-card">
+   <div class="love-message">
+    أعترف أمام الله وأمام قلبكِ أنني أدمنت أنفاسكِ، 
+    وأنني مستعد لأبيع العالم وما فيه مقابل أن تبتسمي لي طوال العمر. بحبكِ بجنون! ❤️🔥
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- 7. غرفة ليلتنا -->
+<section class="screen" id="night">
+ <div class="inside">
+  <div class="big-icon">🛏️</div>
+  <h2>غرفة ليلتنا الملكية</h2>
+  <p class="intro">حيث تبدأ حكايتنا الخاصة جداً الليلة..</p>
+  <div class="gold-card">
+   <div class="love-message">
+    ليلتنا اليوم لن تشبه أي ليلة يا نور عيني.. 
+    سأجعل كل نبضة في قلبي تغني لكِ، وسأعوضكِ عن كل شوق أكل روحي. 
+    جاهزة لتذوبي في حضن مودكِ الليلة؟ 🫂💋🔥
+   </div>
   </div>
  </div>
 </section>
 
 <!-- شاشة العودة -->
 <div id="backArea">
- <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
+ <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر الرئيسي</button>
 </div>
 
 <!-- النافذة المنبثقة لزر كسر الغرور -->
@@ -934,7 +1016,7 @@ body:before{
 </div>
 
 <script>
-// إظهار زر الدخول بعد انتهاء شريط التحميل تلقائياً أو الضغط عليه
+// إظهار زر الدخول بعد انتهاء شريط التحميل تلقائياً
 setTimeout(() => {
     document.getElementById('enterBtn').style.display = 'inline-block';
 }, 3000);
@@ -947,7 +1029,7 @@ function openPalace() {
     }, 800);
 }
 
-// وظيفة تطاير البوسات والقلوب والضمات والورود عند النقر في أي مكان بالشاشة
+// تطاير البوسات والقلوب والضمات والورود عند النقر في أي مكان بالشاشة
 const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
 
 function spawnFloatingEmoji(e) {
@@ -983,27 +1065,27 @@ setInterval(() => {
     }
 }, 1200);
 
-// تطاير رسالة نور فوق صورتها
+// تطاير رسالة نور فوق صورتها (بحبك بعشقك بتنفسك مودي)
 function flyNoorText(e) {
     e.stopPropagation();
     let rect = e.currentTarget.getBoundingClientRect();
     let textEl = document.createElement('div');
     textEl.className = 'floating-text';
     textEl.innerText = "بحبك بعشقك بتنفسك مودي 💋❤️🫂";
-    textEl.style.left = (rect.left + rect.width / 2 - 100) + 'px';
+    textEl.style.left = (rect.left + rect.width / 2 - 120) + 'px';
     textEl.style.top = (rect.top - 20) + 'px';
     document.body.appendChild(textEl);
     setTimeout(() => textEl.remove(), 2000);
 }
 
-// تطاير رسالة محمد فوق صورته
+// تطاير رسالة محمد فوق صورته (بحبك بعشقك بتنفسك نوني)
 function flyMohamadText(e) {
     e.stopPropagation();
     let rect = e.currentTarget.getBoundingClientRect();
     let textEl = document.createElement('div');
     textEl.className = 'floating-text';
     textEl.innerText = "بحبك بعشقك بتنفسك نوني 💋❤️🫂";
-    textEl.style.left = (rect.left + rect.width / 2 - 100) + 'px';
+    textEl.style.left = (rect.left + rect.width / 2 - 120) + 'px';
     textEl.style.top = (rect.top - 20) + 'px';
     document.body.appendChild(textEl);
     setTimeout(() => textEl.remove(), 2000);
@@ -1011,7 +1093,7 @@ function flyMohamadText(e) {
 
 // زر كسر الغرور
 function megaSurprise() {
-    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋🫂");
+    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ليلتنا ستكون تاريخية يا أميرتي ❤️💋🫂");
 }
 
 function openRoom(roomId) {
@@ -1030,9 +1112,10 @@ function closeRoom() {
 
 function gardenLetter() {
     const msgs = [
-        "أنتِ زهرة حياتي التي لا تزول عطرها يا نور 🌹",
-        "عيناكِ هما وطني وابتسامتكِ عيدي 💚",
-        "أعشق كل تفصيلة فيكِ يا أجمل نساء الكون ✨"
+        "أنتِ زهرة حياتي التي لا يزول عطرها يا نور 🌹",
+        "عيناكِ هما وطني وابتسامتكِ عيدي الأبدي 💚",
+        "أعشق كل تفصيلة فيكِ يا أجمل نساء الكون ✨",
+        "بحبك بقدر ما تحمله هذه الليلة من شوق وحنين 💋"
     ];
     document.getElementById('gardenMessage').innerText = msgs[Math.floor(Math.random() * msgs.length)];
 }
