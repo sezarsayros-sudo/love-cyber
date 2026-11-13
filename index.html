@@ -9,7 +9,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap');
 
-:root {
+:root{
  --green:#063b2b;
  --deep:#01130e;
  --gold:#76521f;
@@ -95,12 +95,12 @@ body:before{
  overflow:hidden;
 }
 
-/* كشافات المسرح */
+/* الكشافات */
 
 .spotlight{
  position:absolute;
  top:0;
- height:420px;
+ height:440px;
  width:65%;
  z-index:1;
  pointer-events:none;
@@ -113,7 +113,7 @@ body:before{
 .spotlight:before{
  content:"";
  position:absolute;
- top:18px;
+ top:15px;
  left:0;
  width:100%;
  height:390px;
@@ -177,17 +177,12 @@ body:before{
  line-height:1.2;
  margin:0;
  color:#d1ae68;
- text-shadow:
-  0 0 8px #98702e,
-  0 0 25px #a77d39,
-  0 0 60px #b78d45;
+ text-shadow:0 0 8px #98702e,0 0 25px #a77d39,0 0 60px #b78d45;
  animation:nameGlow 3s infinite alternate;
 }
 
 @keyframes nameGlow{
- to{
-  text-shadow:0 0 20px #e7d09c,0 0 60px #b78d45;
- }
+ to{text-shadow:0 0 20px #e7d09c,0 0 60px #b78d45}
 }
 
 .english{
@@ -290,13 +285,13 @@ body:before{
 
 .footer{
  text-align:center;
- margin:35px 0 0;
+ margin:30px 0 0;
  color:#b99a60;
  font-family:Amiri,serif;
  font-size:20px;
 }
 
-/* الصفحات الداخلية */
+/* صفحات العوالم */
 
 .screen{
  display:none;
@@ -401,7 +396,7 @@ body:before{
  50%{transform:translateY(-8px)}
 }
 
-/* غرفة الليلة والسرير */
+/* غرفة ليلتنا */
 
 .bedroom{
  margin:25px auto;
@@ -435,7 +430,6 @@ body:before{
  color:#d7b779;
  font-family:Amiri,serif;
  font-size:23px;
- box-shadow:inset 0 0 20px #0008;
 }
 
 .pillows{
@@ -490,7 +484,81 @@ body:before{
  margin:20px 0;
 }
 
-/* القلوب المتطايرة */
+/* توقيع محمد */
+
+.dedication{
+ width:100%;
+ max-width:650px;
+ margin:40px auto 15px;
+ padding:30px 20px;
+ text-align:center;
+ border:1px solid #94713a;
+ border-radius:20px;
+ background:linear-gradient(145deg,#103e2c,#02170f);
+ box-shadow:0 0 35px #0008,inset 0 0 25px #aa813322;
+ position:relative;
+ z-index:3;
+}
+
+.dedication-crown{
+ color:#c5a15d;
+ font-size:45px;
+ filter:drop-shadow(0 0 12px #b58a42);
+ animation:crown 3s infinite;
+}
+
+.dedication-line{
+ color:#9d783e;
+ letter-spacing:5px;
+ margin:15px 0;
+}
+
+.dedication h2{
+ font-family:Amiri,serif;
+ color:#cbb078;
+ font-size:26px;
+}
+
+.designer-name{
+ font-family:Amiri,serif;
+ font-size:40px;
+ font-weight:bold;
+ color:#d3b474;
+ text-shadow:0 0 15px #a47b39;
+ margin:12px 0;
+}
+
+.dedication p{
+ color:#e5d2a6;
+ font-size:16px;
+ line-height:2.2;
+}
+
+.dedication-message{
+ font-family:Amiri,serif;
+ font-size:25px;
+ line-height:2;
+ color:#e7d2a4;
+ margin:20px 0;
+}
+
+.dedication-heart{
+ font-size:36px;
+ animation:heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat{
+ 50%{transform:scale(1.2)}
+}
+
+.signature{
+ color:#bda16c;
+ font-family:Amiri,serif;
+ font-size:19px;
+ line-height:2.2;
+}
+
+/* قلوب وورود متحركة */
 
 .floating{
  position:fixed;
@@ -573,6 +641,8 @@ body:before{
  .palace{padding:25px 11px}
  .spotlight{height:330px}
  .hero{margin-top:55px}
+ .dedication-message{font-size:22px}
+ .designer-name{font-size:34px}
 }
 </style>
 </head>
@@ -587,7 +657,7 @@ body:before{
  <button class="sound" onclick="toggleSound()" id="soundButton">♫ تشغيل الموسيقى</button>
 </div>
 
-<!-- المدخل -->
+<!-- المدخل الرئيسي -->
 
 <main id="home">
 
@@ -641,7 +711,46 @@ body:before{
 
  <div class="footer">
   أنتِ أجمل ما في هذا القصر يا نور 💚
-  <div style="direction:ltr;font-size:11px">FOREVER YOURS ♡</div>
+ </div>
+
+ <!-- إهداء وتوقيع المصمم -->
+
+ <div class="dedication">
+
+  <div class="dedication-crown">♛</div>
+
+  <div class="dedication-line">✦ ━━━━━━━━━ ✦</div>
+
+  <h2>من الذي صمّم هذا القصر؟</h2>
+
+  <div class="designer-name">محمد الحصني</div>
+
+  <p>
+   ابن قلبكِ، حبيبكِ، زوجكِ،
+   وطفلكِ المدلل ❤️
+  </p>
+
+  <div class="dedication-line">✦ ❖ ✦</div>
+
+  <div class="dedication-message">
+   أحبكِ بل أعشقكِ يا عشقي وأنفاسي وشرياني،
+   ودلالي وغنجي، يا أجمل من رأت عيني.
+  </div>
+
+  <div class="dedication-heart">❤️</div>
+
+  <div class="dedication-line">✦ ━━━━━━━━━ ✦</div>
+
+  <div class="signature">
+   صُنع بكل الحب خصيصاً لأميرتي نور
+   <br>
+   محمد الحصني ♡
+   <br>
+   <span style="font-size:13px;color:#8d713f">
+    YOURS FOREVER
+   </span>
+  </div>
+
  </div>
 
 </main>
@@ -668,8 +777,8 @@ body:before{
  <div class="inside">
   <div class="big-icon">🌹</div>
   <h2>حديقة نوني</h2>
-  <p class="intro">اضغطي على الوردة لتحصلي على رسالة حب.</p>
-  <div id="roses">
+  <p class="intro">اضغطي على الزر لتحصلي على رسالة حب.</p>
+  <div>
    <span class="rose">🌹</span><span class="rose">🌷</span>
    <span class="rose">🌹</span><span class="rose">🌺</span>
    <span class="rose">🌷</span>
@@ -771,7 +880,6 @@ body:before{
  <div class="inside">
   <div class="big-icon">🌙</div>
   <h2>غرفة ليلتنا يا نور</h2>
-
   <p class="intro">
    هنا يهدأ العالم، وتبقى اللحظات الجميلة والكلام الذي لا نقوله إلا لمن نحب.
   </p>
@@ -811,11 +919,10 @@ body:before{
   <button class="gold-btn" onclick="showPopup('إلى نور 💚','ليلتكِ جميلة مثل قلبكِ، وأتمنى أن تكون كل لياليكِ مليئة بالدفء والسعادة.')">
    افتحي رسالة ليلتكِ 💌
   </button>
-
  </div>
 </section>
 
-<!-- العودة -->
+<!-- زر العودة -->
 
 <div id="backArea">
  <button class="back-btn" onclick="goHome()">↩ العودة إلى القصر الملكي</button>
