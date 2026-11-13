@@ -527,7 +527,26 @@ body:before{
  100%{opacity:0;transform:translateY(-280px) rotate(45deg) scale(1.6)}
 }
 
-/* النافذة المنبثقة */
+/* تنسيق النصوص المتطايرة فوق الصور عند الضغط عليها */
+.floating-text {
+ position: fixed;
+ pointer-events: none;
+ z-index: 400;
+ font-family: Amiri, serif;
+ font-size: 20px;
+ font-weight: bold;
+ color: #fef08a;
+ text-shadow: 0 0 10px #b58a42, 0 0 20px #000;
+ animation: floatUpText 2s ease-out forwards;
+ white-space: nowrap;
+}
+
+@keyframes floatUpText {
+ 0% { opacity: 1; transform: translateY(0) scale(0.8); }
+ 100% { opacity: 0; transform: translateY(-120px) scale(1.2); }
+}
+
+/* النافذة المنبثقة لزر كسر الغرور فقط */
 
 .popup{
  display:none;
@@ -630,14 +649,14 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة -->
+ <!-- صور الملك والملكة في الواجهة مع تفعيل تطاير النصوص عند الضغط -->
  <div class="royal-couple">
-  <div class="royal-frame" onclick="showNoorMessage()">
+  <div class="royal-frame" onclick="flyNoorText(event)">
    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
    <span>نور 👑</span>
   </div>
   <div class="royal-heart">💚</div>
-  <div class="royal-frame" onclick="showMohamadMessage()">
+  <div class="royal-frame" onclick="flyMohamadText(event)">
    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
    <span>محمد ♛</span>
   </div>
@@ -710,14 +729,14 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
-  <!-- صوركما في بطاقة الإهداء -->
+  <!-- صوركما في بطاقة الإهداء (تدعم تطاير النصوص أيضاً عند الضغط) -->
   <div class="royal-couple" style="margin:20px 0 10px">
-   <div class="royal-frame" onclick="showNoorMessage()">
+   <div class="royal-frame" onclick="flyNoorText(event)">
     <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
     <span>نور</span>
    </div>
    <div class="royal-heart">❤️</div>
-   <div class="royal-frame" onclick="showMohamadMessage()">
+   <div class="royal-frame" onclick="flyMohamadText(event)">
     <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
     <span>محمد</span>
    </div>
@@ -801,7 +820,7 @@ body:before{
  <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
 </div>
 
-<!-- النافذة المنبثقة -->
+<!-- النافذة المنبثقة لزر كسر الغرور فقط -->
 <div class="popup" id="popupModal">
  <div class="popup-content">
   <h3 id="popupTitle">رسالة لقلبكِ</h3>
@@ -847,19 +866,35 @@ setInterval(() => {
     }
 }, 1200);
 
+// دالة تطاير رسالة نور فوق صورتها عند الضغط عليها
+function flyNoorText(e) {
+    e.stopPropagation();
+    let rect = e.currentTarget.getBoundingClientRect();
+    let textEl = document.createElement('div');
+    textEl.className = 'floating-text';
+    textEl.innerText = "بحبك بعشقك بتنفسك مودي 💋❤️🫂";
+    textEl.style.left = (rect.left + rect.width / 2 - 80) + 'px';
+    textEl.style.top = (rect.top - 20) + 'px';
+    document.body.appendChild(textEl);
+    setTimeout(() => textEl.remove(), 2000);
+}
+
+// دالة تطاير رسالة محمد فوق صورته عند الضغط عليه
+function flyMohamadText(e) {
+    e.stopPropagation();
+    let rect = e.currentTarget.getBoundingClientRect();
+    let textEl = document.createElement('div');
+    textEl.className = 'floating-text';
+    textEl.innerText = "بحبك بعشقك بتنفسك نوني 💋❤️🫂";
+    textEl.style.left = (rect.left + rect.width / 2 - 80) + 'px';
+    textEl.style.top = (rect.top - 20) + 'px';
+    document.body.appendChild(textEl);
+    setTimeout(() => textEl.remove(), 2000);
+}
+
 // دالة زر كسر الغرور
 function megaSurprise() {
     showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋🫂");
-}
-
-// دالة رسالة الضغط على صورة نور (تظهر رسالة مودي)
-function showNoorMessage() {
-    showPopup("ملكتي نور 👑", "بحبك وبعشقك بتنفسك مودي 💋 ❤️ 🫂");
-}
-
-// دالة رسالة الضغط على صورة محمد (تظهر رسالة نوني)
-function showMohamadMessage() {
-    showPopup("أميرك محمد ♛", "بحبك وبعشقك بتنفسك نوني 💋 ❤️ 🫂");
 }
 
 function openRoom(roomId) {
