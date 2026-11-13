@@ -3,893 +3,1036 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOOR'S ROYAL PALACE 👑</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOOR | THE EMERALD QUEEN 👑</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap');
 
 :root {
-  --green:#063d2d;
-  --deep:#021d17;
-  --gold:#d9b45b;
-  --lightgold:#ffe5a0;
-  --cream:#fff3d4;
+ --green:#063b2b;
+ --deep:#01130e;
+ --gold:#76521f;
+ --gold2:#a47c35;
+ --light:#d5b777;
+ --cream:#f0e0bd;
 }
 
-* {box-sizing:border-box}
+*{box-sizing:border-box}
 
-body {
-  margin:0;
-  min-height:100vh;
-  background:
-    radial-gradient(ellipse at 50% 35%,#15533d 0%,#062b20 45%,#010d0a 100%);
-  color:var(--cream);
-  font-family:'Cairo',sans-serif;
-  overflow-x:hidden;
+body{
+ margin:0;
+ min-height:100vh;
+ background:radial-gradient(ellipse at center,#104832,#031b13 65%,#010905);
+ color:var(--cream);
+ font-family:Cairo,sans-serif;
+ overflow-x:hidden;
 }
 
-button {font-family:inherit;cursor:pointer}
+button{font-family:inherit;cursor:pointer}
 
-/* الخلفية */
-
-body:before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.14;
-  background-image:
-    radial-gradient(#f4d58b 1px,transparent 1px);
-  background-size:35px 35px;
-  z-index:0;
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:0;
+ background-image:radial-gradient(#d2ad64 1px,transparent 1px);
+ background-size:42px 42px;
+ opacity:.12;
 }
 
-.gold-glow {
-  position:fixed;
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  background:#d9ad42;
-  filter:blur(150px);
-  opacity:.10;
-  pointer-events:none;
+.glow{
+ position:fixed;
+ width:300px;
+ height:300px;
+ background:#a77a30;
+ filter:blur(130px);
+ opacity:.13;
+ pointer-events:none;
 }
 
-.glow1 {top:10%;left:-180px}
-.glow2 {bottom:0;right:-180px}
+.glow.one{top:5%;left:-150px}
+.glow.two{bottom:0;right:-150px}
 
 /* الشريط العلوي */
 
-.topbar {
-  position:absolute;
-  top:15px;
-  left:15px;
-  right:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:10;
+.topbar{
+ position:absolute;
+ top:15px;
+ left:15px;
+ right:15px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ z-index:20;
 }
 
-.top-logo {
-  color:var(--gold);
-  font-size:12px;
-  letter-spacing:3px;
-  font-weight:bold;
+.logo{
+ color:var(--light);
+ font-size:11px;
+ letter-spacing:2px;
+ direction:ltr;
 }
 
-.sound-btn,.back-btn {
-  background:#0c382b;
-  border:1px solid #b99a50;
-  color:var(--lightgold);
-  padding:9px 16px;
-  border-radius:30px;
+.sound{
+ border:1px solid var(--gold2);
+ background:#082a1e;
+ color:var(--light);
+ border-radius:30px;
+ padding:8px 15px;
 }
 
-/* شاشة الافتتاح */
+/* الواجهة الرئيسية */
 
-#home {
-  position:relative;
-  min-height:100vh;
-  padding:95px 15px 45px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  overflow:hidden;
+#home{
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ padding:85px 15px 40px;
+ position:relative;
+ overflow:hidden;
 }
 
-/* الكشافات */
+/* كشافات المسرح */
 
-.spotlight {
-  position:absolute;
-  top:0;
-  width:45%;
-  height:400px;
-  pointer-events:none;
-  z-index:1;
-  overflow:hidden;
+.spotlight{
+ position:absolute;
+ top:0;
+ height:420px;
+ width:65%;
+ z-index:1;
+ pointer-events:none;
+ overflow:visible;
 }
 
-.spotlight.left {left:0}
-.spotlight.right {right:0}
+.spotlight.left{left:0}
+.spotlight.right{right:0}
 
-.spotlight:before {
-  content:"";
-  position:absolute;
-  top:-20px;
-  width:100%;
-  height:440px;
-  background:linear-gradient(
-    to bottom,
-    rgba(255,224,139,.35),
-    rgba(237,190,81,.14) 35%,
-    transparent 100%
-  );
-  clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);
-  filter:blur(13px);
-  animation:beam 4s ease-in-out infinite alternate;
+.spotlight:before{
+ content:"";
+ position:absolute;
+ top:18px;
+ left:0;
+ width:100%;
+ height:390px;
+ background:linear-gradient(
+  to bottom,
+  rgba(255,220,145,.62),
+  rgba(205,160,75,.27) 48%,
+  rgba(205,160,75,.03)
+ );
+ clip-path:polygon(13% 0,20% 0,100% 100%,72% 100%);
+ filter:blur(12px);
+ animation:beam 3s ease-in-out infinite alternate;
 }
 
-.spotlight.left:before {
-  transform:rotate(14deg);
-  transform-origin:top left;
+.spotlight.right:before{
+ transform:scaleX(-1);
 }
 
-.spotlight.right:before {
-  transform:rotate(-14deg);
-  transform-origin:top right;
+.lamp{
+ position:absolute;
+ top:7px;
+ width:48px;
+ height:23px;
+ background:linear-gradient(90deg,#59401c,#d7b56c,#59401c);
+ border:1px solid #a77d36;
+ border-radius:5px;
+ box-shadow:0 0 25px #b58a43;
 }
 
-.lamp {
-  position:absolute;
-  top:8px;
-  width:37px;
-  height:20px;
-  background:linear-gradient(90deg,#8d682c,#ffe6a2,#8d682c);
-  border-radius:5px;
-  box-shadow:0 0 25px #e6bd62;
-}
+.left .lamp{left:13%}
+.right .lamp{right:13%}
 
-.left .lamp {left:25%}
-.right .lamp {right:25%}
-
-@keyframes beam {
-  from {opacity:.55}
-  to {opacity:1}
+@keyframes beam{
+ from{opacity:.6}
+ to{opacity:1}
 }
 
 /* اسم نور */
 
-.hero {
-  position:relative;
-  z-index:2;
-  text-align:center;
-  margin:50px 0 40px;
+.hero{
+ position:relative;
+ z-index:3;
+ text-align:center;
+ margin:60px 0 38px;
 }
 
-.crown {
-  font-size:43px;
-  filter:drop-shadow(0 0 15px #e8bf63);
-  animation:crown 3s infinite ease-in-out;
+.crown{
+ font-size:48px;
+ color:var(--light);
+ filter:drop-shadow(0 0 15px #b18b43);
+ animation:crown 3s infinite ease-in-out;
 }
 
-@keyframes crown {
-  50% {transform:translateY(-8px);filter:drop-shadow(0 0 25px #ffe4a0)}
+@keyframes crown{
+ 50%{transform:translateY(-8px)}
 }
 
-.hero h1 {
-  font-family:'Amiri',serif;
-  font-size:clamp(65px,15vw,115px);
-  line-height:1.25;
-  margin:0;
-  color:#f4d17d;
-  text-shadow:
-    0 0 8px #e7c36b,
-    0 0 25px #b88729,
-    0 0 55px #b88729;
-  animation:nameGlow 3s infinite alternate;
+.hero h1{
+ font-family:Amiri,serif;
+ font-size:clamp(75px,17vw,125px);
+ line-height:1.2;
+ margin:0;
+ color:#d1ae68;
+ text-shadow:
+  0 0 8px #98702e,
+  0 0 25px #a77d39,
+  0 0 60px #b78d45;
+ animation:nameGlow 3s infinite alternate;
 }
 
-@keyframes nameGlow {
-  from {text-shadow:0 0 12px #e7c36b,0 0 25px #b88729}
-  to {text-shadow:0 0 20px #fff0b5,0 0 60px #d5a743}
+@keyframes nameGlow{
+ to{
+  text-shadow:0 0 20px #e7d09c,0 0 60px #b78d45;
+ }
 }
 
-.hero .english {
-  direction:ltr;
-  font-size:12px;
-  letter-spacing:5px;
-  color:#dfc27e;
+.english{
+ direction:ltr;
+ letter-spacing:5px;
+ color:#c3a466;
+ font-size:12px;
 }
 
-.hero .welcome {
-  font-family:'Amiri',serif;
-  font-size:24px;
-  margin-top:18px;
-  color:#fff0cc;
+.welcome{
+ font-family:Amiri,serif;
+ font-size:25px;
+ margin-top:15px;
+ color:#f0dfbb;
 }
 
-.hero .sub {
-  color:#c8b98f;
-  font-size:13px;
+.subtitle{
+ font-size:12px;
+ color:#bca981;
 }
 
-/* الزخارف */
+/* القصر */
 
-.decor {
-  color:#d6b15d;
-  font-size:18px;
-  letter-spacing:12px;
-  margin:14px 0;
-  text-align:center;
+.palace{
+ width:100%;
+ max-width:950px;
+ padding:30px 17px;
+ border:2px solid #8d6a32;
+ border-radius:150px 150px 12px 12px;
+ background:linear-gradient(160deg,#155039,#031c14);
+ box-shadow:inset 0 0 45px #a27a3022,0 0 40px #0008;
+ position:relative;
+ z-index:3;
 }
 
-/* القصر والأبواب */
-
-.palace {
-  position:relative;
-  width:100%;
-  max-width:950px;
-  padding:30px 18px;
-  border:2px solid #b18b43;
-  border-radius:160px 160px 12px 12px;
-  background:
-    linear-gradient(180deg,rgba(18,76,54,.85),rgba(2,25,19,.95));
-  box-shadow:
-    inset 0 0 45px rgba(215,174,79,.13),
-    0 0 40px rgba(0,0,0,.5),
-    0 0 25px rgba(215,174,79,.12);
+.palace:before{
+ content:"";
+ position:absolute;
+ inset:9px;
+ border:1px solid #a17d453d;
+ border-radius:140px 140px 5px 5px;
+ pointer-events:none;
 }
 
-.palace:before {
-  content:"";
-  position:absolute;
-  inset:9px;
-  border:1px solid rgba(226,190,112,.35);
-  border-radius:150px 150px 5px 5px;
-  pointer-events:none;
+.palace-title{
+ text-align:center;
+ font-family:Amiri,serif;
+ font-size:23px;
+ color:#c6a66b;
+ margin-bottom:25px;
 }
 
-.palace-title {
-  text-align:center;
-  color:#e4c67d;
-  font-family:'Amiri',serif;
-  font-size:23px;
-  margin:4px 0 25px;
+.doors{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:17px 12px;
+ position:relative;
+ z-index:2;
 }
 
-.doors {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px 13px;
-  position:relative;
-  z-index:1;
+.door{
+ min-height:155px;
+ border:1px solid #a17a3c;
+ border-radius:85px 85px 6px 6px;
+ background:linear-gradient(145deg,#155139,#05251a);
+ color:#dfc48c;
+ padding:12px 4px;
+ box-shadow:inset 0 0 20px #b48a4022,0 5px 15px #0008;
+ transition:.4s;
+ position:relative;
 }
 
-.door {
-  border:1px solid #bd9952;
-  background:linear-gradient(145deg,#17553c,#06291e);
-  border-radius:85px 85px 7px 7px;
-  min-height:155px;
-  padding:14px 5px;
-  color:#f5dc9c;
-  box-shadow:
-    inset 0 0 20px rgba(255,210,120,.08),
-    0 5px 15px #0008;
-  position:relative;
-  transition:.4s;
-  overflow:hidden;
+.door:before{
+ content:"";
+ position:absolute;
+ inset:7px;
+ border:1px solid #b99b6044;
+ border-radius:75px 75px 3px 3px;
+ pointer-events:none;
 }
 
-.door:before {
-  content:"";
-  position:absolute;
-  inset:7px;
-  border:1px solid rgba(226,194,121,.4);
-  border-radius:75px 75px 3px 3px;
+.door:hover{
+ transform:translateY(-7px);
+ box-shadow:0 0 25px #b38a493d;
 }
 
-.door:hover {
-  transform:translateY(-8px);
-  box-shadow:0 0 25px rgba(230,189,93,.4);
-  background:linear-gradient(145deg,#27724e,#0a3b29);
+.door span{
+ display:block;
+ font-size:32px;
+ margin-bottom:7px;
 }
 
-.door .icon {
-  display:block;
-  font-size:34px;
-  margin-bottom:6px;
-  position:relative;
+.door strong{font-size:12px}
+.door small{
+ display:block;
+ font-size:9px;
+ color:#c1ac80;
+ margin-top:5px;
 }
 
-.door strong {
-  display:block;
-  font-size:13px;
-  position:relative;
+.footer{
+ text-align:center;
+ margin:35px 0 0;
+ color:#b99a60;
+ font-family:Amiri,serif;
+ font-size:20px;
 }
 
-.door small {
-  display:block;
-  color:#d1bd8e;
-  font-size:10px;
-  margin-top:5px;
-  position:relative;
+/* الصفحات الداخلية */
+
+.screen{
+ display:none;
+ min-height:100vh;
+ padding:80px 15px 90px;
+ position:relative;
+ animation:appear .7s ease;
 }
 
-/* القاعدة */
+.screen.active{display:block}
 
-.footer {
-  text-align:center;
-  margin:35px 0 0;
-  color:#bda66e;
-  font-family:'Amiri',serif;
-  font-size:19px;
+@keyframes appear{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:translateY(0)}
 }
 
-/* الشاشات الداخلية */
-
-.screen {
-  display:none;
-  min-height:100vh;
-  padding:85px 17px 40px;
-  position:relative;
-  animation:enter .7s ease;
+.inside{
+ max-width:760px;
+ margin:auto;
+ padding:28px 19px;
+ text-align:center;
+ border:1px solid #98753a;
+ border-radius:22px;
+ background:linear-gradient(145deg,#10452f,#021b12);
+ box-shadow:0 0 40px #0008,inset 0 0 30px #b28b3b15;
 }
 
-.screen.active {display:block}
-
-@keyframes enter {
-  from {opacity:0;transform:translateY(20px)}
-  to {opacity:1;transform:translateY(0)}
+.inside h2{
+ font-family:Amiri,serif;
+ color:#d3b477;
+ font-size:35px;
+ margin:8px 0;
 }
 
-.inside {
-  max-width:760px;
-  margin:auto;
-  border:1px solid #b99a50;
-  border-radius:20px;
-  padding:30px 20px;
-  background:linear-gradient(145deg,#0d4933,#031c15);
-  box-shadow:0 0 35px #0008;
-  text-align:center;
+.intro{
+ font-size:13px;
+ color:#c8b58d;
+ line-height:2.2;
 }
 
-.inside h2 {
-  color:#f0d18b;
-  font-family:'Amiri',serif;
-  font-size:35px;
-  margin:8px 0;
+.big-icon{
+ font-size:62px;
+ filter:drop-shadow(0 0 12px #a77e39);
 }
 
-.inside .intro {
-  color:#d7c49a;
-  font-size:14px;
-  line-height:2;
+.gold-card{
+ background:#b38b3b12;
+ border:1px solid #a37c3b77;
+ border-radius:16px;
+ padding:18px;
+ margin:18px 0;
+ line-height:2.2;
+ color:#ecddb9;
 }
 
-.big-icon {
-  font-size:65px;
-  filter:drop-shadow(0 0 15px #e1bc68);
+.gold-btn{
+ background:linear-gradient(135deg,#9b7431,#63461e);
+ border:1px solid #d0ad68;
+ color:#fff0c9;
+ border-radius:30px;
+ padding:11px 20px;
+ margin:6px;
+ font-weight:bold;
+ transition:.3s;
 }
 
-.gold-card {
-  background:rgba(220,184,103,.08);
-  border:1px solid rgba(215,178,95,.45);
-  padding:17px;
-  border-radius:14px;
-  margin:15px 0;
-  color:#f7e5b9;
-  line-height:2;
+.gold-btn:hover{transform:scale(1.05)}
+
+.nickname{
+ background:#103d2a;
+ border:1px solid #9d7a3e;
+ border-radius:25px;
+ color:#e6d1a0;
+ padding:10px 15px;
+ margin:5px;
+ font-size:12px;
+ transition:.3s;
 }
 
-.gold-btn {
-  border:1px solid #e1bd69;
-  background:linear-gradient(135deg,#d6b05e,#876126);
-  color:#10281c;
-  font-weight:bold;
-  border-radius:30px;
-  padding:11px 24px;
-  margin:8px 4px;
-  box-shadow:0 0 15px #c6a04a33;
-  transition:.3s;
+.nickname:hover{
+ background:#735426;
+ transform:scale(1.05);
 }
 
-.gold-btn:hover {transform:scale(1.05)}
-
-.soft-btn {
-  background:#103c2c;
-  color:#f1d99f;
-  border:1px solid #a78b4d;
-  padding:10px 18px;
-  border-radius:25px;
-  margin:6px;
+.love-message{
+ font-family:Amiri,serif;
+ font-size:25px;
+ line-height:1.9;
+ color:#eddaab;
+ min-height:70px;
+ margin:15px 0;
 }
 
-.love-message {
-  min-height:85px;
-  font-family:'Amiri',serif;
-  font-size:24px;
-  color:#ffe5a3;
-  margin:20px 0;
-  line-height:1.8;
+.rose{
+ font-size:30px;
+ display:inline-block;
+ margin:5px;
+ animation:float 3s infinite ease-in-out;
 }
 
-.nickname {
-  display:inline-block;
-  margin:6px;
-  padding:10px 17px;
-  border:1px solid #b99a50;
-  background:#0b3929;
-  border-radius:25px;
-  color:#f6dfa3;
-  transition:.3s;
+@keyframes float{
+ 50%{transform:translateY(-8px)}
 }
 
-.nickname:hover {
-  background:#9b7836;
-  color:white;
-  transform:scale(1.06);
+/* غرفة الليلة والسرير */
+
+.bedroom{
+ margin:25px auto;
+ max-width:520px;
+ position:relative;
+ padding:20px 10px 28px;
+ background:linear-gradient(180deg,#092c20,#03140f);
+ border:1px solid #a37e42;
+ border-radius:20px;
+ box-shadow:0 0 35px #0009;
 }
 
-.secret-box {
-  display:none;
-  margin-top:20px;
-  animation:enter .6s;
+.bed-canopy{
+ height:50px;
+ border:5px solid #8e6b34;
+ border-bottom:0;
+ border-radius:90px 90px 0 0;
+ margin:0 30px;
 }
 
-.secret-box.show {display:block}
-
-.rose {
-  display:inline-block;
-  font-size:30px;
-  margin:5px;
-  animation:float 3s infinite ease-in-out;
+.bed-head{
+ width:90%;
+ margin:auto;
+ height:65px;
+ border:4px solid #99753c;
+ border-radius:15px 15px 5px 5px;
+ background:linear-gradient(120deg,#174b36,#09291e);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ color:#d7b779;
+ font-family:Amiri,serif;
+ font-size:23px;
+ box-shadow:inset 0 0 20px #0008;
 }
 
-@keyframes float {
-  50% {transform:translateY(-9px)}
+.pillows{
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ margin:12px 0 0;
 }
 
-/* الرسالة المنبثقة */
-
-.popup {
-  position:fixed;
-  inset:0;
-  background:#000c;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
-  padding:20px;
+.pillow{
+ width:95px;
+ height:40px;
+ background:linear-gradient(145deg,#b08a4d,#614820);
+ border-radius:14px;
+ border:1px solid #d3b77a;
+ box-shadow:inset 0 0 10px #ffe4a044;
 }
 
-.popup.show {display:flex}
-
-.popup-content {
-  width:100%;
-  max-width:390px;
-  background:linear-gradient(145deg,#15523a,#031b14);
-  border:1px solid #d5b263;
-  border-radius:20px;
-  padding:30px 20px;
-  text-align:center;
-  box-shadow:0 0 50px #b9934544;
+.mattress{
+ width:94%;
+ height:85px;
+ margin:auto;
+ background:linear-gradient(145deg,#174a34,#0b2b20);
+ border:2px solid #9d7941;
+ border-radius:8px 8px 28px 28px;
+ box-shadow:inset 0 0 25px #0008;
+ position:relative;
 }
 
-.popup-content h3 {
-  color:#f4d38a;
-  font-family:'Amiri',serif;
-  font-size:28px;
+.mattress:after{
+ content:"💚";
+ position:absolute;
+ left:50%;
+ top:50%;
+ transform:translate(-50%,-50%);
+ font-size:30px;
 }
 
-.popup-content p {
-  font-family:'Amiri',serif;
-  font-size:23px;
-  line-height:1.9;
+.bed-foot{
+ height:20px;
+ width:80%;
+ margin:auto;
+ background:linear-gradient(90deg,#63451d,#bb9654,#63451d);
+ border-radius:0 0 8px 8px;
 }
 
-/* الهاتف */
+.night-text{
+ font-family:Amiri,serif;
+ font-size:23px;
+ color:#e6d1a2;
+ line-height:2;
+ margin:20px 0;
+}
 
-@media(max-width:600px) {
-  .doors {gap:12px 8px}
-  .door {min-height:135px;padding:12px 3px}
-  .door .icon {font-size:29px}
-  .door strong {font-size:11px}
-  .door small {font-size:9px}
-  .palace {padding:25px 12px}
-  .hero {margin-top:65px}
-  .spotlight {height:300px}
+/* القلوب المتطايرة */
+
+.floating{
+ position:fixed;
+ pointer-events:none;
+ z-index:200;
+ animation:fly 2.5s ease-out forwards;
+}
+
+@keyframes fly{
+ 0%{opacity:1;transform:translateY(0) scale(.7)}
+ 100%{opacity:0;transform:translateY(-250px) rotate(35deg) scale(1.5)}
+}
+
+/* النافذة */
+
+.popup{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:300;
+ background:#000d;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+}
+
+.popup.show{display:flex}
+
+.popup-content{
+ max-width:390px;
+ width:100%;
+ padding:28px 20px;
+ border:1px solid #ae8948;
+ background:linear-gradient(145deg,#145039,#021b12);
+ border-radius:20px;
+ text-align:center;
+ box-shadow:0 0 45px #a77e3944;
+}
+
+.popup-content h3{
+ font-family:Amiri,serif;
+ font-size:30px;
+ color:#d5b777;
+}
+
+.popup-content p{
+ font-family:Amiri,serif;
+ font-size:24px;
+ line-height:2;
+ color:#f0dfbd;
+}
+
+/* العودة */
+
+#backArea{
+ display:none;
+ position:fixed;
+ bottom:15px;
+ left:0;
+ right:0;
+ z-index:100;
+ text-align:center;
+}
+
+.back-btn{
+ border:1px solid #a68142;
+ border-radius:30px;
+ padding:11px 23px;
+ color:#ead5a3;
+ background:#082d20;
+ box-shadow:0 0 20px #0008;
+}
+
+@media(max-width:600px){
+ .doors{gap:12px 7px}
+ .door{min-height:135px}
+ .door span{font-size:28px}
+ .door strong{font-size:10px}
+ .door small{font-size:8px}
+ .palace{padding:25px 11px}
+ .spotlight{height:330px}
+ .hero{margin-top:55px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="gold-glow glow1"></div>
-<div class="gold-glow glow2"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
 
 <div class="topbar">
-  <div class="top-logo">NOOR'S ROYAL PALACE</div>
-  <button class="sound-btn" onclick="toggleSound()" id="soundButton">♫ الصوت</button>
+ <div class="logo">NOOR'S ROYAL PALACE</div>
+ <button class="sound" onclick="toggleSound()" id="soundButton">♫ تشغيل الموسيقى</button>
 </div>
 
-<!-- الصفحة الرئيسية -->
+<!-- المدخل -->
 
 <main id="home">
 
-  <div class="spotlight left"><div class="lamp"></div></div>
-  <div class="spotlight right"><div class="lamp"></div></div>
+ <div class="spotlight left"><div class="lamp"></div></div>
+ <div class="spotlight right"><div class="lamp"></div></div>
 
-  <section class="hero">
-    <div class="crown">♛</div>
-    <h1>نور</h1>
-    <div class="english">THE EMERALD QUEEN</div>
-    <div class="decor">✦ ❖ ✦</div>
-    <div class="welcome">أهلاً بملكة قلبي، يا نوارتي 💚</div>
-    <p class="sub">هذا القصر لكِ وحدكِ... وكل زاوية فيه تحمل شيئاً من حبّي</p>
-  </section>
+ <section class="hero">
+  <div class="crown">♛</div>
+  <h1>نور</h1>
+  <div class="english">THE EMERALD QUEEN</div>
+  <div style="color:#a98548;margin:13px">✦ ❖ ✦</div>
+  <div class="welcome">أهلاً بملكتي ونوارتي 💚</div>
+  <p class="subtitle">هذا القصر لكِ وحدكِ، وكل زاوية فيه تحمل شيئاً من حبي.</p>
+ </section>
 
-  <div class="palace">
-    <div class="palace-title">✧ اختاري أحد أبواب قصركِ ✧</div>
+ <div class="palace">
+  <div class="palace-title">✧ أبواب مملكة نور ✧</div>
 
-    <div class="doors">
+  <div class="doors">
 
-      <button class="door" onclick="openRoom('throne')">
-        <span class="icon">👑</span>
-        <strong>عرش الملكة</strong>
-        <small>مملكة قلبكِ</small>
-      </button>
+   <button class="door" onclick="openRoom('throne')">
+    <span>👑</span><strong>عرش الملكة</strong><small>مملكة قلبكِ</small>
+   </button>
 
-      <button class="door" onclick="openRoom('garden')">
-        <span class="icon">🌹</span>
-        <strong>حديقة نوني</strong>
-        <small>ورود ورسائل</small>
-      </button>
+   <button class="door" onclick="openRoom('garden')">
+    <span>🌹</span><strong>حديقة نوني</strong><small>ورود وحب</small>
+   </button>
 
-      <button class="door" onclick="openRoom('pamper')">
-        <span class="icon">💚</span>
-        <strong>غرفة الدلال</strong>
-        <small>يا أجمل ملاك</small>
-      </button>
+   <button class="door" onclick="openRoom('pamper')">
+    <span>💋</span><strong>غرفة الدلال</strong><small>دلالك يا ننوش</small>
+   </button>
 
-      <button class="door" onclick="openRoom('secret')">
-        <span class="icon">🔐</span>
-        <strong>صندوق الأسرار</strong>
-        <small>مفاجأة مخفية</small>
-      </button>
+   <button class="door" onclick="openRoom('secret')">
+    <span>🔐</span><strong>صندوق الأسرار</strong><small>هدية مخفية</small>
+   </button>
 
-      <button class="door" onclick="openRoom('moon')">
-        <span class="icon">🌙</span>
-        <strong>شرفة عيوني</strong>
-        <small>تحت ضوء القمر</small>
-      </button>
+   <button class="door" onclick="openRoom('moon')">
+    <span>🌙</span><strong>شرفة عيوني</strong><small>نور القمر</small>
+   </button>
 
-      <button class="door" onclick="openRoom('heart')">
-        <span class="icon">❤️</span>
-        <strong>قاعة الاعترافات</strong>
-        <small>كلام من القلب</small>
-      </button>
+   <button class="door" onclick="openRoom('heart')">
+    <span>❤️</span><strong>قاعة الاعترافات</strong><small>من القلب للقلب</small>
+   </button>
 
-    </div>
+   <button class="door" onclick="openRoom('night')">
+    <span>🛏️</span><strong>غرفة ليلتنا</strong><small>ليلة من الحب</small>
+   </button>
+
   </div>
+ </div>
 
-  <div class="footer">
-    صُمم هذا القصر لأجمل نور في العالم 💚
-    <div style="font-size:12px;margin-top:8px;direction:ltr">
-      FOREVER YOURS ♡
-    </div>
-  </div>
+ <div class="footer">
+  أنتِ أجمل ما في هذا القصر يا نور 💚
+  <div style="direction:ltr;font-size:11px">FOREVER YOURS ♡</div>
+ </div>
 
 </main>
 
-<!-- العوالم الداخلية -->
+<!-- عرش الملكة -->
 
 <section class="screen" id="throne">
-  <div class="inside">
-    <div class="big-icon">👑</div>
-    <h2>عرش الملكة نور</h2>
-    <p class="intro">هنا تجلس ملكة لا تشبه أحداً... ملكة سكنت القلب قبل أن ترى العرش.</p>
-    <div class="gold-card">
-      أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية كتبتها الأيام لي.
-      أنتِ ملكتي، ونبض قلبي، وأجمل أقداري. 💚
-    </div>
-    <div class="big-icon">♛</div>
-    <div class="love-message">مكانكِ محفوظ في قلبي، لا ينافسكِ عليه أحد.</div>
+ <div class="inside">
+  <div class="big-icon">👑</div>
+  <h2>عرش الملكة نور</h2>
+  <p class="intro">هنا تجلس ملكة لا تشبه أحداً.</p>
+  <div class="gold-card">
+   أنتِ لستِ مجرد فتاة في حياتي، أنتِ أجمل حكاية كتبتها الأيام لي.
+   أنتِ ملكتي ونبض قلبي وأجمل أقداري. 💚
   </div>
+  <div class="big-icon">♛</div>
+  <div class="love-message">لكِ عرش في قلبي لا يجلس عليه سواكِ.</div>
+ </div>
 </section>
+
+<!-- الحديقة -->
 
 <section class="screen" id="garden">
-  <div class="inside">
-    <div class="big-icon">🌹</div>
-    <h2>حديقة نوني</h2>
-    <p class="intro">كل وردة هنا تحمل لكِ كلمة جميلة.</p>
-    <div id="roses">
-      <span class="rose">🌹</span>
-      <span class="rose">🌷</span>
-      <span class="rose">🌹</span>
-      <span class="rose">🌺</span>
-      <span class="rose">🌷</span>
-    </div>
-    <div class="gold-card">
-      <div class="love-message" id="gardenMessage">اضغطي على الزر لتفتحي رسالة من حديقتكِ 💚</div>
-      <button class="gold-btn" onclick="gardenLetter()">افتحي رسالة وردة 🌹</button>
-    </div>
+ <div class="inside">
+  <div class="big-icon">🌹</div>
+  <h2>حديقة نوني</h2>
+  <p class="intro">اضغطي على الوردة لتحصلي على رسالة حب.</p>
+  <div id="roses">
+   <span class="rose">🌹</span><span class="rose">🌷</span>
+   <span class="rose">🌹</span><span class="rose">🌺</span>
+   <span class="rose">🌷</span>
   </div>
+  <div class="gold-card">
+   <div class="love-message" id="gardenMessage">كل الورود لكِ يا نوارتي.</div>
+   <button class="gold-btn" onclick="gardenLetter()">افتحي وردة 🌹</button>
+  </div>
+ </div>
 </section>
+
+<!-- غرفة الدلال -->
 
 <section class="screen" id="pamper">
-  <div class="inside">
-    <div class="big-icon">💚</div>
-    <h2>غرفة دلال نوشتي</h2>
-    <p class="intro">اختاري اسم الدلع الذي تحبين أن أناديكِ به.</p>
-    <div id="nicknames"></div>
-    <div class="gold-card">
-      <div class="love-message" id="nicknameMessage">يا ترى أي اسم يليق بأجمل فتاة؟ 🥹</div>
-    </div>
-    <p class="intro">أنتِ أجمل من كل الأسماء، وكل اسم يصبح أجمل عندما يكون لكِ.</p>
+ <div class="inside">
+  <div class="big-icon">💚</div>
+  <h2>غرفة دلال نوشتي</h2>
+  <p class="intro">كل أسمائك جميلة، لكن دلالك أجمل منها كلها.</p>
+
+  <div id="nicknames"></div>
+
+  <div class="gold-card">
+   <h3 style="color:#d5b777">🌹 اختاري دلالك يا ملكتي 💋</h3>
+
+   <button class="nickname" onclick="pamper('rose')">🌹 وردة</button>
+   <button class="nickname" onclick="pamper('hug')">🫂 ضمة</button>
+   <button class="nickname" onclick="pamper('chest')">💚 تعي لصدري بدي دفيكي</button>
+   <button class="nickname" onclick="pamper('kiss')">💋 بوسة</button>
+   <button class="nickname" onclick="pamper('cheek')">😘 بوسة خد</button>
+   <button class="nickname" onclick="pamper('forehead')">💗 بوسة جبين</button>
+   <button class="nickname" onclick="pamper('lips')">💋 بوسة شفايف</button>
+   <button class="nickname" onclick="pamper('many')">💋 بوسات شفايف</button>
+   <button class="nickname" onclick="pamper('neck')">🌹 بوسة رقبتك يا نور</button>
+   <button class="nickname" onclick="pamper('neck2')">💋 مصة رقبتك يا نور</button>
+   <button class="nickname" onclick="pamper('mouth')">😘 بوسة على تمك</button>
+
+   <div class="love-message" id="pamperMessage">
+    اختاري دلالك يا نوني 🥹💚
+   </div>
   </div>
+ </div>
 </section>
+
+<!-- صندوق الأسرار -->
 
 <section class="screen" id="secret">
-  <div class="inside">
-    <div class="big-icon">🔐</div>
-    <h2>صندوق أسرار نور</h2>
-    <p class="intro">هناك شيء صغير مخبأ لكِ في هذا الصندوق...</p>
-    <button class="gold-btn" onclick="revealSecret()">افتحي الصندوق ✨</button>
+ <div class="inside">
+  <div class="big-icon">🔐</div>
+  <h2>صندوق أسرار نور</h2>
+  <p class="intro">هناك مفاجأة مخبأة لكِ يا ملاكي.</p>
+  <button class="gold-btn" onclick="revealSecret()">افتحي الصندوق ✨</button>
 
-    <div class="secret-box" id="secretBox">
-      <div class="big-icon">🎁</div>
-      <h2>هدية لكِ يا نوني</h2>
-      <div class="gold-card">
-        لو استطعتُ أن أهديكِ شيئاً واحداً في هذه الحياة، لأهديتكِ القدرة على رؤية نفسكِ بعيوني...
-        عندها ستعرفين كم أنتِ جميلة وغالية ومميزة بالنسبة لي. ❤️
-      </div>
-      <div style="font-size:38px">💚💛💚</div>
-    </div>
+  <div id="secretBox" style="display:none">
+   <div class="big-icon">🎁</div>
+   <h2>هدية نوارتي</h2>
+   <div class="gold-card">
+    لو استطعتُ أن أهديكِ شيئاً واحداً، لأهديتكِ القدرة على رؤية نفسكِ بعيوني.
+    عندها ستعرفين كم أنتِ جميلة وغالية ومميزة بالنسبة لي. ❤️
+   </div>
+   <div style="font-size:40px">💚🌹💛</div>
   </div>
+ </div>
 </section>
+
+<!-- شرفة القمر -->
 
 <section class="screen" id="moon">
-  <div class="inside">
-    <div class="big-icon">🌙</div>
-    <h2>شرفة ضو عيوني</h2>
-    <p class="intro">في هدوء الليل، هناك نجمة واحدة تضيء أكثر من الجميع... إنها نور.</p>
-    <div class="gold-card">
-      <div style="font-size:45px">✨ 🌙 ✨</div>
-      <div class="love-message" id="moonMessage">
-        يا ضو عيوني، حتى القمر يغار من نوركِ.
-      </div>
-      <button class="gold-btn" onclick="moonLetter()">رسالة من القمر 🌙</button>
-    </div>
+ <div class="inside">
+  <div class="big-icon">🌙</div>
+  <h2>شرفة ضو عيوني</h2>
+  <p class="intro">في السماء قمر واحد، وفي قلبي نور واحدة.</p>
+  <div class="gold-card">
+   <div style="font-size:45px">✨ 🌙 ✨</div>
+   <div class="love-message" id="moonMessage">حتى القمر يغار من نوركِ.</div>
+   <button class="gold-btn" onclick="moonLetter()">رسالة من القمر</button>
   </div>
+ </div>
 </section>
+
+<!-- الاعترافات -->
 
 <section class="screen" id="heart">
-  <div class="inside">
-    <div class="big-icon">❤️</div>
-    <h2>قاعة اعترافات القلب</h2>
-    <p class="intro">هناك أشياء لا تستطيع الكلمات وصفها، ولكن القلب يحاول.</p>
-    <div class="gold-card">
-      <div class="love-message" id="heartMessage">
-        اعترافي الأول: وجودكِ يجعل للأيام معنى أجمل.
-      </div>
-      <button class="gold-btn" onclick="heartLetter()">اعتراف آخر ❤️</button>
-    </div>
+ <div class="inside">
+  <div class="big-icon">❤️</div>
+  <h2>قاعة اعترافات القلب</h2>
+  <p class="intro">هناك كلام لا يعرف طريقه إلا إلى قلبكِ.</p>
+  <div class="gold-card">
+   <div class="love-message" id="heartMessage">
+    أنتِ أجمل صدفة وأحلى حكاية.
+   </div>
+   <button class="gold-btn" onclick="heartLetter()">اعتراف آخر ❤️</button>
   </div>
+ </div>
 </section>
 
-<!-- زر العودة -->
+<!-- غرفة ليلتنا -->
 
-<div id="backArea" style="display:none;text-align:center;position:fixed;bottom:15px;left:0;right:0;z-index:50">
-  <button class="back-btn" onclick="goHome()">↩ العودة إلى القصر الملكي</button>
+<section class="screen" id="night">
+ <div class="inside">
+  <div class="big-icon">🌙</div>
+  <h2>غرفة ليلتنا يا نور</h2>
+
+  <p class="intro">
+   هنا يهدأ العالم، وتبقى اللحظات الجميلة والكلام الذي لا نقوله إلا لمن نحب.
+  </p>
+
+  <div class="bedroom">
+   <div class="bed-canopy"></div>
+   <div class="bed-head">NOOR ♡ MY LOVE</div>
+   <div class="pillows">
+    <div class="pillow"></div>
+    <div class="pillow"></div>
+   </div>
+   <div class="mattress"></div>
+   <div class="bed-foot"></div>
+   <div style="color:#c9a568;margin-top:14px">✦ سرير الملكة ✦</div>
+  </div>
+
+  <div class="gold-card">
+   <div class="night-text">
+    يا نور يا نوارتي...<br>
+    تعي لصدري بدي دفيكي 🫂💚<br>
+    خلينا ننسى تعب الدنيا،<br>
+    ونعيش ليلة مليانة حب وحنان،<br>
+    وضحكات وبوسات وكلام حلو.<br>
+    بدي تكوني مرتاحة ومبسوطة،<br>
+    وتكون هالليلة ذكرى حلوة بقلبكِ.
+   </div>
+   <div style="font-size:35px">🌹 💋 ❤️ 🫂</div>
+  </div>
+
+  <div class="gold-card">
+   <h3 style="color:#d5b777">رسالة قبل النوم يا ملاكي</h3>
+   <div class="love-message">
+    لو كان بإمكاني إيقاف الوقت عند لحظة جميلة معكِ، لاخترت لحظة تكونين فيها بين ذراعيّ، تبتسمين وأنا أقول لكِ: تصبحين على حب يا ملكتي.
+   </div>
+  </div>
+
+  <button class="gold-btn" onclick="showPopup('إلى نور 💚','ليلتكِ جميلة مثل قلبكِ، وأتمنى أن تكون كل لياليكِ مليئة بالدفء والسعادة.')">
+   افتحي رسالة ليلتكِ 💌
+  </button>
+
+ </div>
+</section>
+
+<!-- العودة -->
+
+<div id="backArea">
+ <button class="back-btn" onclick="goHome()">↩ العودة إلى القصر الملكي</button>
 </div>
 
-<!-- النافذة المنبثقة -->
+<!-- نافذة الرسائل -->
 
 <div class="popup" id="popup" onclick="closePopup(event)">
-  <div class="popup-content">
-    <div style="font-size:40px">💚</div>
-    <h3 id="popupTitle">إلى نور</h3>
-    <p id="popupText"></p>
-    <button class="gold-btn" onclick="closePopup()">أغلقي الرسالة</button>
-  </div>
+ <div class="popup-content">
+  <div style="font-size:40px">💚</div>
+  <h3 id="popupTitle">إلى نور</h3>
+  <p id="popupText"></p>
+  <button class="gold-btn" onclick="closePopup()">أغلقي الرسالة</button>
+ </div>
 </div>
 
 <script>
 
 /* أسماء الدلع */
 
-const nicknames = [
-  ["نوني","يا نوني يا أجمل تفصيلة في أيامي، يا ابتسامتي الحلوة. 💚"],
-  ["ننوش","يا ننوش، أنتِ حكاية جميلة لا أملّ من قراءتها."],
-  ["نوشتي","يا نوشتي، لكِ في قلبي مكان لا يعرفه أحد سواكِ."],
-  ["نوارتي","يا نوارتي، أنتِ النور الذي يجعل كل شيء أجمل."],
-  ["ضو عيوني","يا ضو عيوني، أتمنى أن تبقى ابتسامتكِ مضيئة دائماً."],
-  ["ملاكي","يا ملاكي، رقة اسمكِ تشبه جمال روحكِ."],
-  ["ملكتي","يا ملكتي، لكِ عرش في قلبي لا يجلس عليه غيركِ."],
-  ["يا نور عيوني","يا نور عيوني، أنتِ أجمل ما أراه وأحلى ما أشعر به."]
+const names=[
+ ["نوني","يا نوني يا أجمل تفصيلة في أيامي. 💚"],
+ ["ننوش","يا ننوش، أنتِ حكاية جميلة لا أملّ منها."],
+ ["نوشتي","يا نوشتي، لكِ في قلبي مكان لا يعرفه أحد."],
+ ["نوارتي","يا نوارتي، أنتِ النور الذي يجعل كل شيء أجمل."],
+ ["ضو عيوني","يا ضو عيوني، أتمنى ألا تغيب ابتسامتكِ."],
+ ["ملاكي","يا ملاكي، أنتِ أجمل من كل الكلمات."],
+ ["ملكتي","يا ملكتي، لكِ عرش في قلبي لا يجلس عليه غيركِ."]
 ];
 
-const nicknameArea = document.getElementById("nicknames");
+const nickArea=document.getElementById("nicknames");
 
-nicknames.forEach(item => {
-  const button = document.createElement("button");
-  button.className = "nickname";
-  button.textContent = item[0];
-  button.onclick = () => {
-    document.getElementById("nicknameMessage").textContent = item[1];
-  };
-  nicknameArea.appendChild(button);
+names.forEach(item=>{
+ let b=document.createElement("button");
+ b.className="nickname";
+ b.textContent=item[0];
+ b.onclick=()=>{
+  document.getElementById("pamperMessage").textContent=item[1];
+  hearts();
+ };
+ nickArea.appendChild(b);
 });
 
-/* التنقل بين الأبواب */
+/* التنقل */
 
-let currentRoom = null;
-
-function openRoom(room) {
-  document.getElementById("home").style.display = "none";
-
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
-
-  const target = document.getElementById(room);
-  target.classList.add("active");
-
-  currentRoom = room;
-  document.getElementById("backArea").style.display = "block";
-
-  window.scrollTo({top:0,behavior:"smooth"});
+function openRoom(id){
+ document.getElementById("home").style.display="none";
+ document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.getElementById("backArea").style.display="block";
+ window.scrollTo(0,0);
+ hearts();
 }
 
-function goHome() {
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
-
-  document.getElementById("home").style.display = "flex";
-  document.getElementById("backArea").style.display = "none";
-
-  currentRoom = null;
-  window.scrollTo({top:0,behavior:"smooth"});
+function goHome(){
+ document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));
+ document.getElementById("home").style.display="flex";
+ document.getElementById("backArea").style.display="none";
+ window.scrollTo(0,0);
 }
 
-/* رسائل الحديقة */
+/* الدلال */
 
-const gardenMessages = [
-  "هذه الوردة تشبهكِ، جميلة وتستحق كل الاهتمام. 🌹",
-  "لو كان للجمال عنوان، لكان اسمكِ يا نور.",
-  "كل وردة في هذه الحديقة تقول لكِ: أحب ابتسامتكِ.",
-  "يا نوني، أتمنى أن تزهر أيامكِ كما تزهر هذه الورود.",
-  "أنتِ وردة مختلفة، لا تشبه أي وردة أخرى. 🌷"
+const pamperTexts={
+ rose:"🌹 هذه الوردة لكِ يا نوارتي، فأنتِ أجمل من كل الورود.",
+ hug:"🫂 تعي لحضني يا ننوش، بدي ضمك ضمة طويلة مليانة حنان.",
+ chest:"💚 تعي لصدري بدي دفيكي، وخليكي مرتاحة بين إيدي.",
+ kiss:"💋 بوسة حب كبيرة لكِ يا نوني.",
+ cheek:"😘 بوسة على خدك الحلو يا نور.",
+ forehead:"💗 بوسة حنان على جبينك يا ملاكي.",
+ lips:"💋 بوسة شفايف لكِ يا ملكتي.",
+ many:"💋💋 بوسات شفايف كثيرة لنوارتي.",
+ neck:"🌹 بوسة رقبتك يا نور، يا أجمل ملاك.",
+ neck2:"💋 مصة رقبتك يا نور، يا حلوة الحلوات.",
+ mouth:"😘 بوسة على تمك يا ننوش."
+};
+
+function pamper(type){
+ document.getElementById("pamperMessage").textContent=pamperTexts[type];
+ hearts();
+}
+
+/* القلوب والورود المتطايرة */
+
+function hearts(){
+ const items=["💚","💛","❤️","🌹","💋","💕","🫂","🌷"];
+ for(let i=0;i<16;i++){
+  const e=document.createElement("span");
+  e.className="floating";
+  e.textContent=items[Math.floor(Math.random()*items.length)];
+  e.style.left=Math.random()*95+"vw";
+  e.style.top=(55+Math.random()*35)+"vh";
+  e.style.fontSize=(20+Math.random()*17)+"px";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),2600);
+ }
+}
+
+/* الحديقة */
+
+const flowers=[
+ "هذه الوردة تشبهكِ، جميلة وتستحق كل الحب. 🌹",
+ "لو كان للجمال عنوان، لكان اسمكِ يا نور.",
+ "كل وردة هنا تقول لكِ: أحب ابتسامتكِ.",
+ "يا نوني، أتمنى أن تزهر أيامكِ بالسعادة.",
+ "أنتِ وردة مختلفة لا تشبه أي وردة أخرى."
 ];
+let fi=0;
 
-let gardenIndex = 0;
-
-function gardenLetter() {
-  document.getElementById("gardenMessage").textContent =
-    gardenMessages[gardenIndex];
-
-  gardenIndex = (gardenIndex + 1) % gardenMessages.length;
+function gardenLetter(){
+ document.getElementById("gardenMessage").textContent=flowers[fi];
+ fi=(fi+1)%flowers.length;
+ hearts();
 }
 
-/* صندوق الأسرار */
+/* الصندوق */
 
-function revealSecret() {
-  const box = document.getElementById("secretBox");
-  box.classList.add("show");
+function revealSecret(){
+ document.getElementById("secretBox").style.display="block";
+ hearts();
 }
 
-/* رسائل القمر */
+/* القمر */
 
-const moonMessages = [
-  "يا ضو عيوني، حتى القمر يغار من نوركِ.",
-  "لو استطعتُ تعليق نجمة باسمكِ لفعلت.",
-  "في كل ليلة هادئة، أتمنى لكِ ألف سعادة.",
-  "يا نوارتي، أنتِ أجمل من كل أضواء السماء."
+const moon=[
+ "يا ضو عيوني، حتى القمر يغار من نوركِ.",
+ "لو استطعت تعليق نجمة باسمكِ لفعلت.",
+ "يا نوارتي، أنتِ أجمل من كل أضواء السماء.",
+ "في كل ليلة أتمنى أن تكوني أسعد إنسانة."
 ];
+let mi=0;
 
-let moonIndex = 0;
-
-function moonLetter() {
-  document.getElementById("moonMessage").textContent =
-    moonMessages[moonIndex];
-
-  moonIndex = (moonIndex + 1) % moonMessages.length;
+function moonLetter(){
+ document.getElementById("moonMessage").textContent=moon[mi];
+ mi=(mi+1)%moon.length;
+ hearts();
 }
 
-/* اعترافات القلب */
+/* اعترافات */
 
-const heartMessages = [
-  "اعترافي الأول: وجودكِ يجعل للأيام معنى أجمل.",
-  "اعترافي الثاني: ابتسامتكِ من الأشياء التي أتمنى ألا تغيب.",
-  "اعترافي الثالث: أحب تفاصيلكِ الصغيرة قبل الكبيرة.",
-  "اعترافي الرابع: أنتِ حكاية أتمنى أن تستمر.",
-  "اعترافي الخامس: مهما قلتُ، سيبقى في قلبي كلام أجمل لكِ."
+const confessions=[
+ "أنتِ أجمل صدفة وأحلى حكاية.",
+ "ابتسامتكِ من الأشياء التي أتمنى ألا تغيب.",
+ "أحب تفاصيلكِ الصغيرة قبل الكبيرة.",
+ "أنتِ حكاية أتمنى أن تستمر.",
+ "لكِ في قلبي مكان لا يستطيع أحد الوصول إليه."
 ];
+let ci=0;
 
-let heartIndex = 0;
-
-function heartLetter() {
-  heartIndex = (heartIndex + 1) % heartMessages.length;
-  document.getElementById("heartMessage").textContent =
-    heartMessages[heartIndex];
+function heartLetter(){
+ document.getElementById("heartMessage").textContent=confessions[ci];
+ ci=(ci+1)%confessions.length;
+ hearts();
 }
 
-/* النوافذ المنبثقة */
+/* الرسائل */
 
-function showPopup(title,text) {
-  document.getElementById("popupTitle").textContent = title;
-  document.getElementById("popupText").textContent = text;
-  document.getElementById("popup").classList.add("show");
+function showPopup(title,text){
+ document.getElementById("popupTitle").textContent=title;
+ document.getElementById("popupText").textContent=text;
+ document.getElementById("popup").classList.add("show");
 }
 
-function closePopup(event) {
-  if (!event || event.target.id === "popup") {
-    document.getElementById("popup").classList.remove("show");
-  }
+function closePopup(e){
+ if(!e || e.target.id==="popup"){
+  document.getElementById("popup").classList.remove("show");
+ }
 }
 
-/* الصوت: نغمة أصلية بسيطة يتم توليدها محلياً */
+/* موسيقى هادئة أصلية */
 
-let audioContext = null;
-let soundEnabled = false;
-let musicTimer = null;
+let audio=null;
+let musicOn=false;
+let musicTimer=null;
 
-function playNote(freq,duration) {
-  if (!audioContext || !soundEnabled) return;
+function toggleSound(){
+ if(!audio){
+  audio=new(window.AudioContext||window.webkitAudioContext)();
+ }
+ if(audio.state==="suspended")audio.resume();
 
-  const osc = audioContext.createOscillator();
-  const gain = audioContext.createGain();
+ musicOn=!musicOn;
 
-  osc.type = "sine";
-  osc.frequency.value = freq;
+ document.getElementById("soundButton").textContent=
+ musicOn?"♫ إيقاف الموسيقى":"♫ تشغيل الموسيقى";
 
-  gain.gain.setValueAtTime(0.0001,audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.035,audioContext.currentTime+0.1);
-  gain.gain.exponentialRampToValueAtTime(0.0001,audioContext.currentTime+duration);
+ if(musicOn){
+  const notes=[392,494,587,494,440,523,659,523];
+  let i=0;
 
-  osc.connect(gain);
-  gain.connect(audioContext.destination);
+  musicTimer=setInterval(()=>{
+   if(!musicOn)return;
 
-  osc.start();
-  osc.stop(audioContext.currentTime+duration);
-}
+   let osc=audio.createOscillator();
+   let gain=audio.createGain();
 
-function startMusic() {
-  const notes = [392,494,587,494,440,523,659,523];
-  let i = 0;
+   osc.type="sine";
+   osc.frequency.value=notes[i];
 
-  musicTimer = setInterval(() => {
-    if (!soundEnabled) return;
-    playNote(notes[i],1.2);
-    i = (i+1)%notes.length;
-  },700);
-}
+   gain.gain.setValueAtTime(.0001,audio.currentTime);
+   gain.gain.exponentialRampToValueAtTime(.025,audio.currentTime+.1);
+   gain.gain.exponentialRampToValueAtTime(.0001,audio.currentTime+1);
 
-function toggleSound() {
-  if (!audioContext) {
-    audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  }
+   osc.connect(gain);
+   gain.connect(audio.destination);
 
-  if (audioContext.state === "suspended") {
-    audioContext.resume();
-  }
+   osc.start();
+   osc.stop(audio.currentTime+1);
 
-  soundEnabled = !soundEnabled;
+   i=(i+1)%notes.length;
+  },850);
 
-  document.getElementById("soundButton").textContent =
-    soundEnabled ? "♫ إيقاف الصوت" : "♫ تشغيل الصوت";
-
-  if (soundEnabled) {
-    startMusic();
-  } else {
-    clearInterval(musicTimer);
-  }
+ }else{
+  clearInterval(musicTimer);
+ }
 }
 
 </script>
-
 </body>
 </html>
