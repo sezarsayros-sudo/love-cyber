@@ -630,7 +630,7 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة (كل صورة تفتح رسالتها الخاصة عند الضغط عليها) -->
+ <!-- صور الملك والملكة في الواجهة -->
  <div class="royal-couple">
   <div class="royal-frame" onclick="showNoorMessage()">
    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
@@ -710,7 +710,7 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
-  <!-- صوركما في بطاقة الإهداء (تفتح الرسائل المخصصة أيضاً) -->
+  <!-- صوركما في بطاقة الإهداء -->
   <div class="royal-couple" style="margin:20px 0 10px">
    <div class="royal-frame" onclick="showNoorMessage()">
     <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
@@ -801,7 +801,7 @@ body:before{
  <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر</button>
 </div>
 
-<!-- النافذة المنبثقة (Popup Modal) -->
+<!-- النافذة المنبثقة -->
 <div class="popup" id="popupModal">
  <div class="popup-content">
   <h3 id="popupTitle">رسالة لقلبكِ</h3>
@@ -834,7 +834,7 @@ function spawnFloatingEmoji(e) {
     }
 }
 
-// تطاير تلقائي دوري لإبقاء الحيوية والحركة مستمرة في الشاشة الرئيسية
+// تطاير تلقائي دوري لإبقاء الحيوية مستمرة في الشاشة
 setInterval(() => {
     if(document.getElementById('home').style.display !== 'none') {
         let el = document.createElement('div');
@@ -847,19 +847,19 @@ setInterval(() => {
     }
 }, 1200);
 
-// دالة زر كسر الغرور (من يحكم قلب من؟)
+// دالة زر كسر الغرور
 function megaSurprise() {
     showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ❤️💋🫂");
 }
 
-// دالة رسالة الضغط على صورة نور
+// دالة رسالة الضغط على صورة نور (تظهر رسالة مودي)
 function showNoorMessage() {
-    showPopup("ملكتي نور 👑", "بحبك وبعشقك 💋 وبتنفسك نوني 🫂 ♥");
+    showPopup("ملكتي نور 👑", "بحبك وبعشقك بتنفسك مودي 💋 ❤️ 🫂");
 }
 
-// دالة رسالة الضغط على صورة محمد
+// دالة رسالة الضغط على صورة محمد (تظهر رسالة نوني)
 function showMohamadMessage() {
-    showPopup("أميرك محمد ♛", "بحبك وبعشقك مودي 💋 ❤️ 🫂");
+    showPopup("أميرك محمد ♛", "بحبك وبعشقك بتنفسك نوني 💋 ❤️ 🫂");
 }
 
 function openRoom(roomId) {
