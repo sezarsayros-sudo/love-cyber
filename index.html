@@ -478,94 +478,6 @@ body:before{
  50%{transform:translateY(-8px)}
 }
 
-/* غرفة ليلتنا */
-
-.bedroom{
- margin:25px auto;
- max-width:520px;
- position:relative;
- padding:20px 10px 28px;
- background:linear-gradient(180deg,#092c20,#03140f);
- border:1px solid #a37e42;
- border-radius:20px;
- box-shadow:0 0 35px #0009;
-}
-
-.bed-canopy{
- height:50px;
- border:5px solid #8e6b34;
- border-bottom:0;
- border-radius:90px 90px 0 0;
- margin:0 30px;
-}
-
-.bed-head{
- width:90%;
- margin:auto;
- height:65px;
- border:4px solid #99753c;
- border-radius:15px 15px 5px 5px;
- background:linear-gradient(120deg,#174b36,#09291e);
- display:flex;
- justify-content:center;
- align-items:center;
- color:#d7b779;
- font-family:Amiri,serif;
- font-size:23px;
-}
-
-.pillows{
- display:flex;
- justify-content:center;
- gap:12px;
- margin:12px 0 0;
-}
-
-.pillow{
- width:95px;
- height:40px;
- background:linear-gradient(145deg,#b08a4d,#614820);
- border-radius:14px;
- border:1px solid #d3b77a;
- box-shadow:inset 0 0 10px #ffe4a044;
-}
-
-.mattress{
- width:94%;
- height:85px;
- margin:auto;
- background:linear-gradient(145deg,#174a34,#0b2b20);
- border:2px solid #9d7941;
- border-radius:8px 8px 28px 28px;
- box-shadow:inset 0 0 25px #0008;
- position:relative;
-}
-
-.mattress:after{
- content:"💚";
- position:absolute;
- left:50%;
- top:50%;
- transform:translate(-50%,-50%);
- font-size:30px;
-}
-
-.bed-foot{
- height:20px;
- width:80%;
- margin:auto;
- background:linear-gradient(90deg,#63451d,#bb9654,#63451d);
- border-radius:0 0 8px 8px;
-}
-
-.night-text{
- font-family:Amiri,serif;
- font-size:23px;
- color:#e6d1a2;
- line-height:2;
- margin:20px 0;
-}
-
 /* توقيع محمد */
 
 .dedication{
@@ -752,16 +664,16 @@ body:before{
   <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
  </section>
 
- <!-- صور الملك والملكة في الواجهة بمساراتها الصحيحة -->
+ <!-- صور الملك والملكة في الواجهة بالمسارات المباشرة الصحيحة -->
  <div class="royal-couple">
   <div class="royal-frame">
-   <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
-   <span>محمد ♛</span>
+   <img src="noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
+   <span>نور 👑</span>
   </div>
   <div class="royal-heart">💚</div>
   <div class="royal-frame">
-   <img src="images/noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
-   <span>نور 👑</span>
+   <img src="IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
+   <span>محمد ♛</span>
   </div>
  </div>
 
@@ -832,16 +744,16 @@ body:before{
    وطفلكِ المدلل ❤️
   </p>
 
-  <!-- صوركما في بطاقة الإهداء -->
+  <!-- صوركما في بطاقة الإهداء بالمسارات المباشرة -->
   <div class="royal-couple" style="margin:20px 0 10px">
    <div class="royal-frame">
-    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
-    <span>محمد</span>
+    <img src="noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
+    <span>نور</span>
    </div>
    <div class="royal-heart">❤️</div>
    <div class="royal-frame">
-    <img src="images/noorIMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
-    <span>نور</span>
+    <img src="IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
+    <span>محمد</span>
    </div>
   </div>
 
@@ -937,7 +849,6 @@ body:before{
 const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
 
 function spawnFloatingEmoji(e) {
-    // منع التأثير إذا تم النقر مباشرة على زر لفتح نافذة أو غرفة لتفادي التداخل
     if(e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
     
     for(let i=0; i<3; i++) {
@@ -957,7 +868,7 @@ function spawnFloatingEmoji(e) {
     }
 }
 
-// تشغيل تطاير تلقائي كل فترة قصيرة لإبقاء الحيوية في الشاشة الرئيسية
+// تطاير تلقائي دوري لإبقاء الحيوية في الشاشة
 setInterval(() => {
     if(document.getElementById('home').style.display !== 'none') {
         let el = document.createElement('div');
