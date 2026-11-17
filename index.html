@@ -4,458 +4,412 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#26050c">
-<title>سامحيني يا نورتي ❤️</title>
+<meta name="theme-color" content="#25030c">
+<title>مملكة نور ❤️</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --red: #a20e2d;
-  --dark: #21050c;
-  --pink: #ff829e;
-  --gold: #e9c18b;
-  --white: #fff0f2;
+ --bg:#19030a;
+ --red:#8f0929;
+ --pink:#ff829e;
+ --gold:#edc58b;
+ --white:#fff0f3;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+ font-family:'Cairo',sans-serif;
+ color:var(--white);
+ background:
+ radial-gradient(ellipse at top,#72152b 0%,#360916 45%,#160309 100%);
+ min-height:100vh;
+ overflow-x:hidden;
 }
 
-body {
-  font-family: 'Cairo', sans-serif;
-  background:
-    radial-gradient(ellipse at top, #681124 0%, #310812 48%, #140308 100%);
-  color: var(--white);
-  min-height: 100vh;
-  overflow-x: hidden;
+button{font-family:inherit;cursor:pointer}
+
+button:focus-visible{
+ outline:2px solid var(--gold);
+ outline-offset:4px;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
+.background-glow{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:-1;
+ background:
+ radial-gradient(circle at 10% 20%,#ff315b18,transparent 35%),
+ radial-gradient(circle at 90% 70%,#ff829e18,transparent 35%);
 }
 
-button:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
+header{
+ text-align:center;
+ padding:30px 15px 12px;
 }
 
-.background-glow {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 30%, #ff244018, transparent 30%),
-    radial-gradient(circle at 85% 65%, #ff718018, transparent 35%);
-  z-index: -1;
+.logo{
+ color:var(--gold);
+ letter-spacing:3px;
+ font-size:12px;
 }
 
-header {
-  text-align: center;
-  padding: 30px 15px 15px;
+header h1{
+ color:#ffb3c5;
+ font-size:clamp(27px,6vw,43px);
+ text-shadow:0 0 25px #ff426a70;
+ margin:10px 0;
 }
 
-.logo {
-  color: var(--gold);
-  font-size: 14px;
-  letter-spacing: 3px;
+header p{color:#e9b8c3;font-size:13px}
+
+nav{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:8px;
+ padding:18px 10px;
 }
 
-header h1 {
-  font-size: clamp(27px, 6vw, 43px);
-  color: #ffb3c2;
-  text-shadow: 0 0 25px #ff426a70;
-  margin: 12px 0;
-}
-
-header p {
-  color: #e9b8c3;
-  font-size: 14px;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding: 18px 10px;
-}
-
-nav button {
-  background: #ffffff0d;
-  border: 1px solid #ff829e44;
-  color: #ffd8df;
-  border-radius: 25px;
-  padding: 9px 15px;
-  font-size: 12px;
-  transition: .3s;
+nav button{
+ background:#ffffff0d;
+ border:1px solid #ff829e44;
+ color:#ffd8df;
+ border-radius:25px;
+ padding:9px 13px;
+ font-size:12px;
+ transition:.3s;
 }
 
 nav button.active,
-nav button:hover {
-  background: #a20e2d;
-  border-color: #ff9aaf;
-  box-shadow: 0 0 18px #ff365b55;
+nav button:hover{
+ background:#a20e2d;
+ border-color:#ff9aaf;
+ box-shadow:0 0 18px #ff365b55;
 }
 
-main {
-  width: min(900px, 92%);
-  margin: auto;
+main{width:min(900px,92%);margin:auto}
+
+.section{
+ display:none;
+ animation:appear .6s ease;
+ padding:20px 0 45px;
 }
 
-.section {
-  display: none;
-  animation: appear .7s ease;
-  padding: 20px 0 45px;
+.section.active{display:block}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
 }
 
-.section.active {
-  display: block;
+.hero{text-align:center;padding:30px 12px}
+
+.big-heart{
+ font-size:85px;
+ display:inline-block;
+ animation:heartbeat 1.5s infinite;
+ filter:drop-shadow(0 0 20px #ff365b);
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes heartbeat{
+ 0%,100%{transform:scale(1)}
+ 15%{transform:scale(1.15)}
+ 30%{transform:scale(1)}
+ 45%{transform:scale(1.12)}
 }
 
-/* الرئيسية */
-
-.hero {
-  text-align: center;
-  padding: 30px 15px;
+.hero h2{
+ color:#ffb1c1;
+ font-size:clamp(25px,5vw,37px);
+ margin:18px 0;
 }
 
-.big-heart {
-  font-size: 90px;
-  display: inline-block;
-  animation: heartbeat 1.5s infinite;
-  filter: drop-shadow(0 0 20px #ff365b);
+.hero p{
+ color:#f4cbd3;
+ line-height:2.4;
+ font-size:15px;
 }
 
-@keyframes heartbeat {
-  0%,100% { transform: scale(1); }
-  15% { transform: scale(1.15); }
-  30% { transform: scale(1); }
-  45% { transform: scale(1.12); }
+.main-button{
+ background:linear-gradient(135deg,#ed4264,#9d0829);
+ border:1px solid #ff9aaf;
+ color:white;
+ padding:12px 27px;
+ border-radius:35px;
+ font-size:14px;
+ font-weight:bold;
+ margin:22px 0;
+ box-shadow:0 5px 25px #ff315344;
+ transition:.3s;
 }
 
-.hero h2 {
-  font-size: clamp(25px, 5vw, 36px);
-  color: #ffb1c1;
-  margin: 18px 0;
+.main-button:hover{transform:translateY(-3px)}
+
+.card{
+ background:linear-gradient(145deg,#ffffff0e,#ffffff04);
+ border:1px solid #ff829e33;
+ border-radius:23px;
+ padding:24px;
+ margin:18px 0;
+ box-shadow:0 12px 35px #00000035;
 }
 
-.hero .intro {
-  max-width: 620px;
-  margin: auto;
-  color: #f4cbd3;
-  line-height: 2.3;
-  font-size: 15px;
+.card h3{
+ color:var(--gold);
+ text-align:center;
+ margin-bottom:17px;
+ font-size:21px;
 }
 
-.main-button {
-  background: linear-gradient(135deg, #ed4264, #9d0829);
-  border: 1px solid #ff9aaf;
-  color: white;
-  padding: 13px 30px;
-  border-radius: 35px;
-  font-size: 15px;
-  font-weight: bold;
-  margin: 25px 0;
-  box-shadow: 0 5px 25px #ff315344;
-  transition: .3s;
+.card p{
+ color:#f5d4dc;
+ line-height:2.4;
+ font-size:14px;
 }
 
-.main-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #ff315377;
+.letter{
+ background:linear-gradient(145deg,#4b0c1c,#260710);
+ border:1px solid #d78b9d66;
+ border-radius:25px;
+ padding:25px 20px;
+ line-height:2.5;
+ color:#ffe3e8;
+ box-shadow:0 0 35px #e42e5020;
 }
 
-.small-note {
-  color: #dba5b1;
-  font-size: 12px;
-  margin-top: 10px;
+.letter h3{
+ text-align:center;
+ color:#ffb1c1;
+ font-size:23px;
+ margin-bottom:20px;
 }
 
-/* البطاقات */
+.letter p{font-size:14px;margin-bottom:13px}
 
-.card {
-  background: linear-gradient(145deg, #ffffff0d, #ffffff04);
-  border: 1px solid #ff829e33;
-  border-radius: 22px;
-  padding: 25px;
-  margin: 18px 0;
-  box-shadow: 0 12px 35px #00000035;
+.signature{
+ color:var(--gold);
+ text-align:left;
+ margin-top:22px;
+ font-weight:bold;
 }
 
-.card h3 {
-  color: var(--gold);
-  text-align: center;
-  margin-bottom: 18px;
-  font-size: 21px;
+.candles{
+ display:flex;
+ justify-content:center;
+ gap:35px;
+ margin:40px 0;
 }
 
-.card p {
-  color: #f5d4dc;
-  line-height: 2.3;
-  font-size: 14px;
+.candle{
+ width:27px;
+ height:80px;
+ border-radius:7px;
+ background:linear-gradient(90deg,#a95b54,#ffcfbd,#b65c61);
+ position:relative;
 }
 
-/* رسالة الاعتذار */
-
-.letter {
-  background: linear-gradient(145deg, #4b0c1c, #260710);
-  border: 1px solid #d78b9d66;
-  border-radius: 25px;
-  padding: 27px 22px;
-  line-height: 2.5;
-  color: #ffe3e8;
-  box-shadow: 0 0 35px #e42e5020;
+.flame{
+ position:absolute;
+ width:15px;
+ height:26px;
+ top:-27px;
+ left:6px;
+ background:radial-gradient(ellipse,#fff9b4 10%,#ffb22d 55%,#ff4d15);
+ border-radius:50%;
+ transform-origin:bottom;
+ animation:flicker .5s infinite alternate;
+ filter:drop-shadow(0 0 12px #ffb22d);
 }
 
-.letter h3 {
-  text-align: center;
-  color: #ffb1c1;
-  font-size: 23px;
-  margin-bottom: 20px;
+@keyframes flicker{
+ from{transform:rotate(-7deg) scale(1)}
+ to{transform:rotate(7deg) scale(.88,1.08)}
 }
 
-.letter p {
-  font-size: 15px;
-  margin-bottom: 14px;
+.love-box{
+ text-align:center;
+ padding:25px 15px;
 }
 
-.signature {
-  color: var(--gold);
-  text-align: left;
-  margin-top: 25px;
-  font-weight: bold;
+.love-box .symbol{
+ font-size:55px;
+ margin-bottom:15px;
 }
 
-/* الشموع */
-
-.candles {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  margin: 35px 0;
+.love-box h3{
+ color:#ffb1c1;
+ font-size:24px;
+ margin-bottom:15px;
 }
 
-.candle {
-  width: 27px;
-  height: 85px;
-  border-radius: 7px 7px 3px 3px;
-  background: linear-gradient(90deg, #a95b54, #ffcfbd, #b65c61);
-  position: relative;
-  box-shadow: 0 0 25px #ff8c5633;
+.love-box p{
+ color:#f8d5df;
+ line-height:2.5;
+ font-size:15px;
 }
 
-.flame {
-  position: absolute;
-  width: 15px;
-  height: 26px;
-  top: -27px;
-  left: 6px;
-  background: radial-gradient(ellipse, #fff9b4 10%, #ffb22d 55%, #ff4d15 100%);
-  border-radius: 50% 50% 35% 35%;
-  transform-origin: bottom;
-  animation: flicker .5s infinite alternate;
-  filter: drop-shadow(0 0 12px #ffb22d);
+.love-list{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(135px,1fr));
+ gap:12px;
+ margin:20px 0;
 }
 
-@keyframes flicker {
-  from { transform: rotate(-7deg) scale(1); }
-  to { transform: rotate(7deg) scale(.88, 1.08); }
+.love-item{
+ padding:18px 10px;
+ text-align:center;
+ border:1px solid #ff829e33;
+ border-radius:18px;
+ background:#ffffff09;
 }
 
-/* الوعود */
+.love-item span{font-size:30px;display:block;margin-bottom:8px}
+.love-item p{font-size:13px;color:#ffdce4}
 
-.promise {
-  border: 1px solid #ff829e33;
-  background: #ffffff08;
-  border-radius: 16px;
-  padding: 17px;
-  margin: 12px 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: .3s;
+.promise{
+ border:1px solid #ff829e33;
+ background:#ffffff08;
+ border-radius:17px;
+ padding:16px;
+ margin:12px 0;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ transition:.3s;
 }
 
-.promise:hover {
-  background: #a20e2d55;
-  transform: translateX(-4px);
+.promise:hover{
+ background:#a20e2d55;
+ transform:translateX(-4px);
 }
 
-.promise .emoji {
-  font-size: 26px;
+.promise .emoji{font-size:27px}
+.promise p{font-size:14px;color:#fce0e6;line-height:1.9}
+
+.gift-box{text-align:center;padding:25px}
+
+.gift-icon{
+ font-size:85px;
+ display:inline-block;
+ cursor:pointer;
+ transition:.5s;
+ filter:drop-shadow(0 0 15px #ff426a);
+ margin:20px;
 }
 
-.promise p {
-  font-size: 14px;
-  color: #fce0e6;
-  line-height: 1.9;
+.gift-icon:hover{transform:rotate(-10deg) scale(1.15)}
+
+.hidden-message{
+ display:none;
+ background:#ffffff0d;
+ border:1px dashed #e9c18b;
+ padding:22px;
+ border-radius:20px;
+ margin-top:20px;
+ line-height:2.5;
+ color:#ffe1e7;
 }
 
-.promise small {
-  display: block;
-  color: #e8b4c0;
-  margin-top: 5px;
+.hidden-message.show{
+ display:block;
+ animation:appear .7s ease;
 }
 
-/* الهدية */
-
-.gift-box {
-  text-align: center;
-  padding: 25px;
+.romantic-button{
+ background:#7d102b;
+ color:#fff;
+ border:1px solid #ff829e;
+ border-radius:25px;
+ padding:11px 20px;
+ margin:8px;
+ font-size:13px;
 }
 
-.gift-icon {
-  font-size: 85px;
-  display: inline-block;
-  cursor: pointer;
-  transition: .5s;
-  filter: drop-shadow(0 0 15px #ff426a);
+.final-message{text-align:center;padding:30px 12px}
+.final-message h2{color:#ffb1c1;font-size:29px;margin:20px 0}
+.final-message p{color:#f5d2da;line-height:2.5;font-size:15px}
+
+footer{
+ text-align:center;
+ padding:30px 15px;
+ border-top:1px solid #ff829e22;
+ color:#dba5b1;
+ font-size:12px;
 }
 
-.gift-icon:hover {
-  transform: rotate(-10deg) scale(1.15);
+footer strong{color:var(--gold)}
+
+.falling{
+ position:fixed;
+ top:-30px;
+ pointer-events:none;
+ z-index:20;
+ animation:fall linear forwards;
+ opacity:.8;
 }
 
-.hidden-message {
-  display: none;
-  background: #ffffff0d;
-  border: 1px dashed #e9c18b;
-  padding: 22px;
-  border-radius: 20px;
-  margin-top: 20px;
-  line-height: 2.3;
-  color: #ffe1e7;
+@keyframes fall{
+ to{transform:translateY(110vh) rotate(540deg);opacity:0}
 }
 
-.hidden-message.show {
-  display: block;
-  animation: appear .7s ease;
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:100;
+ background:#100208ed;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
 }
 
-/* النهاية */
+.modal.show{display:flex}
 
-.final-message {
-  text-align: center;
-  padding: 30px 15px;
+.modal-content{
+ background:linear-gradient(145deg,#64152a,#260710);
+ border:1px solid #e9a2b2;
+ border-radius:25px;
+ padding:28px 20px;
+ text-align:center;
+ max-width:420px;
+ width:100%;
+ animation:appear .5s ease;
 }
 
-.final-message h2 {
-  color: #ffb1c1;
-  font-size: 30px;
-  margin: 20px 0;
+.modal-content h3{color:#ffb1c1;font-size:23px;margin-bottom:15px}
+.modal-content p{line-height:2.4;color:#ffe2e8;font-size:14px}
+
+.close-button{
+ background:#a20e2d;
+ border:1px solid #ff9aaf;
+ color:white;
+ border-radius:25px;
+ padding:10px 28px;
+ margin-top:20px;
 }
 
-.final-message p {
-  line-height: 2.4;
-  color: #f5d2da;
+.music-button{
+ position:fixed;
+ bottom:17px;
+ left:13px;
+ z-index:50;
+ background:#76132b;
+ border:1px solid #ff9aaf;
+ color:white;
+ border-radius:50px;
+ padding:11px 15px;
+ font-size:12px;
 }
 
-footer {
-  text-align: center;
-  padding: 30px 15px;
-  border-top: 1px solid #ff829e22;
-  color: #dba5b1;
-  font-size: 12px;
-}
-
-footer strong {
-  color: var(--gold);
-}
-
-/* القلوب والورود المتساقطة */
-
-.falling {
-  position: fixed;
-  top: -30px;
-  pointer-events: none;
-  z-index: 20;
-  animation: fall linear forwards;
-  opacity: .8;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(540deg);
-    opacity: 0;
-  }
-}
-
-/* نافذة الرسالة */
-
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: #100208eF;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal.show {
-  display: flex;
-}
-
-.modal-content {
-  background: linear-gradient(145deg, #64152a, #260710);
-  border: 1px solid #e9a2b2;
-  border-radius: 25px;
-  padding: 30px 22px;
-  text-align: center;
-  max-width: 420px;
-  width: 100%;
-  animation: appear .5s ease;
-}
-
-.modal-content h3 {
-  color: #ffb1c1;
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-.modal-content p {
-  line-height: 2.2;
-  color: #ffe2e8;
-}
-
-.close-button {
-  background: #a20e2d;
-  border: 1px solid #ff9aaf;
-  color: white;
-  border-radius: 25px;
-  padding: 10px 28px;
-  margin-top: 22px;
-}
-
-.music-button {
-  position: fixed;
-  bottom: 18px;
-  left: 15px;
-  z-index: 50;
-  background: #76132b;
-  border: 1px solid #ff9aaf;
-  color: white;
-  border-radius: 50px;
-  padding: 11px 16px;
-  font-size: 12px;
-}
-
-@media(max-width:500px) {
-  nav { gap: 6px; }
-  nav button { padding: 8px 11px; }
-  .card { padding: 20px 15px; }
-  .letter { padding: 22px 17px; }
+@media(max-width:500px){
+ nav{gap:6px}
+ nav button{padding:8px 10px}
+ .card{padding:19px 14px}
+ .letter{padding:20px 15px}
 }
 </style>
 </head>
@@ -465,459 +419,517 @@ footer strong {
 <div class="background-glow"></div>
 
 <header>
-  <div class="logo">A SPECIAL PLACE FOR YOU</div>
-  <h1>❤️ سامحيني يا نورتي ❤️</h1>
-  <p>هذه الغرفة ليست لتبرير الخطأ... بل للاعتذار عنه</p>
+ <div class="logo">A WORLD MADE WITH LOVE</div>
+ <h1>👑 مملكة نور ❤️</h1>
+ <p>عالم صغير... صنعه قلب محمد لأجمل نور</p>
 </header>
 
 <nav>
-  <button class="active" onclick="showSection('home',this)">🏠 البداية</button>
-  <button onclick="showSection('letter',this)">💌 اعتذاري</button>
-  <button onclick="showSection('promises',this)">🤍 وعودي</button>
-  <button onclick="showSection('gift',this)">🎁 هديتك</button>
-  <button onclick="showSection('ending',this)">🌹 رسالة أخيرة</button>
+ <button class="active" onclick="showSection('home',this)">🏠 البداية</button>
+ <button onclick="showSection('apology',this)">💌 اعتذاري</button>
+ <button onclick="showSection('forever',this)">♾️ حب أبدي</button>
+ <button onclick="showSection('jealousy',this)">🥺 غيرتي</button>
+ <button onclick="showSection('princess',this)">👑 دلالك</button>
+ <button onclick="showSection('promises',this)">🤍 وعودي</button>
+ <button onclick="showSection('gift',this)">🎁 هديتك</button>
+ <button onclick="showSection('ending',this)">🌙 إلى الأبد</button>
 </nav>
 
 <main>
 
-<!-- الرئيسية -->
+<!-- البداية -->
 <section id="home" class="section active">
-  <div class="hero">
 
-    <div class="big-heart">❤️</div>
+ <div class="hero">
+  <div class="big-heart">❤️</div>
 
-    <h2>أهلاً بنور قلبي... نوني</h2>
+  <h2>أهلاً بأميرتي... نوني</h2>
 
-    <p class="intro">
-      يا نورتي، يا ضو عيوني...
-      <br>
-      صنعت لكِ هذه المساحة الصغيرة لأن هناك كلاماً
-      في قلبي لم أعرف كيف أقوله بالطريقة الصحيحة.
-      <br>
-      لا أريد أن أطلب منكِ نسيان ما حدث،
-      أريد فقط أن أقول لكِ إنني أدركت أنني أخطأت.
-    </p>
+  <p>
+   يا نورتي، يا ضو عيوني، يا أجمل إنسانة بقلبي.
+   <br>
+   أهلاً بكِ في عالم صغير صنعته خصيصاً لكِ،
+   <br>
+   عالم لا يشبه إلا قلبك الجميل.
+   <br>
+   هنا كل وردة تحمل لكِ كلمة حب،
+   وكل شمعة تضيء باسمك.
+  </p>
 
-    <button class="main-button" onclick="showSection('letter',document.querySelectorAll('nav button')[1])">
-      افتحي قلبي يا نوني 💌
-    </button>
+  <button class="main-button"
+   onclick="showSection('apology',document.querySelectorAll('nav button')[1])">
+   افتحي قلبي يا نوني 💌
+  </button>
 
-    <div class="candles">
-      <div class="candle"><div class="flame"></div></div>
-      <div class="candle"><div class="flame"></div></div>
-      <div class="candle"><div class="flame"></div></div>
-    </div>
-
-    <p class="small-note">
-      كل شمعة هنا تذكّرني أن الحب يحتاج إلى احترام وهدوء واحتواء 🕯️
-    </p>
+  <div class="candles">
+   <div class="candle"><div class="flame"></div></div>
+   <div class="candle"><div class="flame"></div></div>
+   <div class="candle"><div class="flame"></div></div>
   </div>
 
-  <div class="card">
-    <h3>🌹 إلى نورتي</h3>
-    <p>
-      ربما لم يكن يومنا جميلاً كما تمنينا،
-      وربما تركت كلماتي في قلبك وجعاً كبيراً.
-      لكنني لا أريد أن أتعامل مع حزنك وكأنه شيء بسيط.
-      أنتِ تستحقين أن أسمعكِ وأحترم مشاعركِ،
-      حتى عندما نختلف.
-    </p>
-  </div>
+  <p style="color:#e9c18b">
+   هذه المملكة لكِ وحدكِ يا أميرتي 🌹
+  </p>
+ </div>
+
+ <div class="card">
+  <h3>🌹 رسالة الترحيب</h3>
+  <p>
+   نوني، أتمنى أن تكون هذه اللحظات بداية أيام أجمل،
+   وأن تملأ الابتسامة وجهك دائماً.
+   أنتِ تستحقين الحب والاهتمام والحنان.
+  </p>
+ </div>
+
 </section>
 
-<!-- رسالة الاعتذار -->
-<section id="letter" class="section">
+<!-- الاعتذار -->
+<section id="apology" class="section">
 
-  <div class="letter">
-    <h3>💌 رسالة اعتذار من محمد إلى نور</h3>
+ <div class="letter">
 
-    <p>يا نوني، يا نورتي، يا ضو عيوني ❤️</p>
+  <h3>💌 اعتذار من قلب محمد</h3>
 
-    <p>
-      لا أعرف من أين أبدأ، لكنني أعرف أنني أخطأت بحقك،
-      وأن الكلمات التي قلتها لكِ لم تكن مقبولة أبداً.
-    </p>
+  <p>يا نور، يا نوني، يا ضو عيوني ❤️</p>
 
-    <p>
-      عندما لم تأتِ لرؤيتي كما كنا متفقين،
-      شعرت بالزعل والغضب، وبدلاً من أن أعبّر عن مشاعري
-      بطريقة صحيحة، سمحت لغضبي أن يتحكم بكلامي.
-    </p>
+  <p>
+   بعرف إني جرحتك بكلامي، وبعرف إنني غلطت بحقك،
+   وأنا ندمان من كل قلبي على كل كلمة قلتها.
+  </p>
 
-    <p>
-      أهنتكِ وجرحت كرامتكِ ووجهت إليكِ اتهامات
-      لا يحق لي أن أطلقها عليكِ بهذه الطريقة.
-      وأنا أتحمل مسؤولية ذلك بالكامل.
-    </p>
+  <p>
+   ما كان من حقي أهينك أو أوجع مشاعرك مهما كنت غاضباً،
+   وما عندي أي عذر يبرر اللي صار.
+  </p>
 
-    <p>
-      أريدك أن تعرفي أن عدم مجيئكِ كان يمكن أن يكون
-      موضوعاً نتحدث عنه ونفهم بعضنا فيه،
-      لكنه لم يكن مبرراً لإهانتكِ.
-    </p>
+  <p>
+   أنتِ إنسانة غالية، وكرامتك ومشاعرك تستحق كل الاحترام،
+   وآخر شيء أتمناه أن أكون سبب حزنك.
+  </p>
 
-    <p>
-      آسف على كل كلمة جرحتكِ،
-      وآسف لأنني جعلتكِ تشعرين بأنكِ لستِ محترمة
-      أو مقدّرة عند الشخص الذي تحبينه.
-    </p>
+  <p>
+   سامحيني يا حبيبتي، لا أطلب منك أن تنسي بسرعة،
+   لكن أتمنى أن تمنحيني فرصة لأثبت لكِ أنني أستطيع
+   أن أحبك وأختلف معك دون أن أجرحك.
+  </p>
 
-    <p>
-      لن أطلب منكِ أن تسامحيني بسرعة،
-      ولن أقول لكِ انسي ما حدث.
-      أريد أن أعطيكِ حقكِ في الزعل،
-      وأن أثبت لكِ مع الوقت أنني قادر على الاختلاف
-      معكِ دون أن أجرحكِ.
-    </p>
+  <p>
+   أريد أن أكون لكِ قلباً آمناً،
+   تسمعين منه الحنان وتشعرين معه بالراحة.
+  </p>
 
-    <p>
-      أحبكِ يا نور، لكنني أعرف أن الحب وحده لا يكفي،
-      وأن الاحترام والأمان أهم من ألف كلمة حب.
-    </p>
+  <p>
+   أحبك يا نورتي، وحقك عليّ يا عمري. ❤️
+  </p>
 
-    <p>
-      سامحيني إن استطعتِ،
-      وأعطيني فرصة لأكون أفضل في تعاملي معكِ.
-    </p>
+  <div class="signature">محمد ❤️</div>
+ </div>
 
-    <div class="signature">
-      من محمد إلى نور... بكل صدق ❤️
-    </div>
-  </div>
+</section>
 
-  <div class="card" style="text-align:center">
-    <h3>🥺 كلمة من قلبي</h3>
-    <p>
-      لا أريد أن أربح أي خلاف بيننا وأخسركِ أنتِ.
-      أريد أن نتعلم كيف نختلف ونبقى نحترم بعضنا.
-    </p>
-  </div>
+<!-- الحب الأبدي -->
+<section id="forever" class="section">
+
+ <div class="love-box card">
+  <div class="symbol">♾️❤️</div>
+  <h3>حبي لكِ لا ينتهي</h3>
+
+  <p>
+   يا نوني، أنا لا أريدك مجرد فصل جميل في حياتي،
+   أتمنى أن تكوني الحكاية التي تستمر معي إلى آخر العمر.
+   <br><br>
+   أحبك في صباحاتي ومسائي،
+   أحبك في ضحكاتك وفي لحظات تعبك،
+   أحبك عندما تكونين سعيدة وعندما تحتاجين من يحتويك.
+   <br><br>
+   أريد أن نكبر معاً،
+   ونصنع ذكريات لا تنتهي،
+   ونبقى نختار بعضنا كل يوم.
+   <br><br>
+   أنتِ حبيبتي اليوم، وأتمنى أن تكوني حبيبتي دائماً.
+  </p>
+ </div>
+
+ <div class="love-list">
+  <div class="love-item"><span>🌅</span><p>أحبك مع كل صباح</p></div>
+  <div class="love-item"><span>🌙</span><p>أحبك في كل مساء</p></div>
+  <div class="love-item"><span>🌹</span><p>أحبك بكل الفصول</p></div>
+  <div class="love-item"><span>♾️</span><p>أحبك بلا نهاية</p></div>
+  <div class="love-item"><span>💗</span><p>أنتِ اختيار قلبي</p></div>
+  <div class="love-item"><span>👑</span><p>أنتِ أميرتي</p></div>
+ </div>
+
+</section>
+
+<!-- الغيرة -->
+<section id="jealousy" class="section">
+
+ <div class="love-box card">
+  <div class="symbol">🥺❤️</div>
+  <h3>آه يا نوني... كم أغار عليكِ!</h3>
+
+  <p>
+   بغار عليكِ من النظرات التي تطول،
+   ومن كل عين تتأملك بإعجاب،
+   وبغار عليكِ حتى من الهواء الذي يلامس وجهك الجميل.
+   <br><br>
+   بغار لأنك غالية على قلبي،
+   ولأن وجودك يعني لي الكثير.
+   <br><br>
+   وأحياناً أغار من كل شيء يسرق منكِ لحظة،
+   حتى لو كان مجرد انشغال بعيد عني.
+   <br><br>
+   لكن أريدك أن تعرفي أن غيرتي ليست قيداً عليكِ،
+   ولا أريدها أن تحرمك حريتك أو راحتك.
+   <br><br>
+   أحب أن أكون الرجل الذي تثقين به،
+   لا الرجل الذي تخافين من ردة فعله.
+   <br><br>
+   أنتِ حبيبتي، وأحب أن يكون بيننا وفاء وثقة واهتمام.
+  </p>
+ </div>
+
+ <div class="card">
+  <h3>💕 لأنك غالية</h3>
+  <p style="text-align:center">
+   أغار عليكِ بحب، وأثق بكِ باحترام،
+   وأريد أن تشعري دائماً أنكِ محبوبة ومقدّرة.
+  </p>
+ </div>
+
+</section>
+
+<!-- دلال نور -->
+<section id="princess" class="section">
+
+ <div class="love-box card">
+  <div class="symbol">👑🌹</div>
+  <h3>غرفة دلال أميرتي</h3>
+  <p>
+   هنا لا توجد إلا كلمات الدلال التي تشبهك يا نورتي.
+   اختاري الزر الذي تحبينه ❤️
+  </p>
+ </div>
+
+ <div class="love-list">
+  <div class="love-item"><span>💗</span><p>نوني قلبي</p></div>
+  <div class="love-item"><span>🌸</span><p>ننوشتي الحلوة</p></div>
+  <div class="love-item"><span>✨</span><p>ضو عيوني</p></div>
+  <div class="love-item"><span>👑</span><p>ملكتي وأميرتي</p></div>
+  <div class="love-item"><span>🦋</span><p>ملاكي الجميل</p></div>
+  <div class="love-item"><span>🌹</span><p>وردتي الحمراء</p></div>
+ </div>
+
+ <div class="card" style="text-align:center">
+  <h3>اختاري دلالك يا نوني</h3>
+
+  <button class="romantic-button" onclick="showMessage('💋 بوسة حب','بوسة على جبينك يا أجمل إنسانة بقلبي.')">💋 بوسة</button>
+
+  <button class="romantic-button" onclick="showMessage('🤗 حضن دافئ','تعالي يا نورتي، حضن طويل مليان حنان وأمان.')">🤗 حضن</button>
+
+  <button class="romantic-button" onclick="showMessage('❤️ كلمة حب','بعشقك يا نوني، وبحب تفاصيلك وضحكتك وروحك الجميلة.')">❤️ كلمة حب</button>
+
+  <button class="romantic-button" onclick="showMessage('🌹 غزل','يا أجمل من سكنت قلبي، يا وردة أيامي وضحكة عمري.')">🌹 غزل</button>
+
+ </div>
 
 </section>
 
 <!-- الوعود -->
 <section id="promises" class="section">
 
-  <div class="card">
-    <h3>🤍 وعود أريد أن أعمل بها</h3>
-    <p style="text-align:center">
-      اضغطي على كل وعد لقراءة رسالته ❤️
-    </p>
-  </div>
+ <div class="card">
+  <h3>🤍 وعود محمد لنور</h3>
+  <p style="text-align:center">
+   الوعود الجميلة قيمتها بالأفعال،
+   وهذه أشياء أريد أن ألتزم بها.
+  </p>
+ </div>
 
-  <div class="promise" onclick="openPromise(0)">
-    <span class="emoji">🤍</span>
-    <p>وعد الاحترام
-      <small>أريد أن أختلف معكِ دون إهانة.</small>
-    </p>
-  </div>
+ <div class="promise" onclick="showMessage('🤍 وعد الاحترام','أعدك ألا أستخدم الإهانة في أي خلاف بيننا.')">
+  <span class="emoji">🤍</span>
+  <p>احترامك دائماً<small>كرامتك لا تتغير وقت الخلاف.</small></p>
+ </div>
 
-  <div class="promise" onclick="openPromise(1)">
-    <span class="emoji">🌷</span>
-    <p>وعد الاستماع
-      <small>سأسمعكِ قبل أن أحكم عليكِ.</small>
-    </p>
-  </div>
+ <div class="promise" onclick="showMessage('🌷 وعد الاهتمام','سأحاول أن أكون حاضراً بقلب يسمعك ويفهمك.')">
+  <span class="emoji">🌷</span>
+  <p>الاهتمام بكِ<small>أسمعك وأهتم بما تشعرين به.</small></p>
+ </div>
 
-  <div class="promise" onclick="openPromise(2)">
-    <span class="emoji">🕊️</span>
-    <p>وعد الثقة
-      <small>لن أتهمكِ بالخيانة بسبب غضبي.</small>
-    </p>
-  </div>
+ <div class="promise" onclick="showMessage('🕊️ وعد الثقة','سأتحدث معك عن مخاوفي بدلاً من تحويلها إلى اتهامات.')">
+  <span class="emoji">🕊️</span>
+  <p>الثقة بيننا<small>لا اتهامات ولا أحكام متسرعة.</small></p>
+ </div>
 
-  <div class="promise" onclick="openPromise(3)">
-    <span class="emoji">❤️</span>
-    <p>وعد الهدوء
-      <small>سأتعلم أن أتوقف عندما أكون غاضباً.</small>
-    </p>
-  </div>
+ <div class="promise" onclick="showMessage('❤️ وعد الحنان','سأتعلم أن أكون أحنّ في كلامي وتصرفاتي.')">
+  <span class="emoji">❤️</span>
+  <p>الحنان<small>لن أجعل الغضب يتحدث بدلاً مني.</small></p>
+ </div>
 
-  <div class="promise" onclick="openPromise(4)">
-    <span class="emoji">🌹</span>
-    <p>وعد التقدير
-      <small>لن أجعل الهدايا والمصاريف مقياساً للحب.</small>
-    </p>
-  </div>
-
-  <div class="card" style="text-align:center">
-    <h3>الحب ليس أن لا نتشاجر...</h3>
-    <p>
-      الحب أن نعرف كيف نعتذر،
-      وكيف نحترم بعضنا حتى في أصعب اللحظات.
-    </p>
-  </div>
+ <div class="promise" onclick="showMessage('🌹 وعد الوفاء','أريد علاقة صادقة تقوم على الوفاء والوضوح والاحترام المتبادل.')">
+  <span class="emoji">🌹</span>
+  <p>الوفاء<small>صدق ووضوح وإخلاص متبادل.</small></p>
+ </div>
 
 </section>
 
 <!-- الهدية -->
 <section id="gift" class="section">
 
-  <div class="card gift-box">
-    <h3>🎁 صندوق صغير من قلبي</h3>
+ <div class="card gift-box">
+  <h3>🎁 هدية سرية لأميرتي نور</h3>
 
-    <p>
-      يا نورتي، هناك هدية صغيرة مخبأة هنا،
-      افتحيها عندما تكونين مستعدة.
-    </p>
+  <p>
+   يا نوني الجميلة، هناك مفاجأة صغيرة
+   خبأها محمد لكِ من قلبه.
+  </p>
 
-    <div class="gift-icon" onclick="openGift()">🎁</div>
+  <div class="gift-icon" onclick="openGift()">🎁</div>
 
-    <p class="small-note">اضغطي على الصندوق ليفتح لكِ ❤️</p>
+  <p style="color:#e9c18b;font-size:12px">
+   اضغطي على الصندوق يا نورتي 🌹
+  </p>
 
-    <div class="hidden-message" id="giftMessage">
-      <div style="font-size:45px">🌹❤️🌹</div>
+  <div class="hidden-message" id="giftMessage">
+   <div style="font-size:45px">🌹❤️🌹</div>
 
-      <h3 style="color:#ffb1c1;margin:15px">
-        إلى نوني الجميلة
-      </h3>
+   <h3 style="color:#ffb1c1;margin:15px">
+    إلى أميرتي نور
+   </h3>
 
-      <p>
-        لو كان بإمكاني أن أرجع لحظة غضبي،
-        لاخترت أن أهدأ وأتكلم معكِ بلطف.
-        <br><br>
-        لا أريد منكِ شيئاً مقابل هذا الاعتذار،
-        لا ساعة ولا مالاً ولا تنازلاً عن مشاعركِ.
-        <br><br>
-        أريد فقط أن تعرفي أن كرامتكِ مهمة،
-        وأنني آسف لأنني لم أحافظ عليها في كلامي.
-        <br><br>
-        أحبكِ يا ضو عيوني ❤️
-      </p>
-    </div>
+   <p>
+    يا ضو عيوني، يا أجمل صدفة بحياتي،
+    بتعرفي شو أمنيتي؟
+    <br><br>
+    أشوف ضحكتك دائماً،
+    وأكون سبب سعادتك،
+    وأضل الشخص اللي يرسم البسمة على وجهك.
+    <br><br>
+    إنتِ إلك مكانة خاصة بقلبي،
+    وما في كلمات بتقدر توصف قديش إنتِ غالية عليّ.
+    <br><br>
+    يا نوني، بتمنى أيامنا الجاية تكون مليانة
+    حب وحنان وضحكات ولحظات حلوة.
+    <br><br>
+    بحبك يا نورتي، يا ملاكي، يا ضو عيوني.
+    ❤️🥺
+   </p>
+
+   <div style="font-size:35px;margin-top:15px">
+    💋🌹💗🌹💋
+   </div>
   </div>
+ </div>
 
 </section>
 
 <!-- النهاية -->
 <section id="ending" class="section">
 
-  <div class="final-message">
+ <div class="final-message">
 
-    <div class="big-heart">❤️</div>
+  <div class="big-heart">❤️</div>
 
-    <h2>إلى نورتي... رسالة أخيرة</h2>
+  <h2>إلى الأبد يا نورتي</h2>
 
-    <p>
-      يا نور، يا نوني، يا ضو عيوني...
-      <br><br>
-      لا أعرف ماذا سيحدث بعد هذه الرسالة،
-      ولا أريد أن أفرض عليكِ شعوراً أو قراراً.
-      <br><br>
-      من حقكِ أن تزعلي،
-      ومن حقكِ أن تحتاجي وقتاً،
-      ومن حقي أن أحاول إصلاح الخطأ الذي ارتكبته.
-      <br><br>
-      أتمنى أن نتحدث بهدوء،
-      وأن نفهم ما جرى بيننا،
-      وأن نبني علاقة فيها حب وصدق واحترام وأمان.
-      <br><br>
-      شكراً لأنكِ قرأتِ كلماتي حتى النهاية.
-    </p>
+  <p>
+   يا نور، يا نوني، يا ضو عيوني...
+   <br><br>
+   لو كان للحب اسم آخر، لاخترت اسمك.
+   ولو كان للورد عنوان، لكان قلبك.
+   <br><br>
+   أتمنى أن تكون أيامنا القادمة أجمل،
+   وأن نملأها بالحب والضحك والحنان،
+   وأن نتعلم كيف نحافظ على بعضنا.
+   <br><br>
+   لا أريد حباً بالكلام فقط،
+   أريد حباً يظهر في الاحترام والاهتمام والأفعال.
+   <br><br>
+   أنتِ حبيبتي، وأتمنى أن نبقى نختار بعضنا
+   في كل يوم جديد.
+  </p>
 
-    <h2 style="font-size:26px;margin-top:35px">
-      سامحيني يا نوني ❤️
-    </h2>
+  <h2 style="margin-top:35px">أحبك يا نوني ❤️</h2>
 
-    <div style="font-size:38px;margin:20px">
-      🌹 🕯️ ❤️ 🕯️ 🌹
-    </div>
-
-    <p style="color:#e9c18b">
-      محمد ❤️ نور
-    </p>
-
-    <button class="main-button" onclick="showSection('home',document.querySelectorAll('nav button')[0])">
-      العودة إلى بداية الغرفة 🏠
-    </button>
-
+  <div style="font-size:40px;margin:20px">
+   🌹🕯️❤️🕯️🌹
   </div>
+
+  <p style="color:#e9c18b">
+   محمد ❤️ نور
+   <br>
+   حكاية أتمنى أن تستمر إلى الأبد
+  </p>
+
+  <button class="main-button"
+   onclick="showSection('home',document.querySelectorAll('nav button')[0])">
+   عودة إلى مملكتك 👑
+  </button>
+
+ </div>
+
 </section>
 
 </main>
 
 <footer>
-  <p>صُنعت هذه الغرفة بكلمات اعتذار من القلب</p>
-  <p style="margin-top:8px">
-    <strong>محمد ❤️ نور</strong>
-  </p>
+ <p>صُنعت هذه المملكة خصيصاً لأجمل نور ❤️</p>
+ <p style="margin-top:8px">
+  <strong>MOHAMAD ❤️ NOOR</strong>
+ </p>
+ <p style="margin-top:8px">حب وحنان وذكريات جميلة 🌹</p>
 </footer>
 
 <button class="music-button" id="musicButton" onclick="toggleMusic()">
-  🎵 تشغيل الأجواء
+ 🎵 تشغيل الموسيقى
 </button>
 
-<!-- نافذة تفاعلية -->
 <div class="modal" id="modal" onclick="closeOutside(event)">
-  <div class="modal-content">
-    <div style="font-size:40px;margin-bottom:12px">❤️</div>
-    <h3 id="modalTitle">رسالة</h3>
-    <p id="modalText"></p>
-    <button class="close-button" onclick="closeModal()">إغلاق 🌹</button>
-  </div>
+ <div class="modal-content">
+  <div style="font-size:40px;margin-bottom:12px">❤️</div>
+  <h3 id="modalTitle">رسالة حب</h3>
+  <p id="modalText"></p>
+  <button class="close-button" onclick="closeModal()">إغلاق 🌹</button>
+ </div>
 </div>
 
 <script>
 
-// التنقل بين الأقسام
-function showSection(id, button) {
-  document.querySelectorAll('.section').forEach(section => {
-    section.classList.remove('active');
-  });
+// التنقل
+function showSection(id,button){
+ document.querySelectorAll('.section').forEach(s=>{
+  s.classList.remove('active');
+ });
 
-  document.getElementById(id).classList.add('active');
+ const section=document.getElementById(id);
+ if(section) section.classList.add('active');
 
-  document.querySelectorAll('nav button').forEach(btn => {
-    btn.classList.remove('active');
-  });
+ document.querySelectorAll('nav button').forEach(b=>{
+  b.classList.remove('active');
+ });
 
-  if(button) button.classList.add('active');
+ if(button) button.classList.add('active');
 
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+ window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// الرسائل التفاعلية
-const promises = [
-  {
-    title: '🤍 وعد الاحترام',
-    text: 'أعدك أن أتعلم كيف أختلف معكِ دون أن أجرح كرامتكِ. لا يوجد خلاف يبرر الإهانة.'
-  },
-  {
-    title: '🌷 وعد الاستماع',
-    text: 'سأحاول أن أسمع وجهة نظركِ وأفهم ظروفكِ قبل أن أطلق الأحكام.'
-  },
-  {
-    title: '🕊️ وعد الثقة',
-    text: 'لن أحوّل خوفي أو غيرتي إلى اتهامات. إذا كان هناك شيء يقلقني فسأتحدث معكِ بصراحة وهدوء.'
-  },
-  {
-    title: '❤️ وعد الهدوء',
-    text: 'عندما أشعر أن الغضب يسيطر عليّ، سأتوقف وأهدأ قبل أن أكتب كلمة قد أندم عليها.'
-  },
-  {
-    title: '🌹 وعد التقدير',
-    text: 'لن أقيس حبكِ بالهدايا أو المال. الأشياء المادية لا تعطي أحداً الحق في إهانة الآخر.'
-  }
-];
-
-function openPromise(index) {
-  document.getElementById('modalTitle').textContent =
-    promises[index].title;
-
-  document.getElementById('modalText').textContent =
-    promises[index].text;
-
-  document.getElementById('modal').classList.add('show');
+// النوافذ التفاعلية
+function showMessage(title,text){
+ document.getElementById('modalTitle').textContent=title;
+ document.getElementById('modalText').textContent=text;
+ document.getElementById('modal').classList.add('show');
 }
 
-function closeModal() {
-  document.getElementById('modal').classList.remove('show');
+function closeModal(){
+ document.getElementById('modal').classList.remove('show');
 }
 
-function closeOutside(event) {
-  if(event.target.id === 'modal') closeModal();
+function closeOutside(event){
+ if(event.target.id==='modal') closeModal();
 }
 
 // فتح الهدية
-function openGift() {
-  const gift = document.getElementById('giftMessage');
-  gift.classList.toggle('show');
+function openGift(){
+ const gift=document.getElementById('giftMessage');
+ gift.classList.toggle('show');
 
-  if(gift.classList.contains('show')) {
-    gift.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest'
-    });
+ if(gift.classList.contains('show')){
+  gift.scrollIntoView({
+   behavior:'smooth',
+   block:'nearest'
+  });
+ }
+}
+
+// تساقط القلوب والورود
+const symbols=['❤️','🌹','🌸','💗','💕','✨'];
+
+function createFalling(){
+ const item=document.createElement('div');
+
+ item.className='falling';
+ item.textContent=symbols[
+  Math.floor(Math.random()*symbols.length)
+ ];
+
+ item.style.left=Math.random()*100+'vw';
+ item.style.fontSize=(12+Math.random()*18)+'px';
+ item.style.animationDuration=(5+Math.random()*7)+'s';
+
+ document.body.appendChild(item);
+
+ setTimeout(()=>item.remove(),13000);
+}
+
+setInterval(createFalling,650);
+
+// موسيقى هادئة مولدة برمجياً
+let audioContext=null;
+let musicTimer=null;
+let musicPlaying=false;
+let noteIndex=0;
+
+const notes=[
+ 261.63,329.63,392.00,329.63,
+ 293.66,349.23,392.00,349.23
+];
+
+function playNote(){
+ if(!audioContext||!musicPlaying)return;
+
+ const oscillator=audioContext.createOscillator();
+ const gain=audioContext.createGain();
+
+ oscillator.type='sine';
+ oscillator.frequency.value=notes[noteIndex%notes.length];
+
+ gain.gain.setValueAtTime(0.0001,audioContext.currentTime);
+ gain.gain.exponentialRampToValueAtTime(
+  0.035,audioContext.currentTime+0.15
+ );
+ gain.gain.exponentialRampToValueAtTime(
+  0.0001,audioContext.currentTime+1.3
+ );
+
+ oscillator.connect(gain);
+ gain.connect(audioContext.destination);
+
+ oscillator.start();
+ oscillator.stop(audioContext.currentTime+1.4);
+
+ noteIndex++;
+}
+
+async function toggleMusic(){
+ const button=document.getElementById('musicButton');
+
+ if(!musicPlaying){
+  try{
+   audioContext=audioContext||
+    new(window.AudioContext||window.webkitAudioContext)();
+
+   if(audioContext.state==='suspended'){
+    await audioContext.resume();
+   }
+
+   musicPlaying=true;
+   playNote();
+   musicTimer=setInterval(playNote,1400);
+
+   button.textContent='⏸ إيقاف الموسيقى';
+
+  }catch(error){
+   button.textContent='تعذر تشغيل الصوت';
   }
-}
 
-// بتلات الورود والقلوب
-const symbols = ['❤️','🌹','🌸','💗','💕','✨'];
+ }else{
+  musicPlaying=false;
+  clearInterval(musicTimer);
 
-function createFalling() {
-  const item = document.createElement('div');
+  if(audioContext) await audioContext.suspend();
 
-  item.className = 'falling';
-  item.textContent =
-    symbols[Math.floor(Math.random() * symbols.length)];
-
-  item.style.left = Math.random() * 100 + 'vw';
-  item.style.fontSize = (12 + Math.random() * 18) + 'px';
-  item.style.animationDuration = (5 + Math.random() * 7) + 's';
-
-  document.body.appendChild(item);
-
-  setTimeout(() => item.remove(), 13000);
-}
-
-setInterval(createFalling, 650);
-
-// موسيقى هادئة مولّدة داخل المتصفح
-let audioContext = null;
-let musicTimer = null;
-let musicPlaying = false;
-let noteIndex = 0;
-
-const notes = [261.63, 329.63, 392.00, 329.63, 293.66, 349.23, 392.00, 349.23];
-
-function playNote() {
-  if(!audioContext || !musicPlaying) return;
-
-  const oscillator = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-
-  oscillator.type = 'sine';
-  oscillator.frequency.value = notes[noteIndex % notes.length];
-
-  gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(
-    0.035, audioContext.currentTime + 0.15
-  );
-  gain.gain.exponentialRampToValueAtTime(
-    0.0001, audioContext.currentTime + 1.3
-  );
-
-  oscillator.connect(gain);
-  gain.connect(audioContext.destination);
-
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 1.4);
-
-  noteIndex++;
-}
-
-async function toggleMusic() {
-  const button = document.getElementById('musicButton');
-
-  if(!musicPlaying) {
-    try {
-      audioContext = audioContext ||
-        new (window.AudioContext || window.webkitAudioContext)();
-
-      if(audioContext.state === 'suspended') {
-        await audioContext.resume();
-      }
-
-      musicPlaying = true;
-      playNote();
-      musicTimer = setInterval(playNote, 1400);
-
-      button.textContent = '⏸ إيقاف الأجواء';
-    } catch(error) {
-      button.textContent = 'تعذر تشغيل الصوت';
-    }
-
-  } else {
-    musicPlaying = false;
-    clearInterval(musicTimer);
-
-    if(audioContext) audioContext.suspend();
-
-    button.textContent = '🎵 تشغيل الأجواء';
-  }
+  button.textContent='🎵 تشغيل الموسيقى';
+ }
 }
 
 </script>
