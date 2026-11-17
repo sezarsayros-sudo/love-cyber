@@ -1,1140 +1,925 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NOOR & MOHAMAD | PALACE OF LOVE 👑</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#26050c">
+<title>سامحيني يا نورتي ❤️</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap');
-
-:root{
- --green:#063b2b;
- --deep:#01130e;
- --gold:#76521f;
- --gold2:#a47c35;
- --light:#d5b777;
- --cream:#f0e0bd;
-}
-
-*{box-sizing:border-box}
-
-body{
- margin:0;
- min-height:100vh;
- background:radial-gradient(ellipse at center,#104832,#031b13 65%,#010905);
- color:var(--cream);
- font-family:Cairo,sans-serif;
- overflow-x:hidden;
-}
-
-button{font-family:inherit;cursor:pointer}
-
-body:before{
- content:"";
- position:fixed;
- inset:0;
- pointer-events:none;
- z-index:0;
- background-image:radial-gradient(#d2ad64 1px,transparent 1px);
- background-size:42px 42px;
- opacity:.12;
-}
-
-.glow{
- position:fixed;
- width:300px;
- height:300px;
- background:#a77a30;
- filter:blur(130px);
- opacity:.13;
- pointer-events:none;
-}
-
-.glow.one{top:5%;left:-150px}
-.glow.two{bottom:0;right:-150px}
-
-/* شاشة الدخول الملكية (SplashScreen) */
-#splashScreen {
- position: fixed;
- inset: 0;
- z-index: 1000;
- background: radial-gradient(ellipse at center, #0b3829, #02120c 70%, #000503);
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- text-align: center;
- padding: 20px;
- transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-#splashScreen.hide {
- opacity: 0;
- transform: scale(1.08);
- pointer-events: none;
-}
-
-.palace-gate-icon {
- font-size: 70px;
- color: #d5b777;
- margin-bottom: 20px;
- filter: drop-shadow(0 0 20px #b58a42);
- animation: gatePulse 2s infinite ease-in-out;
-}
-
-@keyframes gatePulse {
- 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px #b58a42); }
- 50% { transform: scale(1.1); filter: drop-shadow(0 0 30px #fef08a); }
-}
-
-.splash-title {
- font-family: Amiri, serif;
- font-size: clamp(26px, 6vw, 38px);
- color: #f0dfbd;
- margin-bottom: 15px;
- text-shadow: 0 0 15px #a77d39;
- line-height: 1.6;
-}
-
-.splash-subtitle {
- font-size: 14px;
- color: #c3a466;
- letter-spacing: 3px;
- margin-bottom: 30px;
-}
-
-.loader-bar {
- width: 220px;
- height: 6px;
- background: #042419;
- border: 1px solid #a47c35;
- border-radius: 10px;
- overflow: hidden;
- margin: 0 auto 25px;
- position: relative;
-}
-
-.loader-fill {
- width: 0%;
- height: 100%;
- background: linear-gradient(90deg, #a47c35, #fef08a);
- animation: loadProgress 3.5s linear forwards;
-}
-
-@keyframes loadProgress {
- 0% { width: 0%; }
- 100% { width: 100%; }
-}
-
-.enter-palace-btn {
- background: linear-gradient(135deg, #b45309, #d97706);
- color: white;
- border: 1px solid #fef08a;
- padding: 12px 32px;
- border-radius: 30px;
- font-family: Amiri, serif;
- font-size: 18px;
- cursor: pointer;
- box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
- transition: 0.3s;
- display: none;
-}
-
-.enter-palace-btn:hover {
- transform: scale(1.05);
- box-shadow: 0 0 35px rgba(254, 240, 138, 0.8);
-}
-
-/* الشريط العلوي */
-
-.topbar{
- position:absolute;
- top:15px;
- left:15px;
- right:15px;
- display:flex;
- justify-content:space-between;
- align-items:center;
- z-index:20;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
 
-.logo{
- color:var(--light);
- font-size:11px;
- letter-spacing:2px;
- direction:ltr;
+:root {
+  --red: #a20e2d;
+  --dark: #21050c;
+  --pink: #ff829e;
+  --gold: #e9c18b;
+  --white: #fff0f2;
 }
 
-.sound{
- border:1px solid var(--gold2);
- background:#082a1e;
- color:var(--light);
- border-radius:30px;
- padding:8px 15px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* الواجهة الرئيسية */
-
-#home{
- min-height:100vh;
- display:flex;
- flex-direction:column;
- align-items:center;
- padding:85px 15px 40px;
- position:relative;
- overflow:hidden;
+body {
+  font-family: 'Cairo', sans-serif;
+  background:
+    radial-gradient(ellipse at top, #681124 0%, #310812 48%, #140308 100%);
+  color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
-
-/* الكشافات */
 
-.spotlight{
- position:absolute;
- top:0;
- height:440px;
- width:65%;
- z-index:1;
- pointer-events:none;
- overflow:visible;
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
-.spotlight.left{left:0}
-.spotlight.right{right:0}
-
-.spotlight:before{
- content:"";
- position:absolute;
- top:15px;
- left:0;
- width:100%;
- height:390px;
- background:linear-gradient(
-  to bottom,
-  rgba(255,220,145,.62),
-  rgba(205,160,75,.27) 48%,
-  rgba(205,160,75,.03)
- );
- clip-path:polygon(13% 0,20% 0,100% 100%,72% 100%);
- filter:blur(12px);
- animation:beam 3s ease-in-out infinite alternate;
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
 }
 
-.spotlight.right:before{
- transform:scaleX(-1);
+.background-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 30%, #ff244018, transparent 30%),
+    radial-gradient(circle at 85% 65%, #ff718018, transparent 35%);
+  z-index: -1;
 }
 
-.lamp{
- position:absolute;
- top:7px;
- width:48px;
- height:23px;
- background:linear-gradient(90deg,#59401c,#d7b56c,#59401c);
- border:1px solid #a77d36;
- border-radius:5px;
- box-shadow:0 0 25px #b58a43;
+header {
+  text-align: center;
+  padding: 30px 15px 15px;
 }
 
-.left .lamp{left:13%}
-.right .lamp{right:13%}
-
-@keyframes beam{
- from{opacity:.6}
- to{opacity:1}
+.logo {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 3px;
 }
-
-/* اسم نور */
 
-.hero{
- position:relative;
- z-index:3;
- text-align:center;
- margin:60px 0 25px;
+header h1 {
+  font-size: clamp(27px, 6vw, 43px);
+  color: #ffb3c2;
+  text-shadow: 0 0 25px #ff426a70;
+  margin: 12px 0;
 }
 
-.crown{
- font-size:48px;
- color:var(--light);
- filter:drop-shadow(0 0 15px #b18b43);
- animation:crown 3s infinite ease-in-out;
+header p {
+  color: #e9b8c3;
+  font-size: 14px;
 }
 
-@keyframes crown{
- 50%{transform:translateY(-8px)}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 18px 10px;
 }
 
-.hero h1{
- font-family:Amiri,serif;
- font-size:clamp(75px,17vw,125px);
- line-height:1.2;
- margin:0;
- color:#d1ae68;
- text-shadow:0 0 8px #98702e,0 0 25px #a77d39,0 0 60px #b78d45;
- animation:nameGlow 3s infinite alternate;
+nav button {
+  background: #ffffff0d;
+  border: 1px solid #ff829e44;
+  color: #ffd8df;
+  border-radius: 25px;
+  padding: 9px 15px;
+  font-size: 12px;
+  transition: .3s;
 }
 
-@keyframes nameGlow{
- to{text-shadow:0 0 20px #e7d09c,0 0 60px #b78d45}
+nav button.active,
+nav button:hover {
+  background: #a20e2d;
+  border-color: #ff9aaf;
+  box-shadow: 0 0 18px #ff365b55;
 }
 
-.english{
- direction:ltr;
- letter-spacing:5px;
- color:#c3a466;
- font-size:12px;
+main {
+  width: min(900px, 92%);
+  margin: auto;
 }
 
-.welcome{
- font-family:Amiri,serif;
- font-size:25px;
- margin-top:15px;
- color:#f0dfbb;
+.section {
+  display: none;
+  animation: appear .7s ease;
+  padding: 20px 0 45px;
 }
 
-.subtitle{
- font-size:12px;
- color:#bca981;
+.section.active {
+  display: block;
 }
 
-/* إطار الصور الملكي */
-
-.royal-couple{
- display:flex;
- justify-content:center;
- align-items:center;
- gap:18px;
- margin:10px 0 32px;
- position:relative;
- z-index:3;
- flex-wrap:wrap;
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.royal-frame{
- text-align:center;
- position:relative;
- cursor:pointer;
-}
+/* الرئيسية */
 
-.royal-frame img{
- width:115px;
- height:115px;
- border-radius:50%;
- object-fit:cover;
- border:3px solid #d5b777;
- padding:3px;
- background:linear-gradient(145deg,#8d6a32,#104832);
- box-shadow:0 0 22px rgba(213,183,119,0.45),inset 0 0 10px #000;
- transition:transform .4s ease,box-shadow .4s ease;
+.hero {
+  text-align: center;
+  padding: 30px 15px;
 }
 
-.royal-frame img:hover{
- transform:scale(1.07);
- box-shadow:0 0 32px rgba(213,183,119,0.75);
+.big-heart {
+  font-size: 90px;
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+  filter: drop-shadow(0 0 20px #ff365b);
 }
 
-.royal-frame span{
- display:block;
- margin-top:8px;
- font-family:Amiri,serif;
- font-size:19px;
- color:#e6d1a2;
- text-shadow:0 0 8px #000;
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.12); }
 }
 
-.royal-heart{
- font-size:28px;
- filter:drop-shadow(0 0 10px #b58a42);
- animation:heartBeat 1.5s infinite;
- margin-bottom:24px;
+.hero h2 {
+  font-size: clamp(25px, 5vw, 36px);
+  color: #ffb1c1;
+  margin: 18px 0;
 }
 
-@keyframes heartBeat{
- 50%{transform:scale(1.2)}
+.hero .intro {
+  max-width: 620px;
+  margin: auto;
+  color: #f4cbd3;
+  line-height: 2.3;
+  font-size: 15px;
 }
 
-/* صندوق دلال وغرور الملكة الجذاب */
-.ego-breaker-box{
- width:100%;
- max-width:650px;
- margin:0 auto 30px;
- padding:20px;
- border:1px solid #d5b777;
- border-radius:18px;
- background:linear-gradient(145deg,#144832,#031810);
- text-align:center;
- box-shadow:0 0 30px rgba(167,122,48,0.3);
- position:relative;
- z-index:3;
+.main-button {
+  background: linear-gradient(135deg, #ed4264, #9d0829);
+  border: 1px solid #ff9aaf;
+  color: white;
+  padding: 13px 30px;
+  border-radius: 35px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 25px 0;
+  box-shadow: 0 5px 25px #ff315344;
+  transition: .3s;
 }
 
-.ego-breaker-box h3{
- font-family:Amiri,serif;
- color:#f0dfbd;
- font-size:22px;
- margin-top:0;
+.main-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px #ff315377;
 }
 
-.ego-breaker-box p{
- color:#e2c996;
- font-size:14px;
- line-height:2;
+.small-note {
+  color: #dba5b1;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
-/* القصر والأبواب */
+/* البطاقات */
 
-.palace{
- width:100%;
- max-width:950px;
- padding:30px 17px;
- border:2px solid #8d6a32;
- border-radius:150px 150px 12px 12px;
- background:linear-gradient(160deg,#155039,#031c14);
- box-shadow:inset 0 0 45px #a27a3022,0 0 40px #0008;
- position:relative;
- z-index:3;
+.card {
+  background: linear-gradient(145deg, #ffffff0d, #ffffff04);
+  border: 1px solid #ff829e33;
+  border-radius: 22px;
+  padding: 25px;
+  margin: 18px 0;
+  box-shadow: 0 12px 35px #00000035;
 }
 
-.palace:before{
- content:"";
- position:absolute;
- inset:9px;
- border:1px solid #a17d453d;
- border-radius:140px 140px 5px 5px;
- pointer-events:none;
+.card h3 {
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 21px;
 }
 
-.palace-title{
- text-align:center;
- font-family:Amiri,serif;
- font-size:23px;
- color:#c6a66b;
- margin-bottom:25px;
+.card p {
+  color: #f5d4dc;
+  line-height: 2.3;
+  font-size: 14px;
 }
 
-.doors{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:17px 12px;
- position:relative;
- z-index:2;
-}
+/* رسالة الاعتذار */
 
-.door{
- min-height:155px;
- border:1px solid #a17a3c;
- border-radius:85px 85px 6px 6px;
- background:linear-gradient(145deg,#155139,#05251a);
- color:#dfc48c;
- padding:12px 4px;
- box-shadow:inset 0 0 20px #b48a4022,0 5px 15px #0008;
- transition:.4s;
- position:relative;
+.letter {
+  background: linear-gradient(145deg, #4b0c1c, #260710);
+  border: 1px solid #d78b9d66;
+  border-radius: 25px;
+  padding: 27px 22px;
+  line-height: 2.5;
+  color: #ffe3e8;
+  box-shadow: 0 0 35px #e42e5020;
 }
 
-.door:before{
- content:"";
- position:absolute;
- inset:7px;
- border:1px solid #b99b6044;
- border-radius:75px 75px 3px 3px;
- pointer-events:none;
+.letter h3 {
+  text-align: center;
+  color: #ffb1c1;
+  font-size: 23px;
+  margin-bottom: 20px;
 }
 
-.door:hover{
- transform:translateY(-7px);
- box-shadow:0 0 25px #b38a493d;
+.letter p {
+  font-size: 15px;
+  margin-bottom: 14px;
 }
 
-.door span{
- display:block;
- font-size:32px;
- margin-bottom:7px;
+.signature {
+  color: var(--gold);
+  text-align: left;
+  margin-top: 25px;
+  font-weight: bold;
 }
 
-.door strong{font-size:12px}
-.door small{
- display:block;
- font-size:9px;
- color:#c1ac80;
- margin-top:5px;
-}
+/* الشموع */
 
-.footer{
- text-align:center;
- margin:30px 0 0;
- color:#b99a60;
- font-family:Amiri,serif;
- font-size:20px;
+.candles {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin: 35px 0;
 }
-
-/* صفحات الغورمو العوالم الداخلية */
 
-.screen{
- display:none;
- min-height:100vh;
- padding:80px 15px 90px;
- position:relative;
- animation:appear .7s ease;
+.candle {
+  width: 27px;
+  height: 85px;
+  border-radius: 7px 7px 3px 3px;
+  background: linear-gradient(90deg, #a95b54, #ffcfbd, #b65c61);
+  position: relative;
+  box-shadow: 0 0 25px #ff8c5633;
 }
 
-.screen.active{display:block}
-
-@keyframes appear{
- from{opacity:0;transform:translateY(20px)}
- to{opacity:1;transform:translateY(0)}
+.flame {
+  position: absolute;
+  width: 15px;
+  height: 26px;
+  top: -27px;
+  left: 6px;
+  background: radial-gradient(ellipse, #fff9b4 10%, #ffb22d 55%, #ff4d15 100%);
+  border-radius: 50% 50% 35% 35%;
+  transform-origin: bottom;
+  animation: flicker .5s infinite alternate;
+  filter: drop-shadow(0 0 12px #ffb22d);
 }
 
-.inside{
- max-width:760px;
- margin:auto;
- padding:28px 19px;
- text-align:center;
- border:1px solid #98753a;
- border-radius:22px;
- background:linear-gradient(145deg,#10452f,#021b12);
- box-shadow:0 0 40px #0008,inset 0 0 30px #b28b3b15;
+@keyframes flicker {
+  from { transform: rotate(-7deg) scale(1); }
+  to { transform: rotate(7deg) scale(.88, 1.08); }
 }
 
-.inside h2{
- font-family:Amiri,serif;
- color:#d3b477;
- font-size:35px;
- margin:8px 0;
-}
+/* الوعود */
 
-.intro{
- font-size:13px;
- color:#c8b58d;
- line-height:2.2;
+.promise {
+  border: 1px solid #ff829e33;
+  background: #ffffff08;
+  border-radius: 16px;
+  padding: 17px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: .3s;
 }
 
-.big-icon{
- font-size:62px;
- filter:drop-shadow(0 0 12px #a77e39);
+.promise:hover {
+  background: #a20e2d55;
+  transform: translateX(-4px);
 }
 
-.gold-card{
- background:#b38b3b12;
- border:1px solid #a37c3b77;
- border-radius:16px;
- padding:18px;
- margin:18px 0;
- line-height:2.2;
- color:#ecddb9;
+.promise .emoji {
+  font-size: 26px;
 }
 
-.gold-btn{
- background:linear-gradient(135deg,#9b7431,#63461e);
- border:1px solid #d0ad68;
- color:#fff0c9;
- border-radius:30px;
- padding:11px 20px;
- margin:6px;
- font-weight:bold;
- transition:.3s;
+.promise p {
+  font-size: 14px;
+  color: #fce0e6;
+  line-height: 1.9;
 }
 
-.gold-btn:hover{transform:scale(1.05)}
-
-.love-message{
- font-family:Amiri,serif;
- font-size:24px;
- line-height:2;
- color:#eddaab;
- margin:15px 0;
+.promise small {
+  display: block;
+  color: #e8b4c0;
+  margin-top: 5px;
 }
 
-.rose{
- font-size:30px;
- display:inline-block;
- margin:5px;
- animation:float 3s infinite ease-in-out;
-}
+/* الهدية */
 
-@keyframes float{
- 50%{transform:translateY(-8px)}
+.gift-box {
+  text-align: center;
+  padding: 25px;
 }
-
-/* توقيع محمد */
 
-.dedication{
- width:100%;
- max-width:650px;
- margin:40px auto 15px;
- padding:30px 20px;
- text-align:center;
- border:1px solid #94713a;
- border-radius:20px;
- background:linear-gradient(145deg,#103e2c,#02170f);
- box-shadow:0 0 35px #0008,inset 0 0 25px #aa813322;
- position:relative;
- z-index:3;
+.gift-icon {
+  font-size: 85px;
+  display: inline-block;
+  cursor: pointer;
+  transition: .5s;
+  filter: drop-shadow(0 0 15px #ff426a);
 }
 
-.dedication-crown{
- color:#c5a15d;
- font-size:45px;
- filter:drop-shadow(0 0 12px #b58a42);
- animation:crown 3s infinite;
+.gift-icon:hover {
+  transform: rotate(-10deg) scale(1.15);
 }
 
-.dedication-line{
- color:#9d783e;
- letter-spacing:5px;
- margin:15px 0;
+.hidden-message {
+  display: none;
+  background: #ffffff0d;
+  border: 1px dashed #e9c18b;
+  padding: 22px;
+  border-radius: 20px;
+  margin-top: 20px;
+  line-height: 2.3;
+  color: #ffe1e7;
 }
 
-.dedication h2{
- font-family:Amiri,serif;
- color:#cbb078;
- font-size:26px;
+.hidden-message.show {
+  display: block;
+  animation: appear .7s ease;
 }
 
-.designer-name{
- font-family:Amiri,serif;
- font-size:40px;
- font-weight:bold;
- color:#d3b474;
- text-shadow:0 0 15px #a47b39;
- margin:12px 0;
-}
+/* النهاية */
 
-.dedication p{
- color:#e5d2a6;
- font-size:16px;
- line-height:2.2;
+.final-message {
+  text-align: center;
+  padding: 30px 15px;
 }
 
-.dedication-message{
- font-family:Amiri,serif;
- font-size:25px;
- line-height:2;
- color:#e7d2a4;
- margin:20px 0;
+.final-message h2 {
+  color: #ffb1c1;
+  font-size: 30px;
+  margin: 20px 0;
 }
 
-.dedication-heart{
- font-size:36px;
- animation:heartBeat 1.5s infinite;
+.final-message p {
+  line-height: 2.4;
+  color: #f5d2da;
 }
 
-.signature{
- color:#bda16c;
- font-family:Amiri,serif;
- font-size:19px;
- line-height:2.2;
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  border-top: 1px solid #ff829e22;
+  color: #dba5b1;
+  font-size: 12px;
 }
-
-/* قلوب وورود وبوسات متحركة متطايرة */
 
-.floating{
- position:fixed;
- pointer-events:none;
- z-index:200;
- animation:fly 2.5s ease-out forwards;
+footer strong {
+  color: var(--gold);
 }
 
-@keyframes fly{
- 0%{opacity:1;transform:translateY(0) scale(.7)}
- 100%{opacity:0;transform:translateY(-280px) rotate(45deg) scale(1.6)}
-}
+/* القلوب والورود المتساقطة */
 
-/* النصوص المتحركة فوق الصور */
-.floating-text {
- position: fixed;
- pointer-events: none;
- z-index: 400;
- font-family: Amiri, serif;
- font-size: 20px;
- font-weight: bold;
- color: #fef08a;
- text-shadow: 0 0 10px #b58a42, 0 0 20px #000;
- animation: floatUpText 2s ease-out forwards;
- white-space: nowrap;
+.falling {
+  position: fixed;
+  top: -30px;
+  pointer-events: none;
+  z-index: 20;
+  animation: fall linear forwards;
+  opacity: .8;
 }
 
-@keyframes floatUpText {
- 0% { opacity: 1; transform: translateY(0) scale(0.8); }
- 100% { opacity: 0; transform: translateY(-120px) scale(1.2); }
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: 0;
+  }
 }
 
-/* النافذة المنبثقة */
+/* نافذة الرسالة */
 
-.popup{
- display:none;
- position:fixed;
- inset:0;
- z-index:300;
- background:#000d;
- align-items:center;
- justify-content:center;
- padding:20px;
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #100208eF;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.popup.show{display:flex}
-
-.popup-content{
- max-width:390px;
- width:100%;
- padding:28px 20px;
- border:1px solid #ae8948;
- background:linear-gradient(145deg,#145039,#021b12);
- border-radius:20px;
- text-align:center;
- box-shadow:0 0 45px #a77e3944;
+.modal.show {
+  display: flex;
 }
 
-.popup-content h3{
- font-family:Amiri,serif;
- font-size:30px;
- color:#d5b777;
- margin-top:0;
+.modal-content {
+  background: linear-gradient(145deg, #64152a, #260710);
+  border: 1px solid #e9a2b2;
+  border-radius: 25px;
+  padding: 30px 22px;
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  animation: appear .5s ease;
 }
 
-.popup-content p{
- font-family:Amiri,serif;
- font-size:23px;
- line-height:2;
- color:#f0dfbd;
+.modal-content h3 {
+  color: #ffb1c1;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 
-/* زر العودة */
+.modal-content p {
+  line-height: 2.2;
+  color: #ffe2e8;
+}
 
-#backArea{
- display:none;
- position:fixed;
- bottom:15px;
- left:0;
- right:0;
- z-index:100;
- text-align:center;
+.close-button {
+  background: #a20e2d;
+  border: 1px solid #ff9aaf;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 28px;
+  margin-top: 22px;
 }
 
-.back-btn{
- border:1px solid #a68142;
- border-radius:30px;
- padding:11px 23px;
- color:#ead5a3;
- background:#082d20;
- box-shadow:0 0 20px #0008;
+.music-button {
+  position: fixed;
+  bottom: 18px;
+  left: 15px;
+  z-index: 50;
+  background: #76132b;
+  border: 1px solid #ff9aaf;
+  color: white;
+  border-radius: 50px;
+  padding: 11px 16px;
+  font-size: 12px;
 }
 
-@media(max-width:600px){
- .doors{gap:12px 7px}
- .door{min-height:135px}
- .door span{font-size:28px}
- .door strong{font-size:10px}
- .door small{font-size:8px}
- .palace{padding:25px 11px}
- .spotlight{height:330px}
- .hero{margin-top:55px}
- .dedication-message{font-size:22px}
- .designer-name{font-size:34px}
- .royal-frame img{width:100px;height:100px}
+@media(max-width:500px) {
+  nav { gap: 6px; }
+  nav button { padding: 8px 11px; }
+  .card { padding: 20px 15px; }
+  .letter { padding: 22px 17px; }
 }
 </style>
 </head>
 
-<body onclick="spawnFloatingEmoji(event)">
+<body>
 
-<!-- شاشة الدخول الفاخرة (أبواب القصر والترحيب) -->
-<div id="splashScreen">
- <div class="palace-gate-icon">🏛️👑</div>
- <div class="splash-title">جاري الدخول إلى القصر يا أميرتي، انتظري... ✨</div>
- <div class="splash-subtitle">PALACE OF NOOR & MOHAMAD</div>
- <div class="loader-bar">
-  <div class="loader-fill"></div>
- </div>
- <button class="enter-palace-btn" id="enterBtn" onclick="openPalace()">ادخلي إلى قصركِ 👑💚</button>
-</div>
+<div class="background-glow"></div>
 
-<div class="glow one"></div>
-<div class="glow two"></div>
+<header>
+  <div class="logo">A SPECIAL PLACE FOR YOU</div>
+  <h1>❤️ سامحيني يا نورتي ❤️</h1>
+  <p>هذه الغرفة ليست لتبرير الخطأ... بل للاعتذار عنه</p>
+</header>
 
-<div class="topbar">
- <div class="logo">NOOR & MOHAMAD PALACE</div>
- <button class="sound" onclick="toggleSound()" id="soundButton">♫ تشغيل الموسيقى</button>
-</div>
+<nav>
+  <button class="active" onclick="showSection('home',this)">🏠 البداية</button>
+  <button onclick="showSection('letter',this)">💌 اعتذاري</button>
+  <button onclick="showSection('promises',this)">🤍 وعودي</button>
+  <button onclick="showSection('gift',this)">🎁 هديتك</button>
+  <button onclick="showSection('ending',this)">🌹 رسالة أخيرة</button>
+</nav>
 
-<!-- المدخل الرئيسي -->
+<main>
 
-<main id="home">
+<!-- الرئيسية -->
+<section id="home" class="section active">
+  <div class="hero">
 
- <div class="spotlight left"><div class="lamp"></div></div>
- <div class="spotlight right"><div class="lamp"></div></div>
+    <div class="big-heart">❤️</div>
 
- <section class="hero">
-  <div class="crown">♛</div>
-  <h1>نور</h1>
-  <div class="english">THE EMERALD QUEEN & MOHAMAD'S HEART</div>
-  <div style="color:#a98548;margin:13px">✦ ❖ ✦</div>
-  <div class="welcome">أهلاً بملكتي المغرورة التي تذوب عند عيني 💚</div>
-  <p class="subtitle">بداية حكايتنا الملكية منذ 11/11/2026 - صممه لكِ: محمد الحصني.</p>
- </section>
+    <h2>أهلاً بنور قلبي... نوني</h2>
 
- <!-- صور الملك والملكة في الواجهة مع رسائل الصور العائمة -->
- <div class="royal-couple">
-  <div class="royal-frame" onclick="flyNoorText(event)">
-   <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
-   <span>نور 👑</span>
-  </div>
-  <div class="royal-heart">💚</div>
-  <div class="royal-frame" onclick="flyMohamadText(event)">
-   <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
-   <span>محمد ♛</span>
-  </div>
- </div>
+    <p class="intro">
+      يا نورتي، يا ضو عيوني...
+      <br>
+      صنعت لكِ هذه المساحة الصغيرة لأن هناك كلاماً
+      في قلبي لم أعرف كيف أقوله بالطريقة الصحيحة.
+      <br>
+      لا أريد أن أطلب منكِ نسيان ما حدث،
+      أريد فقط أن أقول لكِ إنني أدركت أنني أخطأت.
+    </p>
 
- <!-- صندوق دلال الملكة الجذاب والرومانسي -->
- <div class="ego-breaker-box">
-  <h3>رسالة خاصة لملكتي المدللة التي تأسر قلبي ✨💛</h3>
-  <p>
-   مهما تكبرتي في دلالك يا نوني، ومهما زاد غروركِ المحبوب، تضلي التاج الذي وضعته على مفترق عمري منذ 11/11/2026! 
-   هذا القصر صممته خصيصاً ليملك قلبكِ وتتحكمين بكل تفاصيله.. فكوني ملكة الليلة ودعي قلبي يعانق نبضكِ بعشق لا ينتهي. ❤️💋
-  </p>
-  <button class="gold-btn" onclick="megaSurprise()">اضغطي هنا لترى من يحكم قلب من! ✨</button>
- </div>
+    <button class="main-button" onclick="showSection('letter',document.querySelectorAll('nav button')[1])">
+      افتحي قلبي يا نوني 💌
+    </button>
 
- <!-- القصر وأبوابه الـ 7 المرتبطة بالعوالم الصحيحة -->
- <div class="palace">
-  <div class="palace-title">✧ أبواب مملكة نور ✧</div>
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
 
-  <div class="doors">
-
-   <button class="door" onclick="openRoom('throne')">
-    <span>👑</span><strong>عرش الملكة</strong><small>مملكة قلبكِ</small>
-   </button>
-
-   <button class="door" onclick="openRoom('garden')">
-    <span>🌹</span><strong>حديقة نوني</strong><small>ورود وحب</small>
-   </button>
-
-   <button class="door" onclick="openRoom('pamper')">
-    <span>💋</span><strong>غرفة الدلال</strong><small>دلالك يا ننوش</small>
-   </button>
-
-   <button class="door" onclick="openRoom('secret')">
-    <span>🔐</span><strong>صندوق الأسرار</strong><small>هدية مخفية</small>
-   </button>
-
-   <button class="door" onclick="openRoom('moon')">
-    <span>🌙</span><strong>شرفة عيوني</strong><small>نور القمر</small>
-   </button>
-
-   <button class="door" onclick="openRoom('heart')">
-    <span>❤️</span><strong>قاعة الاعترافات</strong><small>من القلب للقلب</small>
-   </button>
-
-   <button class="door" onclick="openRoom('night')">
-    <span>🛏️</span><strong>غرفة ليلتنا</strong><small>ليلة من الحب</small>
-   </button>
-
-  </div>
- </div>
-
- <div class="footer">
-  أنتِ أجمل غرور في حياتي يا نور 💚
- </div>
-
- <!-- إهداء وتوقيع المصمم (محمد الحصني) -->
-
- <div class="dedication">
-
-  <div class="dedication-crown">♛</div>
-
-  <div class="dedication-line">✦ ━━━━━━━━━ ✦</div>
-
-  <h2>من الذي صمّم هذا القصر؟</h2>
-
-  <div class="designer-name">محمد الحصني</div>
-
-  <p>
-   ابن قلبكِ، حبيبكِ، زوجكِ،
-   وطفلكِ المدلل ❤️
-  </p>
-
-  <!-- صوركما في بطاقة الإهداء -->
-  <div class="royal-couple" style="margin:20px 0 10px">
-   <div class="royal-frame" onclick="flyNoorText(event)">
-    <img src="images/nour.IMG.jpeg" alt="نور" onerror="this.src='https://via.placeholder.com/115'">
-    <span>نور</span>
-   </div>
-   <div class="royal-heart">❤️</div>
-   <div class="royal-frame" onclick="flyMohamadText(event)">
-    <img src="images/IMG_20260410_160508.jpg" alt="محمد الحصني" onerror="this.src='https://via.placeholder.com/115'">
-    <span>محمد</span>
-   </div>
+    <p class="small-note">
+      كل شمعة هنا تذكّرني أن الحب يحتاج إلى احترام وهدوء واحتواء 🕯️
+    </p>
   </div>
 
-  <div class="dedication-line">✦ ❖ ✦</div>
+  <div class="card">
+    <h3>🌹 إلى نورتي</h3>
+    <p>
+      ربما لم يكن يومنا جميلاً كما تمنينا،
+      وربما تركت كلماتي في قلبك وجعاً كبيراً.
+      لكنني لا أريد أن أتعامل مع حزنك وكأنه شيء بسيط.
+      أنتِ تستحقين أن أسمعكِ وأحترم مشاعركِ،
+      حتى عندما نختلف.
+    </p>
+  </div>
+</section>
 
-  <div class="dedication-message">
-   أحبكِ بل أعشقكِ يا عشقي وأنفاسي وشرياني،
-   ودلالي وغنجي، يا أجمل من رأت عيني.
+<!-- رسالة الاعتذار -->
+<section id="letter" class="section">
+
+  <div class="letter">
+    <h3>💌 رسالة اعتذار من محمد إلى نور</h3>
+
+    <p>يا نوني، يا نورتي، يا ضو عيوني ❤️</p>
+
+    <p>
+      لا أعرف من أين أبدأ، لكنني أعرف أنني أخطأت بحقك،
+      وأن الكلمات التي قلتها لكِ لم تكن مقبولة أبداً.
+    </p>
+
+    <p>
+      عندما لم تأتِ لرؤيتي كما كنا متفقين،
+      شعرت بالزعل والغضب، وبدلاً من أن أعبّر عن مشاعري
+      بطريقة صحيحة، سمحت لغضبي أن يتحكم بكلامي.
+    </p>
+
+    <p>
+      أهنتكِ وجرحت كرامتكِ ووجهت إليكِ اتهامات
+      لا يحق لي أن أطلقها عليكِ بهذه الطريقة.
+      وأنا أتحمل مسؤولية ذلك بالكامل.
+    </p>
+
+    <p>
+      أريدك أن تعرفي أن عدم مجيئكِ كان يمكن أن يكون
+      موضوعاً نتحدث عنه ونفهم بعضنا فيه،
+      لكنه لم يكن مبرراً لإهانتكِ.
+    </p>
+
+    <p>
+      آسف على كل كلمة جرحتكِ،
+      وآسف لأنني جعلتكِ تشعرين بأنكِ لستِ محترمة
+      أو مقدّرة عند الشخص الذي تحبينه.
+    </p>
+
+    <p>
+      لن أطلب منكِ أن تسامحيني بسرعة،
+      ولن أقول لكِ انسي ما حدث.
+      أريد أن أعطيكِ حقكِ في الزعل،
+      وأن أثبت لكِ مع الوقت أنني قادر على الاختلاف
+      معكِ دون أن أجرحكِ.
+    </p>
+
+    <p>
+      أحبكِ يا نور، لكنني أعرف أن الحب وحده لا يكفي،
+      وأن الاحترام والأمان أهم من ألف كلمة حب.
+    </p>
+
+    <p>
+      سامحيني إن استطعتِ،
+      وأعطيني فرصة لأكون أفضل في تعاملي معكِ.
+    </p>
+
+    <div class="signature">
+      من محمد إلى نور... بكل صدق ❤️
+    </div>
   </div>
 
-  <div class="dedication-heart">❤️</div>
-
-  <div class="dedication-line">✦ ━━━━━━━━━ ✦</div>
-
-  <div class="signature">
-   صُنع بكل الحب منذ 11/11/2026 خصيصاً لأميرتي نور
-   <br>
-   محمد الحصني ♡
-   <br>
-   <span style="font-size:13px;color:#8d713f">
-    YOURS FOREVER
-   </span>
+  <div class="card" style="text-align:center">
+    <h3>🥺 كلمة من قلبي</h3>
+    <p>
+      لا أريد أن أربح أي خلاف بيننا وأخسركِ أنتِ.
+      أريد أن نتعلم كيف نختلف ونبقى نحترم بعضنا.
+    </p>
   </div>
 
- </div>
+</section>
+
+<!-- الوعود -->
+<section id="promises" class="section">
+
+  <div class="card">
+    <h3>🤍 وعود أريد أن أعمل بها</h3>
+    <p style="text-align:center">
+      اضغطي على كل وعد لقراءة رسالته ❤️
+    </p>
+  </div>
+
+  <div class="promise" onclick="openPromise(0)">
+    <span class="emoji">🤍</span>
+    <p>وعد الاحترام
+      <small>أريد أن أختلف معكِ دون إهانة.</small>
+    </p>
+  </div>
+
+  <div class="promise" onclick="openPromise(1)">
+    <span class="emoji">🌷</span>
+    <p>وعد الاستماع
+      <small>سأسمعكِ قبل أن أحكم عليكِ.</small>
+    </p>
+  </div>
+
+  <div class="promise" onclick="openPromise(2)">
+    <span class="emoji">🕊️</span>
+    <p>وعد الثقة
+      <small>لن أتهمكِ بالخيانة بسبب غضبي.</small>
+    </p>
+  </div>
+
+  <div class="promise" onclick="openPromise(3)">
+    <span class="emoji">❤️</span>
+    <p>وعد الهدوء
+      <small>سأتعلم أن أتوقف عندما أكون غاضباً.</small>
+    </p>
+  </div>
+
+  <div class="promise" onclick="openPromise(4)">
+    <span class="emoji">🌹</span>
+    <p>وعد التقدير
+      <small>لن أجعل الهدايا والمصاريف مقياساً للحب.</small>
+    </p>
+  </div>
+
+  <div class="card" style="text-align:center">
+    <h3>الحب ليس أن لا نتشاجر...</h3>
+    <p>
+      الحب أن نعرف كيف نعتذر،
+      وكيف نحترم بعضنا حتى في أصعب اللحظات.
+    </p>
+  </div>
+
+</section>
+
+<!-- الهدية -->
+<section id="gift" class="section">
+
+  <div class="card gift-box">
+    <h3>🎁 صندوق صغير من قلبي</h3>
+
+    <p>
+      يا نورتي، هناك هدية صغيرة مخبأة هنا،
+      افتحيها عندما تكونين مستعدة.
+    </p>
+
+    <div class="gift-icon" onclick="openGift()">🎁</div>
+
+    <p class="small-note">اضغطي على الصندوق ليفتح لكِ ❤️</p>
+
+    <div class="hidden-message" id="giftMessage">
+      <div style="font-size:45px">🌹❤️🌹</div>
+
+      <h3 style="color:#ffb1c1;margin:15px">
+        إلى نوني الجميلة
+      </h3>
+
+      <p>
+        لو كان بإمكاني أن أرجع لحظة غضبي،
+        لاخترت أن أهدأ وأتكلم معكِ بلطف.
+        <br><br>
+        لا أريد منكِ شيئاً مقابل هذا الاعتذار،
+        لا ساعة ولا مالاً ولا تنازلاً عن مشاعركِ.
+        <br><br>
+        أريد فقط أن تعرفي أن كرامتكِ مهمة،
+        وأنني آسف لأنني لم أحافظ عليها في كلامي.
+        <br><br>
+        أحبكِ يا ضو عيوني ❤️
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- النهاية -->
+<section id="ending" class="section">
+
+  <div class="final-message">
+
+    <div class="big-heart">❤️</div>
+
+    <h2>إلى نورتي... رسالة أخيرة</h2>
+
+    <p>
+      يا نور، يا نوني، يا ضو عيوني...
+      <br><br>
+      لا أعرف ماذا سيحدث بعد هذه الرسالة،
+      ولا أريد أن أفرض عليكِ شعوراً أو قراراً.
+      <br><br>
+      من حقكِ أن تزعلي،
+      ومن حقكِ أن تحتاجي وقتاً،
+      ومن حقي أن أحاول إصلاح الخطأ الذي ارتكبته.
+      <br><br>
+      أتمنى أن نتحدث بهدوء،
+      وأن نفهم ما جرى بيننا،
+      وأن نبني علاقة فيها حب وصدق واحترام وأمان.
+      <br><br>
+      شكراً لأنكِ قرأتِ كلماتي حتى النهاية.
+    </p>
+
+    <h2 style="font-size:26px;margin-top:35px">
+      سامحيني يا نوني ❤️
+    </h2>
+
+    <div style="font-size:38px;margin:20px">
+      🌹 🕯️ ❤️ 🕯️ 🌹
+    </div>
+
+    <p style="color:#e9c18b">
+      محمد ❤️ نور
+    </p>
+
+    <button class="main-button" onclick="showSection('home',document.querySelectorAll('nav button')[0])">
+      العودة إلى بداية الغرفة 🏠
+    </button>
+
+  </div>
+</section>
 
 </main>
 
+<footer>
+  <p>صُنعت هذه الغرفة بكلمات اعتذار من القلب</p>
+  <p style="margin-top:8px">
+    <strong>محمد ❤️ نور</strong>
+  </p>
+</footer>
 
-<!-- ================= غرف القصر السبع مرتبطة ومكتملة تماماً ================= -->
+<button class="music-button" id="musicButton" onclick="toggleMusic()">
+  🎵 تشغيل الأجواء
+</button>
 
-<!-- 1. عرش الملكة -->
-<section class="screen" id="throne">
- <div class="inside">
-  <div class="big-icon">👑</div>
-  <h2>عرش الملكة نور</h2>
-  <p class="intro">هنا تجلس الملكة التي ملكت روحي وعقلي منذ تاريخ 11/11/2026.</p>
-  <div class="gold-card">
-   أنتِ لستِ مجرد فتاة في حياتي، أنتِ سلطانة هذه الأباطرة، وأميرة عيوني التي لا تُرد لها كلمة. 
-   كل نبضة في قلبي تهتف باسمكِ يا أغلى ما أملك. 💚✨
+<!-- نافذة تفاعلية -->
+<div class="modal" id="modal" onclick="closeOutside(event)">
+  <div class="modal-content">
+    <div style="font-size:40px;margin-bottom:12px">❤️</div>
+    <h3 id="modalTitle">رسالة</h3>
+    <p id="modalText"></p>
+    <button class="close-button" onclick="closeModal()">إغلاق 🌹</button>
   </div>
-  <div class="love-message">"سلطانة قلبي، دعي غروركِ يذوب بين أضلعي الليلة." 👑</div>
- </div>
-</section>
-
-<!-- 2. حديقة نوني -->
-<section class="screen" id="garden">
- <div class="inside">
-  <div class="big-icon">🌹</div>
-  <h2>حديقة نوني الساحرة</h2>
-  <p class="intro">اضغطي على الزر لتفتحي وردة عطرها ينبض بعشقي لكِ.</p>
-  <div>
-   <span class="rose">🌹</span><span class="rose">🌷</span>
-   <span class="rose">🌹</span><span class="rose">🌺</span>
-   <span class="rose">🌷</span>
-  </div>
-  <div class="gold-card">
-   <div class="love-message" id="gardenMessage">كل ورود الكون تسجد لجمالك يا نوارتي. 🌹</div>
-   <button class="gold-btn" onclick="gardenLetter()">افتحي وردة جديدة 🌸</button>
-  </div>
- </div>
-</section>
-
-<!-- 3. غرفة الدلال -->
-<section class="screen" id="pamper">
- <div class="inside">
-  <div class="big-icon">💋</div>
-  <h2>غرفة دلال نوشتي</h2>
-  <p class="intro">هنا حيث يتوقف الزمن ويصبح الدلال فرضاً مقدساً.</p>
-  <div class="gold-card">
-   <div class="love-message">
-    يا دلالي وغنجي، ويا أطهر نسمة هبت على عمري! 
-    تعالي ننسى العالم وما فيه، وأخليكِ تذوبي بين أحضاني على ألحان عشقي الأبدي. 💋🫂❤️
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- 4. صندوق الأسرار -->
-<section class="screen" id="secret">
- <div class="inside">
-  <div class="big-icon">🔐</div>
-  <h2>صندوق الأسرار الملكي</h2>
-  <p class="intro">هنا أسرار روحي التي لم أبح بها لأحد س سواكِ.</p>
-  <div class="gold-card">
-   <div class="love-message">
-    سري الأعظم: أنني لم أعرف معنى الحياة الحقيقية إلا يوم التقينا في 11/11/2026. 
-    أنتِ السر الذي أخفيه عن عيون العالم لأسجنه وحدي في عمق فؤادي. 🗝️💚
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- 5. شرفة عيوني -->
-<section class="screen" id="moon">
- <div class="inside">
-  <div class="big-icon">🌙</div>
-  <h2>شرفة عيوني</h2>
-  <p class="intro">انظري من هذه الشرفة لتري كم أن القمر يغار من ضحكتكِ.</p>
-  <div class="gold-card">
-   <div class="love-message">
-    يا قمري الذي يضيء عتمة أيامي، عيوني لكِ مسكن، وجفوني لكِ لحاف. 
-    لا ترضي بالقليل وأنتِ ملكة هذا الكون! ✨🌙
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- 6. قاعة الاعترافات -->
-<section class="screen" id="heart">
- <div class="inside">
-  <div class="big-icon">❤️</div>
-  <h2>قاعة الاعترافات المقدسة</h2>
-  <p class="intro">من القلب للقلب.. اعترافات رجل أهلكه عشقكِ.</p>
-  <div class="gold-card">
-   <div class="love-message">
-    أعترف أمام الله وأمام قلبكِ أنني أدمنت أنفاسكِ، 
-    وأنني مستعد لأبيع العالم وما فيه مقابل أن تبتسمي لي طوال العمر. بحبكِ بجنون! ❤️🔥
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- 7. غرفة ليلتنا -->
-<section class="screen" id="night">
- <div class="inside">
-  <div class="big-icon">🛏️</div>
-  <h2>غرفة ليلتنا الملكية</h2>
-  <p class="intro">حيث تبدأ حكايتنا الخاصة جداً الليلة..</p>
-  <div class="gold-card">
-   <div class="love-message">
-    ليلتنا اليوم لن تشبه أي ليلة يا نور عيني.. 
-    سأجعل كل نبضة في قلبي تغني لكِ، وسأعوضكِ عن كل شوق أكل روحي. 
-    جاهزة لتذوبي في حضن مودكِ الليلة؟ 🫂💋🔥
-   </div>
-  </div>
- </div>
-</section>
-
-<!-- شاشة العودة -->
-<div id="backArea">
- <button class="back-btn" onclick="closeRoom()">🔙 العودة إلى القصر الرئيسي</button>
-</div>
-
-<!-- النافذة المنبثقة لزر كسر الغرور -->
-<div class="popup" id="popupModal">
- <div class="popup-content">
-  <h3 id="popupTitle">رسالة لقلبكِ</h3>
-  <p id="popupText">...</p>
-  <button class="gold-btn" onclick="closePopup()">حبيبي محمد ❤️</button>
- </div>
 </div>
 
 <script>
-// إظهار زر الدخول بعد انتهاء شريط التحميل تلقائياً
-setTimeout(() => {
-    document.getElementById('enterBtn').style.display = 'inline-block';
-}, 3000);
 
-function openPalace() {
-    let splash = document.getElementById('splashScreen');
-    splash.classList.add('hide');
-    setTimeout(() => {
-        splash.style.display = 'none';
-    }, 800);
+// التنقل بين الأقسام
+function showSection(id, button) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  if(button) button.classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
-// تطاير البوسات والقلوب والضمات والورود عند النقر في أي مكان بالشاشة
-const emojis = ['💋', '😘', '❤️', '🫂', '🌹', '💖', '✨'];
+// الرسائل التفاعلية
+const promises = [
+  {
+    title: '🤍 وعد الاحترام',
+    text: 'أعدك أن أتعلم كيف أختلف معكِ دون أن أجرح كرامتكِ. لا يوجد خلاف يبرر الإهانة.'
+  },
+  {
+    title: '🌷 وعد الاستماع',
+    text: 'سأحاول أن أسمع وجهة نظركِ وأفهم ظروفكِ قبل أن أطلق الأحكام.'
+  },
+  {
+    title: '🕊️ وعد الثقة',
+    text: 'لن أحوّل خوفي أو غيرتي إلى اتهامات. إذا كان هناك شيء يقلقني فسأتحدث معكِ بصراحة وهدوء.'
+  },
+  {
+    title: '❤️ وعد الهدوء',
+    text: 'عندما أشعر أن الغضب يسيطر عليّ، سأتوقف وأهدأ قبل أن أكتب كلمة قد أندم عليها.'
+  },
+  {
+    title: '🌹 وعد التقدير',
+    text: 'لن أقيس حبكِ بالهدايا أو المال. الأشياء المادية لا تعطي أحداً الحق في إهانة الآخر.'
+  }
+];
 
-function spawnFloatingEmoji(e) {
-    if(e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('.royal-frame')) return;
-    
-    for(let i=0; i<3; i++) {
-        let el = document.createElement('div');
-        el.className = 'floating';
-        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        
-        let x = e.clientX + (Math.random() * 60 - 30);
-        let y = e.clientY + (Math.random() * 40 - 20);
-        
-        el.style.left = x + 'px';
-        el.style.top = y + 'px';
-        el.style.fontSize = (20 + Math.random() * 20) + 'px';
-        
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 2500);
+function openPromise(index) {
+  document.getElementById('modalTitle').textContent =
+    promises[index].title;
+
+  document.getElementById('modalText').textContent =
+    promises[index].text;
+
+  document.getElementById('modal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('show');
+}
+
+function closeOutside(event) {
+  if(event.target.id === 'modal') closeModal();
+}
+
+// فتح الهدية
+function openGift() {
+  const gift = document.getElementById('giftMessage');
+  gift.classList.toggle('show');
+
+  if(gift.classList.contains('show')) {
+    gift.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
+  }
+}
+
+// بتلات الورود والقلوب
+const symbols = ['❤️','🌹','🌸','💗','💕','✨'];
+
+function createFalling() {
+  const item = document.createElement('div');
+
+  item.className = 'falling';
+  item.textContent =
+    symbols[Math.floor(Math.random() * symbols.length)];
+
+  item.style.left = Math.random() * 100 + 'vw';
+  item.style.fontSize = (12 + Math.random() * 18) + 'px';
+  item.style.animationDuration = (5 + Math.random() * 7) + 's';
+
+  document.body.appendChild(item);
+
+  setTimeout(() => item.remove(), 13000);
+}
+
+setInterval(createFalling, 650);
+
+// موسيقى هادئة مولّدة داخل المتصفح
+let audioContext = null;
+let musicTimer = null;
+let musicPlaying = false;
+let noteIndex = 0;
+
+const notes = [261.63, 329.63, 392.00, 329.63, 293.66, 349.23, 392.00, 349.23];
+
+function playNote() {
+  if(!audioContext || !musicPlaying) return;
+
+  const oscillator = audioContext.createOscillator();
+  const gain = audioContext.createGain();
+
+  oscillator.type = 'sine';
+  oscillator.frequency.value = notes[noteIndex % notes.length];
+
+  gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+  gain.gain.exponentialRampToValueAtTime(
+    0.035, audioContext.currentTime + 0.15
+  );
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001, audioContext.currentTime + 1.3
+  );
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscillator.start();
+  oscillator.stop(audioContext.currentTime + 1.4);
+
+  noteIndex++;
+}
+
+async function toggleMusic() {
+  const button = document.getElementById('musicButton');
+
+  if(!musicPlaying) {
+    try {
+      audioContext = audioContext ||
+        new (window.AudioContext || window.webkitAudioContext)();
+
+      if(audioContext.state === 'suspended') {
+        await audioContext.resume();
+      }
+
+      musicPlaying = true;
+      playNote();
+      musicTimer = setInterval(playNote, 1400);
+
+      button.textContent = '⏸ إيقاف الأجواء';
+    } catch(error) {
+      button.textContent = 'تعذر تشغيل الصوت';
     }
+
+  } else {
+    musicPlaying = false;
+    clearInterval(musicTimer);
+
+    if(audioContext) audioContext.suspend();
+
+    button.textContent = '🎵 تشغيل الأجواء';
+  }
 }
 
-// تطاير تلقائي دوري لإبقاء الحيوية مستمرة في الشاشة
-setInterval(() => {
-    if(document.getElementById('home').style.display !== 'none' && document.getElementById('splashScreen').style.display === 'none') {
-        let el = document.createElement('div');
-        el.className = 'floating';
-        el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        el.style.left = (Math.random() * window.innerWidth) + 'px';
-        el.style.top = (window.innerHeight - 100) + 'px';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 2500);
-    }
-}, 1200);
-
-// تطاير رسالة نور فوق صورتها (بحبك بعشقك بتنفسك مودي)
-function flyNoorText(e) {
-    e.stopPropagation();
-    let rect = e.currentTarget.getBoundingClientRect();
-    let textEl = document.createElement('div');
-    textEl.className = 'floating-text';
-    textEl.innerText = "بحبك بعشقك بتنفسك مودي 💋❤️🫂";
-    textEl.style.left = (rect.left + rect.width / 2 - 120) + 'px';
-    textEl.style.top = (rect.top - 20) + 'px';
-    document.body.appendChild(textEl);
-    setTimeout(() => textEl.remove(), 2000);
-}
-
-// تطاير رسالة محمد فوق صورته (بحبك بعشقك بتنفسك نوني)
-function flyMohamadText(e) {
-    e.stopPropagation();
-    let rect = e.currentTarget.getBoundingClientRect();
-    let textEl = document.createElement('div');
-    textEl.className = 'floating-text';
-    textEl.innerText = "بحبك بعشقك بتنفسك نوني 💋❤️🫂";
-    textEl.style.left = (rect.left + rect.width / 2 - 120) + 'px';
-    textEl.style.top = (rect.top - 20) + 'px';
-    document.body.appendChild(textEl);
-    setTimeout(() => textEl.remove(), 2000);
-}
-
-// زر كسر الغرور
-function megaSurprise() {
-    showPopup("من يحكم قلب من؟ 👑", "القلب لكِ وحدكِ يا نور، وأنا أسير حبكِ وغروركِ الجميل للأبد! ليلتنا ستكون تاريخية يا أميرتي ❤️💋🫂");
-}
-
-function openRoom(roomId) {
-    document.getElementById('home').style.display = 'none';
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(roomId).classList.add('active');
-    document.getElementById('backArea').style.display = 'block';
-    window.scrollTo(0,0);
-}
-
-function closeRoom() {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById('home').style.display = 'block';
-    document.getElementById('backArea').style.display = 'none';
-}
-
-function gardenLetter() {
-    const msgs = [
-        "أنتِ زهرة حياتي التي لا يزول عطرها يا نور 🌹",
-        "عيناكِ هما وطني وابتسامتكِ عيدي الأبدي 💚",
-        "أعشق كل تفصيلة فيكِ يا أجمل نساء الكون ✨",
-        "بحبك بقدر ما تحمله هذه الليلة من شوق وحنين 💋"
-    ];
-    document.getElementById('gardenMessage').innerText = msgs[Math.floor(Math.random() * msgs.length)];
-}
-
-function showPopup(title, text) {
-    document.getElementById('popupTitle').innerText = title;
-    document.getElementById('popupText').innerText = text;
-    document.getElementById('popupModal').classList.add('show');
-}
-
-function closePopup() {
-    document.getElementById('popupModal').classList.remove('show');
-}
-
-let isPlaying = false;
-function toggleSound() {
-    isPlaying = !isPlaying;
-    document.getElementById('soundButton').innerText = isPlaying ? "♫ الموسيقى تعمل" : "♫ تشغيل الموسيقى";
-}
 </script>
 
 </body>
